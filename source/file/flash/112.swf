@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Lycos 页面信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="refresh" content="5;url=http://diy.lycos.com.cn/">
+<link href="lycos.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+.desc {
+	color: #0099FF;
+}
+</style>
+<body text="#000000" link="#000000" vlink="#000000" alink="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<script language="JavaScript1.2" src="http://diy.lycos.com.cn/lycostopbar.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="135"><img src="images/s3_1.gif" width="135" height="25"></td>
+    <td bgcolor="#669ACC"><img src="images/s3_3.gif" width="157" height="25"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="31"><img src="images/s3_2.gif" width="196" height="31"></td>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td height="17" valign="bottom" background="images/t.gif" bgcolor="#E7E7E7" ><img src="images/t.gif" width="1" height="1"><img src="images/t.gif" width="1" height="1">&gt; <a href="http://www.lycos.com.cn" class="head">Lycos首页</a></td>
+        </tr>
+       
+      </table></td>
+  </tr>
+</table>
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+  <tr height="10">
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="166" border="0" align="left" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td width="14">&nbsp;</td>
+    <td width="138" align=right><br><img src="images/doc.jpg" width="83" height="96" border=0 alt=""></td>
+    <td width="14">&nbsp;</td>
+  </tr>
+</table>
+<table width="614" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top" >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td valign="top"><br><img src="images/notfound.gif" width="422" height="106" border=0 alt=""><br><br>
+            <br></td>
+        </tr>
+		<tr>
+		  <td><table height="59" border=0 cellpadding=0 cellspacing=2>
+              <tr> 
+                <td width="64"><a href="http://diy.lycos.com.cn/"><font color="#FF0000"><strong>主页服务</strong></font></a></td>
+                <td width="518" class="desc"><font color="#FF0000"><strong>要找既稳定、又便宜的主页空间吗？您想要免费空间吗？Lycos主页服务可以满足您！</strong></font></td>
+              </tr>
+              <tr> 
+                <td colspan=2 bgcolor="#e9e9e9"></td>
+              <tr> 
+                <td colspan=2 bgcolor="#e9e9e9"></td>
+            </table>
+            <table width="99%" border="0">
+              <tr> 
+                <td> <strong><font color="#FF0000">Lycos主机租用，加1000元既赠送主机，还送高额现金返点。低价格，高品质</font></strong> 
+                </td>
+              </tr>
+              <tr>
+                <td><a href="http://diy.lycos.com.cn"><font color="#0000FF">进入LYCOS主页服务&gt;&gt;&gt;</font></a></td>
+              </tr>
+     <tr>
+                <td><iframe width=560 height=140 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no src="http://cpc.myrice.com/lycos_1.html"></iframe></td>
+              </tr>
+            </table> </td>
+		</tr>
+      </table>
+	  </td>
+    <td width="20">&nbsp;</td>
+  </tr>
+</table>
+<br clear="left">
+<script language="JavaScript1.2" src="/bottom.js"></script>
+</body>
+</html>
