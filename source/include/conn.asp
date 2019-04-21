@@ -1,26 +1,23 @@
 <%
-'*******************************************************************
-'
-'                     Beyondest.Com v3.6.1
-' 
-'           http://beyondest.com
-' 
-'*******************************************************************
+' ====================
+' Beyondest.Com v3.6.1
+' http://beyondest.com
+' ====================
 
-if web_login<>1 and web_login<>2 then
-  call cookies_type("loading")
-  response.end
-end if
+If web_login <> 1 And web_login <> 2 Then
+    Call cookies_type("loading")
+    Response.End
+End If
 
 '---------------------数据库类型及路径定义---------------------
-dim conn,connstr
+Dim conn
+Dim connstr
 'connstr="DBQ="&server.mappath(web_var(web_config,6))&";DRIVER={Microsoft Access Driver (*.mdb)};"
-connstr="DSN=Beyondest"
-set conn=server.createobject("ADODB.CONNECTION")
+connstr  = "DSN=Beyondest"
+Set conn = Server.CreateObject("ADODB.CONNECTION")
 conn.open connstr
 
-sub close_conn()
-  conn.close
-  set conn=nothing
-end sub
-%>
+Sub close_conn()
+    conn.Close
+    Set conn = Nothing
+End Sub %>

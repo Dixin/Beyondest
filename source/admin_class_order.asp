@@ -1,68 +1,78 @@
 <!-- #include file="include/onlogin.asp" -->
 <%
-'*******************************************************************
-'
-'                     Beyondest.Com v3.6.1
-' 
-'           http://beyondest.com
-' 
-'*******************************************************************
+' ====================
+' Beyondest.Com v3.6.1
+' http://beyondest.com
+' ====================
 
-dim classid
-classid=trim(request("class_id"))
-action=trim(request("action"))
-if not(isnumeric(classid)) or (action<>"up" and action<>"down") then
-  response.redirect "admin_forum.asp"
-  response.end
-end if
-%>
+Dim classid
+classid = Trim(Request("class_id"))
+action  = Trim(Request("action"))
+
+If Not(IsNumeric(classid)) Or (action <> "up" And action <> "down") Then
+    Response.redirect "admin_forum.asp"
+    Response.End
+End If %>
 <!-- #include file="include/conn.asp" -->
 <%
-dim tmp_id_1,tmp_id_2,tmp_order_1,tmp_order_2,sqladd,update_ok
-update_ok="no"
-if action="up" then
-  sqladd=" desc"
-else
-  sqladd=""
-end if
+Dim tmp_id_1
+Dim tmp_id_2
+Dim tmp_order_1
+Dim tmp_order_2
+Dim sqladd
+Dim update_ok
+update_ok  = "no"
 
-sql="select * from bbs_class where class_id="&classid
-set rs=conn.execute(sql)
-if rs.eof and rs.bof then
-  rs.close:set rs=nothing
-  close_conn
-  response.redirect "admin_forum.asp"
-  response.end
-end if
-rs.close:set rs=nothing
+If action = "up" Then
+    sqladd = " desc"
+Else
+    sqladd = ""
+End If
 
-sql="select * from bbs_class order by class_order"&sqladd
-set rs=conn.execute(sql)
-do while not rs.eof
-  if int(rs("class_id"))=int(classid) then
-    tmp_id_1=classid
-    tmp_order_1=rs("class_order")
+sql    = "select * from bbs_class where class_id=" & classid
+Set rs = conn.execute(sql)
+
+If rs.eof And rs.bof Then
+    rs.Close:Set rs = Nothing
+    close_conn
+    Response.redirect "admin_forum.asp"
+    Response.End
+End If
+
+rs.Close:Set rs = Nothing
+
+sql    = "select * from bbs_class order by class_order" & sqladd
+Set rs = conn.execute(sql)
+
+Do While Not rs.eof
+
+    If Int(rs("class_id")) = Int(classid) Then
+        tmp_id_1    = classid
+        tmp_order_1 = rs("class_order")
+        rs.movenext
+
+        If Not rs.eof Then
+            tmp_id_2    = rs("class_id")
+            tmp_order_2 = rs("class_order")
+            update_ok   = "yes"
+            Exit Do
+        End If
+
+        Exit Do
+    End If
+
     rs.movenext
-    if not rs.eof then
-      tmp_id_2=rs("class_id")
-      tmp_order_2=rs("class_order")
-      update_ok="yes"
-      exit do
-    end if
-    exit do
-  end if
-  rs.movenext
-loop
-rs.close:set rs=nothing
+Loop
 
-if update_ok="yes" then
-  sql="update bbs_class set class_order="&tmp_order_2&" where class_id="&tmp_id_1
-  conn.execute(sql)
-  sql="update bbs_class set class_order="&tmp_order_1&" where class_id="&tmp_id_2
-  conn.execute(sql)
-end if
+rs.Close:Set rs = Nothing
+
+If update_ok = "yes" Then
+    sql = "update bbs_class set class_order=" & tmp_order_2 & " where class_id=" & tmp_id_1
+    conn.execute(sql)
+    sql = "update bbs_class set class_order=" & tmp_order_1 & " where class_id=" & tmp_id_2
+    conn.execute(sql)
+End If
 
 close_conn
 
-response.redirect "admin_forum.asp"
-%>
+Response.redirect "admin_forum.asp" %>

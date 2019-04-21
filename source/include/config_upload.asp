@@ -1,51 +1,63 @@
 <%
-'*******************************************************************
-'
-'                     Beyondest.Com v3.6.1
-' 
-'           http://beyondest.com
-' 
-'*******************************************************************
+' ====================
+' Beyondest.Com v3.6.1
+' http://beyondest.com
+' ====================
+Sub del_file(fn)
+    On Error Resume Next
+    Dim fobj
+    Dim picc
+    Dim upload_path
+    picc = fn:upload_path = web_var(web_upload,1)
 
-sub del_file(fn)
-  on error resume next
-  dim fobj,picc,upload_path
-  picc=fn:upload_path=web_var(web_upload,1)
-  if len(picc)>3 then
-    if int(instr(1,picc,"://"))=0 then
-      if left(picc,1)<>"/" then
-        if right(upload_path,1)<>"/" then upload_path=upload_path&"/"
-        picc=Server.MapPath(upload_path&picc)
-      else
-        picc=Server.MapPath(picc)
-      end if
-      Set fobj = CreateObject("Scripting.FileSystemObject")
-      fobj.DeleteFile(picc)
-      Set fobj = nothing
-    end if
-  end if
-end sub
+    If Len(picc) > 3 Then
 
-sub upload_del(nsort,iid)
-  dim rs,sql
-  sql="select url from upload where nsort='"&nsort&"' and iid="&iid&" order by id"
-  set rs=conn.execute(sql)
-  do while not rs.eof
-    call del_file(rs("url"))
-    rs.movenext
-  loop
-  rs.close:set rs=nothing
-  conn.execute("delete from upload where nsort='"&nsort&"' and iid="&iid)
-end sub
+        If Int(InStr(1,picc,"://")) = 0 Then
 
-sub upload_note(ns,iid)
-  dim ddim,i,sql,upid:upid=trim(request.form("upid"))
-  if len(upid)<1 then exit sub
-  if left(upid,1)="," then upid=right(upid,len(upid)-1)
-  ddim=split(upid,",")
-  for i=0 to ubound(ddim)
-    conn.execute("update upload set iid="&iid&",nsort='"&ns&"',types=1 where id="&ddim(i))
-  next
-  erase ddim
-end sub
-%>
+            If Left(picc,1) <> "/" Then
+                If Right(upload_path,1) <> "/" Then upload_path = upload_path & "/"
+                picc = Server.MapPath(upload_path & picc)
+            Else
+                picc = Server.MapPath(picc)
+            End If
+
+            Set fobj = CreateObject("Scripting.FileSystemObject")
+            fobj.DeleteFile(picc)
+            Set fobj = Nothing
+        End If
+
+    End If
+
+End Sub
+
+Sub upload_del(nsort,iid)
+    Dim rs
+    Dim sql
+    sql    = "select url from upload where nsort='" & nsort & "' and iid=" & iid & " order by id"
+    Set rs = conn.execute(sql)
+
+    Do While Not rs.eof
+        Call del_file(rs("url"))
+        rs.movenext
+    Loop
+
+    rs.Close:Set rs = Nothing
+    conn.execute("delete from upload where nsort='" & nsort & "' and iid=" & iid)
+End Sub
+
+Sub upload_note(ns,iid)
+    Dim ddim
+    Dim i
+    Dim sql
+    Dim upid:upid = Trim(Request.form("upid"))
+
+    If Len(upid) < 1 Then Exit Sub
+        If Left(upid,1) = "," Then upid = Right(upid,Len(upid) - 1)
+        ddim = Split(upid,",")
+
+        For i = 0 To UBound(ddim)
+            conn.execute("update upload set iid=" & iid & ",nsort='" & ns & "',types=1 where id=" & ddim(i))
+        Next
+
+        Erase ddim
+    End Sub %>

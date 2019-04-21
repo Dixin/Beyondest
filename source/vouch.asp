@@ -1,12 +1,7 @@
 <%
-'*******************************************************************
-'
-'                     Beyondest.Com v3.6.1
-' 
-'           http://beyondest.com
-' 
-'*******************************************************************
+' ====================
+' Beyondest.Com v3.6.1
+' http://beyondest.com
+' ====================
 
-
-response.redirect "gallery.asp?action=film"
-%>
+Response.redirect "gallery.asp?action=film" %>

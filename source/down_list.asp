@@ -3,52 +3,54 @@
 <!-- #include file="include/conn.asp" -->
 <!-- #include file="include/jk_ubb.asp" -->
 <%
-'*******************************************************************
-'
-'                     Beyondest.Com v3.6.1
-' 
-'           http://beyondest.com
-' 
-'*******************************************************************
+' ====================
+' Beyondest.Com v3.6.1
+' http://beyondest.com
+' ====================
 
-dim nummer,page,rssum,thepages,viewpage,pageurl,keyword,sea_type,sqladd2
-tit="作品分类浏览"
-call cid_sid()
-nummer=int(web_var(web_num,2))
+Dim nummer
+Dim page
+Dim rssum
+Dim thepages
+Dim viewpage
+Dim pageurl
+Dim keyword
+Dim sea_type
+Dim sqladd2
+tit    = "作品分类浏览"
+Call cid_sid()
+nummer = Int(web_var(web_num,2))
 
-call web_head(0,0,0,0,0)
-'------------------------------------left----------------------------------
-%>
+Call web_head(0,0,0,0,0)
+'------------------------------------left---------------------------------- %>
 <table border=0 width='100%' cellspacing=0 cellpadding=0 align=center>
-<tr><td align=center><%call format_login()%></td></tr>
-<tr><td align=center><%call down_sea()%></td></tr>
-<tr><td align=center><%call down_new_hot("jt0","","","","good",15,0,13,1,0)%></td></tr>
-<tr><td align=center><%call down_new_hot("jt0","","","","hot",15,0,13,1,0)%></td></tr>
+<tr><td align=center><% Call format_login() %></td></tr>
+<tr><td align=center><% Call down_sea() %></td></tr>
+<tr><td align=center><% Call down_new_hot("jt0","","","","good",15,0,13,1,0) %></td></tr>
+<tr><td align=center><% Call down_new_hot("jt0","","","","hot",15,0,13,1,0) %></td></tr>
 </table>
 <%
 '----------------------------------left end--------------------------------
-call web_center(0)
-'-----------------------------------center---------------------------------
-%>
-<table border=0 width='100%' cellspacing=0 cellpadding=0 align=center><tr><td width=1 bgcolor='<%=web_var(web_color,3)%>'></td><td>
+Call web_center(0)
+'-----------------------------------center--------------------------------- %>
+<table border=0 width='100%' cellspacing=0 cellpadding=0 align=center><tr><td width=1 bgcolor='<% = web_var(web_color,3) %>'></td><td>
 <table border=0 width='100%' cellspacing=0 cellpadding=0 align=center>
 <%
-sqladd=""
-if action="more" then
-  call down_more(30,8)
-else
-  call down_main()
-end if
-%>
+sqladd = ""
+
+If action = "more" Then
+    Call down_more(30,8)
+Else
+    Call down_main()
+End If %>
 </table>
 </td></tr></table>
 <table border=0 width='100%' cellspacing=0 cellpadding=0 align=center>
-<tr><td width=1 bgcolor="<%response.write web_var(web_color,3)%>"></td><td align=center><%call down_class_sortt(cid,sid)%></td></tr>
+<tr><td width=1 bgcolor="<% Response.Write web_var(web_color,3) %>"></td><td align=center><% Call down_class_sortt(cid,sid) %></td></tr>
 </table>
 <table border=0 width='100%' cellspacing=0 cellpadding=0 align=center>
-<tr><td width=1 bgcolor="<%response.write web_var(web_color,3)%>"></td><td align=center><%call down_remark("jt0")%></td></tr>
+<tr><td width=1 bgcolor="<% Response.Write web_var(web_color,3) %>"></td><td align=center><% Call down_remark("jt0") %></td></tr>
 </table>
 <%
 '---------------------------------center end-------------------------------
-call web_end(0)
-%>
+Call web_end(0) %>

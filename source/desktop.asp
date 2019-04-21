@@ -1,12 +1,9 @@
 <%
-'*******************************************************************
+' ====================
+' Beyondest.Com v3.6.1
 '
-'                     Beyondest.Com v3.6.1
+' http://beyondest.com
 '
-'           http://beyondest.com
-'
-'*******************************************************************
+' ====================
 
-
-response.redirect "gallery.asp?action=paste"
-%>
+Response.redirect "gallery.asp?action=paste" %>

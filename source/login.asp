@@ -1,57 +1,57 @@
 <!-- #include file="include/config_login.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
-'*******************************************************************
-'
-'                     Beyondest.Com v3.6.1
-' 
-'           http://beyondest.com
-' 
-'*******************************************************************
+' ====================
+' Beyondest.Com v3.6.1
+' http://beyondest.com
+' ====================
 
-if action="logout" then
-  if login_username<>"" then
-    conn.execute("delete from user_login where l_username='"&login_username&"'")
-  end if
-  response.cookies(web_cookies)("login_username")=""
-  response.cookies(web_cookies)("login_password")=""
-  response.cookies(web_cookies)("iscookies")=""
-  if trim(request.servervariables("http_referer"))<>"" then
-    call close_conn()
-    response.redirect trim(request.servervariables("http_referer"))
-    response.end
-  end if
-end if
+If action = "logout" Then
 
-if login_username<>"" and login_password<>"" then
-  call close_conn()
-  call format_redirect("user_main.asp")
-  response.end
-end if
+    If login_username <> "" Then
+        conn.execute("delete from user_login where l_username='" & login_username & "'")
+    End If
 
-select case action
-case "register"
-  tit="用户注册"
-case "nopass"
-  tit="忘记密码"
-case else
-  tit="用户登陆"
-end select
+    Response.cookies(web_cookies)("login_username") = ""
+    Response.cookies(web_cookies)("login_password") = ""
+    Response.cookies(web_cookies)("iscookies") = ""
 
-call web_head(0,0,3,0,0)
+    If Trim(Request.servervariables("http_referer")) <> "" Then
+        Call close_conn()
+        Response.redirect Trim(Request.servervariables("http_referer"))
+        Response.End
+    End If
+
+End If
+
+If login_username <> "" And login_password <> "" Then
+    Call close_conn()
+    Call format_redirect("user_main.asp")
+    Response.End
+End If
+
+Select Case action
+    Case "register"
+        tit = "用户注册"
+    Case "nopass"
+        tit = "忘记密码"
+    Case Else
+        tit = "用户登陆"
+End Select
+
+Call web_head(0,0,3,0,0)
 '-----------------------------------center---------------------------------
 
-select case action
-case "register"
-  call register_main()
-case "login_chk"
-  call login_chk()
-case "nopass"
-  call nopass()
-case else
-  call login_main()
-end select
+Select Case action
+    Case "register"
+        Call register_main()
+    Case "login_chk"
+        Call login_chk()
+    Case "nopass"
+        Call nopass()
+    Case Else
+        Call login_main()
+End Select
 
 '---------------------------------center end-------------------------------
-call web_end(0)
-%>
+Call web_end(0) %>
