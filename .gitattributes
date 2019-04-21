@@ -1,2 +1,2 @@
-'source/file/video/movie/040815032.wmv' filter=lfs diff=lfs merge=lfs -text
-'source/file/video/movie/040815033.wmv' filter=lfs diff=lfs merge=lfs -text
+source/file/video/movie/040815032.wmv filter=lfs diff=lfs merge=lfs -text
+source/file/video/movie/040815033.wmv filter=lfs diff=lfs merge=lfs -text
