@@ -3,20 +3,11 @@
 <!-- #include file="skin.asp" -->
 <%
 '*******************************************************************
-
 '
-
-'                     Beyondest.Com V3.6 Demo版
-
+'                     Beyondest.Com v3.6.1
 ' 
-
-
-
-
-'           网址：http://www.beyondest.com
-
+'           http://beyondest.com
 ' 
-
 '*******************************************************************
 
 dim atb:atb=" target=_blank"

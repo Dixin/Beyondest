@@ -1,12 +1,12 @@
 <!-- #INCLUDE file="include/config.asp" -->
-<!--#include file="INCLUDE/upload_config.asp"-->
+<!--#include file="include/upload_config.asp"-->
 <!--#include file="include/conn.asp"-->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 %>

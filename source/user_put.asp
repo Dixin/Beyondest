@@ -1,14 +1,14 @@
-<!-- #include file="INCLUDE/config_user.asp" -->
-<!-- #include file="INCLUDE/config_upload.asp" -->
-<!-- #include file="INCLUDE/config_frm.asp" -->
-<!-- #include file="INCLUDE/config_put.asp" -->
+<!-- #include file="include/config_user.asp" -->
+<!-- #include file="include/config_upload.asp" -->
+<!-- #include file="include/config_frm.asp" -->
+<!-- #include file="include/config_put.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 

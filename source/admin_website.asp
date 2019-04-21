@@ -1,13 +1,13 @@
 <!-- #include file="include/onlogin.asp" -->
 <!-- #INCLUDE file="include/conn.asp" -->
-<!-- #INCLUDE file="INCLUDE/functions.asp" -->
-<!-- #include file="INCLUDE/jk_pagecute.asp" -->
+<!-- #INCLUDE file="include/functions.asp" -->
+<!-- #include file="include/jk_pagecute.asp" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 

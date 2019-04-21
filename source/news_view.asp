@@ -1,10 +1,10 @@
-<!-- #include file="INCLUDE/config_news.asp" -->
+<!-- #include file="include/config_news.asp" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 
@@ -15,7 +15,7 @@ if not(isnumeric(id)) then
 end if
 %>
 <!-- #include file="include/jk_ubb.asp" -->
-<!-- #include file="INCLUDE/config_review.asp" -->
+<!-- #include file="include/config_review.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 dim username,word,tim,counter,cname,sname,comto,pic,tt,sql2

@@ -1,14 +1,14 @@
-<!-- #include file="INCLUDE/config_forum.asp" -->
+<!-- #include file="include/config_forum.asp" -->
 <% if not(isnumeric(forumid)) or not(isnumeric(viewid)) then call cookies_type("view_id") %>
-<!-- #include file="INCLUDE/config_upload.asp" -->
-<!-- #include file="INCLUDE/config_frm.asp" -->
+<!-- #include file="include/config_upload.asp" -->
+<!-- #include file="include/config_frm.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 

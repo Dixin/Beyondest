@@ -1,11 +1,11 @@
-<!-- #include file="INCLUDE/config_other.asp" -->
+<!-- #include file="include/config_other.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 
@@ -277,7 +277,7 @@ sub help_ubb()
 <li><font color=red>[EMAIL]</font><A href="mailto:plinq@live.com">plinq@live.com</A><font color=red>[/EMAIL]</font></li>
 <li><font color=red>[EMAIL=plinq@live.com]</font><A href="mailto:plinq@live.com">笼民</A><font color=red>[/EMAIL]</font>：有两种方法可以加入邮件连接，可以连接具体地址或者文字连接。</li>
 <li><font color=red>[IMG]images/logo.gif[/IMG]</font> ：在标签的中间插入图片地址可以实现插图效果。
-<li><font color=red>[DOWNLOAD]http://www.beyondest.com/music/test.rar[/DOWNLOAD]</font>：在标签的中间插入提供下载的文件地址可以实现文件下载效果。
+<li><font color=red>[DOWNLOAD]http://beyondest.com/music/test.rar[/DOWNLOAD]</font>：在标签的中间插入提供下载的文件地址可以实现文件下载效果。
 
 <li><font color=red>[FLASH=宽度,高度]</font>Flash连接地址<font color=red>[/FLASH]</font>：在标签的中间插入Flash图片地址可以实现插入Flash。</li>
 <li><font color=red>[CODE]</font>文字<font color=red>[/CODE]</font>：在标签中写入文字可实现html中编号效果。</li>

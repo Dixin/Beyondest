@@ -1,19 +1,10 @@
 <%
 '*******************************************************************
-
 '
-
-'                     Beyondest.Com V3.6 Demo版
-
+'                     Beyondest.Com v3.6.1
 ' 
-
-
-
-
-'           网址：http://www.beyondest.com
-
+'           http://beyondest.com
 ' 
-
 '*******************************************************************
 
 if web_login<>1 and web_login<>2 then

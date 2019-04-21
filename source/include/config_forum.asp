@@ -2,20 +2,11 @@
 <!-- #include file="skin.asp" -->
 <%
 '*******************************************************************
-
 '
-
-'                     Beyondest.Com V3.6 Demo版
-
+'                     Beyondest.Com v3.6.1
 ' 
-
-
-
-
-'           网址：http://www.beyondest.com
-
+'           http://beyondest.com
 ' 
-
 '*******************************************************************
 
 dim forum_mode,forum_table1,forum_table2,forum_table3,forum_table4,ptnums,ffk

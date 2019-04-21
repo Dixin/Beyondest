@@ -1,23 +1,14 @@
-<!-- #include file="INCLUDE/config_down.asp" -->
-<!-- #include file="INCLUDE/jk_pagecute.asp" -->
+<!-- #include file="include/config_down.asp" -->
+<!-- #include file="include/jk_pagecute.asp" -->
 <!-- #include file="include/conn.asp" -->
 <!-- #include file="include/jk_ubb.asp" -->
 <%
 '*******************************************************************
-
 '
-
-'                     Beyondest.Com V3.6 Demo版
-
+'                     Beyondest.Com v3.6.1
 ' 
-
-
-
-
-'           网址：http://www.beyondest.com
-
+'           http://beyondest.com
 ' 
-
 '*******************************************************************
 
 dim nummer,page,rssum,thepages,viewpage,pageurl,keyword,sea_type,sqladd2

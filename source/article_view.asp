@@ -1,19 +1,11 @@
-<!-- #include file="INCLUDE/config_article.asp" -->
+<!-- #include file="include/config_article.asp" -->
 <%
 '*******************************************************************
-
 '
-
-'                     Beyondest.Com V3.6 Demo版
-
+'                     Beyondest.Com v3.6.1
 ' 
-
-
-
-'           网址：http://www.beyondest.com
-
+'           http://beyondest.com
 ' 
-
 '*******************************************************************
 
 dim id:id=trim(request.querystring("id"))
@@ -23,7 +15,7 @@ if not(isnumeric(id)) then
 end if
 %>
 <!-- #include file="include/jk_ubb.asp" -->
-<!-- #include file="INCLUDE/config_review.asp" -->
+<!-- #include file="include/config_review.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 dim username,topic,word,tim,counter,cname,sname,power,userp,emoney,author,keyes,sql2

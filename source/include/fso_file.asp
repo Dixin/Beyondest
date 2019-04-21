@@ -1,9 +1,9 @@
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 
@@ -12,9 +12,9 @@ sub config_file()
   filetype=filetype&"<"&""&"%" & vbcrlf & _
 	"'*******************************************************************"&vbcrlf&_
 	"'"&vbcrlf&_
-	"'                     Beyondest.Com V3.6 Demo版"&vbcrlf&_
+	"'                     Beyondest.Com v3.6.1"&vbcrlf&_
 	"' "&vbcrlf&_
-	"'           网址：http://www.beyondest.com"&vbcrlf&_
+	"'           http://beyondest.com"&vbcrlf&_
 	"' "&vbcrlf&_
 	"'*******************************************************************"&vbcrlf&_
 	"web_config="""&web_config&""""&vbcrlf&_
@@ -52,9 +52,9 @@ sub config_mouse_on_title()
   filetype="<!--" & _
 	   "//******************************************************************"&vbcrlf&_
 	   "//"&vbcrlf&_
-	   "//                     Beyondest.Com V3.6 Demo版"&vbcrlf&_
+	   "//                     Beyondest.Com v3.6.1"&vbcrlf&_
 	   "//"&vbcrlf&_
-	   "//           网址：http://www.beyondest.com"&vbcrlf&_
+	   "//           http://beyondest.com"&vbcrlf&_
 	   "//"&vbcrlf&_
 	   "//******************************************************************"&vbcrlf&_
            vbcrlf&"//***********默认设置定义.*********************" & _

@@ -1,22 +1,13 @@
-<!-- #include file="INCLUDE/config_other.asp" -->
+<!-- #include file="include/config_other.asp" -->
 <!-- #include file="include/jk_ubb.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 '*******************************************************************
-
 '
-
-'                     Beyondest.Com V3.6 Demo版
-
+'                     Beyondest.Com v3.6.1
 ' 
-
-
-
-
-'           网址：http://www.beyondest.com
-
+'           http://beyondest.com
 ' 
-
 '*******************************************************************
 
 dim atb:atb=" target=_blank"

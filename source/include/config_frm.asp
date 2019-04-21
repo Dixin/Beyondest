@@ -1,9 +1,9 @@
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 
@@ -200,7 +200,7 @@ function jk_ubb_center()
 function jk_ubb_link()
 {
   if (helpmode)
-  { alert(ubb_name+"插入超级链接\n\n插入一个超级连接！\n例如：\n[url]http://www.beyondest.com/[/url]\n[url=http://www.beyondest.com/]Beyondest.com[/url]"); }
+  { alert(ubb_name+"插入超级链接\n\n插入一个超级连接！\n例如：\n[url]http://beyondest.com/[/url]\n[url=http://beyondest.com/]Beyondest.com[/url]"); }
   else if (advmode)
   { AddTxt="[url][/url]"; AddText(AddTxt); }
   else
@@ -208,7 +208,7 @@ function jk_ubb_link()
     txt2=prompt(ubb_name+"请输入链接显示的文字，如果留空则直接显示链接！",""); 
     if (txt2!=null)
     {
-      txt=prompt(ubb_name+"请输入 URL！例：http://www.beyondest.com/","http://");      
+      txt=prompt(ubb_name+"请输入 URL！例：http://beyondest.com/","http://");      
       if (txt!=null)
       {
         if (txt2=="")
@@ -223,12 +223,12 @@ function jk_ubb_link()
 function jk_ubb_image()
 {
   if (helpmode)
-  { alert(ubb_name+"插入图像\n\n在文本中插入一幅图像！\n例如：[IMG]http://www.beyondest.com/images/logo.gif[/IMG]"); }
+  { alert(ubb_name+"插入图像\n\n在文本中插入一幅图像！\n例如：[IMG]http://beyondest.com/images/logo.gif[/IMG]"); }
   else if (advmode)
   { AddTxt="[IMG][/IMG]"; AddText(AddTxt); }
   else
   {  
-    txt=prompt(ubb_name+"请输入图像的 URL！例：http://www.beyondest.com/images/logo.gif","http://");    
+    txt=prompt(ubb_name+"请输入图像的 URL！例：http://beyondest.com/images/logo.gif","http://");    
     if(txt!=null) { AddTxt="\r[IMG]"+txt; AddText(AddTxt); AddText("[/IMG]");
     }       
   }
@@ -269,7 +269,7 @@ function jk_ubb_flash()
 function jk_ubb_rm()
 {
   if (helpmode)
-  { alert(ubb_name+"插入 RM\n\n在文本中插入 Realplay 视频文件！\n例如：[RM="+ubb_w+","+ubb_h+"]http://www.Beyondest.com/images/test.ram[/RM]"); }
+  { alert(ubb_name+"插入 RM\n\n在文本中插入 Realplay 视频文件！\n例如：[RM="+ubb_w+","+ubb_h+"]http://beyondest.com/images/test.ram[/RM]"); }
   else if (advmode)
   { AddTxt="[RM="+ubb_w+","+ubb_h+"][/RM]"; AddText(AddTxt); }
   else
@@ -286,7 +286,7 @@ function jk_ubb_rm()
 function jk_ubb_mp()
 {
   if (helpmode)
-  { alert(ubb_name+"插入 MP\n\n在文本中插入 Windows Media Player 视频文件！\n例如：[MP="+ubb_w+","+ubb_h+"]http://www.beyondest.com/images/test.wmv[/MP]"); }
+  { alert(ubb_name+"插入 MP\n\n在文本中插入 Windows Media Player 视频文件！\n例如：[MP="+ubb_w+","+ubb_h+"]http://beyondest.com/images/test.wmv[/MP]"); }
   else if (advmode)
   { AddTxt="[MP="+ubb_w+","+ubb_h+"][/MP]"; AddText(AddTxt); }
   else

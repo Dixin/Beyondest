@@ -2,9 +2,9 @@
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 
@@ -15,7 +15,7 @@ if not(isnumeric(id)) then
 end if
 %>
 <!-- #include file="include/conn.asp" -->
-<!-- #include file="INCLUDE/jk_pagecute.asp" -->
+<!-- #include file="include/jk_pagecute.asp" -->
 <!-- #include file="include/jk_md5.asp" -->
 <%
 dim admin_menu,udim,unum

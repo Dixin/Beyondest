@@ -1,21 +1,12 @@
-<!-- #include file="INCLUDE/config_article.asp" -->
+<!-- #include file="include/config_article.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 '*******************************************************************
-
 '
-
-'                     Beyondest.Com V3.6 Demo版
-
+'                     Beyondest.Com v3.6.1
 ' 
-
-
-
-
-'           网址：http://www.beyondest.com
-
+'           http://beyondest.com
 ' 
-
 '*******************************************************************
 
 tit=tit_fir

@@ -1,6 +1,6 @@
-<!-- #include file="INCLUDE/config_vouch.asp" -->
-<!-- #include file="INCLUDE/config_review.asp" -->
-<!-- #include file="INCLUDE/jk_pagecute.asp" -->
+<!-- #include file="include/config_vouch.asp" -->
+<!-- #include file="include/config_review.asp" -->
+<!-- #include file="include/jk_pagecute.asp" -->
 <!-- #include file="include/jk_ubb.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
@@ -8,7 +8,7 @@
 '
 '                     Beyondest.Com V4.6 Demo版
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 

@@ -1,12 +1,12 @@
 <!-- #INCLUDE file="include/onlogin.asp" -->
 <!-- #INCLUDE file="include/fso_file.asp" -->
-<!-- #INCLUDE file="INCLUDE/common_other.asp" -->
+<!-- #INCLUDE file="include/common_other.asp" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 

@@ -13,7 +13,7 @@ dim rs,sql,i,tit,tit_fir,index_url,action,page_power,m_unit,sk_bar,sk_class,sk_j
 <!-- #include file="functions.asp" -->
 <%
 sk_bar=11:sk_bar_lf=15:sk_class="end":sk_jt="jt0":space_mod=web_var(web_num,12):m_unit=web_var(web_config,8):now_time=time_type(now(),9):timer_start=timer()
-web_label="<a href='http://www.beyondest.com/' target=_blank>Power by <b><font face=Arial color=#CC3300>Beyondest</font><font face=Arial>.Com</font></b></a>"
+web_label="<a href='http://beyondest.com/' target=_blank>Power by <b><font face=Arial color=#CC3300>Beyondest</font><font face=Arial>.Com</font></b></a>"
 redx="&nbsp;<font color='#ff0000'>*</font>&nbsp;":kong="<table width='100%' height=2><tr><td></td></tr></table>":gang="<table height=1 bgcolor="&web_var(web_color,3)&" width='100%' cellspacing=0 cellpadding=0 border=0><tr><td></td></tr></table>":gang2="<table width=1 height='100%' bgcolor="&web_var(web_color,3)&"><tr><td></td></tr></table>":web_edition="Beyondest V3.6 Demo":ukong="<table border=0><tr><td height=6></td></tr></table>"
 go_back="<a href='javascript:history.back(1)'>返回上一页</a>":closer="<a href='javascript:self.close()'>『关闭窗口』</a>"
 login_mode="":login_popedom="":login_message=0
@@ -480,19 +480,10 @@ end sub
 
 
 '*******************************************************************
-
 '
-
-'                     Beyondest.Com V3.6 Demo版
-
+'                     Beyondest.Com v3.6.1
 ' 
-
-
-
-
-'           网址：http://www.beyondest.com
-
+'           http://beyondest.com
 ' 
-
 '*******************************************************************
 %>

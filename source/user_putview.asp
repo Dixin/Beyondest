@@ -1,12 +1,12 @@
-<!-- #include file="INCLUDE/config_user.asp" -->
-<!-- #include file="INCLUDE/jk_pagecute.asp" -->
+<!-- #include file="include/config_user.asp" -->
+<!-- #include file="include/jk_pagecute.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 

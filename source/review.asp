@@ -1,13 +1,13 @@
 <!-- #include file="include/config.asp" -->
 <!-- #include file="include/skin.asp" -->
-<!-- #include file="INCLUDE/config_review.asp" -->
+<!-- #include file="include/config_review.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 
@@ -32,7 +32,7 @@ sub review_delete()
   conn.execute(sql)
   if err then
     err.clear
-    call review_err("意外的错误！请与站长联系。\nhttp://www.beyondest.com/\n")
+    call review_err("意外的错误！请与站长联系。\nhttp://beyondest.com/\n")
     exit sub
   end if
   response.write vbcrlf&"<script lanuage=javascript><!--" & _
@@ -57,7 +57,7 @@ sub review_del()
   conn.execute(sql)
   if err then
     err.clear
-    call review_err("意外的错误！请与站长联系。\nhttp://www.beyondest.com/\n")
+    call review_err("意外的错误！请与站长联系。\nhttp://beyondest.com/\n")
     exit sub
   end if
   response.write vbcrlf&"<script lanuage=javascript><!--" & _
@@ -133,7 +133,7 @@ sub review_main()
   conn.execute(sql)
   if err then
     err.clear
-    call review_err("意外的错误！请与站长联系。\nhttp://www.beyondest.com/\n")
+    call review_err("意外的错误！请与站长联系。\nhttp://beyondest.com/\n")
     exit sub
   end if
 

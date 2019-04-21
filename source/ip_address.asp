@@ -1,11 +1,11 @@
 <!-- #include file="include/config.asp" -->
-<!-- #include file="INCLUDE/CONN_IP.ASP" -->
+<!-- #include file="include/CONN_IP.ASP" -->
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
 

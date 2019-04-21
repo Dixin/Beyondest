@@ -1,12 +1,12 @@
 <%
 '*******************************************************************
 '
-'                     Beyondest.Com V3.6 Demo版
+'                     Beyondest.Com v3.6.1
 ' 
-'           网址：http://www.beyondest.com
+'           http://beyondest.com
 ' 
 '*******************************************************************
-web_config="『Beyondestxxx』|http://www.beyondest.com/|笼民|/|main|data/yandixin.asp|bg2|金钱|11111"
+web_config="『Beyondestxxx』|http://beyondest.com/|笼民|/|main|data/yandixin.asp|bg2|金钱|11111"
 web_cookies="beyondest"
 web_login=1
 web_setup="1111211"
@@ -15,7 +15,7 @@ web_menu="main:首页|news:新闻|article:资料|history:历史|koma:家驹|down
 web_color="#F4FAED|#ABD48F|#247624|#84BA34|#F4FAED|#E3F1D1|#000000|#000066|#808080|#FF3300|#990000|#CC3300"
 web_upload="upload/|gif,jpg,bmp,swf,rar,zip,txt,mp3,asf,rm,ram,rmvb,wma,wmv,wav,mid,midi,avi|20000"
 web_safety="$%#*@&=<>'|abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789|admin:ADMIN:游客:书记:阿书:隆民:黄家驹:黄家强:黄贯中:叶世荣|操你:干你:日你:操您:干您:日您:妈的:fuck:bitch:傻B:屁眼:法轮:猪:反共:国民党:共匪:台独:卖淫:流氓"
-web_error="<font class=red>禁止从外部向本站提交数据！</font>|<font class=red_2>您是否还没有 <a href=register.asp>注册</a> 或还没有 <a href=login.asp>登陆</a> 本站？！</font>|Unicode支持<br>UBB 支持<br>HTML不支持|Copyright &copy; 1999～2004 <a href=http://www.beyondest.com/ target=_blank><b><font face=Arial color=#CC3300>Beyondest</font><font face=Arial>.Com</font></b></a> All Rights Reserved"
+web_error="<font class=red>禁止从外部向本站提交数据！</font>|<font class=red_2>您是否还没有 <a href=register.asp>注册</a> 或还没有 <a href=login.asp>登陆</a> 本站？！</font>|Unicode支持<br>UBB 支持<br>HTML不支持|Copyright &copy; 1999～2004 <a href=http://beyondest.com/ target=_blank><b><font face=Arial color=#CC3300>Beyondest</font><font face=Arial>.Com</font></b></a> All Rights Reserved"
 web_news_art="1|2|3|4|5|6|7|8|9|10"
 web_down="200|200|WinMediaPlayer:Realone:Winamp|粤语专辑:国语专辑:日语专辑:单曲唱片:精选专辑:现场演出:个人专辑:其他作品|file"
 web_shop="1|1|1|1|1|1"
