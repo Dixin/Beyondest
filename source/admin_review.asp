@@ -24,8 +24,8 @@ Dim viewpage
 Dim pageurl
 Dim nid
 Dim nsort
-tit = vbcrlf & "<a href='?'>è¯„è®ºç®¡ç†</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?action=delete'>æ‰¹é‡åˆ é™¤</a>"
+tit = vbcrlf & "<a href='?'>ÆÀÂÛ¹ÜÀí</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?action=delete'>ÅúÁ¿É¾³ı</a>"
 Response.Write header(7,tit)
 pageurl = "?":data_name = "review":sqladd = "":nummer = 20
 nsort   = Trim(Request.querystring("nsort"))
@@ -53,13 +53,13 @@ Function del_selects(delid)
         del_num     = UBound(del_dim)
 
         For del_i = 0 To del_num
-            appn    = "åˆ é™¤"
+            appn    = "É¾³ı"
             del_sql = "delete from " & data_name & " where rid=" & del_dim(del_i)
             conn.execute(del_sql)
         Next
 
         Erase del_dim
-        del_selects = vbcrlf & "<script language=javascript>alert(""å…±" & appn & "äº† " & del_num + 1 & " æ¡è®°å½•ï¼"");</script>"
+        del_selects = vbcrlf & "<script language=javascript>alert(""¹²" & appn & "ÁË " & del_num + 1 & " Ìõ¼ÇÂ¼£¡"");</script>"
     End If
 
 End Function
@@ -75,12 +75,12 @@ Sub review_main()
 <script language=javascript src='STYLE/admin_del.js'></script>
 <table border=0 width='100%' cellpadding=2>
   <tr valign=top height=350>
-    <td width='15%' class=htd><br><a href='?'<% If nsort = "" Then Response.Write " class=red_3" %>>å…¨éƒ¨è¯„è®º</a><br>
-<a href='?nsort=news'<% If nsort = "news" Then Response.Write " class=red_3" %>>æ–°é—»è¯„è®º</a><br>
-<a href='?nsort=art'<% If nsort = "art" Then Response.Write " class=red_3" %>>æ–‡æ è¯„è®º</a><br>
-<a href='?nsort=down'<% If nsort = "down" Then Response.Write " class=red_3" %>>ä¸‹è½½è¯„è®º</a><br>
-<a href='?nsort=gall'<% If nsort = "gall" Then Response.Write " class=red_3" %>>è´´å›¾è¯„è®º</a><br>
-<a href='?nsort=web'<% If nsort = "web" Then Response.Write " class=red_3" %>>ç½‘ç«™è¯„è®º</a><br>
+    <td width='15%' class=htd><br><a href='?'<% If nsort = "" Then Response.Write " class=red_3" %>>È«²¿ÆÀÂÛ</a><br>
+<a href='?nsort=news'<% If nsort = "news" Then Response.Write " class=red_3" %>>ĞÂÎÅÆÀÂÛ</a><br>
+<a href='?nsort=art'<% If nsort = "art" Then Response.Write " class=red_3" %>>ÎÄÀ¸ÆÀÂÛ</a><br>
+<a href='?nsort=down'<% If nsort = "down" Then Response.Write " class=red_3" %>>ÏÂÔØÆÀÂÛ</a><br>
+<a href='?nsort=gall'<% If nsort = "gall" Then Response.Write " class=red_3" %>>ÌùÍ¼ÆÀÂÛ</a><br>
+<a href='?nsort=web'<% If nsort = "web" Then Response.Write " class=red_3" %>>ÍøÕ¾ÆÀÂÛ</a><br>
     </td>
     <td width='85%' align=center>
 <table border=0 width='98%' cellspacing=0 cellpadding=0>
@@ -101,8 +101,8 @@ Sub review_main()
         del_temp = rssum - nummer*(thepages - 1)
     End If %>
 <tr><td colspan=3 align=center height=25>
-ç°æœ‰<font class=red><% Response.Write rssum %></font>æ¡ä¿¡æ¯ã€€<input type=radio name=app value='del' checked> åˆ é™¤
- <input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> é€‰ä¸­æ‰€æœ‰ã€€<input type=submit value='æ“ä½œæ‰€é€‰' onclick=""return suredel('<% Response.Write del_temp %>');"">
+ÏÖÓĞ<font class=red><% Response.Write rssum %></font>ÌõĞÅÏ¢¡¡<input type=radio name=app value='del' checked> É¾³ı
+ <input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> Ñ¡ÖĞËùÓĞ¡¡<input type=submit value='²Ù×÷ËùÑ¡' onclick=""return suredel('<% Response.Write del_temp %>');"">
 </td></tr>
 <tr><td colspan=3 height=1 bgcolor=#ededede></td></tr>
 <%
@@ -116,7 +116,7 @@ Sub review_main()
         nid = rs("rid"):rword = rs("rword") %>
 <tr<% Response.Write mtr %>>
 <td><% Response.Write i + (viewpage - 1)*nummer %>. </td><td>
-<a title='<% Response.Write nid %>ï¼š<% Response.Write code_html(rword,1,0) %>'><% Response.Write code_html(rword,1,35) %></a>
+<a title='<% Response.Write nid %>£º<% Response.Write code_html(rword,1,0) %>'><% Response.Write code_html(rword,1,35) %></a>
 </td><td align=right>&nbsp;<input type=checkbox name=del_id value='<% Response.Write nid %>' class=bg_1></td></tr>
 <%
         rs.movenext
@@ -124,8 +124,8 @@ Sub review_main()
 
     rs.Close:Set rs = Nothing %></form>
 <tr><td colspan=3 height=1 bgcolor=#ededede></td></tr>
-<tr><td colspan=3 height=25>é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
+<tr><td colspan=3 height=25>Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
 </td></tr></table>
 </td></tr></table>
 <%

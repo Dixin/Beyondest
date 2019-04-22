@@ -196,16 +196,16 @@ Function put_type(pts)
 
     Select Case pts
         Case "article"
-            put_type = "æˆ‘è¦å‘è¡¨æ–‡ç« "
+            put_type = "ÎÒÒª·¢±íÎÄÕÂ"
         Case "news"
-            put_type = "æˆ‘è¦å‘å¸ƒæ–°é—»"
+            put_type = "ÎÒÒª·¢²¼ĞÂÎÅ"
         Case "down"
-            put_type = "æˆ‘è¦æ·»åŠ éŸ³ä¹"
+            put_type = "ÎÒÒªÌí¼ÓÒôÀÖ"
         Case "website"
-            put_type = "æˆ‘è¦æ¨èç½‘ç«™"
+            put_type = "ÎÒÒªÍÆ¼öÍøÕ¾"
         Case "gallery"
-            put_type = "æˆ‘è¦ä¸Šä¼ è´´å›¾"
+            put_type = "ÎÒÒªÉÏ´«ÌùÍ¼"
     End Select
 
-    If put_type <> "" Then put_type = "[ <a href='user_put.asp?action=" & pts & "'>â†’ " & put_type & "</a> ]"
+    If put_type <> "" Then put_type = "[ <a href='user_put.asp?action=" & pts & "'>¡ú " & put_type & "</a> ]"
 End Function %>

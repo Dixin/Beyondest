@@ -4,7 +4,7 @@
 // http://beyondest.com
 // ====================
 
-//璋冪敤鏂规硶:onsubmit="frm_submitonce(this);"
+//调用方法:onsubmit="frm_submitonce(this);"
 function frm_submitonce(theform) {	//if IE 4+ or NS 6+
     if (document.all || document.getElementById) {	//screen thru every element in the form, and hunt down "submit" and "reset"
         for (i = 0; i < theform.length; i++) {
@@ -18,7 +18,7 @@ function frm_submitonce(theform) {	//if IE 4+ or NS 6+
 
 function frm_quicksubmit(eventobject) {
     if (event.keyCode == 13 && event.ctrlKey)
-        //鍒ゆ柇鏄笉鏄疌TRL+ENTER
+        //判断是不是CTRL+ENTER
         write_frm.wsubmit.click();
 }
 -->

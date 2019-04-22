@@ -12,7 +12,7 @@ Dim rsort
 Dim rurl
 Dim re_id
 Dim rerr:rerr = "":sql = ""
-tit = "å‘è¡¨è¯„è®º"
+tit = "·¢±íÆÀÂÛ"
 Call web_head(0,2,0,0,0)
 
 Select Case action
@@ -33,13 +33,13 @@ Sub review_delete()
 
     If Err Then
         Err.Clear
-        Call review_err("æ„å¤–çš„é”™è¯¯ï¼è¯·ä¸ç«™é•¿è”ç³»ã€‚\nhttp://beyondest.com/\n")
+        Call review_err("ÒâÍâµÄ´íÎó£¡ÇëÓëÕ¾³¤ÁªÏµ¡£\nhttp://beyondest.com/\n")
 
         Exit Sub
         End If
 
         Response.Write vbcrlf & "<script lanuage=javascript><!--" & _
-        vbcrlf & "alert(""å·²æˆåŠŸåˆ é™¤äº†ä¸»é¢˜ï¼ˆn_sortï¼š" & rsort & "ï¼Œ idï¼š" & re_id & "ï¼‰çš„æ‰€æœ‰è¯„è®ºï¼\n\nç‚¹å‡»è¿”å›..."");"
+        vbcrlf & "alert(""ÒÑ³É¹¦É¾³ıÁËÖ÷Ìâ£¨n_sort£º" & rsort & "£¬ id£º" & re_id & "£©µÄËùÓĞÆÀÂÛ£¡\n\nµã»÷·µ»Ø..."");"
 
         If Len(rurl) < 5 Then
             Response.Write vbcrlf & "location.href='main.asp';"
@@ -55,7 +55,7 @@ Sub review_delete()
         Dim rid:rid = Trim(Request.querystring("rid"))
 
         If Not(IsNumeric(rid)) Then
-            rerr = rerr & "åˆ é™¤è¯„è®ºçš„ RID å‡ºé”™ï¼\n"
+            rerr = rerr & "É¾³ıÆÀÂÛµÄ RID ³ö´í£¡\n"
         End If
 
         If rerr <> "" Then Call review_err(rerr):Exit Sub
@@ -65,13 +65,13 @@ Sub review_delete()
 
             If Err Then
                 Err.Clear
-                Call review_err("æ„å¤–çš„é”™è¯¯ï¼è¯·ä¸ç«™é•¿è”ç³»ã€‚\nhttp://beyondest.com/\n")
+                Call review_err("ÒâÍâµÄ´íÎó£¡ÇëÓëÕ¾³¤ÁªÏµ¡£\nhttp://beyondest.com/\n")
 
                 Exit Sub
                 End If
 
                 Response.Write vbcrlf & "<script lanuage=javascript><!--" & _
-                vbcrlf & "alert(""å·²æˆåŠŸåˆ é™¤äº†ä¸€æ¡ä¸»é¢˜ï¼ˆn_sortï¼š" & rsort & "ï¼Œ idï¼š" & re_id & "ï¼‰è¯„è®ºï¼ˆridï¼š" & rid & "ï¼‰ï¼\n\nç‚¹å‡»è¿”å›..."");"
+                vbcrlf & "alert(""ÒÑ³É¹¦É¾³ıÁËÒ»ÌõÖ÷Ìâ£¨n_sort£º" & rsort & "£¬ id£º" & re_id & "£©ÆÀÂÛ£¨rid£º" & rid & "£©£¡\n\nµã»÷·µ»Ø..."");"
 
                 If Len(rurl) < 5 Then
                     Response.Write vbcrlf & "location.href='main.asp';"
@@ -86,7 +86,7 @@ Sub review_delete()
 
                 If login_mode <> format_power2(1,1) Then
                     Call close_conn()
-                    Call review_err("æ‚¨æ²¡æœ‰åˆ é™¤è¯„è®ºçš„æƒé™ï¼ï¼ï¼\n")
+                    Call review_err("ÄúÃ»ÓĞÉ¾³ıÆÀÂÛµÄÈ¨ÏŞ£¡£¡£¡\n")
                     Response.End
                 End If
 
@@ -95,11 +95,11 @@ Sub review_delete()
                 rurl     = Trim(Request.querystring("rurl"))
 
                 If review_rsort(rsort) <> "yes" Then
-                    rerr = rerr & "åˆ é™¤è¯„è®ºçš„ç±»å‹å‡ºé”™ï¼\n"
+                    rerr = rerr & "É¾³ıÆÀÂÛµÄÀàĞÍ³ö´í£¡\n"
                 End If
 
                 If Not(IsNumeric(re_id)) Then
-                    rerr = rerr & "åˆ é™¤è¯„è®ºçš„ ID å‡ºé”™ï¼\n"
+                    rerr = rerr & "É¾³ıÆÀÂÛµÄ ID ³ö´í£¡\n"
                 End If
 
                 If rerr <> "" Then
@@ -123,29 +123,29 @@ Sub review_delete()
                 rurl      = Trim(Request.form("rurl"))
 
                 If review_rsort(rsort) <> "yes" Then
-                    rerr  = rerr & "å‘è¡¨è¯„è®ºçš„ç±»å‹å‡ºé”™ï¼ï¼ï¼\n"
+                    rerr  = rerr & "·¢±íÆÀÂÛµÄÀàĞÍ³ö´í£¡£¡£¡\n"
                 End If
 
                 If Not(IsNumeric(re_id)) Then
-                    rerr = rerr & "å‘è¡¨è¯„è®ºçš„ ID å‡ºé”™ï¼ï¼ï¼\n"
+                    rerr = rerr & "·¢±íÆÀÂÛµÄ ID ³ö´í£¡£¡£¡\n"
                 End If
 
                 If symbol_name(rusername) <> "yes" Then
-                    rerr = rerr & "è¯·è¾“å…¥æ‚¨çš„åç§°ï¼ï¼ˆä¸å¾—å«æœ‰éæ³•å­—ç¬¦ï¼‰\n"
+                    rerr = rerr & "ÇëÊäÈëÄúµÄÃû³Æ£¡£¨²»µÃº¬ÓĞ·Ç·¨×Ö·û£©\n"
                 End If
 
                 If Len(remail) > 0 Then
 
                     If email_ok(remail) <> "yes" Or Len(remail) > 50 Then
-                        rerr = rerr & "æ‚¨çš„ E-mail ä¸å¾—å«æœ‰éæ³•å­—ç¬¦ï¼\n"
+                        rerr = rerr & "ÄúµÄ E-mail ²»µÃº¬ÓĞ·Ç·¨×Ö·û£¡\n"
                     End If
 
                 End If
 
                 If Len(rword) < 1 Then
-                    rerr = rerr & "æ‚¨æ²¡æœ‰è¾“å…¥çš„è¯„è®ºå†…å®¹ï¼\n"
+                    rerr = rerr & "ÄúÃ»ÓĞÊäÈëµÄÆÀÂÛÄÚÈİ£¡\n"
                 ElseIf Len(rword) > 250 Then
-                    rerr = rerr & "æ‚¨è¾“å…¥çš„è¯„è®ºå†…å®¹å¤ªé•¿ï¼(<=250å­—èŠ‚)\n"
+                    rerr = rerr & "ÄúÊäÈëµÄÆÀÂÛÄÚÈİÌ«³¤£¡(<=250×Ö½Ú)\n"
                 End If
 
                 If rerr <> "" Then Call review_err(rerr):Exit Sub
@@ -164,13 +164,13 @@ Sub review_delete()
 
                     If Err Then
                         Err.Clear
-                        Call review_err("æ„å¤–çš„é”™è¯¯ï¼è¯·ä¸ç«™é•¿è”ç³»ã€‚\nhttp://beyondest.com/\n")
+                        Call review_err("ÒâÍâµÄ´íÎó£¡ÇëÓëÕ¾³¤ÁªÏµ¡£\nhttp://beyondest.com/\n")
 
                         Exit Sub
                         End If
 
                         Response.Write vbcrlf & "<script lanuage=javascript><!--" & _
-                        vbcrlf & "alert(""æ‚¨æˆåŠŸçš„å‘è¡¨äº†æœ‰å…³æ‚¨çš„è¯„è®ºï¼\n\nè°¢è°¢æ‚¨çš„å‚ä¸ï¼ç‚¹å‡»è¿”å›..."");"
+                        vbcrlf & "alert(""Äú³É¹¦µÄ·¢±íÁËÓĞ¹ØÄúµÄÆÀÂÛ£¡\n\nĞ»Ğ»ÄúµÄ²ÎÓë£¡µã»÷·µ»Ø..."");"
 
                         If Len(rurl) < 5 Then
                             Response.Write vbcrlf & "location.href='main.asp';"
@@ -183,7 +183,7 @@ Sub review_delete()
 
                     Sub review_err(revar)
                         Response.Write vbcrlf & "<script lanuage=javascript><!--" & _
-                        vbcrlf & "alert(""æ‚¨åœ¨å‘è¡¨è¯„è®ºæ—¶å‡ºç°å¦‚ä¸‹é”™è¯¯ï¼š\n\n" & revar & "\nç‚¹å‡»è¿”å›..."");" & _
+                        vbcrlf & "alert(""ÄúÔÚ·¢±íÆÀÂÛÊ±³öÏÖÈçÏÂ´íÎó£º\n\n" & revar & "\nµã»÷·µ»Ø..."");" & _
                         vbcrlf & "history.back(-1);" & _
                         vbcrlf & "--></script>"
                     End Sub %>

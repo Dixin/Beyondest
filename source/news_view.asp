@@ -46,7 +46,7 @@ comto    = rs("comto")
 pic      = rs("pic")
 rs.Close
 
-cname = "æ–°é—»æµè§ˆ":sname = ""
+cname = "ĞÂÎÅä¯ÀÀ":sname = ""
 
 If cid > 0 Then
 
@@ -60,7 +60,7 @@ If cid > 0 Then
 
     If Not (rs.eof And rs.bof) Then
         cname = rs("c_name"):tit = cname
-        If sid > 0 Then sname = rs("s_name"):tit = cname & "ï¼ˆ" & sname & "ï¼‰"
+        If sid > 0 Then sname = rs("s_name"):tit = cname & "£¨" & sname & "£©"
     End If
 
     rs.Close
@@ -74,7 +74,7 @@ conn.execute(sql)
 Call font_word_js() %>
 <table border=0 width='100%' cellspacing=0 cellpadding=0 align=center>
 <tr><td align=center height=50><font class=red_3 size=3><b><% Response.Write topic %></b></font></td></tr>
-<tr><td align=center class=gray><% Response.Write time_type(tim,33) & "&nbsp;" & web_var(web_config,1) %>&nbsp;<% Call font_word_action() %>&nbsp;å‡ºå¤„ï¼š<% Response.Write comto %></td></tr>
+<tr><td align=center class=gray><% Response.Write time_type(tim,33) & "&nbsp;" & web_var(web_config,1) %>&nbsp;<% Call font_word_action() %>&nbsp;³ö´¦£º<% Response.Write comto %></td></tr>
 <tr><td height=10></td></tr>
 <tr><td valign=top><%
 
@@ -82,12 +82,12 @@ If ispic = True Then
     word = "<p align=center><img src='" & url_true(web_var(web_down,5) & "/",pic) & "' border=0 onload=""javascript:if(this.width>screen.width-430)this.width=screen.width-430""></p>" & word
 End If
 
-Call font_word_type(word & "&nbsp;<font class=gray>ï¼ˆæœ¬æ–‡å·²è¢«æµè§ˆ&nbsp;" & counter & "&nbsp;æ¬¡ï¼‰</font>") %></td></tr>
+Call font_word_type(word & "&nbsp;<font class=gray>£¨±¾ÎÄÒÑ±»ä¯ÀÀ&nbsp;" & counter & "&nbsp;´Î£©</font>") %></td></tr>
 <tr><td height=10></td></tr>
 <tr><td>
   <table border=0 width='100%'>
   <tr><td width='25%' class=htd>
-&nbsp;å‘å¸ƒäººï¼š<% Response.Write format_user_view(username,1,1) %><br>
+&nbsp;·¢²¼ÈË£º<% Response.Write format_user_view(username,1,1) %><br>
 &nbsp;<% Response.Write put_type("news") %>
   </td><td width='75%' class=htd>
 <%
@@ -95,24 +95,24 @@ sql       = "select id,topic from news where hidden=1 and id=" & id - 1
 Set rs    = conn.execute(sql)
 
 If rs.eof And rs.bof Then
-    topic = "<font class=gray>æ²¡æœ‰æ‰¾åˆ°ç›¸å…³æ–°é—»</font>"
+    topic = "<font class=gray>Ã»ÓĞÕÒµ½Ïà¹ØĞÂÎÅ</font>"
 Else
     topic = "<a href='news_view.asp?id=" & rs(0) & "'>" & code_html(rs(1),1,25) & "</a>"
 End If
 
 rs.Close
-Response.Write "ä¸Šç¯‡æ–°é—»ï¼š" & topic & "<br>"
+Response.Write "ÉÏÆªĞÂÎÅ£º" & topic & "<br>"
 sql = "select id,topic from news where hidden=1 and id=" & id + 1
 Set rs = conn.execute(sql)
 
 If rs.eof And rs.bof Then
-    topic = "<font class=gray>æ²¡æœ‰æ‰¾åˆ°ç›¸å…³æ–‡ç« </font>"
+    topic = "<font class=gray>Ã»ÓĞÕÒµ½Ïà¹ØÎÄÕÂ</font>"
 Else
     topic = "<a href='news_view.asp?id=" & rs(0) & "'>" & code_html(rs(1),1,25) & "</a>"
 End If
 
 rs.Close
-Response.Write "ä¸‹ç¯‡æ–°é—»ï¼š" & topic %>
+Response.Write "ÏÂÆªĞÂÎÅ£º" & topic %>
   </td></tr></table>
 </td></tr>
 </table>

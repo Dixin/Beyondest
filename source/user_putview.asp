@@ -9,16 +9,16 @@
 
 Select Case action
     Case "article"
-        tit    = "æŸ¥çœ‹æˆ‘å‘è¡¨çš„æ–‡ç« "
+        tit    = "²é¿´ÎÒ·¢±íµÄÎÄÕÂ"
     Case "down"
-        tit    = "æŸ¥çœ‹æˆ‘æ·»åŠ çš„è½¯ä»¶"
+        tit    = "²é¿´ÎÒÌí¼ÓµÄÈí¼ş"
     Case "gallery"
-        tit    = "æŸ¥çœ‹æˆ‘ä¸Šä¼ çš„è´´å›¾"
+        tit    = "²é¿´ÎÒÉÏ´«µÄÌùÍ¼"
     Case "website"
-        tit    = "æŸ¥çœ‹æˆ‘æ¨èçš„ç½‘ç«™"
+        tit    = "²é¿´ÎÒÍÆ¼öµÄÍøÕ¾"
     Case Else
         action = "news"
-        tit    = "æŸ¥çœ‹æˆ‘å‘å¸ƒçš„æ–°é—»"
+        tit    = "²é¿´ÎÒ·¢²¼µÄĞÂÎÅ"
 End Select
 
 Dim rssum
@@ -40,12 +40,12 @@ Call left_user()
 Call web_center(0)
 '-----------------------------------center---------------------------------
 Response.Write ukong & table1 %>
-<tr<% Response.Write table2 %> height=25><td class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small(us) %>&nbsp;&nbsp;<b>æŸ¥çœ‹æˆ‘æ‰€å‘è¡¨çš„ç›¸å…³ä¿¡æ¯</b></td></tr>
+<tr<% Response.Write table2 %> height=25><td class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small(us) %>&nbsp;&nbsp;<b>²é¿´ÎÒËù·¢±íµÄÏà¹ØĞÅÏ¢</b></td></tr>
 <tr<% Response.Write table3 %>><td align=center height=30>
-<% Response.Write img_small("jt12") %><a href='?action=news'<% If action = "news" Then Response.Write "class=red_3" %>>æŸ¥çœ‹æˆ‘æ‰€å‘å¸ƒçš„æ–°é—»</a>ã€€
-<% Response.Write img_small("jt12") %><a href='?action=article'<% If action = "article" Then Response.Write "class=red_3" %>>æŸ¥çœ‹æˆ‘æ‰€å‘è¡¨çš„æ–‡ç« </a>ã€€
-<% Response.Write img_small("jt12") %><a href='?action=down'<% If action = "down" Then Response.Write "class=red_3" %>>æŸ¥çœ‹æˆ‘æ‰€æ·»åŠ çš„è½¯ä»¶</a>ã€€
-<% Response.Write img_small("jt12") %><a href='?action=gallery'<% If action = "gallery" Then Response.Write "class=red_3" %>>æŸ¥çœ‹æˆ‘æ‰€ä¸Šä¼ çš„å›¾ç‰‡</a>
+<% Response.Write img_small("jt12") %><a href='?action=news'<% If action = "news" Then Response.Write "class=red_3" %>>²é¿´ÎÒËù·¢²¼µÄĞÂÎÅ</a>¡¡
+<% Response.Write img_small("jt12") %><a href='?action=article'<% If action = "article" Then Response.Write "class=red_3" %>>²é¿´ÎÒËù·¢±íµÄÎÄÕÂ</a>¡¡
+<% Response.Write img_small("jt12") %><a href='?action=down'<% If action = "down" Then Response.Write "class=red_3" %>>²é¿´ÎÒËùÌí¼ÓµÄÈí¼ş</a>¡¡
+<% Response.Write img_small("jt12") %><a href='?action=gallery'<% If action = "gallery" Then Response.Write "class=red_3" %>>²é¿´ÎÒËùÉÏ´«µÄÍ¼Æ¬</a>
 </td></tr>
 </table>
 <%
@@ -104,10 +104,10 @@ rs.Close:Set rs = Nothing %>
 <tr><td align=center bgcolor=<% = web_var(web_color,6) %> height=30 colspan=2<% Response.Write table3 %>>
   <table border=0 width='98%' cellspacing=0 cellpadding=0>
 <tr align=center valign=bottom><td width='30%' >
-ç°åœ¨æœ‰<font class=red><% Response.Write rssum %></font>æ¡è®°å½•â”‹
-æ¯é¡µ<font class=red><% Response.Write nummer %></font>ä¸ª
+ÏÖÔÚÓĞ<font class=red><% Response.Write rssum %></font>Ìõ¼ÇÂ¼©¯
+Ã¿Ò³<font class=red><% Response.Write nummer %></font>¸ö
   </td><td width='70%' bgcolor=<% = web_var(web_color,6) %>>
-é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font> åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
+Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font> ·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
   </td></tr>
   </table>
 </td></tr>  
@@ -119,15 +119,15 @@ Call web_end(0)
 
 Sub putview_news() %>
 <tr align=center<% Response.Write table2 %> height=25>
-<td width='6%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>åºå·</b></td>
-<td width='84%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>æ–°é—»æ ‡é¢˜111</b></td>
+<td width='6%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ĞòºÅ</b></td>
+<td width='84%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ĞÂÎÅ±êÌâ111</b></td>
 </tr>
 <%
 
     For i = 1 To nummer
         If rs.eof Then Exit For
         topic = rs("topic"):tim = rs("tim")
-        Response.Write vbcrlf & "<tr" & table3 & "><td align=center>" & (viewpage - 1)*nummer + i & ".</td><td><a target=_blank href='news_view.asp?id=" & rs("id") & "' title='æ–°é—»æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>æµè§ˆæ¬¡æ•°ï¼š" & rs("counter") & "<br>å‘å¸ƒæ—¶é—´ï¼š" & tim & "'>" & code_html(topic,1,35) & "</a>" & format_end(1,time_type(tim,3)) & "</td></tr>"
+        Response.Write vbcrlf & "<tr" & table3 & "><td align=center>" & (viewpage - 1)*nummer + i & ".</td><td><a target=_blank href='news_view.asp?id=" & rs("id") & "' title='ĞÂÎÅ±êÌâ£º" & code_html(topic,1,0) & "<br>ä¯ÀÀ´ÎÊı£º" & rs("counter") & "<br>·¢²¼Ê±¼ä£º" & tim & "'>" & code_html(topic,1,35) & "</a>" & format_end(1,time_type(tim,3)) & "</td></tr>"
         rs.movenext
     Next
 
@@ -135,15 +135,15 @@ End Sub
 
 Sub putview_article() %>
 <tr align=center<% Response.Write table2 %> height=25>
-<td width='6%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>åºå·</b></td>
-<td width='84%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>æ–‡ç« æ ‡é¢˜</b></td>
+<td width='6%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ĞòºÅ</b></td>
+<td width='84%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ÎÄÕÂ±êÌâ</b></td>
 </tr>
 <%
 
     For i = 1 To nummer
         If rs.eof Then Exit For
         topic = rs("topic"):tim = rs("tim")
-        Response.Write vbcrlf & "<tr" & table3 & "><td align=center>" & (viewpage - 1)*nummer + i & ".</td><td><a target=_blank href='article_view.asp?id=" & rs("id") & "' title='æ–‡ç« æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘è¡¨æ—¶é—´ï¼š" & tim & "'>" & code_html(topic,1,35) & "</a>" & format_end(1,time_type(tim,3) & ",<font class=blue>" & rs("counter") & "</font>") & "</td></tr>"
+        Response.Write vbcrlf & "<tr" & table3 & "><td align=center>" & (viewpage - 1)*nummer + i & ".</td><td><a target=_blank href='article_view.asp?id=" & rs("id") & "' title='ÎÄÕÂ±êÌâ£º" & code_html(topic,1,0) & "<br>·¢±íÊ±¼ä£º" & tim & "'>" & code_html(topic,1,35) & "</a>" & format_end(1,time_type(tim,3) & ",<font class=blue>" & rs("counter") & "</font>") & "</td></tr>"
         rs.movenext
     Next
 
@@ -151,15 +151,15 @@ End Sub
 
 Sub putview_down() %>
 <tr align=center<% Response.Write table2 %> height=25>
-<td width='6%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>åºå·</b></td>
-<td width='84%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>è½¯ä»¶åç§°</b></td>
+<td width='6%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ĞòºÅ</b></td>
+<td width='84%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>Èí¼şÃû³Æ</b></td>
 </tr>
 <%
 
     For i = 1 To nummer
         If rs.eof Then Exit For
         topic = rs("name"):tim = rs("tim")
-        Response.Write vbcrlf & "<tr" & table3 & "><td align=center>" & (viewpage - 1)*nummer + i & ".</td><td><a target=_blank href='article_view.asp?id=" & rs("id") & "' title='è½¯ä»¶åç§°ï¼š" & code_html(topic,1,0) & "<br>æ·»åŠ æ—¶é—´ï¼š" & tim & "'>" & code_html(topic,1,35) & "</a>" & format_end(1,time_type(tim,3) & ",<font class=blue>" & rs("counter") & "</font>") & "</td></tr>"
+        Response.Write vbcrlf & "<tr" & table3 & "><td align=center>" & (viewpage - 1)*nummer + i & ".</td><td><a target=_blank href='article_view.asp?id=" & rs("id") & "' title='Èí¼şÃû³Æ£º" & code_html(topic,1,0) & "<br>Ìí¼ÓÊ±¼ä£º" & tim & "'>" & code_html(topic,1,35) & "</a>" & format_end(1,time_type(tim,3) & ",<font class=blue>" & rs("counter") & "</font>") & "</td></tr>"
         rs.movenext
     Next
 
@@ -176,13 +176,13 @@ Sub putview_gallery()
     vbcrlf & "<table border=0>" & _
     vbcrlf & "<tr><td width=100>" & img_small("jt1") & "<a href='?action=" & action & "&types=paste'"
     If types = "paste" Then Response.Write " class=red_3"
-    Response.Write vbcrlf & ">ç²¾å½©è´´å›¾</a></td>" & _
+    Response.Write vbcrlf & ">¾«²ÊÌùÍ¼</a></td>" & _
     vbcrlf & "<td width=100>" & img_small("jt1") & "<a href='?action=" & action & "&types=logo'"
     If types = "logo" Then Response.Write " class=red_3"
-    Response.Write vbcrlf & ">ç²¾å½©LOGO</a></td>" & _
+    Response.Write vbcrlf & ">¾«²ÊLOGO</a></td>" & _
     vbcrlf & "<td width=100>" & img_small("jt1") & "<a href='?action=" & action & "&types=baner'"
     If types = "baner" Then Response.Write " class=red_3"
-    Response.Write vbcrlf & ">ç²¾å½©BANNER</a></td></tr>" & _
+    Response.Write vbcrlf & ">¾«²ÊBANNER</a></td></tr>" & _
     vbcrlf & "</table></td></tr><tr" & table3 & "><td align=center><table border=0 width='100%'>"
 
     Select Case types

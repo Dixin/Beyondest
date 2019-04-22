@@ -23,10 +23,10 @@ Sub review_type(rtsort,rtid,rturl,rtt)
     Dim rtype %>
 <table border=0 width='100%' cellspacing=0 cellpadding=0>
 <tr><td height=1 background='images/bg_dian.gif'></td></tr>
-<tr><td height=25 valign=middle bgcolor=<% Response.Write web_var(web_color,5) %> class=red_3>&nbsp;&nbsp;<b>â†’&nbsp;<a onclick="document.all.review_word.style.display=document.all.review_word.style.display=='none'?'':'none';return false;" href="javsscript:;"><font class=red_3>è¯„è®ºå†…å®¹</font></b> (ç‚¹å‡»æŸ¥çœ‹)</a><%
+<tr><td height=25 valign=middle bgcolor=<% Response.Write web_var(web_color,5) %> class=red_3>&nbsp;&nbsp;<b>¡ú&nbsp;<a onclick="document.all.review_word.style.display=document.all.review_word.style.display=='none'?'':'none';return false;" href="javsscript:;"><font class=red_3>ÆÀÂÛÄÚÈİ</font></b> (µã»÷²é¿´)</a><%
 
     If login_mode = format_power2(1,1) Then
-        Response.Write "&nbsp;&nbsp;&nbsp;<a href='review.asp?action=delete&rsort=" & rtsort & "&re_id=" & rtid & "&rurl=" & rturl & "'>åˆ é™¤æœ¬ä¸»é¢˜çš„æ‰€æœ‰è¯„è®º</a>"
+        Response.Write "&nbsp;&nbsp;&nbsp;<a href='review.asp?action=delete&rsort=" & rtsort & "&re_id=" & rtid & "&rurl=" & rturl & "'>É¾³ı±¾Ö÷ÌâµÄËùÓĞÆÀÂÛ</a>"
     End If %></td></tr>
 <tr><td height=1 background='images/bg_dian.gif'></td></tr>
 <tr id=review_word<% If rtt <> 1 Then Response.Write " style=""display:none;""" %>><td align=center>
@@ -36,12 +36,12 @@ Sub review_type(rtsort,rtid,rturl,rtt)
     Set rsr = conn.execute(sqlr)
 
     If rsr.eof And rsr.bof Then
-        Response.Write "<tr><td class=gray>ï¼ˆæ²¡æœ‰ç›¸å…³è¯„è®ºï¼‰</td></tr>"
+        Response.Write "<tr><td class=gray>£¨Ã»ÓĞÏà¹ØÆÀÂÛ£©</td></tr>"
     Else
 
         Do While Not rsr.eof
             rusername = rsr("rusername"):remail = rsr("remail"):rtype = Int(rsr("rtype"))
-            Response.Write vbcrlf & "<tr><td>å§“åï¼š"
+            Response.Write vbcrlf & "<tr><td>ĞÕÃû£º"
 
             If rtype = 1 Then
                 Response.Write format_user_view(rusername,1,1)
@@ -50,16 +50,16 @@ Sub review_type(rtsort,rtid,rturl,rtt)
             End If
 
             If Len(remail) > 5 Then
-                Response.Write "&nbsp;&nbsp;E-mailï¼š<a href='mailto:" & remail & "'>" & remail & "</a>"
+                Response.Write "&nbsp;&nbsp;E-mail£º<a href='mailto:" & remail & "'>" & remail & "</a>"
             End If
 
-            Response.Write "&nbsp;&nbsp;å‘è¡¨æ—¶é—´ï¼š" & time_type(rsr("rtim"),88)
+            Response.Write "&nbsp;&nbsp;·¢±íÊ±¼ä£º" & time_type(rsr("rtim"),88)
 
             If login_mode = format_power2(1,1) Then
-                Response.Write "&nbsp;&nbsp;&nbsp;<a href='review.asp?action=del&rsort=" & rtsort & "&re_id=" & rtid & "&rid=" & rsr("rid") & "&rurl=" & rturl & "'>åˆ é™¤è¿™æ¡è¯„è®º</a>"
+                Response.Write "&nbsp;&nbsp;&nbsp;<a href='review.asp?action=del&rsort=" & rtsort & "&re_id=" & rtid & "&rid=" & rsr("rid") & "&rurl=" & rturl & "'>É¾³ıÕâÌõÆÀÂÛ</a>"
             End If
 
-            Response.Write "</td></tr><tr><td>è¯„è®ºå†…å®¹ï¼š" & code_html(rsr("rword"),3,0) & "</td></tr><tr><td height=1 background='images/bg_dian.gif'></td></tr>"
+            Response.Write "</td></tr><tr><td>ÆÀÂÛÄÚÈİ£º" & code_html(rsr("rword"),3,0) & "</td></tr><tr><td height=1 background='images/bg_dian.gif'></td></tr>"
             rsr.movenext
         Loop
 
@@ -70,7 +70,7 @@ Sub review_type(rtsort,rtid,rturl,rtt)
 </td></tr>
 <tr><td height=2></td></tr>
 <tr><td height=1 background='images/bg_dian.gif'></td></tr>
-<tr><td height=25 valign=middle bgcolor=<% Response.Write web_var(web_color,5) %> class=red_3>&nbsp;&nbsp;<b>â†’&nbsp;<a onclick="document.all.review_add.style.display=document.all.review_add.style.display=='none'?'':'none';return false;" href="javsscript:;"><font class=red_3>å‘è¡¨æˆ‘çš„è¯„è®º</font></a></b></td></tr>
+<tr><td height=25 valign=middle bgcolor=<% Response.Write web_var(web_color,5) %> class=red_3>&nbsp;&nbsp;<b>¡ú&nbsp;<a onclick="document.all.review_add.style.display=document.all.review_add.style.display=='none'?'':'none';return false;" href="javsscript:;"><font class=red_3>·¢±íÎÒµÄÆÀÂÛ</font></a></b></td></tr>
 <tr><td height=1 background='images/bg_dian.gif'></td></tr>
 <tr id=review_add><td align=center>
 <table border=0 width='90%'>
@@ -78,9 +78,9 @@ Sub review_type(rtsort,rtid,rturl,rtt)
 <input type=hidden name=rsort value='<% Response.Write rtsort %>'>
 <input type=hidden name=re_id value='<% Response.Write rtid %>'>
 <input type=hidden name=rurl value='<% Response.Write rturl %>'>
-<tr height=30><td>æ‚¨çš„å§“åï¼š</td><td><input type=text name=rusername value='<% Response.Write login_username %>' size=16 maxlength=20>ã€€ã€€æ‚¨çš„E-mailï¼š<input type=text name=remail size=24 maxlength=20></td></tr>
-<tr valign=top><td><br>è¯„è®ºå†…å®¹ï¼š</td><td><textarea rows=5 cols=60 name=rword></textarea></td></tr>
-<tr height=30><td>å‘è¡¨è¯„è®ºï¼š</td><td><input type=submit value='ç‚¹ å‡» å‘ è¡¨ è¯„ è®º'>ã€€ã€€<input type=reset value='é‡æ–°å¡«å†™'></td></tr>
+<tr height=30><td>ÄúµÄĞÕÃû£º</td><td><input type=text name=rusername value='<% Response.Write login_username %>' size=16 maxlength=20>¡¡¡¡ÄúµÄE-mail£º<input type=text name=remail size=24 maxlength=20></td></tr>
+<tr valign=top><td><br>ÆÀÂÛÄÚÈİ£º</td><td><textarea rows=5 cols=60 name=rword></textarea></td></tr>
+<tr height=30><td>·¢±íÆÀÂÛ£º</td><td><input type=submit value='µã »÷ ·¢ ±í ÆÀ ÂÛ'>¡¡¡¡<input type=reset value='ÖØĞÂÌîĞ´'></td></tr>
 </form></table>
 </td></tr>
 <tr><td height=2></td></tr>
@@ -100,21 +100,21 @@ Sub font_word_js() %>
 <%
 End Sub
 
-Sub font_word_action() %>æµè§ˆé€‰é¡¹ï¼š
+Sub font_word_action() %>ä¯ÀÀÑ¡Ïî£º
 <!--
-<a href="javascript:;" onclick="javascript:do_zooms('font_word',16);">å¤§</a>
-<a href="javascript:;" onclick="javascript:do_zooms('font_word',14);">ä¸­</a>
-<a href="javascript:;" onclick="javascript:do_zooms('font_word',12);">å°</a>&nbsp;
+<a href="javascript:;" onclick="javascript:do_zooms('font_word',16);">´ó</a>
+<a href="javascript:;" onclick="javascript:do_zooms('font_word',14);">ÖĞ</a>
+<a href="javascript:;" onclick="javascript:do_zooms('font_word',12);">Ğ¡</a>&nbsp;
 -->
 <select name=do_color_frm size=1 onchange="if(this.options[this.selectedIndex].value!=''){do_color('font_word',this.options[this.selectedIndex].value);}">
-<option value=''>é¢œè‰²</option>
-<option value='#000000' style="color:#000000">é»˜è®¤</option>
-<option value='#808080' style="color:#808080">ç°åº¦</option>
-<option value='#808000' style="color:#808000">æ©„æ¦„è‰²</option>
-<option value='#008000' style="color:#008000">ç»¿è‰²</option>
-<option value='#0000FF' style="color:#0000FF">è“è‰²</option>
-<option value='#800000' style="color:#800000">è¤è‰²</option>
-<option value='#FF0000' style="color:#FF0000">çº¢è‰²</option>
+<option value=''>ÑÕÉ«</option>
+<option value='#000000' style="color:#000000">Ä¬ÈÏ</option>
+<option value='#808080' style="color:#808080">»Ò¶È</option>
+<option value='#808000' style="color:#808000">éÏé­É«</option>
+<option value='#008000' style="color:#008000">ÂÌÉ«</option>
+<option value='#0000FF' style="color:#0000FF">À¶É«</option>
+<option value='#800000' style="color:#800000">ºÖÉ«</option>
+<option value='#FF0000' style="color:#FF0000">ºìÉ«</option>
 </select>&nbsp;<%
 End Sub
 
@@ -131,7 +131,7 @@ Sub font_word_type(fvar) %>
   <td background='images/main/view_bg.gif'></td>
   <td align=center>
     <table border=0 width='98%' align=center class=tf>
-    <tr><td width='100%' class=bw><font id="font_word" class=htd style="font-size:14px; font-family:å®‹ä½“, Verdana, Arial, Helvetica, sans-serif;"><% Response.Write fvar %></font></td></tr>
+    <tr><td width='100%' class=bw><font id="font_word" class=htd style="font-size:14px; font-family:ËÎÌå, Verdana, Arial, Helvetica, sans-serif;"><% Response.Write fvar %></font></td></tr>
     </table>
   </td>
   </tr>

@@ -26,11 +26,11 @@ End Select
 
 sql = "select * from bbs_cast"			' where sort='"&nsort&"'"
 
-tit = "<a href='admin_update.asp?'>ç½‘ç«™æ›´æ–°</a> â”‹ " & _
-"<a href='admin_data.asp'>æ•°æ®æ›´æ–°</a> â”‹ " & _
-"<a href='admin_update.asp?nsort=news'>æ›´æ–°å…¬å‘Š</a> â”‹ " & _
-"<a href='admin_update.asp?nsort=forum'>è®ºå›å…¬å‘Š</a> â”‹ " & _
-"<a href='admin_update.asp?action=add'>æ·»åŠ æ›´æ–°</a>"
+tit = "<a href='admin_update.asp?'>ÍøÕ¾¸üĞÂ</a> ©¯ " & _
+"<a href='admin_data.asp'>Êı¾İ¸üĞÂ</a> ©¯ " & _
+"<a href='admin_update.asp?nsort=news'>¸üĞÂ¹«¸æ</a> ©¯ " & _
+"<a href='admin_update.asp?nsort=forum'>ÂÛÌ³¹«¸æ</a> ©¯ " & _
+"<a href='admin_update.asp?action=add'>Ìí¼Ó¸üĞÂ</a>"
 
 Response.Write header(7,tit)
 id = Trim(Request.querystring("id"))
@@ -78,12 +78,12 @@ Function news_del(id)
     If Err Then
         Err.Clear
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æ‚¨çš„æ“ä½œæœ‰é”™è¯¯ï¼ˆerror in delï¼‰å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""ÄúµÄ²Ù×÷ÓĞ´íÎó£¨error in del£©´æÔÚ£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?nsort=" & nsort & "'" & _
         vbcrlf & "</script>")
     Else
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æˆåŠŸåˆ é™¤äº†ä¸€æ¡æ›´æ–°ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""³É¹¦É¾³ıÁËÒ»Ìõ¸üĞÂ£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?nsort=" & nsort & "'" & _
         vbcrlf & "</script>")
     End If
@@ -104,13 +104,13 @@ Function news_main()
         news_main = news_main & vbcrlf & "<script language=JavaScript><!--" & _
         vbcrlf & "function Do_del_data(data1)" & _
         vbcrlf & "{" & _
-        vbcrlf & "if (confirm(""æ­¤æ“ä½œå°†åˆ é™¤idä¸º ""+data1+"" çš„å±•ä¼šä¿¡æ¯ï¼\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼""))" & _
+        vbcrlf & "if (confirm(""´Ë²Ù×÷½«É¾³ıidÎª ""+data1+"" µÄÕ¹»áĞÅÏ¢£¡\nÕæµÄÒªÉ¾³ıÂğ£¿\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡""))" & _
         vbcrlf & "  window.location=""?nsort=" & nsort & "&action=del&id=""+data1" & _
         vbcrlf & "}" & _
         vbcrlf & "//--></script>" & _
         vbcrlf & "<table border=1 width=500 cellspacing=0 cellpadding=1 bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>" & _
-        vbcrlf & "<tr><td colspan=3 align=center height=30>ç°åœ¨æœ‰ <font class=red>" & rssum & "</font> æ¡æ–°é—»</td></tr>" & _
-        "<tr align=center><td width='8%'>åºå·</td><td width='75%'>æ ‡é¢˜</td><td width='17%'>æ“ä½œ</td></tr>"
+        vbcrlf & "<tr><td colspan=3 align=center height=30>ÏÖÔÚÓĞ <font class=red>" & rssum & "</font> ÌõĞÂÎÅ</td></tr>" & _
+        "<tr align=center><td width='8%'>ĞòºÅ</td><td width='75%'>±êÌâ</td><td width='17%'>²Ù×÷</td></tr>"
 
         If Int(viewpage) > 1 Then
             rs.move (viewpage - 1)*nummer
@@ -118,7 +118,7 @@ Function news_main()
 
         For i = 1 To nummer
             If rs.eof Then Exit For
-            news_main = news_main & vbcrlf & "<tr align=center><td>" & i + (viewpage - 1)*nummer & ".</td><td align=left>" & code_html(rs("topic"),1,28) & "</td><td><a href='?nsort=" & nsort & "&action=edit&id=" & rs("id") & "'>ä¿®æ”¹</a> â”‹ <a href='javascript:Do_del_data(" & rs("id") & ")'>åˆ é™¤</a></td></tr>"
+            news_main = news_main & vbcrlf & "<tr align=center><td>" & i + (viewpage - 1)*nummer & ".</td><td align=left>" & code_html(rs("topic"),1,28) & "</td><td><a href='?nsort=" & nsort & "&action=edit&id=" & rs("id") & "'>ĞŞ¸Ä</a> ©¯ <a href='javascript:Do_del_data(" & rs("id") & ")'>É¾³ı</a></td></tr>"
             rs.movenext
         Next
 
@@ -131,13 +131,13 @@ End Function
 Function news_add() %><table border=0 width='98%' cellspacing=0 cellpadding=2>
 <form name='add_frm' action='?action=addchk' method=post>
 <input type=hidden name=upid value=''>
-  <tr><td colspan=2 align=center height=50><font class=red>æ·»åŠ å…¬å‘Šæ›´æ–°</font></td></tr>
-  <tr><td width='15%' align=center>æ›´æ–°æ ‡é¢˜ï¼š</td><td width='85%'><input type=text name=topic size=65 maxlength=50></td></tr>
-  <tr><td align=center height=30>æ–°å¢ç±»å‹ï¼š</td><td><input type=radio name=nsort value='news' checked>&nbsp;ç½‘ç«™æ›´æ–°&nbsp;&nbsp;<input type=radio name=nsort value='forum'>&nbsp;è®ºå›å…¬å‘Š</td></tr>
+  <tr><td colspan=2 align=center height=50><font class=red>Ìí¼Ó¹«¸æ¸üĞÂ</font></td></tr>
+  <tr><td width='15%' align=center>¸üĞÂ±êÌâ£º</td><td width='85%'><input type=text name=topic size=65 maxlength=50></td></tr>
+  <tr><td align=center height=30>ĞÂÔöÀàĞÍ£º</td><td><input type=radio name=nsort value='news' checked>&nbsp;ÍøÕ¾¸üĞÂ&nbsp;&nbsp;<input type=radio name=nsort value='forum'>&nbsp;ÂÛÌ³¹«¸æ</td></tr>
   <tr height=35<% Response.Write format_table(3,1) %>><td align=center><% Call frm_ubb_type() %></td><td><% Call frm_ubb("add_frm","word","&nbsp;&nbsp;") %></td></tr>
-  <tr><td align=center valign=top><br>æ›´æ–°å†…ç©ºï¼š</td><td><textarea name=word rows=15 cols=65></textarea></td></tr>
-  <tr><td align=center>ä¸Šä¼ æ–‡ä»¶ï¼š</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=forum&upname=f&uptext=word'></iframe></td></tr>
-  <tr height=30 align=center><td colspan=2><input type=submit value='æ–° å¢ æ›´ æ–°'>ã€€ã€€ã€€<input type=reset value='é‡æ–°å¡«å†™'></td></tr>
+  <tr><td align=center valign=top><br>¸üĞÂÄÚ¿Õ£º</td><td><textarea name=word rows=15 cols=65></textarea></td></tr>
+  <tr><td align=center>ÉÏ´«ÎÄ¼ş£º</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=forum&upname=f&uptext=word'></iframe></td></tr>
+  <tr height=30 align=center><td colspan=2><input type=submit value='ĞÂ Ôö ¸ü ĞÂ'>¡¡¡¡¡¡<input type=reset value='ÖØĞÂÌîĞ´'></td></tr>
 </form></table><%
 End Function
 
@@ -147,7 +147,7 @@ Function news_addchk()
 
     If Len(topic) < 1 Then
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æ›´æ–°æ ‡é¢˜ æ˜¯å¿…é¡»è¦çš„ï¼\n\nè¯·è¿”å›è¾“å…¥ã€‚"");" & _
+        vbcrlf & "alert(""¸üĞÂ±êÌâ ÊÇ±ØĞëÒªµÄ£¡\n\nÇë·µ»ØÊäÈë¡£"");" & _
         vbcrlf & "history.back(1)" & _
         vbcrlf & "</script>")
     Else
@@ -163,7 +163,7 @@ Function news_addchk()
         rs.Close:Set rs = Nothing
         Call upload_note("update",first_id("bbs_cast"))
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æˆåŠŸæ–°å¢äº†æ›´æ–°ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""³É¹¦ĞÂÔöÁË¸üĞÂ£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?nsort=" & nsort & "'" & _
         vbcrlf & "</script>")
     End If
@@ -176,20 +176,20 @@ Function news_edit(id)
 
     If rs.eof And rs.bof Then
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æ‚¨çš„æ“ä½œæœ‰é”™è¯¯ï¼ˆerror in editï¼‰å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""ÄúµÄ²Ù×÷ÓĞ´íÎó£¨error in edit£©´æÔÚ£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?nsort=" & nsort & "'" & _
         vbcrlf & "</script>")
     Else
         Dim msort:msort = rs("sort") %><table border=0 width='98%' cellspacing=0 cellpadding=2>
 <form name='add_frm' action='?action=editchk&id=<% Response.Write id %>' method=post>
 <input type=hidden name=upid value=''>
-  <tr><td colspan=2 align=center height=50><font class=red>ä¿®æ”¹æ›´æ–°</font></td></tr>
-  <tr><td width='15%' align=center>æ›´æ–°æ ‡é¢˜ï¼š</td><td width='85%'><input type=text name=topic value='<% Response.Write rs("topic") %>' size=65 maxlength=50></td></tr>
-  <tr><td height=30 align=center>æ›´æ–°ç±»å‹ï¼š</td><td><input type=radio name=nsort value='news'<% If msort = "news" Then Response.Write "checked" %>>&nbsp;ç½‘ç«™æ›´æ–°&nbsp;&nbsp;<input type=radio name=nsort value='forum'<% If msort = "forum" Then Response.Write "checked" %>>&nbsp;è®ºå›å…¬å‘Š</td></tr>
+  <tr><td colspan=2 align=center height=50><font class=red>ĞŞ¸Ä¸üĞÂ</font></td></tr>
+  <tr><td width='15%' align=center>¸üĞÂ±êÌâ£º</td><td width='85%'><input type=text name=topic value='<% Response.Write rs("topic") %>' size=65 maxlength=50></td></tr>
+  <tr><td height=30 align=center>¸üĞÂÀàĞÍ£º</td><td><input type=radio name=nsort value='news'<% If msort = "news" Then Response.Write "checked" %>>&nbsp;ÍøÕ¾¸üĞÂ&nbsp;&nbsp;<input type=radio name=nsort value='forum'<% If msort = "forum" Then Response.Write "checked" %>>&nbsp;ÂÛÌ³¹«¸æ</td></tr>
   <tr height=35<% Response.Write format_table(3,1) %>><td align=center><% Call frm_ubb_type() %></td><td><% Call frm_ubb("add_frm","word","&nbsp;&nbsp;") %></td></tr>
-  <tr><td align=center>æ›´æ–°å†…ç©ºï¼š</td><td><textarea name=word rows=15 cols=65><% Response.Write rs("word") %></textarea></td></tr>
-  <tr><td align=center>ä¸Šä¼ æ–‡ä»¶ï¼š</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=forum&upname=f&uptext=word'></iframe></td></tr>
-  <tr height=30 align=center><td colspan=2><input type=submit value='ä¿® æ”¹ æ›´ æ–°'>ã€€ã€€ã€€<input type=reset value='é‡æ–°å¡«å†™'></td></tr>
+  <tr><td align=center>¸üĞÂÄÚ¿Õ£º</td><td><textarea name=word rows=15 cols=65><% Response.Write rs("word") %></textarea></td></tr>
+  <tr><td align=center>ÉÏ´«ÎÄ¼ş£º</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=forum&upname=f&uptext=word'></iframe></td></tr>
+  <tr height=30 align=center><td colspan=2><input type=submit value='ĞŞ ¸Ä ¸ü ĞÂ'>¡¡¡¡¡¡<input type=reset value='ÖØĞÂÌîĞ´'></td></tr>
 </form></table><%
     End If
 
@@ -202,7 +202,7 @@ Function news_editchk(id)
 
     If Len(topic) < 1 Then
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æ›´æ–°æ ‡é¢˜ æ˜¯å¿…é¡»è¦çš„ï¼\n\nè¯·è¿”å›è¾“å…¥ã€‚"");" & _
+        vbcrlf & "alert(""¸üĞÂ±êÌâ ÊÇ±ØĞëÒªµÄ£¡\n\nÇë·µ»ØÊäÈë¡£"");" & _
         vbcrlf & "history.back(1)" & _
         vbcrlf & "</script>")
     Else
@@ -212,7 +212,7 @@ Function news_editchk(id)
 
         If rs.eof And rs.bof Then
             Response.Write("<script language=javascript>" & _
-            vbcrlf & "alert(""æ‚¨çš„æ“ä½œæœ‰é”™è¯¯ï¼ˆerror in editchkï¼‰å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+            vbcrlf & "alert(""ÄúµÄ²Ù×÷ÓĞ´íÎó£¨error in editchk£©´æÔÚ£¡\n\nµã»÷·µ»Ø¡£"");" & _
             vbcrlf & "location='?nsort=" & nsort & "'" & _
             vbcrlf & "</script>")
         Else
@@ -222,7 +222,7 @@ Function news_editchk(id)
             rs.update
             rs.Close:Set rs = Nothing
             Response.Write("<script language=javascript>" & _
-            vbcrlf & "alert(""æˆåŠŸä¿®æ”¹äº†æ›´æ–°ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+            vbcrlf & "alert(""³É¹¦ĞŞ¸ÄÁË¸üĞÂ£¡\n\nµã»÷·µ»Ø¡£"");" & _
             vbcrlf & "location='?nsort=" & nsort & "'" & _
             vbcrlf & "</script>")
         End If

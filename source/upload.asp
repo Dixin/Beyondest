@@ -10,7 +10,7 @@
 <script langiage='javascript' src='STYLE/mouse_on_title.js'></script>
 <html>
 <head>
-<title><% Response.Write web_var(web_config,1) %> - æ–‡ä»¶ä¸Šä¼ </title>
+<title><% Response.Write web_var(web_config,1) %> - ÎÄ¼şÉÏ´«</title>
 <meta http-equiv=Content-Type content=text/html; charset=gb2312>
 <link rel=stylesheet href='include/beyondest.css' type=text/css>
 </head>
@@ -90,7 +90,7 @@ Sub upload_chk()
         upfilename           = upfile.FileName
 
         If upfilesize > upload_size Then
-            uptemp           = "<font class=red_2>ä¸Šä¼ å¤±è´¥</font>ï¼šæ–‡ä»¶å¤ªå¤§ï¼(ä¸èƒ½è¶…è¿‡" & Int(upload_size/1024) & "KB) " & go_back
+            uptemp           = "<font class=red_2>ÉÏ´«Ê§°Ü</font>£ºÎÄ¼şÌ«´ó£¡(²»ÄÜ³¬¹ı" & Int(upload_size/1024) & "KB) " & go_back
         Else
             upfile_name      = Right(upfilename,(Len(upfilename) - InStr(upfilename,".")))
             upfile_name      = LCase(upfile_name)
@@ -117,12 +117,12 @@ Sub upload_chk()
 
                 rs.Close:Set rs = Nothing
 
-                uptemp     = "<font class=red>ä¸Šä¼ æˆåŠŸ</font>ï¼š<a href='" & upload_path & uppath & "/" & upfile_name & "' target=_blank>" & upfile_name & "</a> (" & upfilesize & "Byte)"
+                uptemp     = "<font class=red>ÉÏ´«³É¹¦</font>£º<a href='" & upload_path & uppath & "/" & upfile_name & "' target=_blank>" & upfile_name & "</a> (" & upfilesize & "Byte)"
 
                 If InStr(up_text,"pic") > 0 Then
                     uptemp = uptemp & "<script>parent.document.all." & up_text & ".value='" & uppath & "/" & upfile_name & "';"
                 Else
-                    uptemp = uptemp & "&nbsp;&nbsp;[ <a href='?uppath=" & uppath & "&upname=&uptext=" & up_text & "'>ç‚¹å‡»ç»§ç»­ä¸Šä¼ </a> ]<script>parent.document.all." & up_text & ".value+='"
+                    uptemp = uptemp & "&nbsp;&nbsp;[ <a href='?uppath=" & uppath & "&upname=&uptext=" & up_text & "'>µã»÷¼ÌĞøÉÏ´«</a> ]<script>parent.document.all." & up_text & ".value+='"
 
                     Select Case LCase(upfile_name2)
                         Case "gif","jpg","bmp","png"
@@ -139,13 +139,13 @@ Sub upload_chk()
                 If Int(upid) > 0 Then uptemp = uptemp & "parent.document.all.upid.value+='," & upid & "';"
                 uptemp = uptemp & "</script>"
             Else
-                uptemp = "<font class=red_2>ä¸Šä¼ å¤±è´¥</font>ï¼šæ–‡ä»¶ç±»å‹åªèƒ½ä¸ºï¼š" & Replace(upload_type,"|","ã€") & "ç­‰æ ¼å¼) " & go_back
+                uptemp = "<font class=red_2>ÉÏ´«Ê§°Ü</font>£ºÎÄ¼şÀàĞÍÖ»ÄÜÎª£º" & Replace(upload_type,"|","¡¢") & "µÈ¸ñÊ½) " & go_back
             End If
 
         End If
 
     Else
-        uptemp = "<font class=red_2>ä¸Šä¼ å¤±è´¥</font>ï¼šæ‚¨å¯èƒ½æ²¡æœ‰é€‰æ‹©æƒ³è¦ä¸Šä¼ çš„æ–‡ä»¶ï¼" & go_back
+        uptemp = "<font class=red_2>ÉÏ´«Ê§°Ü</font>£ºÄú¿ÉÄÜÃ»ÓĞÑ¡ÔñÏëÒªÉÏ´«µÄÎÄ¼ş£¡" & go_back
     End If
 
     Set upfile = Nothing
@@ -163,9 +163,9 @@ Sub upload_main()
     uptext = Trim(Request.querystring("uptext"))
     If Session("beyondest_online_admin") <> "beyondest_admin" And Len(upname) > 2 Then upname = ""
 
-    If Int(InStr(uup,"|" & uppath & "|")) = 0 Then Response.Write "å‚æ•°å‡ºé”™ï¼":Exit Sub
+    If Int(InStr(uup,"|" & uppath & "|")) = 0 Then Response.Write "²ÎÊı³ö´í£¡":Exit Sub
 
-        If Len(uppath) < 1 Or Len(uptext) < 1 Then Response.Write "å‚æ•°å‡ºé”™ï¼":Exit Sub
+        If Len(uppath) < 1 Or Len(uptext) < 1 Then Response.Write "²ÎÊı³ö´í£¡":Exit Sub
             'if len(upname)<3 then upname=upname&upload_time(now_time) %>
 <table border=0 cellspacing=0 cellpadding=2>
 <form name=form1 action='?action=upfile' method=post enctype='multipart/form-data'>
@@ -174,7 +174,7 @@ Sub upload_main()
 <input type=hidden name=up_text value='<% Response.Write uptext %>'>
 <tr>
 <td><input type=file name=file_name1 value='' size=35></td>
-<td align=center height=30><input type=submit name=submit value='ç‚¹å‡»ä¸Šä¼ '> (<=<% Response.Write upload_size %>KB)</td>
+<td align=center height=30><input type=submit name=submit value='µã»÷ÉÏ´«'> (<=<% Response.Write upload_size %>KB)</td>
 </tr>
 </form>
 </table>

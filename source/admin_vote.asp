@@ -12,7 +12,7 @@ Dim id
 Dim vid
 Dim vname
 Dim nid
-tit = "<a href='?'>æŸ¥çœ‹ç°æœ‰è°ƒæŸ¥åˆ—è¡¨</a> â”‹ <a href='?action=add'>æ·»åŠ æ–°è°ƒæŸ¥åˆ—è¡¨</a>"
+tit = "<a href='?'>²é¿´ÏÖÓĞµ÷²éÁĞ±í</a> ©¯ <a href='?action=add'>Ìí¼ÓĞÂµ÷²éÁĞ±í</a>"
 Response.Write header(8,tit)
 id  = Trim(Request.querystring("id"))
 vid = Trim(Request.querystring("vid"))
@@ -41,14 +41,14 @@ Sub vote_del()
 
     If Not(IsNumeric(id)) Then Call vote_main():Exit Sub
         conn.execute("delete from vote where vtype=1 and id=" & id)
-        Response.Write "<script language=javascript>alert(""æˆåŠŸåˆ é™¤äº†è°ƒæŸ¥é¡¹ç›®ï¼ˆ" & id & "ï¼‰ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?action=view&vid=" & vid & "';</script>"
+        Response.Write "<script language=javascript>alert(""³É¹¦É¾³ıÁËµ÷²éÏîÄ¿£¨" & id & "£©£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?action=view&vid=" & vid & "';</script>"
     End Sub
 
     Sub vote_delete()
 
         If Not(IsNumeric(vid)) Then Call vote_main():Exit Sub
             conn.execute("delete from vote where vid=" & vid)
-            Response.Write "<script language=javascript>alert(""æˆåŠŸåˆ é™¤äº†è°ƒæŸ¥åˆ—è¡¨ï¼ˆ" & vid & "ï¼‰ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?';</script>"
+            Response.Write "<script language=javascript>alert(""³É¹¦É¾³ıÁËµ÷²éÁĞ±í£¨" & vid & "£©£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?';</script>"
         End Sub
 
         Sub vote_edit2()
@@ -59,7 +59,7 @@ Sub vote_del()
 
                 If rs.eof And rs.bof Then
                     rs.Close:Set rs = Nothing
-                    Response.Write "<script language=javascript>alert(""è°ƒæŸ¥é¡¹ç›®ä¸å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?';</script>"
+                    Response.Write "<script language=javascript>alert(""µ÷²éÏîÄ¿²»´æÔÚ£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?';</script>"
 
                     Exit Sub
                     End If
@@ -75,26 +75,26 @@ Sub vote_del()
 
                         If Int(counter) < 0 Or InStr(1,counter,".") > 0 Then
 
-                            Response.Write "<font class=red_2>æŠ•ç¥¨è®¡æ•°åªèƒ½ä¸ºæ­£æ•´æ•°ä¸”ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back:Exit Sub
+                            Response.Write "<font class=red_2>Í¶Æ±¼ÆÊıÖ»ÄÜÎªÕıÕûÊıÇÒ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back:Exit Sub
                             End If
 
                             If Len(vname) < 1 Then
 
-                                Response.Write "<font class=red_2>é¡¹ç›®åç§°ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back:Exit Sub
+                                Response.Write "<font class=red_2>ÏîÄ¿Ãû³Æ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back:Exit Sub
                                 End If
 
                                 sql = "update vote set vname='" & vname & "',counter=" & counter & " where vtype=1 and id=" & id
                                 conn.execute(sql)
-                                Response.Write "<script language=javascript>alert(""æˆåŠŸä¿®æ”¹äº†ä¸€ä¸ªè°ƒæŸ¥é¡¹ç›®åç§°ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?action=view&vid=" & vid & "';</script>"
+                                Response.Write "<script language=javascript>alert(""³É¹¦ĞŞ¸ÄÁËÒ»¸öµ÷²éÏîÄ¿Ãû³Æ£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?action=view&vid=" & vid & "';</script>"
 
                                 Exit Sub
                                 End If %>
 <table border=0>
 <form action='?action=edit2&id=<% Response.Write id %>&chk=yes' method=post>
-<tr><td colspan=2 align=center height=50><a href='?action=view&vid=<% Response.Write vid %>' class=red>ä¿®æ”¹ç°æœ‰è°ƒæŸ¥é¡¹ç›®</a></td></tr>
-<tr><td>é¡¹ç›®åç§°ï¼š</td><td><input type=text name=vname value='<% Response.Write vname %>' size=30 maxlength=20></td></tr>
-<tr><td height=30>æŠ•ç¥¨è®¡æ•°ï¼š</td><td><input type=text name=counter value='<% Response.Write counter %>' size=10 maxlength=10><% Response.Write redx %>åªèƒ½ä¸º0æˆ–æ­£æ•´æ•°</td></tr>
-<tr><td colspan=2 align=center><input type=submit value='æ äº¤ ä¿® æ”¹'>ã€€ã€€<input type=reset value='é‡æ–°å¡«å†™'></td></tr>
+<tr><td colspan=2 align=center height=50><a href='?action=view&vid=<% Response.Write vid %>' class=red>ĞŞ¸ÄÏÖÓĞµ÷²éÏîÄ¿</a></td></tr>
+<tr><td>ÏîÄ¿Ãû³Æ£º</td><td><input type=text name=vname value='<% Response.Write vname %>' size=30 maxlength=20></td></tr>
+<tr><td height=30>Í¶Æ±¼ÆÊı£º</td><td><input type=text name=counter value='<% Response.Write counter %>' size=10 maxlength=10><% Response.Write redx %>Ö»ÄÜÎª0»òÕıÕûÊı</td></tr>
+<tr><td colspan=2 align=center><input type=submit value='Ìá ½» ĞŞ ¸Ä'>¡¡¡¡<input type=reset value='ÖØĞÂÌîĞ´'></td></tr>
 </form>
 </table>
 <%
@@ -108,7 +108,7 @@ Sub vote_del()
 
                                     If rs.eof And rs.bof Then
                                         rs.Close:Set rs = Nothing
-                                        Response.Write "<script language=javascript>alert(""è°ƒæŸ¥åˆ—è¡¨ï¼ˆ" & vid & "ï¼‰ä¸å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?';</script>"
+                                        Response.Write "<script language=javascript>alert(""µ÷²éÁĞ±í£¨" & vid & "£©²»´æÔÚ£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?';</script>"
 
                                         Exit Sub
                                         End If
@@ -121,21 +121,21 @@ Sub vote_del()
 
                                             If Len(vname) < 1 Then
 
-                                                Response.Write "<font class=red_2>è°ƒæŸ¥åç§°ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back:Exit Sub
+                                                Response.Write "<font class=red_2>µ÷²éÃû³Æ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back:Exit Sub
                                                 End If
 
                                                 sql = "update vote set vname='" & vname & "' where vtype=0 and vid=" & vid
                                                 conn.execute(sql)
-                                                Response.Write "<script language=javascript>alert(""æˆåŠŸä¿®æ”¹äº†è°ƒæŸ¥åˆ—è¡¨ï¼ˆ" & vid & "ï¼‰çš„åç§°ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?action=view&vid=" & vid & "';</script>"
+                                                Response.Write "<script language=javascript>alert(""³É¹¦ĞŞ¸ÄÁËµ÷²éÁĞ±í£¨" & vid & "£©µÄÃû³Æ£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?action=view&vid=" & vid & "';</script>"
 
                                                 Exit Sub
                                                 End If %>
 <table border=0>
 <form action='?action=edit&vid=<% Response.Write vid %>&chk=yes' method=post>
-<tr><td colspan=2 align=center height=50 class=red>ä¿®æ”¹è°ƒæŸ¥åˆ—è¡¨åç§°</td></tr>
-<tr><td>è°ƒæŸ¥ IDï¼š</td><td><input type=text name=vid value='<% Response.Write vid %>' size=10 maxlength=10 disabled><% Response.Write redx %>åªèƒ½ä¸ºæ­£æ•´æ•°</td></tr>
-<tr><td height=50>è°ƒæŸ¥åç§°ï¼š</td><td><input type=text name=vname value='<% Response.Write vname %>' size=30 maxlength=20><% Response.Write redx %></td></tr>
-<tr><td colspan=2 align=center><input type=submit value='æ äº¤ ä¿® æ”¹'>ã€€ã€€<input type=reset value='é‡æ–°å¡«å†™'></td></tr>
+<tr><td colspan=2 align=center height=50 class=red>ĞŞ¸Äµ÷²éÁĞ±íÃû³Æ</td></tr>
+<tr><td>µ÷²é ID£º</td><td><input type=text name=vid value='<% Response.Write vid %>' size=10 maxlength=10 disabled><% Response.Write redx %>Ö»ÄÜÎªÕıÕûÊı</td></tr>
+<tr><td height=50>µ÷²éÃû³Æ£º</td><td><input type=text name=vname value='<% Response.Write vname %>' size=30 maxlength=20><% Response.Write redx %></td></tr>
+<tr><td colspan=2 align=center><input type=submit value='Ìá ½» ĞŞ ¸Ä'>¡¡¡¡<input type=reset value='ÖØĞÂÌîĞ´'></td></tr>
 </form>
 </table>
 <%
@@ -150,12 +150,12 @@ Sub vote_del()
 
                                                     If Int(vid) < 1 Or InStr(1,vid,".") > 0 Then
 
-                                                        Response.Write "<font class=red_2>è°ƒæŸ¥åˆ—è¡¨ ID åªèƒ½ä¸ºæ­£æ•´æ•°ä¸”ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back:Exit Sub
+                                                        Response.Write "<font class=red_2>µ÷²éÁĞ±í ID Ö»ÄÜÎªÕıÕûÊıÇÒ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back:Exit Sub
                                                         End If
 
                                                         If Len(vname) < 1 Then
 
-                                                            Response.Write "<font class=red_2>è°ƒæŸ¥åç§°ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back:Exit Sub
+                                                            Response.Write "<font class=red_2>µ÷²éÃû³Æ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back:Exit Sub
                                                             End If
 
                                                             sql    = "select id from vote where vtype=0 and vid=" & vid
@@ -164,22 +164,22 @@ Sub vote_del()
                                                             If Not(rs.eof And rs.bof) Then
                                                                 rs.Close:Set rs = Nothing
 
-                                                                Response.Write "<font class=red_2>è°ƒæŸ¥åˆ—è¡¨ IDï¼ˆ" & vid & "ï¼‰å·²å­˜åœ¨ï¼è¯·é‡æ–°è¾“å…¥ã€‚</font><br><br>" & go_back:Exit Sub
+                                                                Response.Write "<font class=red_2>µ÷²éÁĞ±í ID£¨" & vid & "£©ÒÑ´æÔÚ£¡ÇëÖØĞÂÊäÈë¡£</font><br><br>" & go_back:Exit Sub
                                                                 End If
 
                                                                 rs.Close:Set rs = Nothing
                                                                 sql = "insert into vote(vid,vtype,vname,counter) values(" & vid & ",0,'" & vname & "',0)"
                                                                 conn.execute(sql)
-                                                                Response.Write "<script language=javascript>alert(""æˆåŠŸæ·»åŠ äº†ä¸€ä¸ªæ–°çš„è°ƒæŸ¥åˆ—è¡¨ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?';</script>"
+                                                                Response.Write "<script language=javascript>alert(""³É¹¦Ìí¼ÓÁËÒ»¸öĞÂµÄµ÷²éÁĞ±í£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?';</script>"
 
                                                                 Exit Sub
                                                                 End If %>
 <table border=0>
 <form action='?action=add&chk=yes' method=post>
-<tr><td colspan=2 align=center height=50 class=red>æ·»åŠ æ–°çš„è°ƒæŸ¥åˆ—è¡¨</td></tr>
-<tr><td>è°ƒæŸ¥ IDï¼š</td><td><input type=text name=vid size=10 maxlength=10><% Response.Write redx %>åªèƒ½ä¸ºæ­£æ•´æ•°</td></tr>
-<tr><td height=50>è°ƒæŸ¥åç§°ï¼š</td><td><input type=text name=vname size=30 maxlength=20><% Response.Write redx %></td></tr>
-<tr><td colspan=2 align=center><input type=submit value='æ äº¤ æ·» åŠ '>ã€€ã€€<input type=reset value='é‡æ–°å¡«å†™'></td></tr>
+<tr><td colspan=2 align=center height=50 class=red>Ìí¼ÓĞÂµÄµ÷²éÁĞ±í</td></tr>
+<tr><td>µ÷²é ID£º</td><td><input type=text name=vid size=10 maxlength=10><% Response.Write redx %>Ö»ÄÜÎªÕıÕûÊı</td></tr>
+<tr><td height=50>µ÷²éÃû³Æ£º</td><td><input type=text name=vname size=30 maxlength=20><% Response.Write redx %></td></tr>
+<tr><td colspan=2 align=center><input type=submit value='Ìá ½» Ìí ¼Ó'>¡¡¡¡<input type=reset value='ÖØĞÂÌîĞ´'></td></tr>
 </form>
 </table>
 <%
@@ -194,12 +194,12 @@ Sub vote_del()
 
                                                                         If Len(vname) < 1 Then
 
-                                                                            Response.Write "<font class=red_2>è°ƒæŸ¥é¡¹ç›®ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back:Exit Sub
+                                                                            Response.Write "<font class=red_2>µ÷²éÏîÄ¿²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back:Exit Sub
                                                                             End If
 
                                                                             sql = "insert into vote(vid,vtype,vname,counter) values(" & vid & ",1,'" & vname & "',0)"
                                                                             conn.execute(sql)
-                                                                            Response.Write "<script language=javascript>alert(""æˆåŠŸæ·»åŠ äº†ä¸€æ¡æ–°è°ƒæŸ¥é¡¹ç›®ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?action=view&vid=" & vid & "';</script>"
+                                                                            Response.Write "<script language=javascript>alert(""³É¹¦Ìí¼ÓÁËÒ»ÌõĞÂµ÷²éÏîÄ¿£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?action=view&vid=" & vid & "';</script>"
 
                                                                             Exit Sub
                                                                             End If %>
@@ -210,7 +210,7 @@ Sub vote_del()
 
                                                                             If rs.eof And rs.bof Then
                                                                                 rs.Close:Set rs = Nothing
-                                                                                Response.Write "<script language=javascript>alert(""è°ƒæŸ¥åˆ—è¡¨ï¼ˆ" & vid & "ï¼‰ä¸å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›â€¦â€¦"");location.href='?';</script>"
+                                                                                Response.Write "<script language=javascript>alert(""µ÷²éÁĞ±í£¨" & vid & "£©²»´æÔÚ£¡\n\nµã»÷·µ»Ø¡­¡­"");location.href='?';</script>"
 
                                                                                 Exit Sub
                                                                                 End If
@@ -222,14 +222,14 @@ Sub vote_del()
 
                                                                                     If j = 0 Then %>
 <tr>
-<td colspan=2 height=25 bgcolor=<% Response.Write color3 %> class=red_3>&nbsp;&nbsp;<b><% Response.Write code_html(rs("vname"),1,0) %></b>ï¼ˆIDï¼š<% Response.Write vid %>ï¼‰</td>
-<td align=center><a href='?action=edit&vid=<% Response.Write vid %>'>ç¼–è¾‘æ ‡é¢˜</a></td>
+<td colspan=2 height=25 bgcolor=<% Response.Write color3 %> class=red_3>&nbsp;&nbsp;<b><% Response.Write code_html(rs("vname"),1,0) %></b>£¨ID£º<% Response.Write vid %>£©</td>
+<td align=center><a href='?action=edit&vid=<% Response.Write vid %>'>±à¼­±êÌâ</a></td>
 </td></tr>
 <% Else %>
 <tr align=center<% Response.Write mtr %>>
 <td width='8%'><% Response.Write j %></td>
 <td width='76%' align=left><% Response.Write rs("vname") %> <font class=blue><% Response.Write rs("counter") %></font></td>
-<td width='16%'><a href='?action=edit2&id=<% Response.Write nid %>'>ç¼–è¾‘</a> <a href="javascript:do_del(<% Response.Write vid %>,<% Response.Write nid %>);">åˆ é™¤</a></td>
+<td width='16%'><a href='?action=edit2&id=<% Response.Write nid %>'>±à¼­</a> <a href="javascript:do_del(<% Response.Write vid %>,<% Response.Write nid %>);">É¾³ı</a></td>
 </tr>
 <%
                                                                                     End If
@@ -243,9 +243,9 @@ Sub vote_del()
   <table border=0>
   <form action='?action=view&vid=<% Response.Write vid %>&chk=yes' method=post>
   <tr>
-  <td>æ–°çš„é¡¹ç›®åç§°ï¼š</td>
+  <td>ĞÂµÄÏîÄ¿Ãû³Æ£º</td>
   <td><input type=text name=vname size=20 maxlength=20></td>
-  <td>&nbsp;&nbsp;<input type=submit value='ç‚¹å‡»æ·»åŠ '></td>
+  <td>&nbsp;&nbsp;<input type=submit value='µã»÷Ìí¼Ó'></td>
   </tr>
   </form>
   </table>
@@ -258,8 +258,8 @@ Sub vote_del()
 <table border=1 width=400 cellspacing=0 cellpadding=2<% Response.Write table1 %>>
 <tr align=center height=20 bgcolor=<% Response.Write color3 %>>
 <td width='8%'>ID</td>
-<td width='76%'>è°ƒæŸ¥åˆ—è¡¨åç§°</td>
-<td width='16%'>æ“ä½œ</td>
+<td width='76%'>µ÷²éÁĞ±íÃû³Æ</td>
+<td width='16%'>²Ù×÷</td>
 </tr>
 <%
                                                                                 sql = "select id,vid,vname from vote where vtype=0 order by id desc"
@@ -270,7 +270,7 @@ Sub vote_del()
 <tr align=center<% Response.Write mtr %>>
 <td class=blue><b><% Response.Write vid %></b></td>
 <td align=left><a href='?action=view&vid=<% Response.Write vid %>'><% Response.Write code_html(rs("vname"),1,0) %></a></td>
-<td><a href='?action=edit&vid=<% Response.Write vid %>'>ç¼–è¾‘</a> <a href="javascript:do_delete(<% Response.Write vid %>);">åˆ é™¤</a></td>
+<td><a href='?action=edit&vid=<% Response.Write vid %>'>±à¼­</a> <a href="javascript:do_delete(<% Response.Write vid %>);">É¾³ı</a></td>
 </tr>
 <%
                                                                                     rs.movenext
@@ -280,24 +280,24 @@ Sub vote_del()
 </table>
 <br>
 <table border=0 width=450>
-<tr><td colspan=2>è°ƒç”¨æ–¹æ³•ï¼š</td></tr>
+<tr><td colspan=2>µ÷ÓÃ·½·¨£º</td></tr>
 <tr><td colspan=2 height=40>&lt;script language=javascript src='vote.asp?id=<font class=red>1</font>&types=<font class=red>1</font>&mcolor=<font class=red>ff0000</font>&bgcolor=<font class=red>ededed</font>'&gt;&lt;/script&gt;</td></tr>
-<tr><td>ä½¿ç”¨è¯´æ˜ï¼š</td><td>1ã€ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯è¦è°ƒç”¨çš„è°ƒæŸ¥IDï¼›</td></tr>
-<tr><td></td><td>2ã€ç¬¬äºŒä¸ªå‚æ•°æ˜¯è°ƒæŸ¥æ˜¾ç¤ºçš„ç±»å‹ï¼šâ€œ1â€ä¸ºå•é€‰ï¼Œâ€œ2â€ä¸ºå¤šé€‰ï¼›</td></tr>
-<tr><td></td><td>3ã€ç¬¬ä¸‰ä¸ªå‚æ•°æ˜¯è°ƒæŸ¥æ ‡é¢˜æ˜¾ç¤ºé¢œè‰²ï¼›ï¼ˆä¸è¦åŠ â€œ#â€ï¼‰</td></tr>
-<tr><td></td><td>4ã€ç¬¬å››ä¸ªå‚æ•°æ˜¯è°ƒæŸ¥é€‰æ‹©æ¡†èƒŒæ™¯è‰²ï¼›ï¼ˆä¸è¦åŠ â€œ#â€ï¼‰</td></tr>
+<tr><td>Ê¹ÓÃËµÃ÷£º</td><td>1¡¢µÚÒ»¸ö²ÎÊıÊÇÒªµ÷ÓÃµÄµ÷²éID£»</td></tr>
+<tr><td></td><td>2¡¢µÚ¶ş¸ö²ÎÊıÊÇµ÷²éÏÔÊ¾µÄÀàĞÍ£º¡°1¡±Îªµ¥Ñ¡£¬¡°2¡±Îª¶àÑ¡£»</td></tr>
+<tr><td></td><td>3¡¢µÚÈı¸ö²ÎÊıÊÇµ÷²é±êÌâÏÔÊ¾ÑÕÉ«£»£¨²»Òª¼Ó¡°#¡±£©</td></tr>
+<tr><td></td><td>4¡¢µÚËÄ¸ö²ÎÊıÊÇµ÷²éÑ¡Ôñ¿ò±³¾°É«£»£¨²»Òª¼Ó¡°#¡±£©</td></tr>
 </table>
 <%
                                                                             End Sub %>
 <script language=JavaScript><!--
 function do_del(data1,data2)
 {
-  if (confirm("æ­¤æ“ä½œå°†åˆ é™¤IDä¸º "+data2+" çš„è°ƒæŸ¥é¡¹ç›®ï¼\n\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½«É¾³ıIDÎª "+data2+" µÄµ÷²éÏîÄ¿£¡\n\nÕæµÄÒªÉ¾³ıÂğ£¿\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
     window.location="?action=del&vid="+data1+"&id="+data2
 }
 function do_delete(data1)
 {
-  if (confirm("æ­¤æ“ä½œå°†åˆ é™¤IDä¸º "+data1+" çš„è°ƒæŸ¥åˆ—è¡¨ï¼\n\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½«É¾³ıIDÎª "+data1+" µÄµ÷²éÁĞ±í£¡\n\nÕæµÄÒªÉ¾³ıÂğ£¿\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
     window.location="?action=delete&vid="+data1
 }
 //--></script>

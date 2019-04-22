@@ -4,7 +4,7 @@
 function isCharsInBag(inputchar, bagchar) {
     var ii, cc;
     for (ii = 0; ii < inputchar.length; ii++) {
-        cc = inputchar.charAt(ii);//å­—ç¬¦ä¸²inputcharä¸­çš„å­—ç¬¦
+        cc = inputchar.charAt(ii);//×Ö·û´®inputcharÖÐµÄ×Ö·û
         if (bagchar.indexOf(cc) > -1) {
             return "no";
         }
@@ -20,12 +20,12 @@ function check(write_frm) {
 
     var wr_name = write_frm.wrname.value
     if (wr_name == "") {
-        alert("ä½ è¿˜æ²¡å®Œå…¨ç•™ä¸‹æ‰€éœ€ä¿¡æ¯ï¼\r\nä½ çš„ åå­— æ˜¯å¿…é¡»è¦çš„ã€‚");
+        alert("Äã»¹Ã»ÍêÈ«ÁôÏÂËùÐèÐÅÏ¢£¡\r\nÄãµÄ Ãû×Ö ÊÇ±ØÐëÒªµÄ¡£");
         return false;
     }
     var errorname = isCharsInBag(wr_name, errorcharname)
     if (errorname == "no") {
-        alert("ä½ çš„ åå­— ä¸å¾—å«æœ‰ä»¥ä¸‹å­—ç¬¦ï¼\r\n  ><,[{}?/+=|\\'\":;~!#$%()`");
+        alert("ÄãµÄ Ãû×Ö ²»µÃº¬ÓÐÒÔÏÂ×Ö·û£¡\r\n  ><,[{}?/+=|\\'\":;~!#$%()`");
         return false;
     }
 
@@ -33,7 +33,7 @@ function check(write_frm) {
     if (write_frm.wrqq.value !== "") {
         var errorqq = isCharsInBag(wr_qq, errorcharqq)
         if (errorqq == "no") {
-            alert("ä½ çš„ QQ åªèƒ½æ˜¯æ•°å­—ï¼\r\nè¯·é‡æ–°è¾“å…¥ã€‚");
+            alert("ÄãµÄ QQ Ö»ÄÜÊÇÊý×Ö£¡\r\nÇëÖØÐÂÊäÈë¡£");
             return false
         }
     }
@@ -50,7 +50,7 @@ function check(write_frm) {
         // Must be atleast one valid char after '.' 
         // No empty spaces permitted 
         {
-            alert('ä½ çš„ eMailåœ°å€ æ ¼å¼ä¸å¯¹ï¼\r\nè¯·é‡æ–°è¾“å…¥ã€‚')
+            alert('ÄãµÄ eMailµØÖ· ¸ñÊ½²»¶Ô£¡\r\nÇëÖØÐÂÊäÈë¡£')
             return false
         }
     }
@@ -59,27 +59,27 @@ function check(write_frm) {
     if (wr_whe !== "") {
         var errorwhe = isCharsInBag(wr_whe, errorcharname)
         if (errorwhe == "no") {
-            alert("ä½ çš„ æ¥è‡ª ä¸å¾—å«æœ‰ä»¥ä¸‹å­—ç¬¦ï¼\r\n  ><,[{}?/+=|\\'\":;~!#$%()`");
+            alert("ÄãµÄ À´×Ô ²»µÃº¬ÓÐÒÔÏÂ×Ö·û£¡\r\n  ><,[{}?/+=|\\'\":;~!#$%()`");
             return false
         }
     }
 
     var wr_topic = write_frm.wrtopic.value
     if (wr_topic == "") {
-        alert("ä½ è¿˜æ²¡å®Œå…¨ç•™ä¸‹æ‰€éœ€ä¿¡æ¯ï¼\r\nä½ çš„ ä¸»é¢˜ æ˜¯å¿…é¡»è¦çš„ã€‚");
+        alert("Äã»¹Ã»ÍêÈ«ÁôÏÂËùÐèÐÅÏ¢£¡\r\nÄãµÄ Ö÷Ìâ ÊÇ±ØÐëÒªµÄ¡£");
         return false;
     }
 
     var wr_word = write_frm.wrword.value
     if (wr_word == "") {
-        alert("ä½ è¿˜æ²¡å®Œå…¨ç•™ä¸‹æ‰€éœ€ä¿¡æ¯ï¼\r\nä½ çš„ ç•™è¨€å†…å®¹ æ˜¯å¿…é¡»è¦çš„ã€‚");
+        alert("Äã»¹Ã»ÍêÈ«ÁôÏÂËùÐèÐÅÏ¢£¡\r\nÄãµÄ ÁôÑÔÄÚÈÝ ÊÇ±ØÐëÒªµÄ¡£");
         return false;
     }
     //document.write_frm.submit()
 }
 //-----------------------------------------------------------------------
 function reset(write_frm) {
-    if (confirm("è¯¥é¡¹æ“ä½œè¦æ¸…é™¤å…¨éƒ¨çš„å†…å®¹ï¼Œä½ ç¡®å®šè¦æ¸…é™¤å—?")) {
+    if (confirm("¸ÃÏî²Ù×÷ÒªÇå³ýÈ«²¿µÄÄÚÈÝ£¬ÄãÈ·¶¨ÒªÇå³ýÂð?")) {
         return true;
     }
     return false;

@@ -9,7 +9,7 @@
 tit = tit_fir
 tit_fir = ""
 
-forum_mode = "half"	'forum_mode璁句负"full"鏃朵负鍏ㄥ睆鏄剧ず,"half"
+forum_mode = "half"	'forum_mode设为"full"时为全屏显示,"half"
 
 If Len(Trim(Request.querystring("mode"))) > 0 Then
     forum_mode = Trim(Request.querystring("mode"))

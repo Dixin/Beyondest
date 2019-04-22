@@ -29,9 +29,9 @@ Dim viewpage
 Dim pageurl
 Dim topic
 Dim csid
-tit = vbcrlf & "<a href='?'>æ–‡æ ç®¡ç†</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?action=add'>æ·»åŠ æ–‡ç« </a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='admin_nsort.asp?nsort=article'>æ–‡æ åˆ†ç±»</a>"
+tit = vbcrlf & "<a href='?'>ÎÄÀ¸¹ÜÀí</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?action=add'>Ìí¼ÓÎÄÕÂ</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='admin_nsort.asp?nsort=article'>ÎÄÀ¸·ÖÀà</a>"
 Response.Write header(13,tit)
 pageurl = "?action=" & action & "&":nsort = "art":data_name = "article":sqladd = "":nummer = 15
 Call admin_cid_sid()
@@ -100,9 +100,9 @@ Sub news_edit()
         csid  = Trim(Request.form("csid"))
 
         If Len(csid) < 1 Then
-            Response.Write "<font class=red_2>è¯·é€‰æ‹©æ–‡ç« ç±»å‹ï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÇëÑ¡ÔñÎÄÕÂÀàĞÍ£¡</font><br><br>" & go_back
         ElseIf topic = "" Then
-            Response.Write "<font class=red_2>æ–‡ç« æ ‡é¢˜ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÎÄÕÂ±êÌâ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back
         Else
             Call chk_cid_sid()
             rs("c_id")     = cid
@@ -137,7 +137,7 @@ Sub news_edit()
             rs.update
             rs.Close:Set rs = Nothing
             Call upload_note(data_name,id)
-            Response.Write "<font class=red>å·²æˆåŠŸä¿®æ”¹äº†ä¸€ç¯‡æ–‡ç« ï¼</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>ç‚¹å‡»è¿”å›</a><br><br>"
+            Response.Write "<font class=red>ÒÑ³É¹¦ĞŞ¸ÄÁËÒ»ÆªÎÄÕÂ£¡</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>µã»÷·µ»Ø</a><br><br>"
         End If
 
     Else
@@ -145,14 +145,14 @@ Sub news_edit()
         Dim rs3 %><table border=0 width='98%' cellspacing=0 cellpadding=1>
 <form name='add_frm' action='<% Response.Write pageurl %>c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&id=<% Response.Write id %>&edit=chk' method=post>
 <input type=hidden name=upid value=''>
-  <tr><td width='15%' align=center>æ–‡ç« æ ‡é¢˜ï¼š</td><td width='85%'><input type=text size=70 name=topic value='<% = rs("topic") %>' maxlength=40><% = redx %></td></tr>
-  <tr><td align=center>æ–‡ç« ç±»å‹ï¼š</td><td><% Call chk_csid(cid,sid):Call chk_emoney(rs("emoney")):Call chk_h_u() %></td></tr>
-  <tr><td align=center>æµè§ˆæƒé™ï¼š</td><td><% Call chk_power(rs("power"),0) %></td></tr>
-  <tr><td align=center>æ–‡ç« ä½œè€…ï¼š</td><td><input type=text size=12 name=author value='<% Response.Write rs("author") %>' maxlength=20>&nbsp;&nbsp;å…³é”®å­—ï¼š<input type=text name=keyes value='<% Response.Write rs("keyes") %>' size=12 maxlength=20>&nbsp;&nbsp;æ¨èï¼š<input type=checkbox name=istop value='yes'<% If Int(rs("istop")) = 1 Then Response.Write " checked" %>>&nbsp;&nbsp;äººæ¬¡ï¼š<input type=text name=counter value='<% Response.Write rs("counter") %>' size=10 maxlength=10></td></tr>
+  <tr><td width='15%' align=center>ÎÄÕÂ±êÌâ£º</td><td width='85%'><input type=text size=70 name=topic value='<% = rs("topic") %>' maxlength=40><% = redx %></td></tr>
+  <tr><td align=center>ÎÄÕÂÀàĞÍ£º</td><td><% Call chk_csid(cid,sid):Call chk_emoney(rs("emoney")):Call chk_h_u() %></td></tr>
+  <tr><td align=center>ä¯ÀÀÈ¨ÏŞ£º</td><td><% Call chk_power(rs("power"),0) %></td></tr>
+  <tr><td align=center>ÎÄÕÂ×÷Õß£º</td><td><input type=text size=12 name=author value='<% Response.Write rs("author") %>' maxlength=20>&nbsp;&nbsp;¹Ø¼ü×Ö£º<input type=text name=keyes value='<% Response.Write rs("keyes") %>' size=12 maxlength=20>&nbsp;&nbsp;ÍÆ¼ö£º<input type=checkbox name=istop value='yes'<% If Int(rs("istop")) = 1 Then Response.Write " checked" %>>&nbsp;&nbsp;ÈË´Î£º<input type=text name=counter value='<% Response.Write rs("counter") %>' size=10 maxlength=10></td></tr>
   <tr height=35<% Response.Write format_table(3,1) %>><td align=center><% Call frm_ubb_type() %></td><td><% Call frm_ubb("add_frm","word","&nbsp;&nbsp;") %></td></tr>
-  <tr><td valign=top align=center><br>æ–‡ç« å†…å®¹ï¼š</td><td><textarea name=word rows=15 cols=70><% = rs("word") %></textarea></td></tr>
-  <tr><td align=center>ä¸Šä¼ æ–‡ä»¶ï¼š</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=article&upname=a&uptext=word'></iframe></td></tr>
-  <tr height=25><td></td><td><input type=submit value=' ä¿® æ”¹ æ–‡ ç«  '></td></tr>
+  <tr><td valign=top align=center><br>ÎÄÕÂÄÚÈİ£º</td><td><textarea name=word rows=15 cols=70><% = rs("word") %></textarea></td></tr>
+  <tr><td align=center>ÉÏ´«ÎÄ¼ş£º</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=article&upname=a&uptext=word'></iframe></td></tr>
+  <tr height=25><td></td><td><input type=submit value=' ĞŞ ¸Ä ÎÄ ÕÂ '></td></tr>
 </form>
 </table><%
     End If
@@ -166,9 +166,9 @@ Sub news_add()
         csid  = Trim(Request.form("csid"))
 
         If Len(csid) < 1 Then
-            Response.Write "<font class=red_2>è¯·é€‰æ‹©æ–‡ç« ç±»å‹ï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÇëÑ¡ÔñÎÄÕÂÀàĞÍ£¡</font><br><br>" & go_back
         ElseIf topic = "" Then
-            Response.Write "<font class=red_2>æ–‡ç« æ ‡é¢˜ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÎÄÕÂ±êÌâ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back
         Else
             Call chk_cid_sid()
             Set rs = Server.CreateObject("adodb.recordset")
@@ -203,20 +203,20 @@ Sub news_add()
             rs.update
             rs.Close:Set rs = Nothing
             Call upload_note(data_name,first_id(data_name))
-            Response.Write "<font class=red>å·²æˆåŠŸæ·»åŠ äº†ä¸€ç¯‡æ–‡ç« ï¼</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>ç‚¹å‡»è¿”å›</a><br><br>"
+            Response.Write "<font class=red>ÒÑ³É¹¦Ìí¼ÓÁËÒ»ÆªÎÄÕÂ£¡</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>µã»÷·µ»Ø</a><br><br>"
         End If
 
     Else %><table border=0 width='98%' cellspacing=0 cellpadding=1>
 <form name='add_frm' action='<% Response.Write pageurl %>add=chk' method=post>
 <input type=hidden name=upid value=''>
-  <tr><td width='15%' align=center>æ–‡ç« æ ‡é¢˜ï¼š</td><td width='85%'><input type=text size=70 name=topic maxlength=40><% = redx %></td></tr>
-  <tr><td align=center>æ–‡ç« ç±»å‹ï¼š</td><td><% Call chk_csid(cid,sid):Call chk_emoney(0) %></td></tr>
-  <tr><td align=center>æµè§ˆæƒé™ï¼š</td><td><% Call chk_power("",1) %></td></tr>
-  <tr><td align=center>æ–‡ç« ä½œè€…ï¼š</td><td><input type=text size=12 name=author maxlength=20>&nbsp;&nbsp;å…³é”®å­—ï¼š<input type=text name=keyes size=12 maxlength=20>&nbsp;&nbsp;æ¨èï¼š<input type=checkbox name=istop value='yes'></td></tr>
+  <tr><td width='15%' align=center>ÎÄÕÂ±êÌâ£º</td><td width='85%'><input type=text size=70 name=topic maxlength=40><% = redx %></td></tr>
+  <tr><td align=center>ÎÄÕÂÀàĞÍ£º</td><td><% Call chk_csid(cid,sid):Call chk_emoney(0) %></td></tr>
+  <tr><td align=center>ä¯ÀÀÈ¨ÏŞ£º</td><td><% Call chk_power("",1) %></td></tr>
+  <tr><td align=center>ÎÄÕÂ×÷Õß£º</td><td><input type=text size=12 name=author maxlength=20>&nbsp;&nbsp;¹Ø¼ü×Ö£º<input type=text name=keyes size=12 maxlength=20>&nbsp;&nbsp;ÍÆ¼ö£º<input type=checkbox name=istop value='yes'></td></tr>
   <tr height=35<% Response.Write format_table(3,1) %>><td align=center><% Call frm_ubb_type() %></td><td><% Call frm_ubb("add_frm","word","&nbsp;&nbsp;") %></td></tr>
-  <tr><td valign=top align=center><br>æ–‡ç« å†…å®¹ï¼š</td><td><textarea name=word rows=15 cols=70></textarea></td></tr>
-  <tr><td align=center>ä¸Šä¼ æ–‡ä»¶ï¼š</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=article&upname=a&uptext=word'></iframe></td></tr>
-  <tr><td></td><td height=25><input type=submit value=' æ·» åŠ  æ–‡ ç«  '></td></tr>
+  <tr><td valign=top align=center><br>ÎÄÕÂÄÚÈİ£º</td><td><textarea name=word rows=15 cols=70></textarea></td></tr>
+  <tr><td align=center>ÉÏ´«ÎÄ¼ş£º</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=article&upname=a&uptext=word'></iframe></td></tr>
+  <tr><td></td><td height=25><input type=submit value=' Ìí ¼Ó ÎÄ ÕÂ '></td></tr>
 </form></table><%
     End If
 
@@ -251,8 +251,8 @@ Sub news_main() %>
         del_temp = rssum - nummer*(thepages - 1)
     End If %>
 <tr><td colspan=3 align=center height=25>
-ç°æœ‰<font class=red><% Response.Write rssum %></font>ç¯‡æ–‡ç« ã€€<% Response.Write "<a href='?action=add&c_id=" & cid & "&s_id=" & sid & "'>æ·»åŠ æ–‡ç« </a>" %>
-ã€€<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> é€‰ä¸­æ‰€æœ‰ã€€<input type=submit value='åˆ é™¤æ‰€é€‰' onclick=""return suredel('<% Response.Write del_temp %>');"">
+ÏÖÓĞ<font class=red><% Response.Write rssum %></font>ÆªÎÄÕÂ¡¡<% Response.Write "<a href='?action=add&c_id=" & cid & "&s_id=" & sid & "'>Ìí¼ÓÎÄÕÂ</a>" %>
+¡¡<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> Ñ¡ÖĞËùÓĞ¡¡<input type=submit value='É¾³ıËùÑ¡' onclick=""return suredel('<% Response.Write del_temp %>');"">
 </td></tr>
 <tr><td colspan=3 height=1 bgcolor=#ededede></td></tr>
 <%
@@ -270,8 +270,8 @@ Sub news_main() %>
 
     rs.Close:Set rs = Nothing %></form>
 <tr><td colspan=3 height=1 bgcolor=#ededede></td></tr>
-<tr><td colspan=3 height=25>é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
+<tr><td colspan=3 height=25>Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
 </td></tr></table>
 </td></tr></table>
 <%
@@ -284,17 +284,17 @@ Function article_center()
     "</td><td align=right><a href='?action=hidden&c_id=" & cid & "&s_id=" & sid & "&id=" & now_id & "&page=" & viewpage & "'>"
 
     If rs("hidden") = True Then
-        article_center = article_center & "æ˜¾"
+        article_center = article_center & "ÏÔ"
     Else
-        article_center = article_center & "<font class=red_2>éš</font>"
+        article_center = article_center & "<font class=red_2>Òş</font>"
     End If
 
     article_center = article_center & "</a> <a href='?action=istop&c_id=" & cid & "&s_id=" & sid & "&id=" & now_id & "&page=" & viewpage & "'>"
 
     If Int(rs("istop")) = 1 Then
-        article_center = article_center & "<font class=red>æ˜¯</font>"
+        article_center = article_center & "<font class=red>ÊÇ</font>"
     Else
-        article_center = article_center & "å¦"
+        article_center = article_center & "·ñ"
     End If
 
     article_center = article_center & "</a> <input type=checkbox name=del_id value='" & now_id & "' class=bg_1></td></tr>"

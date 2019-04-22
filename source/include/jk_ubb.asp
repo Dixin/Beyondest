@@ -9,10 +9,10 @@ Function code_jk(strers)
     strer = health_var(strer,1)
     strer = Replace(strer,"<","&lt;")
     strer = Replace(strer,">","&gt;")
-    strer = Replace(strer," ","&nbsp")		'ç©ºæ ¼
+    strer = Replace(strer," ","&nbsp")		'¿Õ¸ñ
     strer = Replace(strer,Chr(9),"&nbsp")		'table
-    strer = Replace(strer,"'","&#39;")		'å•å¼•å·
-    strer = Replace(strer,"""","&quot;")		'åŒå¼•å·
+    strer = Replace(strer,"'","&#39;")		'µ¥ÒıºÅ
+    strer = Replace(strer,"""","&quot;")		'Ë«ÒıºÅ
     Dim re
     Dim re_v
     re_v          = "[^\(\)\;\'\[]*"
@@ -45,7 +45,7 @@ Function code_jk(strers)
     re.Pattern    = "\[IMGS\](.[^\[]*(gif|jpg|jpeg|bmp|png))\[\/IMGS\]"
     strer         = re.Replace(strer,"<IMG SRC='$1' align=center border=0 onload=""javascript:if(this.width>max-width)this.width=max-width"">")
     re.Pattern    = "\[IMG\](.[^\[]*(gif|jpg|jpeg|bmp|png))\[\/IMG\]"
-    strer         = re.Replace(strer,"<img src='images/small/image.gif' border=0 align=absMiddle width=16 height=16> <a href=$1 alt='æŒ‰æ­¤åœ¨æ–°çª—å£æµè§ˆå›¾ç‰‡' target=_blank>[ ç›¸å…³è´´å›¾ ]</a><br><IMG SRC=$1 align=center border=0 onload=""javascript:if(this.width>max-width)this.width=max-width"">")
+    strer         = re.Replace(strer,"<img src='images/small/image.gif' border=0 align=absMiddle width=16 height=16> <a href=$1 alt='°´´ËÔÚĞÂ´°¿Úä¯ÀÀÍ¼Æ¬' target=_blank>[ Ïà¹ØÌùÍ¼ ]</a><br><IMG SRC=$1 align=center border=0 onload=""javascript:if(this.width>max-width)this.width=max-width"">")
 
     re.Pattern    = "\[DIR=*([0-9]*),*([0-9]*)\](" & re_v & ")\[\/DIR]"
     strer         = re.Replace(strer,"<object classid=clsid:166B1BCA-3F9C-11CF-8075-444553540000 codebase=http://download.macromedia.com/pub/shockwave/cabs/director/sw.cab#version=7,0,2,0 width=$1 height=$2><param name=src value=$3><embed src=$3 pluginspage=http://www.macromedia.com/shockwave/download/ width=$1 height=$2></embed></object>")
@@ -56,11 +56,11 @@ Function code_jk(strers)
     re.Pattern    = "\[RM=*([0-9]*),*([0-9]*)\](" & re_v & ")\[\/RM]"
     strer         = re.Replace(strer,"<OBJECT classid=clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA class=OBJECT id=RAOCX width=$1 height=$2><PARAM NAME=SRC VALUE=$3><PARAM NAME=CONSOLE VALUE=Clip1><PARAM NAME=CONTROLS VALUE=imagewindow><PARAM NAME=AUTOSTART VALUE=true></OBJECT><br><OBJECT classid=CLSID:CFCDAA03-8BE4-11CF-B84B-0020AFBBCCFA height=32 id=video2 width=$1><PARAM NAME=SRC VALUE=$3><PARAM NAME=AUTOSTART VALUE=-1><PARAM NAME=CONTROLS VALUE=controlpanel><PARAM NAME=CONSOLE VALUE=Clip1></OBJECT>")
     re.Pattern    = "(\[FLASH=*([0-9]*),*([0-9]*)\])(" & re_v & "(.swf))(\[\/FLASH\])"
-    strer         = re.Replace(strer,"<img src='images/small/flash.gif' border=0 align=absMiddle width=16 height=16> <a href='$4' TARGET=_blank>[ å…¨å±æ¬£èµ ]</a><br><OBJECT codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=4,0,2,0 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 width=$2 height=$3><PARAM NAME=movie VALUE='$4'><PARAM NAME=quality VALUE=high><embed src='$4' quality=high pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' type='application/x-shockwave-flash' width=$2 height=$3>$4</embed></OBJECT>")
+    strer         = re.Replace(strer,"<img src='images/small/flash.gif' border=0 align=absMiddle width=16 height=16> <a href='$4' TARGET=_blank>[ È«ÆÁĞÀÉÍ ]</a><br><OBJECT codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=4,0,2,0 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 width=$2 height=$3><PARAM NAME=movie VALUE='$4'><PARAM NAME=quality VALUE=high><embed src='$4' quality=high pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' type='application/x-shockwave-flash' width=$2 height=$3>$4</embed></OBJECT>")
     re.Pattern    = "(\[FLASHS=*([0-9]*),*([0-9]*)\])(" & re_v & "(.swf))(\[\/FLASHS\])"
     strer         = re.Replace(strer,"<OBJECT codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=4,0,2,0 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 width=max-width height=max-height><PARAM NAME=movie VALUE=""$2""><PARAM NAME=quality VALUE=high><embed src=""$2"" quality=high pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' type='application/x-shockwave-flash' width=max-width height=max-height>$2</embed></OBJECT>")
     re.Pattern    = "(\[DOWNLOAD\])(" & re_v & ")(\[\/DOWNLOAD\])"
-    strer         = re.Replace(strer,"<img src=images/small/download.gif border=0 align=absMiddle height=16 width=16> <a href=""$2"" TARGET=_blank>[ ç‚¹å‡»ä¸‹è½½ ]</a>")
+    strer         = re.Replace(strer,"<img src=images/small/download.gif border=0 align=absMiddle height=16 width=16> <a href=""$2"" TARGET=_blank>[ µã»÷ÏÂÔØ ]</a>")
     re.Pattern    = "(\[URL\])(" & re_v & ")(\[\/URL\])"
     strer         = re.Replace(strer,"<A HREF='$2' TARGET=_blank>$2</A>")
     re.Pattern    = "(\[URL=(.[^\[]*)\])(.[^\[]*)(\[\/URL\])"
@@ -108,7 +108,7 @@ Function code_jk(strers)
     re.Pattern    = "\[QUOTE\](.*)\[\/QUOTE\]"
     strer         = re.Replace(strer,"<table border=1 cellspacing=0 cellpadding=4 width='98%' bordercolorlight=" & web_var(web_color,4) & " bordercolordark=" & web_var(web_color,1) & " bgcolor=" & web_var(web_color,1) & " style=""TABLE-LAYOUT: fixed"" align=center><tr><td style=""WORD-WRAP: break-word"">$1</td></tr></table><br>")
     're.Pattern="\[HTML\](.[^\[]*)\[\/HTML\]"
-    'strer=re.Replace(strer,"<table width='100%' border='0' cellspacing='0' cellpadding='6' class='"&abgcolor&"'><td><b>ä»¥ä¸‹å†…å®¹ä¸ºç¨‹åºä»£ç :</b><br>$1</td></table>")
+    'strer=re.Replace(strer,"<table width='100%' border='0' cellspacing='0' cellpadding='6' class='"&abgcolor&"'><td><b>ÒÔÏÂÄÚÈİÎª³ÌĞò´úÂë:</b><br>$1</td></table>")
     re.Pattern = "\[CODE\](.*)\[\/CODE\]"
     strer      = re.Replace(strer,"<table border=1 cellspacing=0 cellpadding=4 width='98%' bordercolorlight=" & web_var(web_color,4) & " bordercolordark=" & web_var(web_color,1) & " bgcolor=" & web_var(web_color,1) & " style=""TABLE-LAYOUT: fixed"" align=center><tr><td style=""WORD-WRAP: break-word"">$1</td></tr></table><br>")
     re.Pattern = "\[fly\](.[^\[]*)\[\/fly\]"
@@ -150,10 +150,10 @@ Function code_jk2(strers)
     strer = health_var(strer,1)
     strer = Replace(strer,"<","&lt;")
     strer = Replace(strer,">","&gt;")
-    strer = Replace(strer," ","&nbsp")		'ç©ºæ ¼
+    strer = Replace(strer," ","&nbsp")		'¿Õ¸ñ
     strer = Replace(strer,Chr(9),"&nbsp")		'table
-    strer = Replace(strer,"'","&#39;")		'å•å¼•å·
-    strer = Replace(strer,"""","&quot;")		'åŒå¼•å·
+    strer = Replace(strer,"'","&#39;")		'µ¥ÒıºÅ
+    strer = Replace(strer,"""","&quot;")		'Ë«ÒıºÅ
     Dim re
     Dim re_v
     re_v          = "[^\(\)\;\'\[]*"

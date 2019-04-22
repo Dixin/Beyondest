@@ -18,7 +18,7 @@ Dim thepages
 Dim viewpage
 Dim pageurl
 Dim page
-tit = "<a href='?'>ä¼š å‘˜ å¡</a>"
+tit = "<a href='?'>»á Ô± ¿¨</a>"
 Response.Write header(1,tit)
 id  = Trim(Request.querystring("id"))
 
@@ -47,7 +47,7 @@ Function del_select(delid)
         Next
 
         Erase del_dim
-        del_select = vbcrlf & "<script language=javascript>alert(""å…±åˆ é™¤äº† " & del_num + 1 & " æ¡è®°å½•ï¼"");</script>"
+        del_select = vbcrlf & "<script language=javascript>alert(""¹²É¾³ıÁË " & del_num + 1 & " Ìõ¼ÇÂ¼£¡"");</script>"
     End If
 
 End Function
@@ -107,7 +107,7 @@ Sub cards_edit()
     If rs.eof And rs.bof Then
         rs.Close:Set rs = Nothing
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æ‚¨çš„æ“ä½œæœ‰é”™è¯¯ï¼ˆerror in editï¼‰å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""ÄúµÄ²Ù×÷ÓĞ´íÎó£¨error in edit£©´æÔÚ£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?'" & _
         vbcrlf & "</script>")
 
@@ -121,7 +121,7 @@ Sub cards_edit()
 
             If Len(c_name) < 1 Or Len(c_pass) < 1 Or Not(IsNumeric(c_emoney)) Then
 
-                Response.Write "ä¼šå‘˜å¡å·ã€å¯†ç å’Œåˆ†å€¼ä¸èƒ½ä¸ºç©ºï¼<br><br>" & go_back:Exit Sub
+                Response.Write "»áÔ±¿¨ºÅ¡¢ÃÜÂëºÍ·ÖÖµ²»ÄÜÎª¿Õ£¡<br><br>" & go_back:Exit Sub
                 End If
 
                 If c_name <> code_admin(Request.form("c_name2")) Then
@@ -131,7 +131,7 @@ Sub cards_edit()
                     If Not(rs2.eof And rs2.bof) Then
                         rs2.Close:Set rs2 = Nothing
 
-                        Response.Write "ä¼šå‘˜å¡å·ï¼š" & c_name & " å·²å­˜åœ¨ï¼è¯·é€‰ç”¨å…¶å®ƒçš„ä»£ç ã€‚<br><br>" & go_back:Exit Sub
+                        Response.Write "»áÔ±¿¨ºÅ£º" & c_name & " ÒÑ´æÔÚ£¡ÇëÑ¡ÓÃÆäËüµÄ´úÂë¡£<br><br>" & go_back:Exit Sub
                         End If
 
                         rs2.Close:Set rs2 = Nothing
@@ -155,19 +155,19 @@ Sub cards_edit()
 
                     rs.update
                     rs.Close:Set rs = Nothing
-                    Response.Write "<script lanuage=javascrip>alert(""ä¿®æ”¹ä¼šå‘˜å¡å·æˆåŠŸï¼"");location.href='?page=" & Trim(Request.querystring("page")) & "';</script>"
+                    Response.Write "<script lanuage=javascrip>alert(""ĞŞ¸Ä»áÔ±¿¨ºÅ³É¹¦£¡"");location.href='?page=" & Trim(Request.querystring("page")) & "';</script>"
 
                     Exit Sub
                     End If %>
 <table border=0 align=center>
 <form action='?action=edit&chk=ok&page=<% Response.Write Trim(Request.querystring("page")) %>&id=<% Response.Write id %>' method=post>
-<tr><td>å¡å·ï¼š&nbsp;<input type=text name=c_name value='<% Response.Write rs("c_name") %>' size=20 maxlength=20></td></tr>
+<tr><td>¿¨ºÅ£º&nbsp;<input type=text name=c_name value='<% Response.Write rs("c_name") %>' size=20 maxlength=20></td></tr>
 <input type=hidden name=c_name2 value='<% Response.Write rs("c_name") %>'>
-<tr><td>å¯†ç ï¼š&nbsp;<input type=text name=c_pass value='<% Response.Write rs("c_pass") %>' size=20 maxlength=20></td></tr>
-<tr><td>åˆ†å€¼ï¼š&nbsp;<input type=text name=c_emoney value='<% Response.Write rs("c_emoney") %>' size=20 maxlength=20></td></tr>
-<tr><td>æ˜¯å¦ä½¿ç”¨ï¼š<input type=radio name=c_hidden value='1'<% If Int(rs("c_hidden")) = 1 Then Response.Write " checked" %>>&nbsp;å·²ä½¿ç”¨&nbsp;
-<input type=radio name=c_hidden value='0'<% If Int(rs("c_hidden")) = 0 Then Response.Write " checked" %>>&nbsp;æœªä½¿ç”¨</td></tr>
-<tr><td align=center height=30><input type=submit value='ä¿®æ”¹ä¼šå‘˜å¡'></td></tr>
+<tr><td>ÃÜÂë£º&nbsp;<input type=text name=c_pass value='<% Response.Write rs("c_pass") %>' size=20 maxlength=20></td></tr>
+<tr><td>·ÖÖµ£º&nbsp;<input type=text name=c_emoney value='<% Response.Write rs("c_emoney") %>' size=20 maxlength=20></td></tr>
+<tr><td>ÊÇ·ñÊ¹ÓÃ£º<input type=radio name=c_hidden value='1'<% If Int(rs("c_hidden")) = 1 Then Response.Write " checked" %>>&nbsp;ÒÑÊ¹ÓÃ&nbsp;
+<input type=radio name=c_hidden value='0'<% If Int(rs("c_hidden")) = 0 Then Response.Write " checked" %>>&nbsp;Î´Ê¹ÓÃ</td></tr>
+<tr><td align=center height=30><input type=submit value='ĞŞ¸Ä»áÔ±¿¨'></td></tr>
 </form>
 </table>
 <%
@@ -180,7 +180,7 @@ Sub cards_edit()
 
                     If Len(c_name) < 1 Or Len(c_pass) < 1 Or Not(IsNumeric(c_emoney)) Then
 
-                        Response.Write "ä¼šå‘˜å¡å·ã€å¯†ç å’Œåˆ†å€¼ä¸èƒ½ä¸ºç©ºï¼<br><br>" & go_back:Exit Sub
+                        Response.Write "»áÔ±¿¨ºÅ¡¢ÃÜÂëºÍ·ÖÖµ²»ÄÜÎª¿Õ£¡<br><br>" & go_back:Exit Sub
                         End If
 
                         Set rs = Server.CreateObject("adodb.recordset")
@@ -190,7 +190,7 @@ Sub cards_edit()
                         If Not(rs.eof And rs.bof) Then
                             rs.Close:Set rs = Nothing
 
-                            Response.Write "ä¼šå‘˜å¡å·ï¼š" & c_name & " å·²å­˜åœ¨ï¼è¯·é€‰ç”¨å…¶å®ƒçš„ä»£ç ã€‚<br><br>" & go_back:Exit Sub
+                            Response.Write "»áÔ±¿¨ºÅ£º" & c_name & " ÒÑ´æÔÚ£¡ÇëÑ¡ÓÃÆäËüµÄ´úÂë¡£<br><br>" & go_back:Exit Sub
                             End If
 
                             rs.addnew
@@ -200,7 +200,7 @@ Sub cards_edit()
                             rs("c_hidden") = 0
                             rs.update
                             rs.Close:Set rs = Nothing
-                            Response.Write "<script lanuage=javascrip>alert(""æ·»åŠ ä¼šå‘˜å¡å·æˆåŠŸï¼"");location.href='?';</script>"
+                            Response.Write "<script lanuage=javascrip>alert(""Ìí¼Ó»áÔ±¿¨ºÅ³É¹¦£¡"");location.href='?';</script>"
                         End Sub
 
                         Sub cards_main()
@@ -237,17 +237,17 @@ Sub cards_edit()
 <tr><td colspan=5 align=center height=30>
   <table border=0 width='100%'cellspacing=0 cellpadding=0>
   <tr align=center>
-  <td width='40%'>ç°åœ¨æœ‰ <font class=red><% Response.Write rssum %></font> ä¸ª <font class=red_3><% Response.Write sname %></font> ä¼šå‘˜å¡å·</td>
-  <td width='60%'><input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> é€‰ä¸­æ‰€æœ‰ã€€<input type=submit value='åˆ é™¤æ‰€é€‰' onclick="return suredel('<% Response.Write del_temp %>');"></td>
+  <td width='40%'>ÏÖÔÚÓĞ <font class=red><% Response.Write rssum %></font> ¸ö <font class=red_3><% Response.Write sname %></font> »áÔ±¿¨ºÅ</td>
+  <td width='60%'><input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> Ñ¡ÖĞËùÓĞ¡¡<input type=submit value='É¾³ıËùÑ¡' onclick="return suredel('<% Response.Write del_temp %>');"></td>
   </tr>
   </table>
 </td></tr>
 <tr align=center bgcolor=#ededed>
-<td width='8%'>åºå·</td>
-<td width='26%'>ä¼šå‘˜å¡å·ä»£ç </td>
-<td width='26%'>ä¼šå‘˜å¡å·ç±»å‹</td>
-<td width='18%'>åˆ†å€¼</td>
-<td width='24%'>æ“ä½œ</td>
+<td width='8%'>ĞòºÅ</td>
+<td width='26%'>»áÔ±¿¨ºÅ´úÂë</td>
+<td width='26%'>»áÔ±¿¨ºÅÀàĞÍ</td>
+<td width='18%'>·ÖÖµ</td>
+<td width='24%'>²Ù×÷</td>
 </tr>
 <%
 
@@ -267,32 +267,32 @@ Sub cards_edit()
 <%
 
                                 If Int(rs("c_hidden")) = 0 Then
-                                    Response.Write "æœªä½¿ç”¨"
+                                    Response.Write "Î´Ê¹ÓÃ"
                                 Else
-                                    Response.Write "<font class=red>å·²ä½¿ç”¨</font>"
+                                    Response.Write "<font class=red>ÒÑÊ¹ÓÃ</font>"
                                 End If %></a>&nbsp;
-<a href='?action=edit&id=<% Response.Write iid %>'>ä¿®æ”¹</a>&nbsp;
+<a href='?action=edit&id=<% Response.Write iid %>'>ĞŞ¸Ä</a>&nbsp;
 <input type=checkbox name=del_id value='<% Response.Write iid %>' class=bg_1></td></tr>
 <%
                                 rs.movenext
                             Next
 
                             rs.Close:Set rs = Nothing %>
-<tr><td colspan=5>é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td></tr>
+<tr><td colspan=5>Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td></tr>
 </form>
 </table>
 <br>
 <table border=0 align=center>
 <form name=add_frm action='?action=add' method=post>
 <tr>
-<td>å¡å·ï¼š</td>
+<td>¿¨ºÅ£º</td>
 <td><input type=text name=c_name size=12 maxlength=20></td>
-<td>å¯†ç ï¼š</td>
+<td>ÃÜÂë£º</td>
 <td><input type=text name=c_pass size=12 maxlength=20></td>
-<td>åˆ†å€¼ï¼š</td>
+<td>·ÖÖµ£º</td>
 <td><input type=text name=c_emoney size=10 maxlength=20></td>
-<td>&nbsp;<input type=submit value='æ·»åŠ ä¼šå‘˜å¡'></td>
+<td>&nbsp;<input type=submit value='Ìí¼Ó»áÔ±¿¨'></td>
 </tr>
 </form>
 </table>

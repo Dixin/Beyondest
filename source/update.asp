@@ -13,9 +13,9 @@ id            = Trim(Request.querystring("id"))
 If action = "forum" Then
     index_url = "forum"
     tit_fir   = format_menu(index_url)
-    tit       = "è®ºå›å…¬å‘Š"
+    tit       = "ÂÛÌ³¹«¸æ"
 Else
-    tit       = "ç½‘ç«™æ›´æ–°"
+    tit       = "ÍøÕ¾¸üĞÂ"
     action    = "news"
 End If
 
@@ -43,11 +43,11 @@ Sub update_main() %>
 <tr><td colspan=2 height=1 background='IMAGES/BG_DIAN.GIF'></td></tr>
 <tr bgcolor=<% Response.Write web_var(web_color,5) %> valign=bottom height=20>
 <% If action = "news" Then %>
-<td width='70%' class=red_3><b>&nbsp;â†’&nbsp;<a href='update.asp?action=news' class=red_3>ç½‘ç«™æ›´æ–°</a></b></td>
-<td width='30%' class=red_3><b>&nbsp;â†’&nbsp;<a href='update.asp?action=forum' class=red_3>è®ºå›å…¬å‘Š</a></b></td>
+<td width='70%' class=red_3><b>&nbsp;¡ú&nbsp;<a href='update.asp?action=news' class=red_3>ÍøÕ¾¸üĞÂ</a></b></td>
+<td width='30%' class=red_3><b>&nbsp;¡ú&nbsp;<a href='update.asp?action=forum' class=red_3>ÂÛÌ³¹«¸æ</a></b></td>
 <% Else %>
-<td width='70%' class=red_3><b>&nbsp;â†’&nbsp;<a href='update.asp?action=forum' class=red_3>è®ºå›å…¬å‘Š</a></b></td>
-<td width='30%' class=red_3><b>&nbsp;â†’&nbsp;<a href='update.asp?action=news' class=red_3>ç½‘ç«™æ›´æ–°</a></b></td>
+<td width='70%' class=red_3><b>&nbsp;¡ú&nbsp;<a href='update.asp?action=forum' class=red_3>ÂÛÌ³¹«¸æ</a></b></td>
+<td width='30%' class=red_3><b>&nbsp;¡ú&nbsp;<a href='update.asp?action=news' class=red_3>ÍøÕ¾¸üĞÂ</a></b></td>
 <% End If %>
 </tr>
 <tr><td colspan=2 height=1 background='IMAGES/BG_DIAN.GIF'></td></tr>
@@ -81,7 +81,7 @@ Sub update_view()
         End If %>
 <table border=0 width='96%'>
 <tr><td align=center height=40><font class=blue size=3><b><% Response.Write rs("topic") %></b></font></td></tr>
-<tr><td align=center class=gray><% Response.Write web_var(web_config,1) %>&nbsp;&nbsp;å‘å¸ƒäººï¼š<% Response.Write format_user_view(rs("username"),1,"") %>&nbsp;&nbsp;å‘å¸ƒæ—¶é—´ï¼š<% Response.Write time_type(rs("tim"),88) %></td></tr>
+<tr><td align=center class=gray><% Response.Write web_var(web_config,1) %>&nbsp;&nbsp;·¢²¼ÈË£º<% Response.Write format_user_view(rs("username"),1,"") %>&nbsp;&nbsp;·¢²¼Ê±¼ä£º<% Response.Write time_type(rs("tim"),88) %></td></tr>
 <tr><td height=1 background='IMAGES/BG_DIAN.GIF'></td></tr>
 <tr><td align=center>
   <table border=0 width='96%'>
@@ -95,8 +95,8 @@ Sub update_view()
 <table border=0 width='96%' cellspacing=0 cellpadding=2>
 <tr><td colspan=2 height=1 background='IMAGES/BG_DIAN.GIF'></td></tr>
 <tr bgcolor=<% Response.Write web_var(web_color,5) %> valign=bottom height=20>
-<td width='50%' class=red_3><b>&nbsp;â†’&nbsp;<a href='update.asp?action=news' class=red_3>ç½‘ç«™æ›´æ–°</a></b></td>
-<td width='50%' class=red_3><b>&nbsp;â†’&nbsp;<a href='update.asp?action=forum' class=red_3>è®ºå›å…¬å‘Š</a></b></td>
+<td width='50%' class=red_3><b>&nbsp;¡ú&nbsp;<a href='update.asp?action=news' class=red_3>ÍøÕ¾¸üĞÂ</a></b></td>
+<td width='50%' class=red_3><b>&nbsp;¡ú&nbsp;<a href='update.asp?action=forum' class=red_3>ÂÛÌ³¹«¸æ</a></b></td>
 </tr>
 <tr><td colspan=2 height=1 background='IMAGES/BG_DIAN.GIF'></td></tr>
 <tr valign=top>

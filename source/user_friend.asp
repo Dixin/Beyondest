@@ -6,7 +6,7 @@
 ' http://beyondest.com
 ' ====================
 
-tit = "æˆ‘çš„å¥½å‹ï¼ˆåœ°å€è–„ï¼‰"
+tit = "ÎÒµÄºÃÓÑ£¨µØÖ·±¡£©"
 
 Call web_head(2,0,0,0,0)
 
@@ -36,16 +36,16 @@ Response.Write vbcrlf & "</table>"
 Call web_end(0)
 
 Sub friend_main() %>
-<td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif width='7%'><font class=end><b>æ’åº</b></font></td>
-<td width='28%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>ç”¨æˆ·åç§°</b></font></td>
-<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>ç±»å‹</b></font></td>
-<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>æ€§åˆ«</b></font></td>
-<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>å‘è´´</b></font></td>
+<td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif width='7%'><font class=end><b>ÅÅĞò</b></font></td>
+<td width='28%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>ÓÃ»§Ãû³Æ</b></font></td>
+<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>ÀàĞÍ</b></font></td>
+<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>ĞÔ±ğ</b></font></td>
+<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>·¢Ìù</b></font></td>
 <td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>Email</b></font></td>
 <td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>QQ</b></font></td>
-<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>ä¸»é¡µ</b></font></td>
-<td width='9%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>å‘çŸ­ä¿¡</b></font></td>
-<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>æ“ä½œ</b></font></td>
+<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>Ö÷Ò³</b></font></td>
+<td width='9%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>·¢¶ÌĞÅ</b></font></td>
+<td width='8%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>²Ù×÷</b></font></td>
 </tr>
 <script language=javascript src='STYLE/admin_del.js'></script>
 <form name=del_form action='user_friend.asp?action=del' method=post>
@@ -70,51 +70,51 @@ Sub friend_main() %>
         ttt   = format_power(rs("power"),0)
         Response.Write vbcrlf & "<tr align=center" & table3 & "><td>" & i & ".</td>" & _
         vbcrlf & "<td>" & format_user_view(tname,1,1) & "</td>" & _
-        vbcrlf & "<td><img src='images/small/icon_" & ttt & ".gif' title='" & tname & " æ˜¯ " & format_power(ttt,1) & "' align=absmiddle border=0></td>"
+        vbcrlf & "<td><img src='images/small/icon_" & ttt & ".gif' title='" & tname & " ÊÇ " & format_power(ttt,1) & "' align=absmiddle border=0></td>"
         ttt     = rs("sex")
 
         If ttt = False Then
-            ttt = "<img src='images/small/forum_girl.gif' title='" & tname & " æ˜¯ é’æ˜¥å¥³å­©' align=absmiddle border=0>"
+            ttt = "<img src='images/small/forum_girl.gif' title='" & tname & " ÊÇ Çà´ºÅ®º¢' align=absmiddle border=0>"
         Else
-            ttt = "<img src='images/small/forum_boy.gif' title='" & tname & " æ˜¯ é˜³å…‰ç”·å­©' align=absmiddle border=0>"
+            ttt = "<img src='images/small/forum_boy.gif' title='" & tname & " ÊÇ Ñô¹âÄĞº¢' align=absmiddle border=0>"
         End If
 
         Response.Write vbcrlf & "<td>" & ttt & "</td>" & _
         vbcrlf & "<td><font class=red_3>" & rs("bbs_counter") & "</font></td>" & _
-        vbcrlf & "<td><a href='mailto:" & rs("email") & "'><img src='images/small/email.gif' title='ç»™ " & tname & " å‘ç”µå­é‚®ä»¶' align=absMiddle border=0></a></td>"
+        vbcrlf & "<td><a href='mailto:" & rs("email") & "'><img src='images/small/email.gif' title='¸ø " & tname & " ·¢µç×ÓÓÊ¼ş' align=absMiddle border=0></a></td>"
         ttt     = rs("qq")
 
         If var_null(ttt) = "" Or ttt = 0 Then
-            ttt = "<font class=gray>æ²¡æœ‰</font>"
+            ttt = "<font class=gray>Ã»ÓĞ</font>"
         Else
-            ttt = "<a href='http://search.tencent.com/cgi-bin/friend/user_show_info?ln=" & ttt & "' target=_blank><img src='images/small/qq.gif' title='æŸ¥çœ‹ " & tname & " çš„QQä¿¡æ¯' align=absMiddle border=0></a>"
+            ttt = "<a href='http://search.tencent.com/cgi-bin/friend/user_show_info?ln=" & ttt & "' target=_blank><img src='images/small/qq.gif' title='²é¿´ " & tname & " µÄQQĞÅÏ¢' align=absMiddle border=0></a>"
         End If
 
         Response.Write vbcrlf & "<td>" & ttt & "</td>"
         ttt     = rs("url")
 
         If var_null(ttt) = "" Then
-            ttt = "<font class=gray>æ²¡æœ‰</font>"
+            ttt = "<font class=gray>Ã»ÓĞ</font>"
         Else
-            ttt = "<a href='" & ttt & "' target=_blank><img src='images/small/url.gif' title='æŸ¥çœ‹ " & tname & " çš„ä¸ªäººä¸»é¡µ' align=absMiddle border=0></a>"
+            ttt = "<a href='" & ttt & "' target=_blank><img src='images/small/url.gif' title='²é¿´ " & tname & " µÄ¸öÈËÖ÷Ò³' align=absMiddle border=0></a>"
         End If
 
         Response.Write vbcrlf & "<td>" & ttt & "</td>" & _
-        vbcrlf & "<td><a href='user_message.asp?action=write&accept_uaername=" & Server.urlencode(tname) & "'><img src='images/mail/msg.gif' border=0 align=absmiddle title='ç»™ " & tname & " å‘é€ç«™å†…çŸ­ä¿¡'></a></td>" & _
+        vbcrlf & "<td><a href='user_message.asp?action=write&accept_uaername=" & Server.urlencode(tname) & "'><img src='images/mail/msg.gif' border=0 align=absmiddle title='¸ø " & tname & " ·¢ËÍÕ¾ÄÚ¶ÌĞÅ'></a></td>" & _
         vbcrlf & "<td><input type=checkbox name=del_id value='" & rs("id") & "' class=bg_1></td></tr>"
         rs.movenext
     Next %>
 <tr><td colspan=10 align=center height=30 bgcolor=<% Response.Write web_var(web_color,5) %>>
-å…±æœ‰ <font class=red><% Response.Write rssum %></font> ä½å¥½å‹
-ã€€ã€€<input type=button value='æ·»åŠ æˆ‘çš„å¥½å‹' onClick="document.location='user_friend.asp?action=add'">
-ã€€ã€€<input type=checkbox name=del_all value=1 onClick="javascript:selectall('<% Response.Write rssum %>');" class=bg_3> é€‰ä¸­æ‰€æœ‰
-ã€€<input type=submit value='åˆ é™¤æ‰€é€‰' onclick="return suredel('<% Response.Write rssum %>');">
+¹²ÓĞ <font class=red><% Response.Write rssum %></font> Î»ºÃÓÑ
+¡¡¡¡<input type=button value='Ìí¼ÓÎÒµÄºÃÓÑ' onClick="document.location='user_friend.asp?action=add'">
+¡¡¡¡<input type=checkbox name=del_all value=1 onClick="javascript:selectall('<% Response.Write rssum %>');" class=bg_3> Ñ¡ÖĞËùÓĞ
+¡¡<input type=submit value='É¾³ıËùÑ¡' onclick="return suredel('<% Response.Write rssum %>');">
 </td></tr>
 <%
 End Sub
 
 Function friend_add()
-    friend_add = "<td><font class=end><b>æ·»åŠ æˆ‘çš„å¥½å‹</b></font></td></tr>" & _
+    friend_add = "<td><font class=end><b>Ìí¼ÓÎÒµÄºÃÓÑ</b></font></td></tr>" & _
     vbcrlf & "<tr" & table3 & "><td height=160 align=center>"
 
     If Trim(Request.form("add_ok")) = "ok" Then
@@ -126,13 +126,13 @@ Function friend_add()
         username2   = Trim(Request.form("username2"))
 
         If symbol_name(username2) <> "yes" Then
-            red     = "<font class=red>å¥½å‹åç§°</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼"
+            red     = "<font class=red>ºÃÓÑÃû³Æ</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡"
         Else
             sql     = "select username from user_data where username='" & username2 & "'"
             Set rs  = conn.execute(sql)
 
             If rs.eof And rs.bof Then
-                red = "ä½ å¡«å†™çš„ <font class=red>å¥½å‹åç§°</font> å¥½åƒä¸å­˜åœ¨ï¼"
+                red = "ÄãÌîĞ´µÄ <font class=red>ºÃÓÑÃû³Æ</font> ºÃÏñ²»´æÔÚ£¡"
             End If
 
             rs.Close:Set rs = Nothing
@@ -148,19 +148,19 @@ Function friend_add()
                 rs("username1") = login_username
                 rs("username2") = username2
                 rs.update
-                friend_add     = friend_add & "<font class=red>æ‚¨å·²æˆåŠŸçš„æ·»åŠ äº†å¥½å‹ï¼ˆ<font class=blue_1>" & username2 & "</font>ï¼‰ï¼</font>"
+                friend_add     = friend_add & "<font class=red>ÄúÒÑ³É¹¦µÄÌí¼ÓÁËºÃÓÑ£¨<font class=blue_1>" & username2 & "</font>£©£¡</font>"
             Else
-                friend_add     = friend_add & "<font class=red>æ‚¨å·²ç»æ·»åŠ äº†å¥½å‹ï¼ˆ<font class=blue_1>" & username2 & "</font>ï¼‰ï¼</font>"
+                friend_add     = friend_add & "<font class=red>ÄúÒÑ¾­Ìí¼ÓÁËºÃÓÑ£¨<font class=blue_1>" & username2 & "</font>£©£¡</font>"
             End If
 
             rs.Close:Set rs = Nothing
-            friend_add = friend_add & "<br><br><a href='user_friend.asp'>ç‚¹å‡»è¿”å›</a>"
+            friend_add = friend_add & "<br><br><a href='user_friend.asp'>µã»÷·µ»Ø</a>"
         Else
             friend_add = friend_add & red & "<br><br>" & go_back
         End If
 
     Else
-        friend_add = friend_add & "<form action='user_friend.asp?action=add' method=post><input type=hidden name=add_ok value='ok'>å¥½å‹åç§°ï¼š<input type=text name=username2 value='" & Trim(Request.querystring("add_username")) & "' size=30 maxlength=20><br><br><input type=submit value='æ·»åŠ å¥½å‹'></form>"
+        friend_add = friend_add & "<form action='user_friend.asp?action=add' method=post><input type=hidden name=add_ok value='ok'>ºÃÓÑÃû³Æ£º<input type=text name=username2 value='" & Trim(Request.querystring("add_username")) & "' size=30 maxlength=20><br><br><input type=submit value='Ìí¼ÓºÃÓÑ'></form>"
     End If
 
     friend_add     = friend_add & "</td></tr>"
@@ -185,7 +185,7 @@ Function del_select()
         Next
 
         Erase del_dim
-        del_select = vbcrlf & "<script language=javascript>alert(""å¥½å‹åˆ é™¤æˆåŠŸï¼å…±åˆ é™¤äº† " & del_num + 1 & " ä½å¥½å‹ã€‚"");</script>"
+        del_select = vbcrlf & "<script language=javascript>alert(""ºÃÓÑÉ¾³ı³É¹¦£¡¹²É¾³ıÁË " & del_num + 1 & " Î»ºÃÓÑ¡£"");</script>"
     End If
 
 End Function %>

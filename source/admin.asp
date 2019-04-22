@@ -1,7 +1,7 @@
 <!-- #INCLUDE file="include/onlogin.asp" -->
 <html>
 <head>
-<title><% Response.Write web_var(web_config,1) %> - åŽå°ç®¡ç†ç³»ç»Ÿ</title>
+<title><% Response.Write web_var(web_config,1) %> - ºóÌ¨¹ÜÀíÏµÍ³</title>
 <meta http-equiv=Content-Type content=text/html; charset=gb2312>
 <link rel=stylesheet href='include/beyondest.css' type=text/css>
 <%
@@ -25,29 +25,29 @@ Sub admin_main() %><body topmargin=0 leftmargin=0 bgcolor=<% Response.Write colo
 <%
 
     If Trim(Request.querystring("error")) = "popedom" Then
-        Response.Write "<font class=red_2>å¯èƒ½æ‚¨æ²¡æœ‰ç›¸å…³çš„åŽå°ç®¡ç†æƒé™</font>"
+        Response.Write "<font class=red_2>¿ÉÄÜÄúÃ»ÓÐÏà¹ØµÄºóÌ¨¹ÜÀíÈ¨ÏÞ</font>"
     End If %><br><br><br>
 <img src='IMAGES/SMALL/XX.GIF' border=0><br><br><br>
-<font class=red>æ¬¢è¿Žç®¡ç†å‘˜ï¼ˆ<font class=blue><b><% Response.Write Session("beyondest_online_admines") %></b></font>ï¼‰çš„ç™»é™†</font>
+<font class=red>»¶Ó­¹ÜÀíÔ±£¨<font class=blue><b><% Response.Write Session("beyondest_online_admines") %></b></font>£©µÄµÇÂ½</font>
 </td><td width='70%'>
   <table border=1 width='100%' cellspacing=0 cellpadding=1<% Response.Write table1 %>>
-  <tr><td colspan=2 align=center bgcolor=#ffffff class=red_3>æœåŠ¡å™¨çš„æœ‰å…³å‚æ•°</td></tr>
-  <tr><td>&nbsp;æœåŠ¡å™¨åï¼š</td><td>&nbsp;<% Response.Write Request.ServerVariables("SERVER_NAME") %></td></tr>
-  <tr><td>&nbsp;æœåŠ¡å™¨IPï¼š</td><td>&nbsp;<% Response.Write Request.ServerVariables("LOCAL_ADDR") %></td></tr>
-  <tr><td>&nbsp;æœåŠ¡å™¨ç«¯å£ï¼š</td><td>&nbsp;<% Response.Write Request.ServerVariables("SERVER_PORT") %></td></tr>
-  <tr><td>&nbsp;æœåŠ¡å™¨æ—¶é—´ï¼š</td><td>&nbsp;<% Response.Write Now %></td></tr>
-  <tr><td>&nbsp;IISç‰ˆæœ¬ï¼š</td><td>&nbsp;<% Response.Write Request.ServerVariables("SERVER_SOFTWARE") %></td></tr>
-  <tr><td>&nbsp;æœåŠ¡å™¨æ“ä½œç³»ç»Ÿï¼š</td><td>&nbsp;<% Response.Write Request.ServerVariables("OS") %></td></tr>
-  <tr><td>&nbsp;è„šæœ¬è¶…æ—¶æ—¶é—´ï¼š</td><td>&nbsp;<% Response.Write Server.ScriptTimeout %> ç§’</td></tr>
-  <tr><td>&nbsp;ç«™ç‚¹ç‰©ç†è·¯å¾„ï¼š</td><td>&nbsp;<% Response.Write Request.ServerVariables("APPL_PHYSICAL_PATH") %></td></tr>
-  <tr><td>&nbsp;æœåŠ¡å™¨CPUæ•°é‡ï¼š</td><td>&nbsp;<% Response.Write Request.ServerVariables("NUMBER_OF_PROCESSORS") %> ä¸ª</td></tr>
-  <tr><td>&nbsp;æœåŠ¡å™¨è§£è¯‘å¼•æ“Žï¼š</td><td>&nbsp;<% Response.Write ScriptEngine & "/" & ScriptEngineMajorVersion & "." & ScriptEngineMinorVersion & "." & ScriptEngineBuildVersion %></td></tr>
-  <tr><td colspan=2 align=center bgcolor=#ffffff class=red_3>ç»„ä»¶æ”¯æŒæœ‰å…³å‚æ•°</td></tr>
-  <tr><td>&nbsp;æ•°æ®åº“(ADO)æ”¯æŒï¼š</td><td>&nbsp;<% If object_install("adodb.connection") = False Then %><font class=red><b>Ã—</b></font> ï¼ˆä¸æ”¯æŒï¼‰<% Else %><b>âˆš</b> ï¼ˆæ”¯æŒï¼‰<% End If %></td></tr>
-  <tr><td>&nbsp;FSOæ–‡æœ¬è¯»å†™ï¼š</td><td>&nbsp;<% If object_install("scripting.filesystemobject") = False Then %><font class=red><b>Ã—</b></font> ï¼ˆä¸æ”¯æŒï¼‰<% Else %><b>âˆš</b> ï¼ˆæ”¯æŒï¼‰<% End If %></td></tr>
-  <tr><td>&nbsp;Streamæ–‡ä»¶æµï¼š</td><td>&nbsp;<% If object_install("Adodb.Stream") = False Then %><font class=red><b>Ã—</b></font> ï¼ˆä¸æ”¯æŒï¼‰<% Else %><b>âˆš</b> ï¼ˆæ”¯æŒï¼‰<% End If %></td></tr>
-  <tr><td>&nbsp;Jmailç»„ä»¶æ”¯æŒï¼š</td><td>&nbsp;<% If object_install("JMail.SMTPMail") = False Then %><font class=red><b>Ã—</b></font> ï¼ˆä¸æ”¯æŒï¼‰<% Else %><b>âˆš</b> ï¼ˆæ”¯æŒï¼‰<% End If %></td></tr>
-  <tr><td>&nbsp;CDONTSç»„ä»¶æ”¯æŒï¼š</td><td>&nbsp;<% If object_install("CDONTS.NewMail") = False Then %><font class=red><b>Ã—</b></font> ï¼ˆä¸æ”¯æŒï¼‰<% Else %><b>âˆš</b> ï¼ˆæ”¯æŒï¼‰<% End If %></td></tr>
+  <tr><td colspan=2 align=center bgcolor=#ffffff class=red_3>·þÎñÆ÷µÄÓÐ¹Ø²ÎÊý</td></tr>
+  <tr><td>&nbsp;·þÎñÆ÷Ãû£º</td><td>&nbsp;<% Response.Write Request.ServerVariables("SERVER_NAME") %></td></tr>
+  <tr><td>&nbsp;·þÎñÆ÷IP£º</td><td>&nbsp;<% Response.Write Request.ServerVariables("LOCAL_ADDR") %></td></tr>
+  <tr><td>&nbsp;·þÎñÆ÷¶Ë¿Ú£º</td><td>&nbsp;<% Response.Write Request.ServerVariables("SERVER_PORT") %></td></tr>
+  <tr><td>&nbsp;·þÎñÆ÷Ê±¼ä£º</td><td>&nbsp;<% Response.Write Now %></td></tr>
+  <tr><td>&nbsp;IIS°æ±¾£º</td><td>&nbsp;<% Response.Write Request.ServerVariables("SERVER_SOFTWARE") %></td></tr>
+  <tr><td>&nbsp;·þÎñÆ÷²Ù×÷ÏµÍ³£º</td><td>&nbsp;<% Response.Write Request.ServerVariables("OS") %></td></tr>
+  <tr><td>&nbsp;½Å±¾³¬Ê±Ê±¼ä£º</td><td>&nbsp;<% Response.Write Server.ScriptTimeout %> Ãë</td></tr>
+  <tr><td>&nbsp;Õ¾µãÎïÀíÂ·¾¶£º</td><td>&nbsp;<% Response.Write Request.ServerVariables("APPL_PHYSICAL_PATH") %></td></tr>
+  <tr><td>&nbsp;·þÎñÆ÷CPUÊýÁ¿£º</td><td>&nbsp;<% Response.Write Request.ServerVariables("NUMBER_OF_PROCESSORS") %> ¸ö</td></tr>
+  <tr><td>&nbsp;·þÎñÆ÷½âÒëÒýÇæ£º</td><td>&nbsp;<% Response.Write ScriptEngine & "/" & ScriptEngineMajorVersion & "." & ScriptEngineMinorVersion & "." & ScriptEngineBuildVersion %></td></tr>
+  <tr><td colspan=2 align=center bgcolor=#ffffff class=red_3>×é¼þÖ§³ÖÓÐ¹Ø²ÎÊý</td></tr>
+  <tr><td>&nbsp;Êý¾Ý¿â(ADO)Ö§³Ö£º</td><td>&nbsp;<% If object_install("adodb.connection") = False Then %><font class=red><b>¡Á</b></font> £¨²»Ö§³Ö£©<% Else %><b>¡Ì</b> £¨Ö§³Ö£©<% End If %></td></tr>
+  <tr><td>&nbsp;FSOÎÄ±¾¶ÁÐ´£º</td><td>&nbsp;<% If object_install("scripting.filesystemobject") = False Then %><font class=red><b>¡Á</b></font> £¨²»Ö§³Ö£©<% Else %><b>¡Ì</b> £¨Ö§³Ö£©<% End If %></td></tr>
+  <tr><td>&nbsp;StreamÎÄ¼þÁ÷£º</td><td>&nbsp;<% If object_install("Adodb.Stream") = False Then %><font class=red><b>¡Á</b></font> £¨²»Ö§³Ö£©<% Else %><b>¡Ì</b> £¨Ö§³Ö£©<% End If %></td></tr>
+  <tr><td>&nbsp;Jmail×é¼þÖ§³Ö£º</td><td>&nbsp;<% If object_install("JMail.SMTPMail") = False Then %><font class=red><b>¡Á</b></font> £¨²»Ö§³Ö£©<% Else %><b>¡Ì</b> £¨Ö§³Ö£©<% End If %></td></tr>
+  <tr><td>&nbsp;CDONTS×é¼þÖ§³Ö£º</td><td>&nbsp;<% If object_install("CDONTS.NewMail") = False Then %><font class=red><b>¡Á</b></font> £¨²»Ö§³Ö£©<% Else %><b>¡Ì</b> £¨Ö§³Ö£©<% End If %></td></tr>
   </table>
 </td></tr>
 </table><%
@@ -93,46 +93,46 @@ function left_menu(lm)
 <tr><td width=155 align=center>
   <table border=0 width='100%' cellspacing=0 cellpadding=2>
   <tr><td align=center><a href='main.asp' target=_blank><% Response.Write web_var(web_config,1) %></a></td></tr>
-  <tr><td align=center height=30><font class=red><b>åŽ å° ç®¡ ç† ç³» ç»Ÿ</b></font></td></tr>
+  <tr><td align=center height=30><font class=red><b>ºó Ì¨ ¹Ü Àí Ïµ Í³</b></font></td></tr>
   <tr><td height=1 bgcolor=<% Response.Write color2 %>></td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,2) %> style='CURSOR: HAND;' height=20 valign=bottom onclick="left_menu(1)"><font class=end><b>â‰¡ ç³» ç»Ÿ è®¾ ç½® â‰¡</b></font></td></tr>
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,2) %> style='CURSOR: HAND;' height=20 valign=bottom onclick="left_menu(1)"><font class=end><b>¡Ô Ïµ Í³ Éè ÖÃ ¡Ô</b></font></td></tr>
   <tr><td height=1 bgcolor=<% Response.Write color2 %>></td></tr>
   <tr id=left_sys><td align=center>
     <table border=0 cellspacing=0 cellpadding=2>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_user.asp'>ç”¨æˆ·ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_links.asp'>å‹æƒ…é“¾æŽ¥</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_vote.asp'>è°ƒæŸ¥ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_nsort.asp'>åˆ†ç±»ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_update.asp'>ç½‘ç«™æ›´æ–°</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_data.asp'>æ•°æ®æ›´æ–°</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_review.asp'>è¯„è®ºç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_upload_list.asp'>ä¸Šä¼ ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_config_edit.asp'>é…ç½®ä¿®æ”¹</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_sql.asp'>æ‰§è¡ŒSQL</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_popedom.asp'>æƒé™ç®¡ç†</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_user.asp'>ÓÃ»§¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_links.asp'>ÓÑÇéÁ´½Ó</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_vote.asp'>µ÷²é¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_nsort.asp'>·ÖÀà¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_update.asp'>ÍøÕ¾¸üÐÂ</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_data.asp'>Êý¾Ý¸üÐÂ</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_review.asp'>ÆÀÂÛ¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_upload_list.asp'>ÉÏ´«¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_config_edit.asp'>ÅäÖÃÐÞ¸Ä</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_sql.asp'>Ö´ÐÐSQL</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_popedom.asp'>È¨ÏÞ¹ÜÀí</a></td></tr>
     </table>
   </td></tr>
   <tr><td height=5></td></tr>
   <tr><td height=1 bgcolor=<% Response.Write color2 %>></td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,2) %> style='CURSOR: HAND;' height=20 valign=bottom onclick="left_menu(2)" href="javsscript:;"><font class=end><b>â‰¡ ç‰ˆ é¢ ç®¡ ç† â‰¡</b></font></td></tr>
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,2) %> style='CURSOR: HAND;' height=20 valign=bottom onclick="left_menu(2)" href="javsscript:;"><font class=end><b>¡Ô °æ Ãæ ¹Ü Àí ¡Ô</b></font></td></tr>
   <tr><td height=1 bgcolor=<% Response.Write color2 %>></td></tr>
   <tr id=left_bm style="display:none;"><td align=center>
     <table border=0 cellspacing=0 cellpadding=2>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_forum.asp'>è®ºå›ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_news.asp'>æ–°é—»ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_article.asp'>æ–‡ç« ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_down.asp'>ä¸‹è½½ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_website.asp'>ç½‘ç«™æŽ¨è</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_vouch.asp'>è§†é¢‘ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_flash.asp'>Flashç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_desktop.asp'>å£çº¸ç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='admin_photo.asp'>ç›¸å†Œç®¡ç†</a></td></tr>
-    <tr><td><% Response.Write img_small("jt1") %><a href='gbook.asp' target=_blank>ç•™è¨€ç®¡ç†</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_forum.asp'>ÂÛÌ³¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_news.asp'>ÐÂÎÅ¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_article.asp'>ÎÄÕÂ¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_down.asp'>ÏÂÔØ¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_website.asp'>ÍøÕ¾ÍÆ¼ö</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_vouch.asp'>ÊÓÆµ¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_flash.asp'>Flash¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_desktop.asp'>±ÚÖ½¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='admin_photo.asp'>Ïà²á¹ÜÀí</a></td></tr>
+    <tr><td><% Response.Write img_small("jt1") %><a href='gbook.asp' target=_blank>ÁôÑÔ¹ÜÀí</a></td></tr>
     </table>
   </td></tr>
   <tr><td height=5></td></tr>
   <tr><td height=1 bgcolor=<% Response.Write color2 %>></td></tr>
-  <tr><td align=center height=20 valign=bottom bgcolor=<% Response.Write web_var(web_color,2) %>><a class=end href='admin_login.asp?action=logout' target=_top><b>â‰¡ é€€ å‡º ç®¡ ç† â‰¡</b></a></td></tr>
+  <tr><td align=center height=20 valign=bottom bgcolor=<% Response.Write web_var(web_color,2) %>><a class=end href='admin_login.asp?action=logout' target=_top><b>¡Ô ÍË ³ö ¹Ü Àí ¡Ô</b></a></td></tr>
   <tr><td height=1 bgcolor=<% Response.Write color2 %>></td></tr>
   <tr><td align=center height=25><% Response.Write web_edition %></td></tr>
   <tr><td align=center><% Response.Write web_label %></td></tr>
@@ -147,7 +147,7 @@ Sub admin_frame() %></head>
 <frameset framespacing="0" cols="157,*" border="0" frameborder="0">
   <noframes>
 <body topmargin="0" leftmargin="0">
-  <p>æ­¤ç½‘é¡µä½¿ç”¨äº†æ¡†æž¶ï¼Œä½†æ‚¨çš„æµè§ˆå™¨ä¸æ”¯æŒæ¡†æž¶ã€‚è¯·è®¿é—® <a href="<% Response.Write web_var(web_config,2) %>"><% Response.Write web_var(web_config,1) %></a></p>
+  <p>´ËÍøÒ³Ê¹ÓÃÁË¿ò¼Ü£¬µ«ÄúµÄä¯ÀÀÆ÷²»Ö§³Ö¿ò¼Ü¡£Çë·ÃÎÊ <a href="<% Response.Write web_var(web_config,2) %>"><% Response.Write web_var(web_config,1) %></a></p>
 </body>
   </noframes>
   <frame name="contents" target="main" src="admin.asp?action=left" scrolling="no" noresize>

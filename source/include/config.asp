@@ -1,7 +1,7 @@
 <% @LANGUAGE = "VBSCRIPT" CODEPAGE = "936" %>
 <%
 Option Explicit
-'Response.buffer=true 		'开启缓冲页面功能，只要把前面的引号去掉就可以开启了
+'Response.buffer=true 		'��������ҳ�湦�ܣ�ֻҪ��ǰ�������ȥ���Ϳ��Կ�����
 
 Dim web_config
 Dim web_cookies
@@ -62,7 +62,7 @@ Dim sk_img %>
 sk_bar         = 11:sk_bar_lf = 15:sk_class = "end":sk_jt = "jt0":space_mod = web_var(web_num,12):m_unit = web_var(web_config,8):now_time = time_type(Now(),9):timer_start = timer()
 web_label      = "<a href='http://beyondest.com/' target=_blank>Power by <b><font face=Arial color=#CC3300>Beyondest</font><font face=Arial>.Com</font></b></a>"
 redx           = "&nbsp;<font color='#ff0000'>*</font>&nbsp;":kong = "<table width='100%' height=2><tr><td></td></tr></table>":gang = "<table height=1 bgcolor=" & web_var(web_color,3) & " width='100%' cellspacing=0 cellpadding=0 border=0><tr><td></td></tr></table>":gang2 = "<table width=1 height='100%' bgcolor=" & web_var(web_color,3) & "><tr><td></td></tr></table>":web_edition = "Beyondest V3.6 Demo":ukong = "<table border=0><tr><td height=6></td></tr></table>"
-go_back        = "<a href='javascript:history.back(1)'>返回上一页</a>":closer = "<a href='javascript:self.close()'>『关闭窗口』</a>"
+go_back        = "<a href='javascript:history.back(1)'>������һҳ</a>":closer = "<a href='javascript:self.close()'>���رմ��ڡ�</a>"
 login_mode     = "":login_popedom = "":login_message = 0
 login_username = Trim(Request.cookies(web_cookies)("login_username"))
 login_password = Trim(Request.cookies(web_cookies)("login_password"))
@@ -252,15 +252,13 @@ Function format_menu(mvars)
 End Function
 
 Function format_user_power(uname,umode,pvar)
-    Dim admint:admint = format_power2(1
-    Dim 1):format_user_power = "yes"
+    dim admint:admint=format_power2(1,1):format_user_power="yes"
     If umode = admint Then Exit Function
     If InStr("|" & pvar & "|","|" & uname & "|") < 1 Then format_user_power = "no"
 End Function
 
 Function format_page_power(umode)
-    Dim unum:unum = format_power(umode
-    Dim 2):format_page_power = "yes"
+    dim unum:unum=format_power(umode,2):format_page_power="yes"
     If page_power = "" Then Exit Function
     If InStr("." & page_power & ".","." & unum & ".") < 1 Then format_page_power = "no"
 End Function
@@ -324,10 +322,8 @@ End Function
 
 Function power_pic(emon,pp,pt)
     power_pic = ""
-    If pt = 1 Then power_pic = "<font class=red_3>免费下载</font>&nbsp;&nbsp;&nbsp;"
-    Dim ddim
-    Dim j:ddim = Split(pp
-    Dim ".")
+    If pt = 1 Then power_pic = "<font class=red_3>�������</font>&nbsp;&nbsp;&nbsp;"
+    dim ddim,j:ddim=split(pp,".")
 
     For j = 0 To UBound(ddim)
 
@@ -398,7 +394,7 @@ End Function
 
 Function user_power_type(ptt)
     Dim pdim
-    Dim pn:user_power_type = "网站用户图例："
+    Dim pn:user_power_type = "��վ�û�ͼ����"
     pdim                = Split(user_power,"|")
 
     For pn = 0 To UBound(pdim)
@@ -406,7 +402,7 @@ Function user_power_type(ptt)
     Next
 
     Erase pdim
-    user_power_type = user_power_type & "&nbsp;&nbsp;" & img_small("icon_other") & "游客"
+    user_power_type = user_power_type & "&nbsp;&nbsp;" & img_small("icon_other") & "�ο�"
 End Function
 
 Function popedom_format(popedom_var,popedom_n)
@@ -416,10 +412,7 @@ Function popedom_format(popedom_var,popedom_n)
 End Function
 
 Sub emoney_notes(power,emoney,n_sort,iid,err_type,rss,conns,url)
-    Dim temp1:temp1 = emoney_note(power
-    Dim emoney
-    Dim n_sort
-    Dim iid)
+    dim temp1:temp1=emoney_note(power,emoney,n_sort,iid)
 
     If temp1 <> "yes" Then
         If Int(rss) = 1 Then rs.Close:Set rs = Nothing
@@ -429,7 +422,7 @@ Sub emoney_notes(power,emoney,n_sort,iid,err_type,rss,conns,url)
             Case "error"
                 Call cookies_type("power")
             Case "js" %><script language=javascript>
-alert("您没有足够的权限进行刚才的操作！\n\n点击返回……");
+alert("��û���㹻��Ȩ�޽��иղŵĲ�����\n\n������ء���");
 location.href='<% Response.Write url %>';
 </script><%
                 Response.End
@@ -524,7 +517,7 @@ End Function
 Function format_user_view(uuser,ut,uc)
     If Len(uuser) < 1 Then format_user_view = "<font class=gray>-----</font>":Exit Function
     If uc <> "" Then uc = " class=" & uc
-    format_user_view = "<a href='user_view.asp?username=" & Server.urlencode(uuser) & "' title='查看 " & uuser & " 的详细资料'"
+    format_user_view = "<a href='user_view.asp?username=" & Server.urlencode(uuser) & "' title='�鿴 " & uuser & " ����ϸ����'"
     If ut = 1 Then format_user_view = format_user_view & " target=_blank"
     format_user_view = format_user_view & uc & ">" & uuser & "</a>"
 End Function
@@ -549,11 +542,11 @@ Function img_small(snum)
 End Function
 
 Sub is_type() %>
-<% Response.Write img_small("isok") %>&nbsp;开放的主题&nbsp;
-<% Response.Write img_small("ishot") %>&nbsp;回复超过10贴&nbsp;
-<% Response.Write img_small("islock") %>&nbsp;锁定的主题&nbsp;
-<% Response.Write img_small("istop") & "&nbsp;" & img_small("istops") %>&nbsp;固顶、总固顶的主题&nbsp;
-<% Response.Write img_small("isgood") %>&nbsp;精华主题
+<% Response.Write img_small("isok") %>&nbsp;���ŵ�����&nbsp;
+<% Response.Write img_small("ishot") %>&nbsp;�ظ�����10��&nbsp;
+<% Response.Write img_small("islock") %>&nbsp;����������&nbsp;
+<% Response.Write img_small("istop") & "&nbsp;" & img_small("istops") %>&nbsp;�̶����̶ܹ�������&nbsp;
+<% Response.Write img_small("isgood") %>&nbsp;��������
 <%
 End Sub
 
@@ -561,11 +554,11 @@ Function left_action(jt,lat)
     Dim jtn:jtn = img_small(jt)
     left_action = vbcrlf & "<table border=0 width='100%' cellspacing=0 cellpadding=4 align=center class=fr>" & _
     vbcrlf & "<tr><td height=5 width='50%'></td><td width='50%'></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='user_action.asp?action=list'>用户列表</a></td><td>" & jtn & "<a href='online.asp'>与我在线</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='user_action.asp?action=top'>发贴排行</a></td><td>" & jtn & "<a href='user_action.asp?action=emoney'>积分排行</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='forum_action.asp?action=new'>论坛新贴</a></td><td>" & jtn & "<a href='forum_action.asp?action=hot'>热门话题</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='forum_action.asp?action=top'>论坛置顶</a></td><td>" & jtn & "<a href='forum_action.asp?action=good'>论坛精华</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='forum_action.asp?action=tim'>最新回复</a></td><td>" & jtn & "<a href='help.asp?action=forum'>论坛帮助</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='user_action.asp?action=list'>�û��б�</a></td><td>" & jtn & "<a href='online.asp'>��������</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='user_action.asp?action=top'>��������</a></td><td>" & jtn & "<a href='user_action.asp?action=emoney'>��������</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='forum_action.asp?action=new'>��̳����</a></td><td>" & jtn & "<a href='forum_action.asp?action=hot'>���Ż���</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='forum_action.asp?action=top'>��̳�ö�</a></td><td>" & jtn & "<a href='forum_action.asp?action=good'>��̳����</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='forum_action.asp?action=tim'>���»ظ�</a></td><td>" & jtn & "<a href='help.asp?action=forum'>��̳����</a></td></tr>" & _
     vbcrlf & "</table>"
 
     Select Case lat
@@ -576,7 +569,7 @@ Function left_action(jt,lat)
         Case 4
             left_action = "<table border=0 width='100%' cellspacing=0 cellpadding=0 align=center><tr><td align=center>" & kong & format_barc("<img src='images/" & web_var(web_config,5) & "/left_action.gif' border=0>",left_action,2,0,3) & "</td></tr></table>"
         Case Else
-            left_action = kong & format_barc("<font class=end><b>功能跳转</b></font>",left_action,2,0,9)
+            left_action = kong & format_barc("<font class=end><b>������ת</b></font>",left_action,2,0,9)
     End Select
 
 End Function
@@ -619,27 +612,27 @@ Sub main_stat(sh,sjt,sm,st,sbg)
     stat_temp     = "<table border=0 width='100%' align=center><tr><td height=2></td></tr>"
 
     If st = 1 Then
-        stat_temp = stat_temp & vbcrlf & "<tr><td>" & sjt & "网站版本：<font class=blue>" & web_var(web_stamp,Int(Mid(web_setup,3,1)) + 1) & "</font></td></tr>" & _
-        vbcrlf & "<tr><td>" & sjt & "新闻总数：<font class=red>" & num_news & "</font> 条</td></tr>" & _
-        vbcrlf & "<tr><td>" & sjt & "音乐总数：<font class=red>" & num_down & "</font> 个</td></tr>" & _
-        vbcrlf & "<tr><td>" & sjt & "视频总数：<font class=red>" & num_film & "</font> 个</td></tr>" & _
-        vbcrlf & "<tr><td>" & sjt & "Flash总数：<font class=red>" & num_flash & "</font> 个</td></tr>" & _
-        vbcrlf & "<tr><td>" & sjt & "照片总数：<font class=red>" & num_photo & "</font> 个</td></tr>" & _
-        vbcrlf & "<tr><td>" & sjt & "文章总数：<font class=red>" & num_article & "</font> 篇</td></tr>" & _
-        vbcrlf & "<tr><td>" & sjt & "壁纸总数：<font class=red>" & num_desktop & "</font> 张</td></tr>"
+        stat_temp = stat_temp & vbcrlf & "<tr><td>" & sjt & "��վ�汾��<font class=blue>" & web_var(web_stamp,Int(Mid(web_setup,3,1)) + 1) & "</font></td></tr>" & _
+        vbcrlf & "<tr><td>" & sjt & "����������<font class=red>" & num_news & "</font> ��</td></tr>" & _
+        vbcrlf & "<tr><td>" & sjt & "����������<font class=red>" & num_down & "</font> ��</td></tr>" & _
+        vbcrlf & "<tr><td>" & sjt & "��Ƶ������<font class=red>" & num_film & "</font> ��</td></tr>" & _
+        vbcrlf & "<tr><td>" & sjt & "Flash������<font class=red>" & num_flash & "</font> ��</td></tr>" & _
+        vbcrlf & "<tr><td>" & sjt & "��Ƭ������<font class=red>" & num_photo & "</font> ��</td></tr>" & _
+        vbcrlf & "<tr><td>" & sjt & "����������<font class=red>" & num_article & "</font> ƪ</td></tr>" & _
+        vbcrlf & "<tr><td>" & sjt & "��ֽ������<font class=red>" & num_desktop & "</font> ��</td></tr>"
     End If
 
-    stat_temp = stat_temp & vbcrlf & "<tr><td>" & sjt & "当前在线：<font class=red>" & online_num & "</font> 人</td></tr>" & _
-    vbcrlf & "<tr><td>" & sjt & "网站注册：<font class=red>" & num_reg & "</font> 人</td></tr>" & _
-    vbcrlf & "<tr><td>" & sjt & "最新注册：" & format_user_view(new_username,1,"") & "</td></tr>" & _
-    vbcrlf & "<tr><td>" & sjt & "主题总数：<font class=red>" & num_topic & "</font> 贴</td></tr>" & _
-    vbcrlf & "<tr><td>" & sjt & "贴子总数：<font class=red>" & num_data & "</font> 贴</td></tr>" & _
+    stat_temp = stat_temp & vbcrlf & "<tr><td>" & sjt & "��ǰ���ߣ�<font class=red>" & online_num & "</font> ��</td></tr>" & _
+    vbcrlf & "<tr><td>" & sjt & "��վע�᣺<font class=red>" & num_reg & "</font> ��</td></tr>" & _
+    vbcrlf & "<tr><td>" & sjt & "����ע�᣺" & format_user_view(new_username,1,"") & "</td></tr>" & _
+    vbcrlf & "<tr><td>" & sjt & "����������<font class=red>" & num_topic & "</font> ��</td></tr>" & _
+    vbcrlf & "<tr><td>" & sjt & "����������<font class=red>" & num_data & "</font> ��</td></tr>" & _
     vbcrlf & "<tr><td height=2></td></tr></table>"
 
     If st = 1 Then
         Call left_btype(stat_temp,"stat",sm,11)
     Else
-        Response.Write format_barc("<font class=end><b>数据统计</b></font>",stat_temp,2,0,5)
+        Response.Write format_barc("<font class=end><b>����ͳ��</b></font>",stat_temp,2,0,5)
     End If
 
 End Sub

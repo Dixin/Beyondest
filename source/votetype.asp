@@ -7,10 +7,10 @@
 ' ==================== %>
 <html>
 <head>
-<title><% Response.Write web_var(web_config,1) %> - 调查列表</title>
+<title><% Response.Write web_var(web_config,1) %> - �����б�</title>
 <meta name="Description"  content="Beyondest">
-<meta name="keywords" content="最全的Beyond资料,最好的Beyond网站,asp,Beyondest,笼民,书记">
-<meta name="author" content="笼民">
+<meta name="keywords" content="��ȫ��Beyond����,��õ�Beyond��վ,asp,Beyondest,����,���">
+<meta name="author" content="����">
 <meta http-equiv=Content-Type content=text/html; charset=gb2312>
 <link rel=stylesheet href="include/beyondest.css" type=text/css>
 </head>
@@ -59,9 +59,9 @@ Sub vote_save()
     Dim vvid:go_tim = web_var(web_num
     Dim 5)
 
-    If Trim(Request.cookies("beyondest_online")("vote_vid")) = "v" & vid Then %><font class=red_2>您已经投过一票！不可以重复多投……</font><br><br>
-<a href='votetype.asp?type=view&vid=<% Response.Write vid %>'>查看投票结果</a><br><br>
-<font class=gray>（系统将在 <font class=red><% Response.Write go_tim %></font> 秒钟后自动进入）</font><br><br>
+    If Trim(Request.cookies("beyondest_online")("vote_vid")) = "v" & vid Then %><font class=red_2>���Ѿ�Ͷ��һƱ���������ظ���Ͷ����</font><br><br>
+<a href='votetype.asp?type=view&vid=<% Response.Write vid %>'>�鿴ͶƱ���</a><br><br>
+<font class=gray>��ϵͳ���� <font class=red><% Response.Write go_tim %></font> ���Ӻ��Զ����룩</font><br><br>
 <meta http-equiv='refresh' content='<% Response.Write go_tim %>; url=votetype.asp?type=view&vid=<% Response.Write vid %>'>
 <% Exit Sub
         End If
@@ -99,9 +99,9 @@ Sub vote_save()
 
                 If j = 0 Then Call vote_error():Exit Sub
                     Response.cookies("beyondest_online")("vote_vid") = "v" & vid
-                    Call cookies_yes() %>！！！<font class=red>谢谢你的支持与参与</font>！！！<br><br>
-<a href='votetype.asp?type=view&vid=<% Response.Write vid %>'>查看投票结果</a><br><br>
-<font class=gray>（系统将在 <font class=red><% Response.Write go_tim %></font> 秒钟后自动进入）</font><br><br>
+                    Call cookies_yes() %>������<font class=red>лл���֧�������</font>������<br><br>
+<a href='votetype.asp?type=view&vid=<% Response.Write vid %>'>�鿴ͶƱ���</a><br><br>
+<font class=gray>��ϵͳ���� <font class=red><% Response.Write go_tim %></font> ���Ӻ��Զ����룩</font><br><br>
 <meta http-equiv='refresh' content='<% Response.Write go_tim %>; url=votetype.asp?type=view&vid=<% Response.Write vid %>'>
 <%
                 End Sub
@@ -138,7 +138,7 @@ Sub vote_save()
                         rs.Close:Set rs = Nothing %>
 <table border=0 width='96%' cellpadding=0 cellspacing=2 align=center>
 <tr><td align=center colspan=3 class=red_3 height=20><b><% Response.Write code_html(dimn(0),1,0) %></b></td></tr>
-<tr><td align=center colspan=3 class=gray>目前共有 <font class=blue><% Response.Write num %></font> 人参与了投票</td></tr>
+<tr><td align=center colspan=3 class=gray>Ŀǰ���� <font class=blue><% Response.Write num %></font> �˲�����ͶƱ</td></tr>
 <tr>
 <td></td>
 <td></td>
@@ -154,7 +154,7 @@ Sub vote_save()
                                 t = FormatPercent(dimc(i)/num,1)
                             End If %>
 <tr>
-<td height=18><% Response.Write i %>、<% Response.Write code_html(dimn(i),1,0) %> <font class=gray>(<font class=blue><% Response.Write dimc(i) %></font>)</font></td>
+<td height=18><% Response.Write i %>��<% Response.Write code_html(dimn(i),1,0) %> <font class=gray>(<font class=blue><% Response.Write dimc(i) %></font>)</font></td>
 <td align=right><img src='IMAGES/VOTE/BAR.GIF' width=<% Response.Write dimc(i) %> height=10></td>
 <td align=right><% Response.Write t %></td>
 </tr>
@@ -166,7 +166,7 @@ Sub vote_save()
                     End Sub
 
                     Sub vote_error() %>
-<font class=red>您可能没有选择相关的择票选项！</font><br><br><font class=red_2>或进行非法的提交了投票数据！</font>
+<font class=red>������û��ѡ����ص���Ʊѡ�</font><br><br><font class=red_2>����зǷ����ύ��ͶƱ���ݣ�</font>
 <br><br>
 <%
                         Response.Write closer

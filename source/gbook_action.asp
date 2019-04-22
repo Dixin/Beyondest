@@ -16,7 +16,7 @@ Dim retim
 id        = Trim(Request.querystring("id"))
 viewpage  = Trim(Request.querystring("page"))
 affirm    = Trim(Request.form("affirm"))
-tit       = "<a href='?action=reply&id=" & id & "&page=" & viewpage & "'>å›å¤ç•™è¨€</a>&nbsp;â”‹&nbsp;<a href='?action=delete&id=" & id & "&page=" & viewpage & "'>åˆ é™¤ç•™è¨€</a>"
+tit       = "<a href='?action=reply&id=" & id & "&page=" & viewpage & "'>»Ø¸´ÁôÑÔ</a>&nbsp;©¯&nbsp;<a href='?action=delete&id=" & id & "&page=" & viewpage & "'>É¾³ıÁôÑÔ</a>"
 
 html_temp = header( - 1,tit)
 
@@ -24,7 +24,7 @@ If action = "delete" Then
     html_temp = html_temp & "<script language=JavaScript><!--" & _
     vbcrlf & "function confirm_delete()" & _
     vbcrlf & "{" & _
-    vbcrlf & "if (confirm(""ä½ ç¡®å®šè¦åˆ é™¤è¿™æ¡ç•™è¨€å—ï¼Ÿ"")){ return true; }" & _
+    vbcrlf & "if (confirm(""ÄãÈ·¶¨ÒªÉ¾³ıÕâÌõÁôÑÔÂğ£¿"")){ return true; }" & _
     vbcrlf & "return false;" & _
     vbcrlf & "}" & _
     vbcrlf & "//--></script>" & _
@@ -37,13 +37,13 @@ Else
     vbcrlf & "function check(reply_form)" & _
     vbcrlf & "{" & _
     vbcrlf & "if( reply_form.reply_word.innertext == """" )" & _
-    vbcrlf & "  { alert(""å›å¤å†…å®¹æ˜¯å¿…é¡»è¦çš„ã€‚"");return false; }" & _
+    vbcrlf & "  { alert(""»Ø¸´ÄÚÈİÊÇ±ØĞëÒªµÄ¡£"");return false; }" & _
     vbcrlf & "if (reply_form.reply_word.value.length > 10000)" & _
-    vbcrlf & "  { alert(""å¯¹ä¸èµ·ï¼Œå›å¤å†…å®¹ä¸èƒ½è¶…è¿‡ 10000 ä¸ªå­—èŠ‚ï¼"");return false; }" & _
+    vbcrlf & "  { alert(""¶Ô²»Æğ£¬»Ø¸´ÄÚÈİ²»ÄÜ³¬¹ı 10000 ¸ö×Ö½Ú£¡"");return false; }" & _
     vbcrlf & "}" & _
     vbcrlf & "function reset(reply_form)" & _
     vbcrlf & "{" & _
-    vbcrlf & "  if (confirm(""è¯¥é¡¹æ“ä½œè¦æ¸…é™¤å…¨éƒ¨çš„å†…å®¹ï¼Œä½ ç¡®å®šè¦æ¸…é™¤å—?"")){ return true; }" & _
+    vbcrlf & "  if (confirm(""¸ÃÏî²Ù×÷ÒªÇå³ıÈ«²¿µÄÄÚÈİ£¬ÄãÈ·¶¨ÒªÇå³ıÂğ?"")){ return true; }" & _
     vbcrlf & "  return false;" & _
     vbcrlf & "}" & _
     vbcrlf & "--></script>" & _
@@ -57,7 +57,7 @@ If affirm = "ok" Then
 
     If action = "delete" Then
         conn.Execute("Delete from gb_data where ID = " & id)
-        html_temp = html_temp & VbCrLf & "<br>å·²æˆåŠŸçš„åˆ é™¤IDä¸º<font class=red>" & id & " </font>æ¡ç•™è¨€ï¼<br><br>" & VbCrLf & "<a href=gbook.asp?page=" & viewpage & ">è¿”å›ç•™è¨€ç°¿</a><br><br>" & VbCrLf & "ï¼ˆç³»ç»Ÿå°†åœ¨ " & web_var(web_num,5) & " ç§’é’Ÿåè‡ªåŠ¨è¿”å›ï¼‰<br><br>" & _
+        html_temp = html_temp & VbCrLf & "<br>ÒÑ³É¹¦µÄÉ¾³ıIDÎª<font class=red>" & id & " </font>ÌõÁôÑÔ£¡<br><br>" & VbCrLf & "<a href=gbook.asp?page=" & viewpage & ">·µ»ØÁôÑÔ²¾</a><br><br>" & VbCrLf & "£¨ÏµÍ³½«ÔÚ " & web_var(web_num,5) & " ÃëÖÓºó×Ô¶¯·µ»Ø£©<br><br>" & _
         VbCrLf & "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=gbook.asp?page=" & viewpage & "'>"
     Else
         reicon = Request.form("reply_icon")
@@ -68,14 +68,14 @@ If affirm = "ok" Then
         rs.open sql,conn,1,3
 
         If rs.eof And rs.bof Then
-            html_temp      = html_temp & vbcrlf & "<p>æ“ä½œé”™è¯¯ï¼Œæ‰¾ä¸åˆ°åºå·ä¸º" & id & "çš„ç•™è¨€ï¼Œå› æ­¤ä¸èƒ½è¿›è¡Œå›å¤æ“ä½œï¼</p>" & closer
+            html_temp      = html_temp & vbcrlf & "<p>²Ù×÷´íÎó£¬ÕÒ²»µ½ĞòºÅÎª" & id & "µÄÁôÑÔ£¬Òò´Ë²»ÄÜ½øĞĞ»Ø¸´²Ù×÷£¡</p>" & closer
         Else
             rs("re_icon") = reicon
             rs("re_word") = reword
             rs("re_tim") = retim
             rs.update
             rs.Close:Set rs = Nothing
-            html_temp = html_temp & vbcrlf & "<br>å·²æˆåŠŸçš„å›å¤IDä¸º<font class=red> " & id & " </font>æ¡ç•™è¨€ï¼" & VbCrLf & "<br><br><a href=gbook.asp?page=" & viewpage & ">è¿”å›ç•™è¨€ç°¿</a><br><br>" & VbCrLf & "ï¼ˆç³»ç»Ÿå°†åœ¨ " & web_var(web_num,5) & " ç§’é’Ÿåè‡ªåŠ¨è¿”å›ï¼‰<br><br>" & _
+            html_temp = html_temp & vbcrlf & "<br>ÒÑ³É¹¦µÄ»Ø¸´IDÎª<font class=red> " & id & " </font>ÌõÁôÑÔ£¡" & VbCrLf & "<br><br><a href=gbook.asp?page=" & viewpage & ">·µ»ØÁôÑÔ²¾</a><br><br>" & VbCrLf & "£¨ÏµÍ³½«ÔÚ " & web_var(web_num,5) & " ÃëÖÓºó×Ô¶¯·µ»Ø£©<br><br>" & _
             VbCrLf & "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=gbook.asp?page=" & viewpage & "'>"
         End If
 
@@ -86,27 +86,27 @@ Else
     If action = "delete" Then
         html_temp = html_temp & VbCrLf & "<table border=0 width=100% cellpadding=0 cellspacing=0>" & _
         vbcrlf & "<tr><td align=center bgcolor=" & web_var(web_color,2) & " height=20>" & _
-        vbcrlf & "<font class=end><b>åˆ  é™¤ ç•™ è¨€</b></font>" & _
+        vbcrlf & "<font class=end><b>É¾ ³ı Áô ÑÔ</b></font>" & _
         vbcrlf & "</td></tr>" & _
         vbcrlf & "<tr><form name=reply_form method=POST action='?action=" & action & "&id=" & id & "&page=" & viewpage & "'>" & _
         vbcrlf & "<input type=hidden name=affirm value='ok'>" & _
         vbcrlf & "<td height=50 align=center>" & _
-        vbcrlf & "æ­¤æ“ä½œå°†åˆ é™¤idä¸º<font class=red> " & id & " </font>çš„ç•™è¨€ï¼æ˜¯å¦ç¡®å®šï¼Ÿï¼" & _
+        vbcrlf & "´Ë²Ù×÷½«É¾³ıidÎª<font class=red> " & id & " </font>µÄÁôÑÔ£¡ÊÇ·ñÈ·¶¨£¿£¡" & _
         vbcrlf & "</td></tr>" & _
         vbcrlf & "<tr><td align=center>" & _
-        vbcrlf & "<input type=submit value=' ç¡® å®š ' onclick=""return confirm_delete()"">&nbsp;&nbsp;" & _
-        vbcrlf & "<input type=button value=' å– æ¶ˆ ' onclick='javascript:history.back(1)'> " & _
+        vbcrlf & "<input type=submit value=' È· ¶¨ ' onclick=""return confirm_delete()"">&nbsp;&nbsp;" & _
+        vbcrlf & "<input type=button value=' È¡ Ïû ' onclick='javascript:history.back(1)'> " & _
         vbcrlf & "</td></tr>"
     Else
         html_temp = html_temp & vbcrlf & "<table border=0 cellpadding=0 cellspacing=0 width=550>" & _
         vbcrlf & "<tr><form name=reply_form method=POST action='?action=" & action & "&id=" & id & "&page=" & viewpage & "'>" & _
         vbcrlf & "<input type=hidden name=affirm value='ok'>" & _
         vbcrlf & "<td align=center colspan=2 bgcolor=" & web_var(web_color,2) & " height=20>" & _
-        vbcrlf & "<font class=end><b>å› å¤ ç•™ è¨€</b></font></td></tr>" & _
+        vbcrlf & "<font class=end><b>»Ø ¸´ Áô ÑÔ</b></font></td></tr>" & _
         vbcrlf & "<tr><td height=15 colspan=2>  </td></tr>" & _
-        vbcrlf & "<tr><td align=center height=30 colspan=2>äº›æ“ä½œå°†å›å¤IDä¸º<font class=red>  " & Request("id") & " </font>æ¡ç•™è¨€</td></tr>" & _
-        vbcrlf & "<tr><td align=center width=80 height=10>ã€€</td><td align=left width=440>  </td></tr>" & _
-        vbcrlf & "<tr><td align=center height=25>è¡¨æƒ…å›¾æ ‡: </td><td align=left>" & _
+        vbcrlf & "<tr><td align=center height=30 colspan=2>Ğ©²Ù×÷½«»Ø¸´IDÎª<font class=red>  " & Request("id") & " </font>ÌõÁôÑÔ</td></tr>" & _
+        vbcrlf & "<tr><td align=center width=80 height=10>¡¡</td><td align=left width=440>  </td></tr>" & _
+        vbcrlf & "<tr><td align=center height=25>±íÇéÍ¼±ê: </td><td align=left>" & _
         vbcrlf & "<img border=0 src='images/icon/0.gif'>" & _
         vbcrlf & "<input type=radio value=0 name=reply_icon checked class=bg_1>" & _
         vbcrlf & "<img border=0 src='images/icon/1.gif'>" & _
@@ -128,7 +128,7 @@ Else
         vbcrlf & "<img border=0 src='images/icon/9.gif'>" & _
         vbcrlf & "<input type=radio value=9 name=reply_icon class=bg_1>" & _
         vbcrlf & "</td></tr>" & _
-        vbcrlf & "<tr><td align=center valign=top><br>å›å¤ç•™è¨€:<br><br>" & web_var(web_error,3) & "<br><br>ç•™è¨€<=10KB</td>" & _
+        vbcrlf & "<tr><td align=center valign=top><br>»Ø¸´ÁôÑÔ:<br><br>" & web_var(web_error,3) & "<br><br>ÁôÑÔ<=10KB</td>" & _
         vbcrlf & "<td align=left>" & _
         vbcrlf & "<table border=0 cellpadding=0 cellspacing=0 width='100%'>" & _
         vbcrlf & "<tr><td>" & _
@@ -136,8 +136,8 @@ Else
         vbcrlf & "</td></tr>" & _
         vbcrlf & "<tr><td align=center colspan=2></td></tr>" & _
         vbcrlf & "<tr><td align=center colspan=2 height=50>" & _
-        vbcrlf & "<input type=submit value=' ç‚¹ å‡» å› å¤ ' onclick=""return check(this.form)"">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " & _
-        vbcrlf & "<input type=reset value=' é‡ å†™ ' onclick=""return reset()"">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=button value=' å– æ¶ˆ ' onclick='javascript:history.back(1)'>" & _
+        vbcrlf & "<input type=submit value=' µã »÷ »Ø ¸´ ' onclick=""return check(this.form)"">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " & _
+        vbcrlf & "<input type=reset value=' ÖØ Ğ´ ' onclick=""return reset()"">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=button value=' È¡ Ïû ' onclick='javascript:history.back(1)'>" & _
         vbcrlf & "</td></form></tr>" & _
         vbcrlf & "</table>"
     End If

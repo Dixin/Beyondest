@@ -86,8 +86,8 @@ Sub article_view_about() %>
 <tr><td height=30 align=center>
   <table border=0 width='98%'>
   <tr>
-  <td class=red_3><b>â†’&nbsp;ä¸»é¢˜æ‰€å±åˆ†ç±»ï¼š</b>&nbsp;&nbsp;<a href='article_list.asp?c_id=<% Response.Write cid %>'><% Response.Write cname %></a>&nbsp;â†’&nbsp;<a href='article_list.asp?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>'><% Response.Write sname %></a></td>
-  <td class=red_3 align=right>â†’&nbsp;<% Response.Write closer %></td>
+  <td class=red_3><b>¡ú&nbsp;Ö÷ÌâËùÊô·ÖÀà£º</b>&nbsp;&nbsp;<a href='article_list.asp?c_id=<% Response.Write cid %>'><% Response.Write cname %></a>&nbsp;¡ú&nbsp;<a href='article_list.asp?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>'><% Response.Write sname %></a></td>
+  <td class=red_3 align=right>¡ú&nbsp;<% Response.Write closer %></td>
   </tr>
   </table>
 </td></tr>
@@ -123,7 +123,7 @@ Sub article_list(n_num,c_num,timt,et)
     If sea_type <> "username" Then sea_type = "topic"
     Call cid_sid_sql(2,sea_type) %>
 <table border=0 width='100%' cellspacing=0 cellpadding=0>
-<tr ><td bgcolor=<% = web_var(web_color,2) %>  width='100'><table border=0 width='100%' cellspacing=0 cellpadding=0><tr height=25><td align=center><font class=red><b>ä¸€çº§åˆ†ç±»</b></font></td></tr><tr><td><% = gang %></td></tr></table></td><%
+<tr ><td bgcolor=<% = web_var(web_color,2) %>  width='100'><table border=0 width='100%' cellspacing=0 cellpadding=0><tr height=25><td align=center><font class=red><b>Ò»¼¶·ÖÀà</b></font></td></tr><tr><td><% = gang %></td></tr></table></td><%
     sql      = "select c_name,c_id from jk_class where nsort='" & n_sort & "' order by c_order"
     Set rs   = conn.execute(sql)
 
@@ -145,7 +145,7 @@ Sub article_list(n_num,c_num,timt,et)
     rs.Close %></td></tr></table>
 <% If ss = 1 Then %>
 <table border=0 width='100%' cellspacing=0 cellpadding=0>
-  <tr height=25  align=center><td bgcolor=<% = web_var(web_color,2) %> width='100'><font class=red><b>äºŒçº§åˆ†ç±»</b></font></td><td width=1 bgcolor=<% = web_var(web_color,3) %>></td><%
+  <tr height=25  align=center><td bgcolor=<% = web_var(web_color,2) %> width='100'><font class=red><b>¶ş¼¶·ÖÀà</b></font></td><td width=1 bgcolor=<% = web_var(web_color,3) %>></td><%
     sql     = "select s_name,s_id from jk_sort where c_id=" & cid & " order by s_order"
     Set rs  = conn.execute(sql)
 
@@ -164,10 +164,10 @@ End If %>
 <table border=0 width='100%'  cellspacing=0 cellpadding=0>
   <tr><td colspan=4><% = gang %></td></tr>
   <tr align=center height=27>
-  <td width='7%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>åºå·</b></td>
-  <td width='63%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>æ–‡ç« ä¸»é¢˜</b></td>
-  <td width='10%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ç‚¹å‡»æ¬¡æ•°</b></td>
-  <td width='20%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>æµè§ˆæƒé™</b></td>
+  <td width='7%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ĞòºÅ</b></td>
+  <td width='63%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ÎÄÕÂÖ÷Ìâ</b></td>
+  <td width='10%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>µã»÷´ÎÊı</b></td>
+  <td width='20%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ä¯ÀÀÈ¨ÏŞ</b></td>
   </tr>
 <%
 Set rs   = Server.CreateObject("adodb.recordset")
@@ -191,7 +191,7 @@ For i = 1 To nummer
     topic = rs("topic"):tim = rs("tim")
     Response.Write vbcrlf & "  <tr>" & _
     vbcrlf & "  <td height=25 bgcolor=" & web_var(web_color,6) & ">&nbsp;&nbsp;" & i + (viewpage - 1)*nummer & ".</td>" & _
-    vbcrlf & "  <td>&nbsp;&nbsp;<a href='article_view.asp?id=" & rs("id") & "'" & atb & " title='æ–‡ç« æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>æ•´ç†æ—¶é—´ï¼š" & rs("tim") & "'>" & code_html(topic,1,c_num) & "</a>" & format_end(et,"<font class=gray>" & time_type(tim,timt) & "</font>,<font class=blue>" & rs("counter") & "</font>") & "</td>" & _
+    vbcrlf & "  <td>&nbsp;&nbsp;<a href='article_view.asp?id=" & rs("id") & "'" & atb & " title='ÎÄÕÂ±êÌâ£º" & code_html(topic,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ÕûÀíÊ±¼ä£º" & rs("tim") & "'>" & code_html(topic,1,c_num) & "</a>" & format_end(et,"<font class=gray>" & time_type(tim,timt) & "</font>,<font class=blue>" & rs("counter") & "</font>") & "</td>" & _
     vbcrlf & "  <td class=red_3 align=center  bgcolor=" & web_var(web_color,6) & ">" & rs("counter") & "</td>" & _
     vbcrlf & "  <td>" & power_pic(0,rs("power"),0) & "</td></tr><tr><td height=1 colspan=4 background='images/bg_dian.gif'></td></tr>"
     rs.movenext
@@ -202,9 +202,9 @@ rs.Close:Set rs = Nothing %>
 <table border=0 width='100%'  cellspacing=0 cellpadding=0>
 <tr><td align=center colspan=2><% = gang %></td></tr>
 <tr><td align=left height=30>&nbsp;
-æœ¬åˆ†ç±»å…±æœ‰&nbsp;<font class=red><% Response.Write rssum %></font>&nbsp;ç¯‡æ–‡ç« </td><td align=right>
-é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>&nbsp;
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,8,"#ff0000") %>
+±¾·ÖÀà¹²ÓĞ&nbsp;<font class=red><% Response.Write rssum %></font>&nbsp;ÆªÎÄÕÂ</td><td align=right>
+Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>&nbsp;
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,8,"#ff0000") %>
 </td></tr>
 </table>
 <%
@@ -222,9 +222,9 @@ temp1 = vbcrlf & "<table border=0 cellspacing=0 cellpadding=0 align=center>" & _
 vbcrlf & "<script language=javascript><!--" & _
 vbcrlf & "function article_sea()" & _
 vbcrlf & "{" & _
-vbcrlf & "  if (article_sea_frm.keyword.value==""è¯·è¾“å…¥å…³é”®å­—"")" & _
+vbcrlf & "  if (article_sea_frm.keyword.value==""ÇëÊäÈë¹Ø¼ü×Ö"")" & _
 vbcrlf & "  {" & _
-vbcrlf & "    alert(""è¯·åœ¨æœç´¢æ–°é—»å‰å…ˆè¾“å…¥è¦æŸ¥è¯¢çš„ å…³é”®å­— ï¼"");" & _
+vbcrlf & "    alert(""ÇëÔÚËÑË÷ĞÂÎÅÇ°ÏÈÊäÈëÒª²éÑ¯µÄ ¹Ø¼ü×Ö £¡"");" & _
 vbcrlf & "    article_sea_frm.keyword.focus();" & _
 vbcrlf & "    return false;" & _
 vbcrlf & "  }" & _
@@ -232,9 +232,9 @@ vbcrlf & "}" & _
 vbcrlf & "--></script>" & _
 vbcrlf & "<form name=article_sea_frm action='article_list.asp' method=get onsubmit=""return article_sea()"">" & _
 vbcrlf & "<tr><td height=5></td></tr><tr align=center>" & _
-vbcrlf & "<td>æœç´¢é€‰é¡¹ï¼š</td>" & _
-vbcrlf & "<td>&nbsp;&nbsp;<select name=sea_type sizs=1><option value='topic'>æ–‡ç« æ ‡é¢˜</option><option value='username'>å‘å¸ƒäºº</option></seelct></td>" & _
-vbcrlf & "<td>&nbsp;&nbsp;<select name=c_id sizs=1><option value=''>å…¨éƒ¨åˆ†ç±»</option>"
+vbcrlf & "<td>ËÑË÷Ñ¡Ïî£º</td>" & _
+vbcrlf & "<td>&nbsp;&nbsp;<select name=sea_type sizs=1><option value='topic'>ÎÄÕÂ±êÌâ</option><option value='username'>·¢²¼ÈË</option></seelct></td>" & _
+vbcrlf & "<td>&nbsp;&nbsp;<select name=c_id sizs=1><option value=''>È«²¿·ÖÀà</option>"
 sql           = "select c_id,c_name from jk_class where nsort='" & n_sort & "' order by c_order,c_id"
 Set rs        = conn.execute(sql)
 
@@ -250,7 +250,7 @@ Do While Not rs.eof
         nid2  = rs2(0)
         temp1 = temp1 & vbcrlf & "<option value='" & nid & "&s_id=" & nid2 & "'"
         If sid = nid2 Then temp1 = temp1 & " selected"
-        temp1 = temp1 & ">ã€€" & rs2(1) & "</option>"
+        temp1 = temp1 & ">¡¡" & rs2(1) & "</option>"
         rs2.movenext
     Loop
 
@@ -260,10 +260,10 @@ Loop
 
 rs.Close:Set rs = Nothing
 temp1 = temp1 & vbcrlf & "</select></td>" & _
-vbcrlf & "<td>&nbsp;&nbsp;<input type=text name=keyword value='è¯·è¾“å…¥å…³é”®å­—' onfocus=""if (value =='è¯·è¾“å…¥å…³é”®å­—'){value =''}"" onblur=""if (value ==''){value='è¯·è¾“å…¥å…³é”®å­—'}"" size=20 maxlength=20></td>" & _
+vbcrlf & "<td>&nbsp;&nbsp;<input type=text name=keyword value='ÇëÊäÈë¹Ø¼ü×Ö' onfocus=""if (value =='ÇëÊäÈë¹Ø¼ü×Ö'){value =''}"" onblur=""if (value ==''){value='ÇëÊäÈë¹Ø¼ü×Ö'}"" size=20 maxlength=20></td>" & _
 vbcrlf & "<td>&nbsp;&nbsp;<input type=image src='images/small/search_go.gif' border=0></td></tr>" & _
 vbcrlf & "</form><tr><td height=5></td></tr></table>"
-Response.Write format_barc("<font class=end><b>æ–‡ç« æœç´¢</b></font>",temp1,1,1,3)
+Response.Write format_barc("<font class=end><b>ÎÄÕÂËÑË÷</b></font>",temp1,1,1,3)
 End Sub
 
 Sub article_left_hot(n_jt,n_num,c_num,et,ct)
@@ -278,14 +278,14 @@ Set rs    = conn.execute(sql)
 
 Do While Not rs.eof
     topic = rs("topic")
-    ltemp = ltemp & vbcrlf & "<tr><td height=" & space_mod & ">" & n_jt & "<a href='article_view.asp?id=" & rs("id") & "'" & atb & " title='æ–‡ç« æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>æ•´ç†æ—¶é—´ï¼š" & rs("tim") & "'>" & code_html(topic,1,c_num) & "</a>" & format_end(et,"<font class=red>" & rs("counter") & "</font>") & "</td></tr>"
+    ltemp = ltemp & vbcrlf & "<tr><td height=" & space_mod & ">" & n_jt & "<a href='article_view.asp?id=" & rs("id") & "'" & atb & " title='ÎÄÕÂ±êÌâ£º" & code_html(topic,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ÕûÀíÊ±¼ä£º" & rs("tim") & "'>" & code_html(topic,1,c_num) & "</a>" & format_end(et,"<font class=red>" & rs("counter") & "</font>") & "</td></tr>"
     rs.movenext
 Loop
 
 rs.Close:Set rs = Nothing
 ltemp = ltemp & vbcrlf & "</table>"
-'response.write kong & format_barc("<font class=end><b>ç‚¹å‡»æ’è¡Œ</b></font>",ltemp,0,0,0,web_var(web_color,2)&"||images/bg2.gif","")
-Response.Write format_barc("<font class=end><b>çƒ­é—¨æ–‡ç« </b></font>",ltemp,3,0,5)
+'response.write kong & format_barc("<font class=end><b>µã»÷ÅÅĞĞ</b></font>",ltemp,0,0,0,web_var(web_color,2)&"||images/bg2.gif","")
+Response.Write format_barc("<font class=end><b>ÈÈÃÅÎÄÕÂ</b></font>",ltemp,3,0,5)
 End Sub
 
 Sub article_left_new(n_jt,n_num,c_num,et,ct,tt)
@@ -301,11 +301,11 @@ Set rs    = conn.execute(sql)
 
 Do While Not rs.eof
     topic = rs("topic"):tim = rs("tim")
-    ltemp = ltemp & vbcrlf & "<tr><td height=" & space_mod & ">" & n_jt & "<a href='article_view.asp?id=" & rs("id") & "'" & atb & " title='æ–‡ç« æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>æ•´ç†æ—¶é—´ï¼š" & tim & "'>" & code_html(topic,1,c_num) & "</a>" & format_end(et,time_type(tim,tt)) & "</td></tr>"
+    ltemp = ltemp & vbcrlf & "<tr><td height=" & space_mod & ">" & n_jt & "<a href='article_view.asp?id=" & rs("id") & "'" & atb & " title='ÎÄÕÂ±êÌâ£º" & code_html(topic,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ÕûÀíÊ±¼ä£º" & tim & "'>" & code_html(topic,1,c_num) & "</a>" & format_end(et,time_type(tim,tt)) & "</td></tr>"
     rs.movenext
 Loop
 
 rs.Close:Set rs = Nothing
 ltemp = ltemp & vbcrlf & "</table>"
-Response.Write format_barc("<font class=end><b>æœ€è¿‘æ›´æ–°</b></font>",ltemp,3,0,7)
+Response.Write format_barc("<font class=end><b>×î½ü¸üĞÂ</b></font>",ltemp,3,0,7)
 End Sub %>

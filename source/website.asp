@@ -10,7 +10,7 @@ Dim nid
 Dim url
 Dim name
 nummer = web_var(web_num,4):n_sort = "web"
-tit    = "ç½‘ç«™æ¨è"
+tit    = "ÍøÕ¾ÍÆ¼ö"
 
 If action = "view" And IsNumeric(id) Then
     sql     = "select url from website where id=" & id
@@ -32,7 +32,7 @@ End If
 Call web_head(0,0,0,0,0)
 '------------------------------------left----------------------------------
 Call format_login()
-Call vouch_skin("ç½‘ç«™åˆ†ç±»","<table border=0 width='60%' align=center><tr><td>" & nsort_left(n_sort,cid,sid,"?",1) & "</td></tr></table>","",1)
+Call vouch_skin("ÍøÕ¾·ÖÀà","<table border=0 width='60%' align=center><tr><td>" & nsort_left(n_sort,cid,sid,"?",1) & "</td></tr></table>","",1)
 Call vouch_left("jt12","jt1")
 '----------------------------------left end--------------------------------
 Call web_center(0)
@@ -69,12 +69,12 @@ Call format_pagecute() %>
 <tr><td colspan=3 height=30 align=center>
   <table border=0 width='98%'>
   <tr>
-  <td>é€‰æ‹©æ’åºæ–¹å¼ï¼š</td>
+  <td>Ñ¡ÔñÅÅĞò·½Ê½£º</td>
   <td><select onchange="if(this.options[this.selectedIndex].value!=''){location=this.options[this.selectedIndex].value;}">
-<option value='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=default'<% If action = "" Then Response.Write " selected" %>>&nbsp;&nbsp;æŒ‰é»˜è®¤æ’åº&nbsp;&nbsp;</option>
-<option value='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=counter'<% If action = "counter" Then Response.Write " selected" %>>&nbsp;&nbsp;æŒ‰äººæ°”æ’åº&nbsp;&nbsp;</option>
-<option value='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=tim'<% If action = "tim" Then Response.Write " selected" %>>&nbsp;&nbsp;æŒ‰æ—¶é—´æ’åº&nbsp;&nbsp;</option>
-<option value='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=id'<% If action = "id" Then Response.Write " selected" %>>&nbsp;&nbsp;æŒ‰å…ˆåæ’åº&nbsp;&nbsp;</option>
+<option value='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=default'<% If action = "" Then Response.Write " selected" %>>&nbsp;&nbsp;°´Ä¬ÈÏÅÅĞò&nbsp;&nbsp;</option>
+<option value='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=counter'<% If action = "counter" Then Response.Write " selected" %>>&nbsp;&nbsp;°´ÈËÆøÅÅĞò&nbsp;&nbsp;</option>
+<option value='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=tim'<% If action = "tim" Then Response.Write " selected" %>>&nbsp;&nbsp;°´Ê±¼äÅÅĞò&nbsp;&nbsp;</option>
+<option value='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=id'<% If action = "id" Then Response.Write " selected" %>>&nbsp;&nbsp;°´ÏÈºóÅÅĞò&nbsp;&nbsp;</option>
 </select></td>
   <td align=right>
     <table border=0>
@@ -84,14 +84,14 @@ Call format_pagecute() %>
     <input type=hidden name=s_id value='<% Response.Write sid %>'>
     <input type=hidden name=page value='<% Response.Write viewpage %>'>
     <tr>
-    <td>ç½‘ç«™æœç´¢ï¼š</td>
+    <td>ÍøÕ¾ËÑË÷£º</td>
     <td><select name=sea_type size=1>
-<option value='name'<% If sea_type = "'name" Then Response.Write " selected" %>>æŒ‰åç§°</option>
-<option value='remark'<% If sea_type = "remark" Then Response.Write " selected" %>>æŒ‰ä»‹ç»</option>
-<option value='username'<% If sea_type = "username" Then Response.Write " selected" %>>æŒ‰æ¨èäºº</option>
+<option value='name'<% If sea_type = "'name" Then Response.Write " selected" %>>°´Ãû³Æ</option>
+<option value='remark'<% If sea_type = "remark" Then Response.Write " selected" %>>°´½éÉÜ</option>
+<option value='username'<% If sea_type = "username" Then Response.Write " selected" %>>°´ÍÆ¼öÈË</option>
 </select></td>
     <td><input type=text name=keyword value='<% Response.Write keyword %>' size=15 maxlength=20></td>
-    <td>&nbsp;<input type=submit value='æœ ç´¢'></td>
+    <td>&nbsp;<input type=submit value='ËÑ Ë÷'></td>
     </tr>
     </table>
   </td>
@@ -101,8 +101,8 @@ Call format_pagecute() %>
 <tr><td colspan=3 height=1 background='IMAGES/BG_DIAN.GIF'></td></tr>
 <tr><td align=center height=30>
   <table border=0 width='98%' cellspacing=0 cellpadding=0>
-  <tr align=center valign=bottom><td width='30%'>ç°åœ¨æœ‰<font class=red><% Response.Write rssum %></font>æ¡è®°å½•â”‹æ¯é¡µ<font class=red><% Response.Write nummer %></font>ä¸ª</td>
-  <td width='70%'>é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font> åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td></tr>
+  <tr align=center valign=bottom><td width='30%'>ÏÖÔÚÓĞ<font class=red><% Response.Write rssum %></font>Ìõ¼ÇÂ¼©¯Ã¿Ò³<font class=red><% Response.Write nummer %></font>¸ö</td>
+  <td width='70%'>Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font> ·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td></tr>
   </table>
 </td></tr>
 <tr><td height=1 background='IMAGES/BG_DIAN.GIF'></td></tr>

@@ -7,16 +7,16 @@
 // 
 // ====================
 
-// ====================é»˜è®¤è®¾ç½®å®šä¹‰.*********************
-tPopWait=10;		//åœç•™tWaitè±ªç§’åŽæ˜¾ç¤ºæç¤ºã€‚
-tPopShow = 10000;		//æ˜¾ç¤ºtShowè±ªç§’åŽå…³é—­æç¤º
+// ====================Ä¬ÈÏÉèÖÃ¶¨Òå.*********************
+tPopWait=10;		//Í£ÁôtWaitºÀÃëºóÏÔÊ¾ÌáÊ¾¡£
+tPopShow = 10000;		//ÏÔÊ¾tShowºÀÃëºó¹Ø±ÕÌáÊ¾
 showPopStep = 20;
 popOpacity = 95;
 fontcolor = "#000000";
 bgcolor = "#EDEDED";
 bordercolor = "#247624";
 
-// ====================å†…éƒ¨å˜é‡å®šä¹‰*****************
+// ====================ÄÚ²¿±äÁ¿¶¨Òå*****************
 sPop = null; curShow = null; tFadeOut = null; tFadeIn = null; tFadeWaiting = null;
 
 document.write("<style type='text/css'id='defaultPopStyle'>");

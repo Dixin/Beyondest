@@ -55,9 +55,9 @@ Function counter_type(cmain,ct)
     conn.execute(sql)
 
     If cmain = "view" Then
-        counts = "æœ¬ç«™æ€»è®¿é—®é‡:&nbsp;<font class=red_3 title=ä»&nbsp;" & start_tim & "&nbsp;è‡³ä»Š>" & counters & "</font>&nbsp;äººæ¬¡" & _
-        "&nbsp;â”‹&nbsp;æœ€é«˜å³°&nbsp;<font class=red_3 title=æœ€é«˜å³°å‘ç”Ÿåœ¨ï¼š" & max_tim & ">" & max_online & "</font>&nbsp;äººåœ¨çº¿" & _
-        "&nbsp;â”‹&nbsp;å½“å‰æœ‰&nbsp;<font class=red_3>" & online_num & "</font>&nbsp;äººåœ¨çº¿"
+        counts = "±¾Õ¾×Ü·ÃÎÊÁ¿:&nbsp;<font class=red_3 title=´Ó&nbsp;" & start_tim & "&nbsp;ÖÁ½ñ>" & counters & "</font>&nbsp;ÈË´Î" & _
+        "&nbsp;©¯&nbsp;×î¸ß·å&nbsp;<font class=red_3 title=×î¸ß·å·¢ÉúÔÚ£º" & max_tim & ">" & max_online & "</font>&nbsp;ÈËÔÚÏß" & _
+        "&nbsp;©¯&nbsp;µ±Ç°ÓĞ&nbsp;<font class=red_3>" & online_num & "</font>&nbsp;ÈËÔÚÏß"
         counter_type = counts
     End If
 

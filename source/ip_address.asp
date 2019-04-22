@@ -34,19 +34,19 @@ Else
 End If
 
 If useres_port <> "yes" And useres_port <> "no" And IsNumeric(useres_port) Then
-    useres_port = "ç«¯ å£ å·ï¼š" & useres_port & "\n"
+    useres_port = "¶Ë ¿Ú ºÅ£º" & useres_port & "\n"
 Else
     useres_port = ""
 End If
 
 If ip_ok = "yes" Then
     Response.Write "<script language=javascript>" & _
-    vbcrlf & "alert(""æ‚¨è¦æŸ¥è¯¢çš„ IP ä¿¡æ¯å¦‚ä¸‹ï¼š\n\nIP åœ°å€ï¼š" & useres_ip & "\n" & useres_port & "æ¥æºåœ°åŒºï¼š" & useres_address & """);" & _
+    vbcrlf & "alert(""ÄúÒª²éÑ¯µÄ IP ĞÅÏ¢ÈçÏÂ£º\n\nIP µØÖ·£º" & useres_ip & "\n" & useres_port & "À´Ô´µØÇø£º" & useres_address & """);" & _
     vbcrlf & useres_url & _
     vbcrlf & "</script>"
 Else
     Response.Write "<script language=javascript>" & _
-    vbcrlf & "alert(""æ‚¨çš„å¯èƒ½è¿›è¡Œäº†éæ³•æ“ä½œï¼\n\nç³»ç»Ÿå°†è‡ªåŠ¨è¿”å›è®ºå›é¦–é¡µã€‚"");" & _
+    vbcrlf & "alert(""ÄúµÄ¿ÉÄÜ½øĞĞÁË·Ç·¨²Ù×÷£¡\n\nÏµÍ³½«×Ô¶¯·µ»ØÂÛÌ³Ê×Ò³¡£"");" & _
     vbcrlf & "parent.location='main.asp'" & _
     vbcrlf & "</script>"
 End If %>

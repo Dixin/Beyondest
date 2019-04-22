@@ -11,13 +11,13 @@
 
 Call forum_first()
 Call forum_word()
-tit = forumname & "ï¼ˆå‘è¡¨æ–°è´´ï¼‰"
+tit = forumname & "£¨·¢±íĞÂÌù£©"
 
 Call web_head(2,0,2,0,0)
 
 If Int(popedom_format(login_popedom,41)) Then Call close_conn():Call cookies_type("locked")
 '-----------------------------------center---------------------------------
-Response.Write forum_top("å‘è¡¨æ–°è´´") & kong
+Response.Write forum_top("·¢±íĞÂÌù") & kong
 
 If Trim(Request.form("write")) = "ok" Then
     Response.Write "<table border=0><tr><td align=center height=200>"
@@ -42,40 +42,40 @@ function check(write_frm)
 {
   if(write_frm.topic.value=="" || write_frm.topic.value.length>50)
   {
-   alert("ä½ è¿˜æ²¡å®Œå…¨ç•™ä¸‹æ‰€éœ€ä¿¡æ¯ï¼\r\n\nè´´å­çš„ ä¸»é¢˜ æ˜¯å¿…é¡»è¦çš„ï¼›\nä¸”é•¿åº¦ä¸èƒ½è¶…è¿‡50ä¸ªå­—ç¬¦ã€‚");
+   alert("Äã»¹Ã»ÍêÈ«ÁôÏÂËùĞèĞÅÏ¢£¡\r\n\nÌù×ÓµÄ Ö÷Ìâ ÊÇ±ØĞëÒªµÄ£»\nÇÒ³¤¶È²»ÄÜ³¬¹ı50¸ö×Ö·û¡£");
    return false;
   }
   if(write_frm.jk_word.value=="" || write_frm.jk_word.value.length><% Response.Write word_size*1024 %>)
   {
-   alert("ä½ è¿˜æ²¡å®Œå…¨ç•™ä¸‹æ‰€éœ€ä¿¡æ¯ï¼\r\n\nè´´å­çš„ å†…å®¹ æ˜¯å¿…é¡»è¦çš„ï¼›\nä¸”å¤§å°ä¸èƒ½è¶…è¿‡<% Response.Write word_size %>KBã€‚");
+   alert("Äã»¹Ã»ÍêÈ«ÁôÏÂËùĞèĞÅÏ¢£¡\r\n\nÌù×ÓµÄ ÄÚÈİ ÊÇ±ØĞëÒªµÄ£»\nÇÒ´óĞ¡²»ÄÜ³¬¹ı<% Response.Write word_size %>KB¡£");
    return false;
   }
 }
 --></script>
 <script language=javascript src='style/em_type.js'></script>
 <script language=javascript src='style/forum_ok.js'></script>
-<% Response.Write forum_table1 %><tr height=26><td colspan=2 background='images/<% = web_var(web_config,5) %>/bar_1_bg.gif'><img src=IMAGES/SMALL/FK4.GIF> <font class=end><b>æ’°å†™è¯é¢˜</b><font></td></tr>
+<% Response.Write forum_table1 %><tr height=26><td colspan=2 background='images/<% = web_var(web_config,5) %>/bar_1_bg.gif'><img src=IMAGES/SMALL/FK4.GIF> <font class=end><b>×«Ğ´»°Ìâ</b><font></td></tr>
 <form name=write_frm action='forum_write.asp?forum_id=<% Response.Write forumid %>' method=post onsubmit="frm_submitonce(this);">
 <input type=hidden name=write value='ok'>
 <input type=hidden name=upid value=''>
 <tr height=30<% Response.Write forum_table3 %>>
-<td width='20%' align=center bgcolor='<% = web_var(web_color,6) %>'>ç”¨æˆ·ä¿¡æ¯ï¼š</td>
-<td width='80%'>&nbsp;&nbsp;ç”¨æˆ·åï¼š<input type=username name=username value='<% Response.Write login_username %>' size=18 maxlength=20>&nbsp;&nbsp;
-å¯†ç ï¼š<input type=password name=password value='<% Response.Write login_password %>' size=18 maxlength=20>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<font class=gray>[ <a href='user_main.asp?username=<% Response.Write Server.htmlencode(login_username) %>'>ç”¨æˆ·ä¸­å¿ƒ</a> ]</font>&nbsp;&nbsp;&nbsp;&nbsp;
-<font class=gray>[ <a href='login.asp?action=logout'>é€€å‡ºç™»é™†</a> ]</font></td>
+<td width='20%' align=center bgcolor='<% = web_var(web_color,6) %>'>ÓÃ»§ĞÅÏ¢£º</td>
+<td width='80%'>&nbsp;&nbsp;ÓÃ»§Ãû£º<input type=username name=username value='<% Response.Write login_username %>' size=18 maxlength=20>&nbsp;&nbsp;
+ÃÜÂë£º<input type=password name=password value='<% Response.Write login_password %>' size=18 maxlength=20>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font class=gray>[ <a href='user_main.asp?username=<% Response.Write Server.htmlencode(login_username) %>'>ÓÃ»§ÖĞĞÄ</a> ]</font>&nbsp;&nbsp;&nbsp;&nbsp;
+<font class=gray>[ <a href='login.asp?action=logout'>ÍË³öµÇÂ½</a> ]</font></td>
 </tr>
 <tr height=30<% Response.Write format_table(3,1) %>>
-<td align=center bgcolor='<% = web_var(web_color,6) %>'>è´´å­ä¸»é¢˜ï¼š</td>
+<td align=center bgcolor='<% = web_var(web_color,6) %>'>Ìù×ÓÖ÷Ìâ£º</td>
 <td>
   <table border=0 cellspacing=0 cellpadding=0><tr>
   <td>&nbsp;&nbsp;<% Call frm_topic("write_frm","topic") %></td>
-  <td>&nbsp;<input type=text name=topic size=60 maxlength=50><% Response.Write redx %>é•¿åº¦ä¸èƒ½è¶…è¿‡50</td>
+  <td>&nbsp;<input type=text name=topic size=60 maxlength=50><% Response.Write redx %>³¤¶È²»ÄÜ³¬¹ı50</td>
   </tr></table>
 </td>
 </tr>
 <tr height=30<% Response.Write forum_table3 %>>
-<td align=center bgcolor='<% = web_var(web_color,6) %>'>å½“å‰å¿ƒæƒ…ï¼š</td>
+<td align=center bgcolor='<% = web_var(web_color,6) %>'>µ±Ç°ĞÄÇé£º</td>
 <td>&nbsp;&nbsp;<% Response.Write icon_type(9,3) %>
 </td>
 </tr>
@@ -84,15 +84,15 @@ function check(write_frm)
 <td><% Call frm_ubb("write_frm","jk_word","&nbsp;&nbsp;") %></td>
 </tr>
 <tr align=center<% Response.Write forum_table3 %>>
-<td bgcolor='<% = web_var(web_color,6) %>'><table border=0><tr><td class=htd>è´´å­å†…å®¹ï¼š<br><% Call frm_word_size("write_frm","jk_word",word_size,"è´´å­å†…å®¹") %><br><br><% Response.Write word_remark %><br><br><br></td></tr></table></td>
-<td><table border=0><tr><td><textarea name=jk_word rows=12 cols=93 title='æŒ‰ Ctrl+Enter å¯ç›´æ¥å‘é€' onkeydown="javascript:frm_quicksubmit();"></textarea></td></tr></table></td>
+<td bgcolor='<% = web_var(web_color,6) %>'><table border=0><tr><td class=htd>Ìù×ÓÄÚÈİ£º<br><% Call frm_word_size("write_frm","jk_word",word_size,"Ìù×ÓÄÚÈİ") %><br><br><% Response.Write word_remark %><br><br><br></td></tr></table></td>
+<td><table border=0><tr><td><textarea name=jk_word rows=12 cols=93 title='°´ Ctrl+Enter ¿ÉÖ±½Ó·¢ËÍ' onkeydown="javascript:frm_quicksubmit();"></textarea></td></tr></table></td>
 </tr>
-<tr<% Response.Write format_table(3,1) %>><td align=center bgcolor='<% = web_var(web_color,6) %>'>ä¸Šä¼ æ–‡ä»¶ï¼š</td><td>&nbsp;<iframe frameborder=0 name=upload_frame width='99%' height=30 scrolling=no src='upload.asp?uppath=forum&upname=&uptext=jk_word'></iframe></td></tr>
-<tr height=30<% Response.Write forum_table3 %>><td align=center bgcolor='<% = web_var(web_color,6) %>'>E M è´´å›¾ï¼š</td><td>&nbsp;&nbsp;<script language=javascript>jk_em_type('s');</script></td></tr>
+<tr<% Response.Write format_table(3,1) %>><td align=center bgcolor='<% = web_var(web_color,6) %>'>ÉÏ´«ÎÄ¼ş£º</td><td>&nbsp;<iframe frameborder=0 name=upload_frame width='99%' height=30 scrolling=no src='upload.asp?uppath=forum&upname=&uptext=jk_word'></iframe></td></tr>
+<tr height=30<% Response.Write forum_table3 %>><td align=center bgcolor='<% = web_var(web_color,6) %>'>E M ÌùÍ¼£º</td><td>&nbsp;&nbsp;<script language=javascript>jk_em_type('s');</script></td></tr>
 <tr<% Response.Write format_table(3,1) %>><td colspan=2 align=center height=60>&nbsp;&nbsp;<script language=javascript>jk_em_type('b');</script></td></tr>
 <tr align=center height=30<% Response.Write forum_table3 %>>
-<td bgcolor='<% = web_var(web_color,6) %>'>å‘è¡¨æ–°è´´ï¼š</td>
-<td><input type=submit name=wsubmit value='å¯ä»¥å‘è¡¨å•¦' onclick="return check(write_frm)">ã€€&nbsp;<input type=button value='é¢„è§ˆå†…å®¹'>ã€€&nbsp;<input type=reset value='æ¸…é™¤é‡å†™'>ã€€&nbsp;ï¼ˆæŒ‰ Ctrl + Enter å¯å¿«é€Ÿå‘è¡¨ï¼‰</td></tr>
+<td bgcolor='<% = web_var(web_color,6) %>'>·¢±íĞÂÌù£º</td>
+<td><input type=submit name=wsubmit value='¿ÉÒÔ·¢±íÀ²' onclick="return check(write_frm)">¡¡&nbsp;<input type=button value='Ô¤ÀÀÄÚÈİ'>¡¡&nbsp;<input type=reset value='Çå³ıÖØĞ´'>¡¡&nbsp;£¨°´ Ctrl + Enter ¿É¿ìËÙ·¢±í£©</td></tr>
 </form></table><br>
 <%
 End Function
@@ -111,15 +111,15 @@ Function write_chk()
     founderr     = ""
 
     If login_username = "" Or IsNull(login_username) Then
-        founderr = founderr & "<br><li><font class=red_2>æ‚¨è¿˜æ²¡æœ‰ç™»é™†æœ¬ç«™ï¼å› æ­¤ä¸èƒ½å‘è¡¨ç•™è¨€ã€‚</font>"
+        founderr = founderr & "<br><li><font class=red_2>Äú»¹Ã»ÓĞµÇÂ½±¾Õ¾£¡Òò´Ë²»ÄÜ·¢±íÁôÑÔ¡£</font>"
     End If
 
     If topic = "" Or Len(topic) > 50 Then
-        founderr = founderr & "<br><li>è´´å­çš„ <font class=founderr>ä¸»é¢˜</font> æ˜¯å¿…é¡»è¦çš„ï¼›ä¸”é•¿åº¦ä¸èƒ½è¶…è¿‡50ä¸ªå­—ç¬¦ï¼"
+        founderr = founderr & "<br><li>Ìù×ÓµÄ <font class=founderr>Ö÷Ìâ</font> ÊÇ±ØĞëÒªµÄ£»ÇÒ³¤¶È²»ÄÜ³¬¹ı50¸ö×Ö·û£¡"
     End If
 
     If word = "" Or IsNull(word) Or Len(word) > word_size*1024 Then
-        founderr = founderr & "<br><li>è´´å­çš„ <font class=founderr>å†…å®¹</font> æ˜¯å¿…é¡»è¦çš„ï¼›ä¸”å¤§å°ä¸èƒ½è¶…è¿‡" & word_size & "KBï¼"
+        founderr = founderr & "<br><li>Ìù×ÓµÄ <font class=founderr>ÄÚÈİ</font> ÊÇ±ØĞëÒªµÄ£»ÇÒ´óĞ¡²»ÄÜ³¬¹ı" & word_size & "KB£¡"
     End If
 
     If founderr = "" Then
@@ -145,12 +145,12 @@ Function write_chk()
         Call time_load(0,0,1)
 
         Response.Write VbCrLf & "<table border=0 width=300>" & _
-        VbCrLf & "<tr><td align=center height=30><font class=red>è´´å­å‘è¡¨æˆåŠŸï¼è°¢è°¢æ‚¨çš„å‘è´´ã€‚</font></td></tr>" & _
-        VbCrLf & "<tr><td height=30>æ‚¨ç°åœ¨å¯ä»¥é€‰æ‹©ä»¥ä¸‹æ“ä½œï¼š</td></tr>" & _
-        VbCrLf & "<tr><td>ã€€ã€€1ã€<a href='forum_view.asp?forum_id=" & forumid & "&view_id=" & new_id & "'>æ‚¨æ‰€å‘è¡¨çš„å¸–å­</a>" & _
-        VbCrLf & "<tr><td>ã€€ã€€2ã€<a href='forum_list.asp?forum_id=" & forumid & "'>è¿”å› <b>" & forumname & "</b></a></td></tr>" & _
-        VbCrLf & "<tr><td>ã€€ã€€3ã€<a href='forum.asp'>è¿”å›è®ºå›é¦–é¡µ</a></td></tr>" & _
-        VbCrLf & "<tr><td height=30>ç³»ç»Ÿå°†åœ¨ " & web_var(web_num,5) & " ç§’é’Ÿåè‡ªåŠ¨è¿”å› <b>" & forumname & "</b> ã€‚</td></tr>" & _
+        VbCrLf & "<tr><td align=center height=30><font class=red>Ìù×Ó·¢±í³É¹¦£¡Ğ»Ğ»ÄúµÄ·¢Ìù¡£</font></td></tr>" & _
+        VbCrLf & "<tr><td height=30>ÄúÏÖÔÚ¿ÉÒÔÑ¡ÔñÒÔÏÂ²Ù×÷£º</td></tr>" & _
+        VbCrLf & "<tr><td>¡¡¡¡1¡¢<a href='forum_view.asp?forum_id=" & forumid & "&view_id=" & new_id & "'>ÄúËù·¢±íµÄÌû×Ó</a>" & _
+        VbCrLf & "<tr><td>¡¡¡¡2¡¢<a href='forum_list.asp?forum_id=" & forumid & "'>·µ»Ø <b>" & forumname & "</b></a></td></tr>" & _
+        VbCrLf & "<tr><td>¡¡¡¡3¡¢<a href='forum.asp'>·µ»ØÂÛÌ³Ê×Ò³</a></td></tr>" & _
+        VbCrLf & "<tr><td height=30>ÏµÍ³½«ÔÚ " & web_var(web_num,5) & " ÃëÖÓºó×Ô¶¯·µ»Ø <b>" & forumname & "</b> ¡£</td></tr>" & _
         VbCrLf & "</table><meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=forum_list.asp?forum_id=" & forumid & "'>"
     Else
         Response.Write found_error(founderr,"350")

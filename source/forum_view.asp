@@ -46,7 +46,7 @@ Dim fir_istop
 Dim fir_isgood
 Dim fir_islock
 Dim del_type
-tit     = forumname & "ï¼ˆæµè§ˆè´´å­ï¼‰"
+tit     = forumname & "£¨ä¯ÀÀÌù×Ó£©"
 pageurl = "?forum_id=" & forumid & "&view_id=" & viewid & "&"
 nummer  = web_var(web_num,3):view_temp = "":money_name = web_var(web_config,8)
 
@@ -69,12 +69,12 @@ Call web_head(0,0,2,0,0)
 <!--
 function forum_do_del(data1,data2)
 {
-  if (confirm("æ­¤æ“ä½œå°†åˆ é™¤idä¸º "+data2+" çš„å›è´´ï¼\n\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½«É¾³ıidÎª "+data2+" µÄ»ØÌù£¡\n\nÕæµÄÒªÉ¾³ıÂğ£¿\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
     window.location = "forum_isaction.asp?isaction=del&forum_id="+data1+"&del_id="+data2
 }
 function forum_do_delete(data1,data2)
 {
-  if (confirm("æ­¤æ“ä½œå°†åˆ é™¤idä¸º "+data2+" çš„è´´å­ï¼\n\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½«É¾³ıidÎª "+data2+" µÄÌù×Ó£¡\n\nÕæµÄÒªÉ¾³ıÂğ£¿\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
     window.location = "forum_isaction.asp?isaction=delete&forum_id="+data1+"&del_id="+data2
 }
 //-->
@@ -140,19 +140,19 @@ view_temp = view_temp & "</td></tr></table>"
 fir_istop = Int(fir_istop)
 If fir_istop <> 0 And fir_istop <> 1 And fir_istop <> 2 Then fir_istop = 0
 
-Response.Write forum_top("æµè§ˆè´´å­ ï¼ˆå›å¤ï¼š<font class=red>" & re_counter & "</font>&nbsp;æµè§ˆï¼š<font class=red>" & counter + 1 & "</font>ï¼‰") %>
+Response.Write forum_top("ä¯ÀÀÌù×Ó £¨»Ø¸´£º<font class=red>" & re_counter & "</font>&nbsp;ä¯ÀÀ£º<font class=red>" & counter + 1 & "</font>£©") %>
 
-<table border=0 width='98%' cellspacing=0 cellpadding=0><tr><td align=left width='15%'><a href='forum_write.asp?forum_id=<% = forumid %>'><img src='images/<% = web_var(web_config,5) %>/new_topic.gif' align=absMiddle border=0 title='åœ¨ <% = forumname %> é‡Œå‘è¡¨æˆ‘çš„æ–°è´´'></a></td><td align=right width='85%'></td></tr></table>
+<table border=0 width='98%' cellspacing=0 cellpadding=0><tr><td align=left width='15%'><a href='forum_write.asp?forum_id=<% = forumid %>'><img src='images/<% = web_var(web_config,5) %>/new_topic.gif' align=absMiddle border=0 title='ÔÚ <% = forumname %> Àï·¢±íÎÒµÄĞÂÌù'></a></td><td align=right width='85%'></td></tr></table>
 
 
 
 <% Response.Write kong & thetopictt %> 
 
 <table boder=0 width='100%' cellspacing=0 cellpadding=0>
-<tr><td width='80%'>&nbsp;ä¸»é¢˜ï¼š<b><font class=end title='<% Response.Write fir_top %>'><% Response.Write code_html(fir_topic,1,30) %></font></b></td>
+<tr><td width='80%'>&nbsp;Ö÷Ìâ£º<b><font class=end title='<% Response.Write fir_top %>'><% Response.Write code_html(fir_topic,1,30) %></font></b></td>
 <td align=center width='20%'><table border=0 cellspacing=0 cellpadding=0><tr align=center>
   <td width=50><a href='javascript:;' onclick="javascript:document.location.reload()"><% Response.Write img_small("page_refresh") %></a></td>
-  <td width=55><a href="javascript:window.external.AddFavorite('<% Response.Write web_var(web_config,2) & pageurl %>','<% Response.Write web_var(web_config,1) & " - " & forumname & "ï¼ˆè´´å­ï¼š" & fir_topic & "ï¼‰" %>')"><% Response.Write img_small("page_fav") %></td>
+  <td width=55><a href="javascript:window.external.AddFavorite('<% Response.Write web_var(web_config,2) & pageurl %>','<% Response.Write web_var(web_config,1) & " - " & forumname & "£¨Ìù×Ó£º" & fir_topic & "£©" %>')"><% Response.Write img_small("page_fav") %></td>
   </tr></table>
   
 </td></tr></table>
@@ -162,56 +162,56 @@ Response.Write forum_top("æµè§ˆè´´å­ ï¼ˆå›å¤ï¼š<font class=red>" & re_counte
 
 
 <tr height=30<% Response.Write forum_table3 %>>
-<td width='75%'>&nbsp;åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,6,"#ff0000") %></td>
+<td width='75%'>&nbsp;·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,6,"#ff0000") %></td>
 <td width='25%' align=center><% Response.Write forum_go() %></td>
 </tr>
-<tr height=30 align=center<% Response.Write format_table(3,1) %>><td>ä¸»é¢˜è´´ç±»å‹ï¼š<font class=blue><%
+<tr height=30 align=center<% Response.Write format_table(3,1) %>><td>Ö÷ÌâÌùÀàĞÍ£º<font class=blue><%
 
 If fir_istop <> 0 Or fir_isgood <> 0 Or fir_islock <> 0 Then
 
     If fir_istop = 1 Then
-        Response.Write "[ å›ºé¡¶ ]&nbsp;"
+        Response.Write "[ ¹Ì¶¥ ]&nbsp;"
     ElseIf fir_istop = 2 Then
-        Response.Write "[ æ€»å›ºé¡¶ ]&nbsp;"
+        Response.Write "[ ×Ü¹Ì¶¥ ]&nbsp;"
     End If
 
-    If fir_isgood <> 0 Then Response.Write "[ ç²¾å ]&nbsp;"
-    If fir_islock <> 0 Then Response.Write "[ é”å®š ]&nbsp;"
+    If fir_isgood <> 0 Then Response.Write "[ ¾«»ª ]&nbsp;"
+    If fir_islock <> 0 Then Response.Write "[ Ëø¶¨ ]&nbsp;"
 Else
-    Response.Write "[ æ­£å¸¸ ]&nbsp;"
+    Response.Write "[ Õı³£ ]&nbsp;"
 End If
 
 Response.Write "</font>"
 
-If format_user_power(login_username,login_mode,forumpower) = "yes" Then %>&nbsp;ç›¸å…³æ“ä½œï¼š
+If format_user_power(login_username,login_mode,forumpower) = "yes" Then %>&nbsp;Ïà¹Ø²Ù×÷£º
 <a href='forum_isaction.asp?isaction=is&forum_id=<% Response.Write forumid %>&view_id=<% Response.Write id %>&action=istop<%
 
     Select Case fir_istop
         Case 1
-            Response.Write "&cancel=yes' class=red_3>å–æ¶ˆå›ºé¡¶</a>&nbsp;â”‹" & _
-            "<a href='forum_isaction.asp?isaction=is&forum_id=" & forumid & "&view_id=" & id & "&action=istops'>æ€»å›ºé¡¶</a>"
+            Response.Write "&cancel=yes' class=red_3>È¡Ïû¹Ì¶¥</a>&nbsp;©¯" & _
+            "<a href='forum_isaction.asp?isaction=is&forum_id=" & forumid & "&view_id=" & id & "&action=istops'>×Ü¹Ì¶¥</a>"
         Case 2
-            Response.Write "'>å›ºé¡¶</a>&nbsp;â”‹" & _
-            "<a href='forum_isaction.asp?isaction=is&forum_id=" & forumid & "&view_id=" & id & "&action=istops&cancel=yes' class=red_3>å–æ¶ˆæ€»å›ºé¡¶</a>"
+            Response.Write "'>¹Ì¶¥</a>&nbsp;©¯" & _
+            "<a href='forum_isaction.asp?isaction=is&forum_id=" & forumid & "&view_id=" & id & "&action=istops&cancel=yes' class=red_3>È¡Ïû×Ü¹Ì¶¥</a>"
         Case Else
-            Response.Write "'>å›ºé¡¶</a>&nbsp;â”‹" & _
-            "<a href='forum_isaction.asp?isaction=is&forum_id=" & forumid & "&view_id=" & id & "&action=istops'>æ€»å›ºé¡¶</a>"
-    End Select %>&nbsp;â”‹
+            Response.Write "'>¹Ì¶¥</a>&nbsp;©¯" & _
+            "<a href='forum_isaction.asp?isaction=is&forum_id=" & forumid & "&view_id=" & id & "&action=istops'>×Ü¹Ì¶¥</a>"
+    End Select %>&nbsp;©¯
 <a href='forum_isaction.asp?isaction=is&forum_id=<% Response.Write forumid %>&view_id=<% Response.Write id %>&action=isgood<%
 
     If fir_isgood = 0 Then
         Response.Write "'>"
     Else
-        Response.Write "&cancel=yes' class=red_3>å–æ¶ˆ"
-    End If %>ç²¾å</a>&nbsp;â”‹
+        Response.Write "&cancel=yes' class=red_3>È¡Ïû"
+    End If %>¾«»ª</a>&nbsp;©¯
 <a href='forum_isaction.asp?isaction=is&forum_id=<% Response.Write forumid %>&view_id=<% Response.Write id %>&action=islock<%
 
     If fir_islock = 0 Then
         Response.Write "'>"
     Else
-        Response.Write "&cancel=yes' class=red_3>å–æ¶ˆ"
-    End If %>é”å®š</a>&nbsp;â”‹
-<a href='forum_isaction.asp?isaction=delete&forum_id=<% Response.Write forumid %>&del_id=<% Response.Write id %>'>åˆ é™¤</a>
+        Response.Write "&cancel=yes' class=red_3>È¡Ïû"
+    End If %>Ëø¶¨</a>&nbsp;©¯
+<a href='forum_isaction.asp?isaction=delete&forum_id=<% Response.Write forumid %>&del_id=<% Response.Write id %>'>É¾³ı</a>
 <% End If %>
 </td>
 <td><% Response.Write forum_move(forumid,viewid) %></td></tr>
@@ -228,37 +228,37 @@ If fir_islock <> 1 Then
     If login_mode = "" Then
         Response.Write "<div align=center>" & web_var(web_error,2) & "</div>"
     Else %>
-&nbsp;â†’ å¿«é€Ÿå›å¤ï¼š<b><font class=red_3><% Response.Write fir_top %></b></font>
+&nbsp;¡ú ¿ìËÙ»Ø¸´£º<b><font class=red_3><% Response.Write fir_top %></b></font>
 </td></tr>
 <tr height=30<% Response.Write format_table(3,1) %>>
-<td width='20%' align=center bgcolor='<% = web_var(web_color,6) %>'>ç”¨æˆ·ä¿¡æ¯ï¼š</td>
-<td width='80%'>&nbsp;&nbsp;ç”¨æˆ·åï¼š<input type=username name=username value='<% Response.Write login_username %>' size=18 maxlength=20>&nbsp;&nbsp;
-å¯†ç ï¼š<input type=password name=password value='<% Response.Write login_password %>' size=18 maxlength=20>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<font class=gray>[ <a href='user_main.asp?username=<% Response.Write Server.htmlencode(login_username) %>'>ç”¨æˆ·ä¸­å¿ƒ</a> ]</font>&nbsp;&nbsp;&nbsp;&nbsp;
-<font class=gray>[ <a href='login.asp?action=logout'>é€€å‡ºç™»é™†</a> ]</font></td>
+<td width='20%' align=center bgcolor='<% = web_var(web_color,6) %>'>ÓÃ»§ĞÅÏ¢£º</td>
+<td width='80%'>&nbsp;&nbsp;ÓÃ»§Ãû£º<input type=username name=username value='<% Response.Write login_username %>' size=18 maxlength=20>&nbsp;&nbsp;
+ÃÜÂë£º<input type=password name=password value='<% Response.Write login_password %>' size=18 maxlength=20>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font class=gray>[ <a href='user_main.asp?username=<% Response.Write Server.htmlencode(login_username) %>'>ÓÃ»§ÖĞĞÄ</a> ]</font>&nbsp;&nbsp;&nbsp;&nbsp;
+<font class=gray>[ <a href='login.asp?action=logout'>ÍË³öµÇÂ½</a> ]</font></td>
 </tr>
 <tr height=30<% Response.Write forum_table3 %>>
-<td align=center bgcolor='<% = web_var(web_color,6) %>'>è¡¨æƒ…ç¬¦å·ï¼š</td>
+<td align=center bgcolor='<% = web_var(web_color,6) %>'>±íÇé·ûºÅ£º</td>
 <td>&nbsp;&nbsp;<% Response.Write icon_type(9,3) %></td>
 </tr>
 <tr align=center<% Response.Write format_table(3,1) %>>
-<td bgcolor='<% = web_var(web_color,6) %>'><table border=0><tr><td class=htd>è´´å­å†…å®¹ï¼š<% Response.Write redx %><br><% Response.Write word_remark %></td></tr></table></td>
-<td><table border=0><tr><td><textarea name=jk_word rows=8 cols=95 title='æŒ‰ Ctrl+Enter å¯ç›´æ¥å‘é€' onkeydown="javascript:frm_quicksubmit();"></textarea></td></tr></table></td>
+<td bgcolor='<% = web_var(web_color,6) %>'><table border=0><tr><td class=htd>Ìù×ÓÄÚÈİ£º<% Response.Write redx %><br><% Response.Write word_remark %></td></tr></table></td>
+<td><table border=0><tr><td><textarea name=jk_word rows=8 cols=95 title='°´ Ctrl+Enter ¿ÉÖ±½Ó·¢ËÍ' onkeydown="javascript:frm_quicksubmit();"></textarea></td></tr></table></td>
 </tr>
 <script language=javascript src='style/em_type.js'></script>
 <tr height=30<% Response.Write forum_table3 %>>
-<td align=center bgcolor='<% = web_var(web_color,6) %>'>E M è´´å›¾ï¼š</td>
+<td align=center bgcolor='<% = web_var(web_color,6) %>'>E M ÌùÍ¼£º</td>
 <td>&nbsp;<script language=javascript>jk_em_type('s');</script></td>
 </tr>
 <tr<% Response.Write format_table(3,1) %>><td colspan=2 align=center height=60>&nbsp;&nbsp;<script language=javascript>jk_em_type('b');</script></td></tr>
 <tr align=center height=30<% Response.Write forum_table3 %>>
-<td bgcolor='<% = web_var(web_color,6) %>'>å¿«é€Ÿå›å¤ï¼š</td>
-<td><input type=submit name=wsubmit value='å¿«é€Ÿå‘è¡¨æˆ‘çš„å›è´´'>ã€€&nbsp;<input type=button value='é¢„è§ˆæˆ‘çš„å›å¤'>ã€€&nbsp;<input type=reset value='æ¸…é™¤é‡å†™'>ã€€&nbsp;ï¼ˆæŒ‰ Ctrl + Enter å¯å¿«é€Ÿå›å¤ï¼‰
+<td bgcolor='<% = web_var(web_color,6) %>'>¿ìËÙ»Ø¸´£º</td>
+<td><input type=submit name=wsubmit value='¿ìËÙ·¢±íÎÒµÄ»ØÌù'>¡¡&nbsp;<input type=button value='Ô¤ÀÀÎÒµÄ»Ø¸´'>¡¡&nbsp;<input type=reset value='Çå³ıÖØĞ´'>¡¡&nbsp;£¨°´ Ctrl + Enter ¿É¿ìËÙ»Ø¸´£©
 <%
     End If
 
 Else
-    Response.Write "<div align=center><font class=red_2>è¿™ä¸ªè´´å­å·²è¢«é”å®šï¼ä¸èƒ½å†å¯¹å…¶è¿›è¡Œå›å¤</font></div>"
+    Response.Write "<div align=center><font class=red_2>Õâ¸öÌù×ÓÒÑ±»Ëø¶¨£¡²»ÄÜÔÙ¶ÔÆä½øĞĞ»Ø¸´</font></div>"
 End If %>
 </td></tr></form></table>
 <br>

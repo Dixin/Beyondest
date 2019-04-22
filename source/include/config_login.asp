@@ -44,11 +44,11 @@ Function pass_question()
     username          = Trim(Request.form("username"))
 
     If symbol_name(username) <> "yes" Then
-        pass_question = "æ‚¨è¾“å…¥çš„ <font class=red>ç™»é™†åç§°</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br><br>" & go_back
+        pass_question = "ÄúÊäÈëµÄ <font class=red>µÇÂ½Ãû³Æ</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br><br>" & go_back
         Exit Function
     End If
 
-    pass_question = "<table border=0 class=fr><form action='login.asp?action=nopass' method=post><input type=hidden name=pass_action value='chk'><tr height=40><td>ç™»é™†åç§°ï¼š</td><td><input type=text name=uname size=20 value='" & username & "' readonly class=black_bg></td></tr><tr height=25><td>å¯†ç é’¥åŒ™ï¼š</td><td><input type=password name=passwd size=20 maxlength=20></td></tr><tr height=25><td>æ–°çš„å¯†ç ï¼š</td><td><input type=password name=password size=20 maxlength=20></td></tr><tr height=25><td>é‡å¤å¯†ç ï¼š</td><td><input type=password name=password2 size=20 maxlength=20></td></tr><tr height=40><td></td><td><input type=submit value='ä¸‹ ä¸€ æ­¥'></td></tr><input type=hidden name=username value='" & username & "'></form></table>"
+    pass_question = "<table border=0 class=fr><form action='login.asp?action=nopass' method=post><input type=hidden name=pass_action value='chk'><tr height=40><td>µÇÂ½Ãû³Æ£º</td><td><input type=text name=uname size=20 value='" & username & "' readonly class=black_bg></td></tr><tr height=25><td>ÃÜÂëÔ¿³×£º</td><td><input type=password name=passwd size=20 maxlength=20></td></tr><tr height=25><td>ĞÂµÄÃÜÂë£º</td><td><input type=password name=password size=20 maxlength=20></td></tr><tr height=25><td>ÖØ¸´ÃÜÂë£º</td><td><input type=password name=password2 size=20 maxlength=20></td></tr><tr height=40><td></td><td><input type=submit value='ÏÂ Ò» ²½'></td></tr><input type=hidden name=username value='" & username & "'></form></table>"
 End Function
 
 Function pass_chk()
@@ -64,22 +64,22 @@ Function pass_chk()
     password2    = Trim(Request.form("password2"))
 
     If symbol_name(username) <> "yes" Or username <> uname Then
-        pass_chk = "æ‚¨è¾“å…¥çš„ <font class=red>ç™»é™†åç§°</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br><br>" & go_back
+        pass_chk = "ÄúÊäÈëµÄ <font class=red>µÇÂ½Ãû³Æ</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br><br>" & go_back
         Exit Function
     End If
 
     If symbol_name(passwd) <> "yes" Then
-        pass_chk = "æ‚¨è¾“å…¥çš„ <font class=red>å¯†ç é’¥åŒ™</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br><br>" & go_back
+        pass_chk = "ÄúÊäÈëµÄ <font class=red>ÃÜÂëÔ¿³×</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br><br>" & go_back
         Exit Function
     End If
 
     If symbol_ok(password) <> "yes" Then
-        pass_chk = "æ‚¨è¾“å…¥çš„ <font class=red>ç™»é™†å¯†ç </font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br><br>" & go_back
+        pass_chk = "ÄúÊäÈëµÄ <font class=red>µÇÂ½ÃÜÂë</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br><br>" & go_back
         Exit Function
     Else
 
         If password <> password2 Then
-            pass_chk = "<font class=red>ç™»é™†å¯†ç </font> å’Œ <font class=red>ç¡®è®¤å¯†ç </font> ä¸ä¸€è‡´ï¼<br><br>" & go_back
+            pass_chk = "<font class=red>µÇÂ½ÃÜÂë</font> ºÍ <font class=red>È·ÈÏÃÜÂë</font> ²»Ò»ÖÂ£¡<br><br>" & go_back
             Exit Function
         End If
 
@@ -91,18 +91,18 @@ Function pass_chk()
 
     If rs.eof And rs.bof Then
         rs.Close:Set rs = Nothing
-        pass_chk = "<font class=red>ç™»é™†åç§°</font> å’Œ <font class=red>å¯†ç é’¥åŒ™</font> æœ‰é”™æˆ–æ‚¨å·²è¢«é”å®šï¼<br><br>" & go_back
+        pass_chk = "<font class=red>µÇÂ½Ãû³Æ</font> ºÍ <font class=red>ÃÜÂëÔ¿³×</font> ÓĞ´í»òÄúÒÑ±»Ëø¶¨£¡<br><br>" & go_back
         Exit Function
     End If
 
     rs("password") = jk_md5(password,"short")
     rs.update
     rs.Close:Set rs = Nothing
-    pass_chk = "<font class=blue_1><b>" & username & "</b></font>ï¼Œ<font class=red>æ‚¨å·²æˆåŠŸä¿®æ”¹äº†æ‚¨çš„å¯†ç ï¼</font><br><br>æ–°å¯†ç æ˜¯ï¼š<font class=red_3>" & password2 & "</font> è¯·åŠ³è®°ï¼<br><br><a href='login.asp'>ç‚¹å‡»è¿›å…¥ç™»é™†é¡µé¢</a>"
+    pass_chk = "<font class=blue_1><b>" & username & "</b></font>£¬<font class=red>ÄúÒÑ³É¹¦ĞŞ¸ÄÁËÄúµÄÃÜÂë£¡</font><br><br>ĞÂÃÜÂëÊÇ£º<font class=red_3>" & password2 & "</font> ÇëÀÍ¼Ç£¡<br><br><a href='login.asp'>µã»÷½øÈëµÇÂ½Ò³Ãæ</a>"
 End Function
 
 Function pass_type()
-    pass_type = "<table border=0><form action='login.asp?action=nopass' method=post><input type=hidden name=pass_action value='question'><tr height=40><td>æ‚¨çš„ç™»é™†åç§°ï¼š</td><td><input type=text name=username size=20 maxlength=20></td></tr><tr height=40><td></td><td><input type=submit value='ä¸‹ ä¸€ æ­¥'></td></tr></form></table>"
+    pass_type = "<table border=0><form action='login.asp?action=nopass' method=post><input type=hidden name=pass_action value='question'><tr height=40><td>ÄúµÄµÇÂ½Ãû³Æ£º</td><td><input type=text name=username size=20 maxlength=20></td></tr><tr height=40><td></td><td><input type=submit value='ÏÂ Ò» ²½'></td></tr></form></table>"
 End Function
 
 Sub register_main()
@@ -141,24 +141,24 @@ End Sub
 
 Sub reg_policy() %>
 <table border=0 width=450 cellspacing=0 cellpadding=0>
-<tr><td class=htd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;æ¬¢è¿æ‚¨åŠ å…¥æœ¬ç«™ç‚¹å‚åŠ äº¤æµå’Œè®¨è®ºï¼Œæœ¬ç«™ç‚¹å°†å‘æŠ€æœ¯å‹ç«™ç‚¹è½¬å˜ã€‚<br><br>
-ä¸ºç»´æŠ¤ç½‘ä¸Šå…¬å…±ç§©åºå’Œç¤¾ä¼šç¨³å®šï¼Œè¯·æ‚¨è‡ªè§‰éµå®ˆä»¥ä¸‹æ¡æ¬¾ï¼š<br><br>
-ã€€ä¸€ã€ä¸å¾—åˆ©ç”¨æœ¬ç«™å±å®³å›½å®¶å®‰å…¨ã€æ³„éœ²å›½å®¶ç§˜å¯†ï¼Œä¸å¾—ä¾µçŠ¯å›½å®¶ç¤¾ä¼šé›†ä½“çš„å’Œå…¬æ°‘çš„åˆæ³•æƒç›Šï¼Œä¸å¾—åˆ©ç”¨æœ¬ç«™åˆ¶ä½œã€å¤åˆ¶å’Œä¼ æ’­ä¸‹åˆ—ä¿¡æ¯ï¼š <br>
-ã€€ã€€ï¼ˆä¸€ï¼‰ç…½åŠ¨æŠ—æ‹’ã€ç ´åå®ªæ³•å’Œæ³•å¾‹ã€è¡Œæ”¿æ³•è§„å®æ–½çš„ï¼›<br>
-ã€€ã€€ï¼ˆäºŒï¼‰ç…½åŠ¨é¢ è¦†å›½å®¶æ”¿æƒï¼Œæ¨ç¿»ç¤¾ä¼šä¸»ä¹‰åˆ¶åº¦çš„ï¼›<br>
-ã€€ã€€ï¼ˆä¸‰ï¼‰ç…½åŠ¨åˆ†è£‚å›½å®¶ã€ç ´åå›½å®¶ç»Ÿä¸€çš„ï¼›<br>
-ã€€ã€€ï¼ˆå››ï¼‰ç…½åŠ¨æ°‘æ—ä»‡æ¨ã€æ°‘æ—æ­§è§†ï¼Œç ´åæ°‘æ—å›¢ç»“çš„ï¼›<br>
-ã€€ã€€ï¼ˆäº”ï¼‰æé€ æˆ–è€…æ­ªæ›²äº‹å®ï¼Œæ•£å¸ƒè°£è¨€ï¼Œæ‰°ä¹±ç¤¾ä¼šç§©åºçš„ï¼›<br>
-ã€€ã€€ï¼ˆå…­ï¼‰å®£æ‰¬å°å»ºè¿·ä¿¡ã€æ·«ç§½ã€è‰²æƒ…ã€èµŒåšã€æš´åŠ›ã€å‡¶æ€ã€ææ€–ã€æ•™å”†çŠ¯ç½ªçš„ï¼›<br>
-ã€€ã€€ï¼ˆä¸ƒï¼‰å…¬ç„¶ä¾®è¾±ä»–äººæˆ–è€…æé€ äº‹å®è¯½è°¤ä»–äººçš„ï¼Œæˆ–è€…è¿›è¡Œå…¶ä»–æ¶æ„æ”»å‡»çš„ï¼›<br>
-ã€€ã€€ï¼ˆå…«ï¼‰æŸå®³å›½å®¶æœºå…³ä¿¡èª‰çš„ï¼›<br>
-ã€€ã€€ï¼ˆä¹ï¼‰å…¶ä»–è¿åå®ªæ³•å’Œæ³•å¾‹è¡Œæ”¿æ³•è§„çš„ï¼›<br>
-ã€€ã€€ï¼ˆåï¼‰è¿›è¡Œå•†ä¸šå¹¿å‘Šè¡Œä¸ºçš„ã€‚<br>
-ã€€äºŒã€äº’ç›¸å°Šé‡ï¼Œå¯¹è‡ªå·±çš„è¨€è®ºå’Œè¡Œä¸ºè´Ÿè´£ã€‚</td></tr>
+<tr><td class=htd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;»¶Ó­Äú¼ÓÈë±¾Õ¾µã²Î¼Ó½»Á÷ºÍÌÖÂÛ£¬±¾Õ¾µã½«Ïò¼¼ÊõĞÍÕ¾µã×ª±ä¡£<br><br>
+ÎªÎ¬»¤ÍøÉÏ¹«¹²ÖÈĞòºÍÉç»áÎÈ¶¨£¬ÇëÄú×Ô¾õ×ñÊØÒÔÏÂÌõ¿î£º<br><br>
+¡¡Ò»¡¢²»µÃÀûÓÃ±¾Õ¾Î£º¦¹ú¼Ò°²È«¡¢Ğ¹Â¶¹ú¼ÒÃØÃÜ£¬²»µÃÇÖ·¸¹ú¼ÒÉç»á¼¯ÌåµÄºÍ¹«ÃñµÄºÏ·¨È¨Òæ£¬²»µÃÀûÓÃ±¾Õ¾ÖÆ×÷¡¢¸´ÖÆºÍ´«²¥ÏÂÁĞĞÅÏ¢£º <br>
+¡¡¡¡£¨Ò»£©É¿¶¯¿¹¾Ü¡¢ÆÆ»µÏÜ·¨ºÍ·¨ÂÉ¡¢ĞĞÕş·¨¹æÊµÊ©µÄ£»<br>
+¡¡¡¡£¨¶ş£©É¿¶¯µß¸²¹ú¼ÒÕşÈ¨£¬ÍÆ·­Éç»áÖ÷ÒåÖÆ¶ÈµÄ£»<br>
+¡¡¡¡£¨Èı£©É¿¶¯·ÖÁÑ¹ú¼Ò¡¢ÆÆ»µ¹ú¼ÒÍ³Ò»µÄ£»<br>
+¡¡¡¡£¨ËÄ£©É¿¶¯Ãñ×å³ğºŞ¡¢Ãñ×åÆçÊÓ£¬ÆÆ»µÃñ×åÍÅ½áµÄ£»<br>
+¡¡¡¡£¨Îå£©ÄóÔì»òÕßÍáÇúÊÂÊµ£¬É¢²¼Ò¥ÑÔ£¬ÈÅÂÒÉç»áÖÈĞòµÄ£»<br>
+¡¡¡¡£¨Áù£©ĞûÑï·â½¨ÃÔĞÅ¡¢Òù»à¡¢É«Çé¡¢¶Ä²©¡¢±©Á¦¡¢Ğ×É±¡¢¿Ö²À¡¢½ÌËô·¸×ïµÄ£»<br>
+¡¡¡¡£¨Æß£©¹«È»ÎêÈèËûÈË»òÕßÄóÔìÊÂÊµ·Ì°ùËûÈËµÄ£¬»òÕß½øĞĞÆäËû¶ñÒâ¹¥»÷µÄ£»<br>
+¡¡¡¡£¨°Ë£©Ëğº¦¹ú¼Ò»ú¹ØĞÅÓşµÄ£»<br>
+¡¡¡¡£¨¾Å£©ÆäËûÎ¥·´ÏÜ·¨ºÍ·¨ÂÉĞĞÕş·¨¹æµÄ£»<br>
+¡¡¡¡£¨Ê®£©½øĞĞÉÌÒµ¹ã¸æĞĞÎªµÄ¡£<br>
+¡¡¶ş¡¢»¥Ïà×ğÖØ£¬¶Ô×Ô¼ºµÄÑÔÂÛºÍĞĞÎª¸ºÔğ¡£</td></tr>
 <form name=form_reg action='login.asp?action=register' method=post>
 <input type=hidden name=reg_action value='reg_main'>
 <tr><td align=center height=50>
-<input type=submit value="æˆ‘å·²é˜…è¯»å¹¶åŒæ„ä»¥ä¸Šæ¡æ¬¾">&nbsp;â”‹&nbsp;<input type=button value="ä¸åŒæ„" onClick="document.location='index.asp'">
+<input type=submit value="ÎÒÒÑÔÄ¶Á²¢Í¬ÒâÒÔÉÏÌõ¿î">&nbsp;©¯&nbsp;<input type=button value="²»Í¬Òâ" onClick="document.location='index.asp'">
 </td></tr>
 </form>
 </table>
@@ -171,40 +171,40 @@ Sub reg_type() %><br>
   <form name=reg_frm action='login.asp?action=register' method=post>
   <input type=hidden name=reg_action value='reg_chk'>
   <tr>
-    <td align=center>ç”¨æˆ·åç§°ï¼š</td>
+    <td align=center>ÓÃ»§Ãû³Æ£º</td>
     <td><input type=text name=username size=20 maxlength=20><% = redx %></td>
   </tr>
   <tr>
-    <td align=center>ç™»é™†å¯†ç ï¼š</td>
+    <td align=center>µÇÂ½ÃÜÂë£º</td>
     <td><input type=password name=password size=20 maxlength=20><% = redx %></td>
   </tr>
   <tr>
-    <td align=center>ç¡®è®¤å¯†ç ï¼š</td>
+    <td align=center>È·ÈÏÃÜÂë£º</td>
     <td><input type=password name=password2 size=20 maxlength=20><% = redx %></td>
   </tr>
   <tr>
-    <td align=center>å¯†ç é’¥åŒ™ï¼š</td>
+    <td align=center>ÃÜÂëÔ¿³×£º</td>
     <td><input type=text name=passwd size=20 maxlength=20><% = redx %></td>
   </tr>
   <tr>
-    <td align=center>E - mailï¼š</td>
+    <td align=center>E - mail£º</td>
     <td><input type=text name=email size=30 maxlength=50><% = redx %></td>
   </tr>
   <tr>
-    <td align=center>æ‚¨çš„æ€§åˆ«ï¼š</td>
-    <td>&nbsp;<input type=radio name=sex value='boy' checked class=bg_1>&nbsp;ç”·å­©&nbsp;&nbsp;&nbsp;<input type=radio name=sex value='girl' class=bg_1>&nbsp;å¥³å­©&nbsp;<% Response.Write redx %></td>
+    <td align=center>ÄúµÄĞÔ±ğ£º</td>
+    <td>&nbsp;<input type=radio name=sex value='boy' checked class=bg_1>&nbsp;ÄĞº¢&nbsp;&nbsp;&nbsp;<input type=radio name=sex value='girl' class=bg_1>&nbsp;Å®º¢&nbsp;<% Response.Write redx %></td>
   </tr>
-  <tr><td></td><td height=50><input type=submit value=' ç° åœ¨ æ³¨ å†Œ '></td></tr>
+  <tr><td></td><td height=50><input type=submit value=' ÏÖ ÔÚ ×¢ ²á '></td></tr>
 </form>
   <tr><td colspan=2 height=30><hr size=1 color=#c0c0c0 width='90%'></td></tr>
   <tr><td colspan=2>
-<p style='line-height: 150%'><font class=red_2>ç”¨æˆ·æ³¨å†Œæ³¨æ„äº‹é¡¹ï¼š</font><br>
-&nbsp;&nbsp;&nbsp;1ã€ç”¨æˆ·åç§°æ³¨å†Œç”³è¯·æˆåŠŸä¹‹åå°†ä¸èƒ½æ›´æ”¹ã€‚<br>
-&nbsp;&nbsp;&nbsp;2ã€ç”¨æˆ·åç§°å¯ä»¥æ˜¯å¤§å°å†™è‹±æ–‡å­—æ¯ï¼ˆa~zã€A~Zï¼‰ã€é˜¿æ‹‰ä¼¯æ•°å­—ï¼ˆ0~9ï¼‰ã€
-è¿æ¥å­—ç¬¦â€œ-â€ã€ä¸‹åˆ’çº¿â€œ_â€å’Œæ±‰å­—ç»„æˆï¼›é¦–å­—ç¬¦ä¸èƒ½ä¸ºè¿æ¥å­—ç¬¦â€œ-â€æˆ–ä¸‹åˆ’çº¿â€œ_â€ï¼Œé•¿åº¦ä¸èƒ½è¶…è¿‡20ä½ã€‚ä¾‹ï¼šjoe_527<br>
-&nbsp;&nbsp;&nbsp;3ã€ç™»é™†å¯†ç åªèƒ½ç”±å¤§å°å†™è‹±æ–‡å­—æ¯ï¼ˆa~zã€A~Zï¼‰ã€é˜¿æ‹‰ä¼¯æ•°å­—ï¼ˆ0~9ï¼‰ã€
-è¿æ¥å­—ç¬¦â€œ-â€å’Œä¸‹åˆ’çº¿â€œ_â€ç»„æˆã€‚ä¾‹ï¼šdw7v9j<br>
-&nbsp;&nbsp;&nbsp;4ã€ä»¥ä¸Šå¡«å†™çš„æ³¨å†Œä¿¡æ¯çš„å†…ç©ºå‡ä¸åŒºåˆ†å¤§å°å†™ã€‚</p>
+<p style='line-height: 150%'><font class=red_2>ÓÃ»§×¢²á×¢ÒâÊÂÏî£º</font><br>
+&nbsp;&nbsp;&nbsp;1¡¢ÓÃ»§Ãû³Æ×¢²áÉêÇë³É¹¦Ö®ºó½«²»ÄÜ¸ü¸Ä¡£<br>
+&nbsp;&nbsp;&nbsp;2¡¢ÓÃ»§Ãû³Æ¿ÉÒÔÊÇ´óĞ¡Ğ´Ó¢ÎÄ×ÖÄ¸£¨a~z¡¢A~Z£©¡¢°¢À­²®Êı×Ö£¨0~9£©¡¢
+Á¬½Ó×Ö·û¡°-¡±¡¢ÏÂ»®Ïß¡°_¡±ºÍºº×Ö×é³É£»Ê××Ö·û²»ÄÜÎªÁ¬½Ó×Ö·û¡°-¡±»òÏÂ»®Ïß¡°_¡±£¬³¤¶È²»ÄÜ³¬¹ı20Î»¡£Àı£ºjoe_527<br>
+&nbsp;&nbsp;&nbsp;3¡¢µÇÂ½ÃÜÂëÖ»ÄÜÓÉ´óĞ¡Ğ´Ó¢ÎÄ×ÖÄ¸£¨a~z¡¢A~Z£©¡¢°¢À­²®Êı×Ö£¨0~9£©¡¢
+Á¬½Ó×Ö·û¡°-¡±ºÍÏÂ»®Ïß¡°_¡±×é³É¡£Àı£ºdw7v9j<br>
+&nbsp;&nbsp;&nbsp;4¡¢ÒÔÉÏÌîĞ´µÄ×¢²áĞÅÏ¢µÄÄÚ¿Õ¾ù²»Çø·Ö´óĞ¡Ğ´¡£</p>
   </td></tr>
   </table>
 <%
@@ -225,31 +225,31 @@ Function reg_chk()
     red       = ""
 
     If symbol_name(username) <> "yes" Then
-        red   = red & err_head & "æ‚¨è¾“å…¥çš„ <font class=red>ç”¨æˆ·åç§°</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br>"
+        red   = red & err_head & "ÄúÊäÈëµÄ <font class=red>ÓÃ»§Ãû³Æ</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br>"
     Else
 
         If health_name(username) <> "yes" Then
-            red = red & err_head & "æ‚¨è¾“å…¥çš„ <font class=red>ç”¨æˆ·åç§°</font> å«æœ‰<font class=red>æœ¬ç³»ç»Ÿç¦ç”¨å­—ç¬¦</font>ï¼<br>"
+            red = red & err_head & "ÄúÊäÈëµÄ <font class=red>ÓÃ»§Ãû³Æ</font> º¬ÓĞ<font class=red>±¾ÏµÍ³½ûÓÃ×Ö·û</font>£¡<br>"
         End If
 
     End If
 
     If symbol_ok(password) <> "yes" Then
-        red = red & err_head & "æ‚¨è¾“å…¥çš„ <font class=red>ç™»é™†å¯†ç </font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br>"
+        red = red & err_head & "ÄúÊäÈëµÄ <font class=red>µÇÂ½ÃÜÂë</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br>"
     Else
 
         If password <> password2 Then
-            red = red & err_head & "æ‚¨è¾“å…¥çš„ <font class=red>ç™»é™†å¯†ç </font> å’Œ <font class=red>ç¡®è®¤å¯†ç </font> ä¸ä¸€è‡´ï¼<br>"
+            red = red & err_head & "ÄúÊäÈëµÄ <font class=red>µÇÂ½ÃÜÂë</font> ºÍ <font class=red>È·ÈÏÃÜÂë</font> ²»Ò»ÖÂ£¡<br>"
         End If
 
     End If
 
     If symbol_name(passwd) <> "yes" Then
-        red = red & err_head & "æ‚¨è¾“å…¥çš„ <font class=red>å¯†ç é’¥åŒ™</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br>"
+        red = red & err_head & "ÄúÊäÈëµÄ <font class=red>ÃÜÂëÔ¿³×</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br>"
     End If
 
     If email_ok(email) <> "yes" Or Len(email) > 50 Then
-        red = red & err_head & "æ‚¨è¾“å…¥çš„ <font class=red>E-mail</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆé‚®ä»¶è§„åˆ™ï¼<br>"
+        red = red & err_head & "ÄúÊäÈëµÄ <font class=red>E-mail</font> Îª¿Õ»ò²»·ûºÏÓÊ¼ş¹æÔò£¡<br>"
     End If
 
     If red = "" Then
@@ -294,22 +294,22 @@ Function reg_chk()
             Call reg_msg(username)
 
             If web_var_num(web_setup,2,1) = 0 Then
-                reg_chk = "<font class=red><b>" & username & "</b></font>ï¼Œæ‚¨å·²æˆåŠŸæ³¨å†Œæˆä¸ºæœ¬ç«™ç”¨æˆ·ã€‚<br><br>æ‚¨ç°åœ¨çš„çŠ¶æ€ä¸ºï¼š<font class=red_3>æœªå®¡æ ¸</font>ï¼Œè¯·ç­‰å¾…ç®¡ç†å‘˜çš„å®¡æ ¸ã€‚è°¢è°¢ï¼"
+                reg_chk = "<font class=red><b>" & username & "</b></font>£¬ÄúÒÑ³É¹¦×¢²á³ÉÎª±¾Õ¾ÓÃ»§¡£<br><br>ÄúÏÖÔÚµÄ×´Ì¬Îª£º<font class=red_3>Î´ÉóºË</font>£¬ÇëµÈ´ı¹ÜÀíÔ±µÄÉóºË¡£Ğ»Ğ»£¡"
             Else
-                reg_chk = "æ­å–œï¼<font class=red><b>" & username & "</b></font>ï¼Œæ‚¨å·²æˆåŠŸæ³¨å†Œæˆä¸ºæœ¬ç«™ç”¨æˆ·ã€‚<br><br><a href='login.asp'>ç°åœ¨è¿›è¡Œç™»é™†</a><br><br>è¯·å°½å¿«ç™»é™†å¹¶ä¿®æ”¹æ‚¨çš„ä¸ªäººèµ„æ–™ã€‚"
+                reg_chk = "¹§Ï²£¡<font class=red><b>" & username & "</b></font>£¬ÄúÒÑ³É¹¦×¢²á³ÉÎª±¾Õ¾ÓÃ»§¡£<br><br><a href='login.asp'>ÏÖÔÚ½øĞĞµÇÂ½</a><br><br>Çë¾¡¿ìµÇÂ½²¢ĞŞ¸ÄÄúµÄ¸öÈË×ÊÁÏ¡£"
             End If
 
             Exit Function
         Else
-            red = err_head & "æ‚¨è¾“å…¥çš„ <font class=red>ç”¨æˆ·åç§°ï¼ˆ<b>" & username & "</b>ï¼‰</font> å·²ç»è¢«æ³¨å†Œï¼<br>" & _
-            err_head & "è¯·é‡æ–°é€‰æ‹©è¾“å…¥æ‚¨çš„ <font class=red>ç”¨æˆ·åç§°</font> ä»¥å¹¶ç»§ç»­æ³¨å†Œï¼<br>"
+            red = err_head & "ÄúÊäÈëµÄ <font class=red>ÓÃ»§Ãû³Æ£¨<b>" & username & "</b>£©</font> ÒÑ¾­±»×¢²á£¡<br>" & _
+            err_head & "ÇëÖØĞÂÑ¡ÔñÊäÈëÄúµÄ <font class=red>ÓÃ»§Ãû³Æ</font> ÒÔ²¢¼ÌĞø×¢²á£¡<br>"
             rs.Close:Set rs = Nothing
             reg_chk = found_error(red,300):Exit Function
         End If
 
         rs.Close:Set rs = Nothing
     Else
-        red     = red & err_head & "è¯·æŸ¥é˜…æœ‰å…³ <a href='help.asp?action=register' class=red_3>ç”¨æˆ·æ³¨å†Œæ³¨æ„äº‹é¡¹</a> å¹¶é‡æ–°å¡«å†™ã€‚"
+        red     = red & err_head & "Çë²éÔÄÓĞ¹Ø <a href='help.asp?action=register' class=red_3>ÓÃ»§×¢²á×¢ÒâÊÂÏî</a> ²¢ÖØĞÂÌîĞ´¡£"
         reg_chk = found_error(red,280):Exit Function
     End If
 
@@ -318,11 +318,11 @@ End Function
 Sub reg_msg(accept_u)
     Dim msg_topic
     Dim msg_word
-    msg_topic = web_var(web_config,1) & " æ¬¢è¿æ‚¨çš„åˆ°æ¥ï¼"
-    msg_word  = web_var(web_config,1) & "å…¨ä½“ç”¨æˆ·å’Œå·¥ä½œäººå‘˜æ¬¢è¿æ‚¨çš„åˆ°æ¥ï¼[br]" & _
-    "å¦‚æœ‰ä»»ä½•ç–‘é—®è¯·åŠæ—¶è”ç³»æˆ‘ä»¬ã€‚[br]" & _
-    "å¦‚æœ‰ä»»ä½•ä½¿ç”¨ä¸Šçš„é—®é¢˜è¯·æŸ¥çœ‹ç½‘ç«™å¸®åŠ©ã€‚[br]" & _
-    "æ„Ÿè°¢æ‚¨è®¿é—®æœ¬ç«™ï¼Œè®©æˆ‘ä»¬ä¸€èµ·æ¥å»ºè®¾è¿™ä¸ªç½‘ä¸Šå®¶å›­ï¼"
+    msg_topic = web_var(web_config,1) & " »¶Ó­ÄúµÄµ½À´£¡"
+    msg_word  = web_var(web_config,1) & "È«ÌåÓÃ»§ºÍ¹¤×÷ÈËÔ±»¶Ó­ÄúµÄµ½À´£¡[br]" & _
+    "ÈçÓĞÈÎºÎÒÉÎÊÇë¼°Ê±ÁªÏµÎÒÃÇ¡£[br]" & _
+    "ÈçÓĞÈÎºÎÊ¹ÓÃÉÏµÄÎÊÌâÇë²é¿´ÍøÕ¾°ïÖú¡£[br]" & _
+    "¸ĞĞ»Äú·ÃÎÊ±¾Õ¾£¬ÈÃÎÒÃÇÒ»ÆğÀ´½¨ÉèÕâ¸öÍøÉÏ¼ÒÔ°£¡"
     sql = "insert into user_mail(send_u,accept_u,topic,word,tim,types,isread) " & _
     "values('" & web_var(web_config,3) & "','" & accept_u & "','" & msg_topic & "','" & msg_word & "','" & now_time & "',1,0)"
     conn.execute(sql)
@@ -353,11 +353,11 @@ Sub login_chk()
     red     = ""
 
     If symbol_name(username) <> "yes" Then
-        red = red & err_head & "æ‚¨è¾“å…¥çš„ <font class=red_3>ç”¨æˆ·åç§°</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br>"
+        red = red & err_head & "ÄúÊäÈëµÄ <font class=red_3>ÓÃ»§Ãû³Æ</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br>"
     End If
 
     If symbol_ok(password) <> "yes" Then
-        red = red & err_head & "æ‚¨è¾“å…¥çš„ <font class=red_3>ç™»é™†å¯†ç </font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br>"
+        red = red & err_head & "ÄúÊäÈëµÄ <font class=red_3>µÇÂ½ÃÜÂë</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br>"
     End If
 
     If red = "" Then
@@ -365,8 +365,8 @@ Sub login_chk()
         Set rs  = conn.execute(sql)
 
         If rs.eof And rs.bof Then
-            red = err_head & "æ‚¨è¾“å…¥çš„ <font class=red>ç”¨æˆ·åç§°</font> å’Œ <font class=red>ç™»é™†å¯†ç </font>  æœ‰é”™è¯¯ï¼<br>" & _
-            err_head & "è¯·é‡æ–°è¾“å…¥ä»¥å¹¶ç»§ç»­ç™»é™†æœ¬ç«™ï¼"
+            red = err_head & "ÄúÊäÈëµÄ <font class=red>ÓÃ»§Ãû³Æ</font> ºÍ <font class=red>µÇÂ½ÃÜÂë</font>  ÓĞ´íÎó£¡<br>" & _
+            err_head & "ÇëÖØĞÂÊäÈëÒÔ²¢¼ÌĞøµÇÂ½±¾Õ¾£¡"
             Response.Write found_error(red,260)
         Else
             power = rs("power"):hidden = rs("hidden")
@@ -398,17 +398,17 @@ Sub login_chk()
                 End If
 
                 '----------------------------------------------------------------------------
-                Response.Write "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=" & index_url & ".asp'><br><br><br>ä½ å¥½ï¼Œ<font class=red>" & username & "</font>&nbsp;ä½ ç°åœ¨æ˜¯ <font class=red>" & format_power(power,1) & "</font> ç™»é™†æ¨¡å¼<br><br>" & _
-                vbcrlf & "<a href='" & index_url & ".asp'>è¿›å…¥" & tit_fir & "</a>&nbsp;â”‹&nbsp;<a href='login.asp?action=logout'>é€€å‡ºæœ¬æ¬¡ç™»é™†</a><br><br><br>"
+                Response.Write "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=" & index_url & ".asp'><br><br><br>ÄãºÃ£¬<font class=red>" & username & "</font>&nbsp;ÄãÏÖÔÚÊÇ <font class=red>" & format_power(power,1) & "</font> µÇÂ½Ä£Ê½<br><br>" & _
+                vbcrlf & "<a href='" & index_url & ".asp'>½øÈë" & tit_fir & "</a>&nbsp;©¯&nbsp;<a href='login.asp?action=logout'>ÍË³ö±¾´ÎµÇÂ½</a><br><br><br>"
             Else
-                Response.Write "<font class=red>æ‚¨çš„ç”¨æˆ·å¸å·è¿˜æœªå®¡æ ¸ï¼</font><br><br>è¯·ä¸ç®¡ç†å‘˜è”ç³»ã€‚"
+                Response.Write "<font class=red>ÄúµÄÓÃ»§ÕÊºÅ»¹Î´ÉóºË£¡</font><br><br>ÇëÓë¹ÜÀíÔ±ÁªÏµ¡£"
             End If
 
         End If
 
         rs.Close
     Else
-        red = red & err_head & "è¯·æŸ¥é˜…æœ‰å…³ <a href='help.asp?action=register' class=red_3>ç”¨æˆ·æ³¨å†Œæ³¨æ„äº‹é¡¹</a> å¹¶é‡æ–°å¡«å†™ã€‚"
+        red = red & err_head & "Çë²éÔÄÓĞ¹Ø <a href='help.asp?action=register' class=red_3>ÓÃ»§×¢²á×¢ÒâÊÂÏî</a> ²¢ÖØĞÂÌîĞ´¡£"
         Response.Write found_error(red,280)
     End If
 
@@ -418,14 +418,14 @@ Sub login_main() %>
 <script language=javascript src='style/login.js'></script>
 <table border=0>
 <form name=login_frm method=post action='login.asp?action=login_chk' onsubmit="return login_true()">
-<tr><td align=center height=30>ç”¨æˆ·åç§°ï¼š&nbsp;<input type=text name=username size=15 maxlength=20 tabindex=1>&nbsp;&nbsp;</td></tr>
-<tr><td align=center>ç™»é™†å¯†ç ï¼š&nbsp;<input type=password name=password size=15 maxlength=20 tabindex=2>&nbsp;&nbsp;</td></tr>
-<tr><td align=center height=30 align=center><input type=radio name=memery_info value='no' class=bg_1 checked>&nbsp;ç™»é™†ä¸€æ¬¡&nbsp;
-<input type=radio name=memery_info value='yes' class=bg_1>&nbsp;æ°¸ä¹…ç™»é™†</td></tr>
+<tr><td align=center height=30>ÓÃ»§Ãû³Æ£º&nbsp;<input type=text name=username size=15 maxlength=20 tabindex=1>&nbsp;&nbsp;</td></tr>
+<tr><td align=center>µÇÂ½ÃÜÂë£º&nbsp;<input type=password name=password size=15 maxlength=20 tabindex=2>&nbsp;&nbsp;</td></tr>
+<tr><td align=center height=30 align=center><input type=radio name=memery_info value='no' class=bg_1 checked>&nbsp;µÇÂ½Ò»´Î&nbsp;
+<input type=radio name=memery_info value='yes' class=bg_1>&nbsp;ÓÀ¾ÃµÇÂ½</td></tr>
 <tr><td align=center>
-<input type=button value='æ³¨ å†Œ' onClick="document.location='login.asp?action=register'">&nbsp;&nbsp;
-<input type=button value='å¿˜è®°å¯†ç ' onClick="document.location='login.asp?action=nopass'">&nbsp;&nbsp;
-<input type=submit value='ç™» é™†' tabindex=3>
+<input type=button value='×¢ ²á' onClick="document.location='login.asp?action=register'">&nbsp;&nbsp;
+<input type=button value='Íü¼ÇÃÜÂë' onClick="document.location='login.asp?action=nopass'">&nbsp;&nbsp;
+<input type=submit value='µÇ Â½' tabindex=3>
 </td></tr>
 </table>
 <%

@@ -32,11 +32,11 @@ End If
 
 Select Case action
     Case "register"
-        tit = "鐢ㄦ埛娉ㄥ唽"
+        tit = "用户注册"
     Case "nopass"
-        tit = "蹇樿瀵嗙爜"
+        tit = "忘记密码"
     Case Else
-        tit = "鐢ㄦ埛鐧婚檰"
+        tit = "用户登陆"
 End Select
 
 Call web_head(0,0,3,0,0)

@@ -17,7 +17,7 @@ Dim word
 Dim types
 Dim isread
 Dim red_3
-tit = "ç«™å†…çŸ­ä¿¡"
+tit = "Õ¾ÄÚ¶ÌĞÅ"
 
 Call web_head(2,0,0,0,0)
 
@@ -51,7 +51,7 @@ Response.Write vbcrlf & "</table>"
 Call web_end(0)
 
 Function mail_del()
-    mail_del = vbcrlf & "<tr" & table2 & "><td align=center><font class=end><b>åˆ é™¤çŸ­ä¿¡</b></font></td></tr>"
+    mail_del = vbcrlf & "<tr" & table2 & "><td align=center><font class=end><b>É¾³ı¶ÌĞÅ</b></font></td></tr>"
     Dim rs
     Dim sql
     Dim html_temp
@@ -60,7 +60,7 @@ Function mail_del()
     Set rs        = conn.execute(sql)
 
     If rs.eof And rs.bof Then
-        html_temp = "<font class=red_2>æ‚¨æ‰€è¦åˆ é™¤çš„çŸ­ä¿¡IDä¸å­˜åœ¨æˆ–å‡ºé”™ï¼</font><br><br>" & go_back
+        html_temp = "<font class=red_2>ÄúËùÒªÉ¾³ıµÄ¶ÌĞÅID²»´æÔÚ»ò³ö´í£¡</font><br><br>" & go_back
     End If
 
     rs.Close:Set rs = Nothing
@@ -68,14 +68,14 @@ Function mail_del()
     If html_temp = "" Then
         sql       = "update user_mail set types=4 where id=" & id
         conn.execute(sql)
-        html_temp = "<font class=red>çŸ­ä¿¡åˆ é™¤æˆåŠŸï¼åˆ é™¤çš„çŸ­ä¿¡å°†ç½®äºæ‚¨çš„å›æ”¶ç«™å†…ã€‚</font><br><br><a href='user_mail.asp?action=recycle'>ç‚¹å‡»è¿”å›</a>"
+        html_temp = "<font class=red>¶ÌĞÅÉ¾³ı³É¹¦£¡É¾³ıµÄ¶ÌĞÅ½«ÖÃÓÚÄúµÄ»ØÊÕÕ¾ÄÚ¡£</font><br><br><a href='user_mail.asp?action=recycle'>µã»÷·µ»Ø</a>"
     End If
 
     mail_del      = mail_del & "<tr" & table3 & "><td height=150 align=center>" & html_temp & "</td></tr>"
 End Function
 
 Sub mail_write()
-    Response.Write vbcrlf & "<tr" & table2 & " height=25><td colspan=2 align=center background=images/" & web_var(web_config,5) & "/bar_3_bg.gif><font class=end><b>æ’°å†™çŸ­ä¿¡</b></font></td></tr>"
+    Response.Write vbcrlf & "<tr" & table2 & " height=25><td colspan=2 align=center background=images/" & web_var(web_config,5) & "/bar_3_bg.gif><font class=end><b>×«Ğ´¶ÌĞÅ</b></font></td></tr>"
 
     If Trim(Request.form("write_ok")) = "ok" Then
         Response.Write vbcrlf & "<tr" & table3 & "><td colspan=2 align=center height=150>"
@@ -89,24 +89,24 @@ Sub mail_write()
             word          = Request.form("word")
 
             If symbol_name(accept_u) <> "yes" Then
-                red_3     = red_3 & "<br><li><font class=red_3>æ”¶ ä¿¡ äºº</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼"
+                red_3     = red_3 & "<br><li><font class=red_3>ÊÕ ĞÅ ÈË</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡"
             Else
                 sql       = "select username from user_data where username='" & accept_u & "'"
                 Set rs    = conn.execute(sql)
 
                 If rs.eof And rs.bof Then
-                    red_3 = red_3 & "<br><li>ä½ å¡«å†™çš„ <font class=red_3>æ”¶ ä¿¡ äºº</font> å¥½åƒä¸å­˜åœ¨ï¼"
+                    red_3 = red_3 & "<br><li>ÄãÌîĞ´µÄ <font class=red_3>ÊÕ ĞÅ ÈË</font> ºÃÏñ²»´æÔÚ£¡"
                 End If
 
                 rs.Close:Set rs = Nothing
             End If
 
             If var_null(topic) = "" Or Len(topic) > 20 Then
-                red_3 = red_3 & "<br><li><font class=red_3>çŸ­ä¿¡ä¸»é¢˜</font> ä¸èƒ½ä¸ºç©ºä¸”é•¿åº¦ä¸èƒ½å¤§äº20ï¼"
+                red_3 = red_3 & "<br><li><font class=red_3>¶ÌĞÅÖ÷Ìâ</font> ²»ÄÜÎª¿ÕÇÒ³¤¶È²»ÄÜ´óÓÚ20£¡"
             End If
 
             If var_null(word) = "" Or Len(word) > 250 Then
-                red_3 = red_3 & "<br><li><font class=red_3>çŸ­ä¿¡å†…å®¹</font> ä¸èƒ½ä¸ºç©ºä¸”é•¿åº¦ä¸èƒ½å¤§äº250ï¼"
+                red_3 = red_3 & "<br><li><font class=red_3>¶ÌĞÅÄÚÈİ</font> ²»ÄÜÎª¿ÕÇÒ³¤¶È²»ÄÜ´óÓÚ250£¡"
             End If
 
             If red_3 = "" Then
@@ -131,9 +131,9 @@ Sub mail_write()
                 rs.Close
 
                 If Trim(Request.form("send_later")) = "yes" Then
-                    Response.Write "<font class=red>æ‚¨å·²æˆåŠŸçš„ä¿å­˜äº†ä¸€æ¡çŸ­ä¿¡ï¼</font><br><br><a href='user_mail.asp?action=outbox'>ç‚¹å‡»è¿”å›</a>"
+                    Response.Write "<font class=red>ÄúÒÑ³É¹¦µÄ±£´æÁËÒ»Ìõ¶ÌĞÅ£¡</font><br><br><a href='user_mail.asp?action=outbox'>µã»÷·µ»Ø</a>"
                 Else
-                    Response.Write "<font class=red>æ‚¨å·²æˆåŠŸçš„ç»™ <font class=blue><b>" & accept_u & "</b></font> å‘é€äº†ä¸€æ¡çŸ­ä¿¡ï¼</font><br><br><a href='user_mail.asp'>ç‚¹å‡»è¿”å›</a>"
+                    Response.Write "<font class=red>ÄúÒÑ³É¹¦µÄ¸ø <font class=blue><b>" & accept_u & "</b></font> ·¢ËÍÁËÒ»Ìõ¶ÌĞÅ£¡</font><br><br><a href='user_mail.asp'>µã»÷·µ»Ø</a>"
                 End If
 
             Else
@@ -145,16 +145,16 @@ Sub mail_write()
         Response.Write vbcrlf & "</td></tr>"
     Else
         Response.Write vbcrlf & "<form name=mail_frm action='user_message.asp?action=write' method=post onsubmit=""javascript:frm_submitonce(this);""><input type=hidden name=write_ok value='ok'><input type=hidden name=send_later value=''>" & _
-        vbcrlf & "<tr height=30" & table3 & "><td width='15%' align=center bgcolor=" & web_var(web_color,6) & ">æ”¶ ä¿¡ äººï¼š</td><td width='85%'>&nbsp;<input type=text name=accept_u value='" & Trim(Request.querystring("accept_uaername")) & "' size=30 maxlength=20>" & redx & "&nbsp;ã€€&nbsp;" & friend_select() & "</td></tr>" & _
-        vbcrlf & "<tr height=30" & table3 & "><td align=center bgcolor=" & web_var(web_color,6) & ">çŸ­ä¿¡ä¸»é¢˜ï¼š</td><td>&nbsp;<input type=text name=topic size=60 maxlength=20></td></tr>" & _
-        vbcrlf & "<tr height=100" & table3 & "><td align=center class=htd bgcolor=" & web_var(web_color,6) & ">çŸ­ä¿¡å†…å®¹ï¼š<br>" & web_var(web_error,3) & "</td><td>&nbsp;<textarea cols=64 rows=6 name=word title='çŸ­ä¿¡å†…å®¹æœ€å¤š250ä¸ªå­—ç¬¦<br>æŒ‰ Ctrl+Enter å¯ç›´æ¥å‘é€' onkeydown=""javascript:frm_quicksubmit();""></textarea></td></tr>" & _
-        vbcrlf & "<tr" & table3 & "><td colspan=2 height=40 align=center><input type=Submit name=wsubmit value='å‘é€çŸ­ä¿¡'>&nbsp;ã€€&nbsp;<input type=submit name=send value='ä¿å­˜çŸ­ä¿¡' onclick=""javascript:mail_send_later();"">&nbsp;ã€€&nbsp;<input type=reset value='æ¸…é™¤é‡å†™'></td></tr></form>"
+        vbcrlf & "<tr height=30" & table3 & "><td width='15%' align=center bgcolor=" & web_var(web_color,6) & ">ÊÕ ĞÅ ÈË£º</td><td width='85%'>&nbsp;<input type=text name=accept_u value='" & Trim(Request.querystring("accept_uaername")) & "' size=30 maxlength=20>" & redx & "&nbsp;¡¡&nbsp;" & friend_select() & "</td></tr>" & _
+        vbcrlf & "<tr height=30" & table3 & "><td align=center bgcolor=" & web_var(web_color,6) & ">¶ÌĞÅÖ÷Ìâ£º</td><td>&nbsp;<input type=text name=topic size=60 maxlength=20></td></tr>" & _
+        vbcrlf & "<tr height=100" & table3 & "><td align=center class=htd bgcolor=" & web_var(web_color,6) & ">¶ÌĞÅÄÚÈİ£º<br>" & web_var(web_error,3) & "</td><td>&nbsp;<textarea cols=64 rows=6 name=word title='¶ÌĞÅÄÚÈİ×î¶à250¸ö×Ö·û<br>°´ Ctrl+Enter ¿ÉÖ±½Ó·¢ËÍ' onkeydown=""javascript:frm_quicksubmit();""></textarea></td></tr>" & _
+        vbcrlf & "<tr" & table3 & "><td colspan=2 height=40 align=center><input type=Submit name=wsubmit value='·¢ËÍ¶ÌĞÅ'>&nbsp;¡¡&nbsp;<input type=submit name=send value='±£´æ¶ÌĞÅ' onclick=""javascript:mail_send_later();"">&nbsp;¡¡&nbsp;<input type=reset value='Çå³ıÖØĞ´'></td></tr></form>"
     End If
 
 End Sub
 
 Sub mail_reply()
-    Response.Write vbcrlf & "<tr" & table2 & "><td colspan=2 align=center><font class=end><b>å›å¤çŸ­ä¿¡</b></font></td></tr>"
+    Response.Write vbcrlf & "<tr" & table2 & "><td colspan=2 align=center><font class=end><b>»Ø¸´¶ÌĞÅ</b></font></td></tr>"
 
     If Trim(Request.form("reply_ok")) = "ok" Then
         Response.Write vbcrlf & "<tr" & table3 & "><td colspan=2 align=center height=150>"
@@ -168,24 +168,24 @@ Sub mail_reply()
             word          = Request.form("word")
 
             If symbol_name(accept_u) <> "yes" Then
-                red_3     = red_3 & "<br><li><font class=red_3>æ”¶ ä¿¡ äºº</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼"
+                red_3     = red_3 & "<br><li><font class=red_3>ÊÕ ĞÅ ÈË</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡"
             Else
                 sql       = "select username from user_data where username='" & accept_u & "'"
                 Set rs    = conn.execute(sql)
 
                 If rs.eof And rs.bof Then
-                    red_3 = red_3 & "<br><li>ä½ å¡«å†™çš„ <font class=red_3>æ”¶ ä¿¡ äºº</font> å¥½åƒä¸å­˜åœ¨ï¼"
+                    red_3 = red_3 & "<br><li>ÄãÌîĞ´µÄ <font class=red_3>ÊÕ ĞÅ ÈË</font> ºÃÏñ²»´æÔÚ£¡"
                 End If
 
                 rs.Close
             End If
 
             If var_null(topic) = "" Or Len(topic) > 20 Then
-                red_3 = red_3 & "<br><li><font class=red_3>çŸ­ä¿¡ä¸»é¢˜</font> ä¸èƒ½ä¸ºç©ºä¸”é•¿åº¦ä¸èƒ½å¤§äº20ï¼"
+                red_3 = red_3 & "<br><li><font class=red_3>¶ÌĞÅÖ÷Ìâ</font> ²»ÄÜÎª¿ÕÇÒ³¤¶È²»ÄÜ´óÓÚ20£¡"
             End If
 
             If var_null(word) = "" Or Len(word) > 250 Then
-                red_3 = red_3 & "<br><li><font class=red_3>çŸ­ä¿¡å†…å®¹</font> ä¸èƒ½ä¸ºç©ºä¸”é•¿åº¦ä¸èƒ½å¤§äº250ï¼"
+                red_3 = red_3 & "<br><li><font class=red_3>¶ÌĞÅÄÚÈİ</font> ²»ÄÜÎª¿ÕÇÒ³¤¶È²»ÄÜ´óÓÚ250£¡"
             End If
 
             If red_3 = "" Then
@@ -210,9 +210,9 @@ Sub mail_reply()
                 rs.Close
 
                 If Trim(Request.form("send_later")) = "yes" Then
-                    Response.Write "<font class=red>æ‚¨å·²æˆåŠŸçš„ä¿å­˜äº†ä¸€æ¡çŸ­ä¿¡çš„å†…å®¹ï¼</font><br><br><a href='user_mail.asp?action=outbox'>ç‚¹å‡»è¿”å›</a>"
+                    Response.Write "<font class=red>ÄúÒÑ³É¹¦µÄ±£´æÁËÒ»Ìõ¶ÌĞÅµÄÄÚÈİ£¡</font><br><br><a href='user_mail.asp?action=outbox'>µã»÷·µ»Ø</a>"
                 Else
-                    Response.Write "<font class=red>æ‚¨å·²æˆåŠŸçš„ç»™ <font class=blue_1><b>" & accept_u & "</b></font> å›å¤äº†ä¸€æ¡çŸ­ä¿¡ï¼</font><br><br><a href='user_mail.asp'>ç‚¹å‡»è¿”å›</a>"
+                    Response.Write "<font class=red>ÄúÒÑ³É¹¦µÄ¸ø <font class=blue_1><b>" & accept_u & "</b></font> »Ø¸´ÁËÒ»Ìõ¶ÌĞÅ£¡</font><br><br><a href='user_mail.asp'>µã»÷·µ»Ø</a>"
                 End If
 
             Else
@@ -228,17 +228,17 @@ Sub mail_reply()
 
         If rs.eof And rs.bof Then
             rs.Close
-            red_3 = "<br><li>æ‚¨æ‰€å›å¤çš„ <font class=red_3>çŸ­ä¿¡ID</font> ä¸å­˜åœ¨æˆ–æœ‰é”™è¯¯ï¼"
+            red_3 = "<br><li>ÄúËù»Ø¸´µÄ <font class=red_3>¶ÌĞÅID</font> ²»´æÔÚ»òÓĞ´íÎó£¡"
             red_3 = found_error(red_3,"240")
             Response.Write vbcrlf & "<tr" & table3 & "><td align=center height=150 colspan=2>" & red_3 & "</td></tr>"
 
             Exit Sub
             Else
                 Response.Write vbcrlf & "<form name=mail_frm action='user_message.asp?action=reply&id=" & id & "' method=post onsubmit=""javascript:frm_submitonce(this);""><input type=hidden name=reply_ok value='ok'><input type=hidden name=send_later value=''>" & _
-                vbcrlf & "<tr height=30" & table3 & "><td width='15%' align=center>æ”¶ ä¿¡ äººï¼š</td><td width='85%'>&nbsp;<input type=text name=accept_u value='" & rs("send_u") & "' size=30 maxlength=20>" & redx & "&nbsp;ã€€&nbsp;" & friend_select() & "</td></tr>" & _
-                vbcrlf & "<tr height=30" & table3 & "><td align=center>çŸ­ä¿¡ä¸»é¢˜ï¼š</td><td>&nbsp;<input type=text name=topic value='RE:" & rs("topic") & "' size=60 maxlength=20></td></tr>" & _
-                vbcrlf & "<tr height=100" & table3 & "><td align=center class=htd>çŸ­ä¿¡å†…å®¹ï¼š<br>" & web_var(web_error,3) & "</td><td>&nbsp;<textarea cols=64 rows=6 name=word title='çŸ­ä¿¡å†…å®¹æœ€å¤š250ä¸ªå­—ç¬¦<br>æŒ‰ Ctrl+Enter å¯ç›´æ¥å‘é€' onkeydown=""javascript:frm_quicksubmit();""></textarea></td></tr>" & _
-                vbcrlf & "<tr" & table3 & "><td colspan=2 height=40 align=center><input type=Submit name=wsubmit value='å‘é€çŸ­ä¿¡'>&nbsp;ã€€&nbsp;<input type=Submit name=send value='ä¿å­˜çŸ­ä¿¡' onclick=""javascript:mail_send_later();"">&nbsp;ã€€&nbsp;<input type=reset value='æ¸…é™¤é‡å†™'></td></tr></form>"
+                vbcrlf & "<tr height=30" & table3 & "><td width='15%' align=center>ÊÕ ĞÅ ÈË£º</td><td width='85%'>&nbsp;<input type=text name=accept_u value='" & rs("send_u") & "' size=30 maxlength=20>" & redx & "&nbsp;¡¡&nbsp;" & friend_select() & "</td></tr>" & _
+                vbcrlf & "<tr height=30" & table3 & "><td align=center>¶ÌĞÅÖ÷Ìâ£º</td><td>&nbsp;<input type=text name=topic value='RE:" & rs("topic") & "' size=60 maxlength=20></td></tr>" & _
+                vbcrlf & "<tr height=100" & table3 & "><td align=center class=htd>¶ÌĞÅÄÚÈİ£º<br>" & web_var(web_error,3) & "</td><td>&nbsp;<textarea cols=64 rows=6 name=word title='¶ÌĞÅÄÚÈİ×î¶à250¸ö×Ö·û<br>°´ Ctrl+Enter ¿ÉÖ±½Ó·¢ËÍ' onkeydown=""javascript:frm_quicksubmit();""></textarea></td></tr>" & _
+                vbcrlf & "<tr" & table3 & "><td colspan=2 height=40 align=center><input type=Submit name=wsubmit value='·¢ËÍ¶ÌĞÅ'>&nbsp;¡¡&nbsp;<input type=Submit name=send value='±£´æ¶ÌĞÅ' onclick=""javascript:mail_send_later();"">&nbsp;¡¡&nbsp;<input type=reset value='Çå³ıÖØĞ´'></td></tr></form>"
             End If
 
             rs.Close
@@ -247,7 +247,7 @@ Sub mail_reply()
     End Sub
 
     Sub mail_fw()
-        Response.Write vbcrlf & "<tr" & table2 & "><td colspan=2 align=center><font class=end><b>è½¬å‘çŸ­ä¿¡</b></font></td></tr>"
+        Response.Write vbcrlf & "<tr" & table2 & "><td colspan=2 align=center><font class=end><b>×ª·¢¶ÌĞÅ</b></font></td></tr>"
 
         If Trim(Request.form("fw_ok")) = "ok" Then
             Response.Write vbcrlf & "<tr" & table3 & "><td colspan=2 align=center height=150>"
@@ -261,24 +261,24 @@ Sub mail_reply()
                 word          = Request.form("word")
 
                 If symbol_name(accept_u) <> "yes" Then
-                    red_3     = red_3 & "<br><li><font class=red_3>æ”¶ ä¿¡ äºº</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼"
+                    red_3     = red_3 & "<br><li><font class=red_3>ÊÕ ĞÅ ÈË</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡"
                 Else
                     sql       = "select username from user_data where username='" & accept_u & "'"
                     Set rs    = conn.execute(sql)
 
                     If rs.eof And rs.bof Then
-                        red_3 = red_3 & "<br><li>ä½ å¡«å†™çš„ <font class=red_3>æ”¶ ä¿¡ äºº</font> å¥½åƒä¸å­˜åœ¨ï¼"
+                        red_3 = red_3 & "<br><li>ÄãÌîĞ´µÄ <font class=red_3>ÊÕ ĞÅ ÈË</font> ºÃÏñ²»´æÔÚ£¡"
                     End If
 
                     rs.Close
                 End If
 
                 If var_null(topic) = "" Or Len(topic) > 20 Then
-                    red_3 = red_3 & "<br><li><font class=red_3>çŸ­ä¿¡ä¸»é¢˜</font> ä¸èƒ½ä¸ºç©ºä¸”é•¿åº¦ä¸èƒ½å¤§äº20ï¼"
+                    red_3 = red_3 & "<br><li><font class=red_3>¶ÌĞÅÖ÷Ìâ</font> ²»ÄÜÎª¿ÕÇÒ³¤¶È²»ÄÜ´óÓÚ20£¡"
                 End If
 
                 If var_null(word) = "" Or Len(word) > 250 Then
-                    red_3 = red_3 & "<br><li><font class=red_3>çŸ­ä¿¡å†…å®¹</font> ä¸èƒ½ä¸ºç©ºä¸”é•¿åº¦ä¸èƒ½å¤§äº250ï¼"
+                    red_3 = red_3 & "<br><li><font class=red_3>¶ÌĞÅÄÚÈİ</font> ²»ÄÜÎª¿ÕÇÒ³¤¶È²»ÄÜ´óÓÚ250£¡"
                 End If
 
                 If red_3 = "" Then
@@ -303,9 +303,9 @@ Sub mail_reply()
                     rs.Close
 
                     If Trim(Request.form("send_later")) = "yes" Then
-                        Response.Write "<font class=red>æ‚¨å·²æˆåŠŸçš„ä¿å­˜äº†ä¸€æ¡çŸ­ä¿¡çš„å†…å®¹ï¼</font><br><br><a href='user_mail.asp?action=outbox'>ç‚¹å‡»è¿”å›</a>"
+                        Response.Write "<font class=red>ÄúÒÑ³É¹¦µÄ±£´æÁËÒ»Ìõ¶ÌĞÅµÄÄÚÈİ£¡</font><br><br><a href='user_mail.asp?action=outbox'>µã»÷·µ»Ø</a>"
                     Else
-                        Response.Write "<font class=red>æ‚¨å·²æˆåŠŸçš„ç»™ <font class=blue_1><b>" & accept_u & "</b></font> è½¬å‘äº†ä¸€æ¡çŸ­ä¿¡ï¼</font><br><br><a href='user_mail.asp'>ç‚¹å‡»è¿”å›</a>"
+                        Response.Write "<font class=red>ÄúÒÑ³É¹¦µÄ¸ø <font class=blue_1><b>" & accept_u & "</b></font> ×ª·¢ÁËÒ»Ìõ¶ÌĞÅ£¡</font><br><br><a href='user_mail.asp'>µã»÷·µ»Ø</a>"
                     End If
 
                 Else
@@ -321,17 +321,17 @@ Sub mail_reply()
 
             If rs.eof And rs.bof Then
                 rs.Close
-                red_3 = "<br><li>æ‚¨æ‰€è½¬å‘çš„ <font class=red_3>çŸ­ä¿¡ID</font> ä¸å­˜åœ¨æˆ–æœ‰é”™è¯¯ï¼"
+                red_3 = "<br><li>ÄúËù×ª·¢µÄ <font class=red_3>¶ÌĞÅID</font> ²»´æÔÚ»òÓĞ´íÎó£¡"
                 red_3 = found_error(red_3,"240")
                 Response.Write vbcrlf & "<tr" & table3 & "><td align=center height=150 colspan=2>" & red_3 & "</td></tr>"
 
                 Exit Sub
                 Else
                     Response.Write vbcrlf & "<form name=mail_frm action='user_message.asp?action=fw&id=" & id & "' method=post onsubmit=""frm_submitonce(this);""><input type=hidden name=fw_ok value='ok'><input type=hidden name=send_later value=''>" & _
-                    vbcrlf & "<tr height=30" & table3 & "><td width='15%' align=center>æ”¶ ä¿¡ äººï¼š</td><td width='85%'>&nbsp;<input type=text name=accept_u size=30 maxlength=20>" & redx & "&nbsp;ã€€&nbsp;" & friend_select() & "</td></tr>" & _
-                    vbcrlf & "<tr height=30" & table3 & "><td align=center>çŸ­ä¿¡ä¸»é¢˜ï¼š</td><td>&nbsp;<input type=text name=topic value='FW:" & rs("topic") & "' size=60 maxlength=20></td></tr>" & _
-                    vbcrlf & "<tr height=100" & table3 & "><td align=center class=htd>çŸ­ä¿¡å†…å®¹ï¼š<br>" & web_var(web_error,3) & "</td><td>&nbsp;<textarea cols=64 rows=6 name=word title='çŸ­ä¿¡å†…å®¹æœ€å¤š250ä¸ªå­—ç¬¦<br>æŒ‰ Ctrl+Enter å¯ç›´æ¥å‘é€' onkeydown=""javascript:frm_quicksubmit();"">ä»¥ä¸‹ä¸º " & login_username & " è½¬å‘ " & rs("send_u") & " äº " & rs("tim") & " å†™çš„çŸ­ä¿¡" & vbcrlf & "â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”" & vbcrlf & rs("word") & "</textarea></td></tr>" & _
-                    vbcrlf & "<tr" & table3 & "><td colspan=2 height=40 align=center><input type=Submit name=wsubmit value='å‘é€çŸ­ä¿¡'>&nbsp;ã€€&nbsp;<input type=Submit name=send value='ä¿å­˜çŸ­ä¿¡' onclick=""javascript:mail_send_later();"">&nbsp;ã€€&nbsp;<input type=reset value='æ¸…é™¤é‡å†™'></td></tr></form>"
+                    vbcrlf & "<tr height=30" & table3 & "><td width='15%' align=center>ÊÕ ĞÅ ÈË£º</td><td width='85%'>&nbsp;<input type=text name=accept_u size=30 maxlength=20>" & redx & "&nbsp;¡¡&nbsp;" & friend_select() & "</td></tr>" & _
+                    vbcrlf & "<tr height=30" & table3 & "><td align=center>¶ÌĞÅÖ÷Ìâ£º</td><td>&nbsp;<input type=text name=topic value='FW:" & rs("topic") & "' size=60 maxlength=20></td></tr>" & _
+                    vbcrlf & "<tr height=100" & table3 & "><td align=center class=htd>¶ÌĞÅÄÚÈİ£º<br>" & web_var(web_error,3) & "</td><td>&nbsp;<textarea cols=64 rows=6 name=word title='¶ÌĞÅÄÚÈİ×î¶à250¸ö×Ö·û<br>°´ Ctrl+Enter ¿ÉÖ±½Ó·¢ËÍ' onkeydown=""javascript:frm_quicksubmit();"">ÒÔÏÂÎª " & login_username & " ×ª·¢ " & rs("send_u") & " ÓÚ " & rs("tim") & " Ğ´µÄ¶ÌĞÅ" & vbcrlf & "¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª" & vbcrlf & rs("word") & "</textarea></td></tr>" & _
+                    vbcrlf & "<tr" & table3 & "><td colspan=2 height=40 align=center><input type=Submit name=wsubmit value='·¢ËÍ¶ÌĞÅ'>&nbsp;¡¡&nbsp;<input type=Submit name=send value='±£´æ¶ÌĞÅ' onclick=""javascript:mail_send_later();"">&nbsp;¡¡&nbsp;<input type=reset value='Çå³ıÖØĞ´'></td></tr></form>"
                 End If
 
                 rs.Close
@@ -340,7 +340,7 @@ Sub mail_reply()
         End Sub
 
         Sub mail_edit()
-            Response.Write vbcrlf & "<tr" & table2 & "><td colspan=2 align=center><font class=end><b>ç¼–ç¼‰çŸ­ä¿¡</b></font></td></tr>"
+            Response.Write vbcrlf & "<tr" & table2 & "><td colspan=2 align=center><font class=end><b>±à¼©¶ÌĞÅ</b></font></td></tr>"
 
             If Trim(Request.form("edit_ok")) = "ok" Then
                 Response.Write vbcrlf & "<tr" & table3 & "><td colspan=2 align=center height=150>"
@@ -354,24 +354,24 @@ Sub mail_reply()
                     word          = Request.form("word")
 
                     If symbol_name(accept_u) <> "yes" Then
-                        red_3     = red_3 & "<br><li><font class=red_3>æ”¶ ä¿¡ äºº</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼"
+                        red_3     = red_3 & "<br><li><font class=red_3>ÊÕ ĞÅ ÈË</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡"
                     Else
                         sql       = "select username from user_data where username='" & accept_u & "'"
                         Set rs    = conn.execute(sql)
 
                         If rs.eof And rs.bof Then
-                            red_3 = red_3 & "<br><li>ä½ å¡«å†™çš„ <font class=red_3>æ”¶ ä¿¡ äºº</font> å¥½åƒä¸å­˜åœ¨ï¼"
+                            red_3 = red_3 & "<br><li>ÄãÌîĞ´µÄ <font class=red_3>ÊÕ ĞÅ ÈË</font> ºÃÏñ²»´æÔÚ£¡"
                         End If
 
                         rs.Close
                     End If
 
                     If var_null(topic) = "" Or Len(topic) > 20 Then
-                        red_3 = red_3 & "<br><li><font class=red_3>çŸ­ä¿¡ä¸»é¢˜</font> ä¸èƒ½ä¸ºç©ºä¸”é•¿åº¦ä¸èƒ½å¤§äº20ï¼"
+                        red_3 = red_3 & "<br><li><font class=red_3>¶ÌĞÅÖ÷Ìâ</font> ²»ÄÜÎª¿ÕÇÒ³¤¶È²»ÄÜ´óÓÚ20£¡"
                     End If
 
                     If var_null(word) = "" Or Len(word) > 250 Then
-                        red_3 = red_3 & "<br><li><font class=red_3>çŸ­ä¿¡å†…å®¹</font> ä¸èƒ½ä¸ºç©ºä¸”é•¿åº¦ä¸èƒ½å¤§äº250ï¼"
+                        red_3 = red_3 & "<br><li><font class=red_3>¶ÌĞÅÄÚÈİ</font> ²»ÄÜÎª¿ÕÇÒ³¤¶È²»ÄÜ´óÓÚ250£¡"
                     End If
 
                     If red_3 = "" Then
@@ -404,9 +404,9 @@ Sub mail_reply()
                         rs.Close
 
                         If Trim(Request.form("send_later")) = "yes" Then
-                            Response.Write "<font class=red>æ‚¨å·²æˆåŠŸçš„ä¿å­˜äº†çŸ­ä¿¡çš„å†…å®¹ï¼</font><br><br><a href='user_mail.asp?action=outbox'>ç‚¹å‡»è¿”å›</a>"
+                            Response.Write "<font class=red>ÄúÒÑ³É¹¦µÄ±£´æÁË¶ÌĞÅµÄÄÚÈİ£¡</font><br><br><a href='user_mail.asp?action=outbox'>µã»÷·µ»Ø</a>"
                         Else
-                            Response.Write "<font class=red>æ‚¨å·²æˆåŠŸçš„ç»™ <font class=blue_1><b>" & accept_u & "</b></font> å‘é€äº†ä¸€æ¡çŸ­ä¿¡ï¼</font><br><br><a href='user_mail.asp'>ç‚¹å‡»è¿”å›</a>"
+                            Response.Write "<font class=red>ÄúÒÑ³É¹¦µÄ¸ø <font class=blue_1><b>" & accept_u & "</b></font> ·¢ËÍÁËÒ»Ìõ¶ÌĞÅ£¡</font><br><br><a href='user_mail.asp'>µã»÷·µ»Ø</a>"
                         End If
 
                     Else
@@ -422,17 +422,17 @@ Sub mail_reply()
 
                 If rs.eof And rs.bof Then
                     rs.Close
-                    red_3 = "<br><li>æ‚¨æ‰€ç¼–ç¼‰çš„ <font class=red_3>çŸ­ä¿¡ID</font> ä¸å­˜åœ¨æˆ–æœ‰é”™è¯¯ï¼"
+                    red_3 = "<br><li>ÄúËù±à¼©µÄ <font class=red_3>¶ÌĞÅID</font> ²»´æÔÚ»òÓĞ´íÎó£¡"
                     red_3 = found_error(red_3,"240")
                     Response.Write vbcrlf & "<tr><td align=center height=150 colspan=2>" & red_3 & "</td></tr>"
 
                     Exit Sub
                     Else
                         Response.Write vbcrlf & "<form name=mail_frm action=user_message.asp?action=edit&id=" & id & " method=post onsubmit=""frm_submitonce(this);""><input type=hidden name=edit_ok value='ok'><input type=hidden name=send_later value=''>" & _
-                        vbcrlf & "<tr height=30" & table3 & "><td width='15%' align=center>æ”¶ ä¿¡ äººï¼š</td><td width='85%'>&nbsp;<input type=text name=accept_u value='" & rs("accept_u") & "' size=30 maxlength=20>" & redx & "&nbsp;ã€€&nbsp;" & friend_select() & "</td></tr>" & _
-                        vbcrlf & "<tr height=30" & table3 & "><td align=center>çŸ­ä¿¡ä¸»é¢˜ï¼š</td><td>&nbsp;<input type=text name=topic value='" & rs("topic") & "' size=60 maxlength=20></td></tr>" & _
-                        vbcrlf & "<tr height=100" & table3 & "><td align=center class=htd>çŸ­ä¿¡å†…å®¹ï¼š<br>" & web_var(web_error,3) & "</td><td>&nbsp;<textarea cols=64 rows=6 name=word title='çŸ­ä¿¡å†…å®¹æœ€å¤š250ä¸ªå­—ç¬¦<br>æŒ‰ Ctrl+Enter å¯ç›´æ¥å‘é€' onkeydown=""javascript:frm_quicksubmit();"">" & rs("word") & "</textarea></td></tr>" & _
-                        vbcrlf & "<tr" & table3 & "><td colspan=2 height=40 align=center><input type=Submit name=wsubmit value='å‘é€çŸ­ä¿¡'>&nbsp;ã€€&nbsp;<input type=Submit name=send value='ä¿å­˜çŸ­ä¿¡' onclick=""javascript:mail_send_later();"">&nbsp;ã€€&nbsp;<input type=reset value='æ¸…é™¤é‡å†™'></td></tr></form>"
+                        vbcrlf & "<tr height=30" & table3 & "><td width='15%' align=center>ÊÕ ĞÅ ÈË£º</td><td width='85%'>&nbsp;<input type=text name=accept_u value='" & rs("accept_u") & "' size=30 maxlength=20>" & redx & "&nbsp;¡¡&nbsp;" & friend_select() & "</td></tr>" & _
+                        vbcrlf & "<tr height=30" & table3 & "><td align=center>¶ÌĞÅÖ÷Ìâ£º</td><td>&nbsp;<input type=text name=topic value='" & rs("topic") & "' size=60 maxlength=20></td></tr>" & _
+                        vbcrlf & "<tr height=100" & table3 & "><td align=center class=htd>¶ÌĞÅÄÚÈİ£º<br>" & web_var(web_error,3) & "</td><td>&nbsp;<textarea cols=64 rows=6 name=word title='¶ÌĞÅÄÚÈİ×î¶à250¸ö×Ö·û<br>°´ Ctrl+Enter ¿ÉÖ±½Ó·¢ËÍ' onkeydown=""javascript:frm_quicksubmit();"">" & rs("word") & "</textarea></td></tr>" & _
+                        vbcrlf & "<tr" & table3 & "><td colspan=2 height=40 align=center><input type=Submit name=wsubmit value='·¢ËÍ¶ÌĞÅ'>&nbsp;¡¡&nbsp;<input type=Submit name=send value='±£´æ¶ÌĞÅ' onclick=""javascript:mail_send_later();"">&nbsp;¡¡&nbsp;<input type=reset value='Çå³ıÖØĞ´'></td></tr></form>"
                     End If
 
                     rs.Close
@@ -441,14 +441,14 @@ Sub mail_reply()
             End Sub
 
             Function mail_view()
-                mail_view = vbcrlf & "<tr" & table2 & " height=25><td align=center background=images/" & web_var(web_config,5) & "/bar_3_bg.gif><font class=end><b>æŸ¥çœ‹çŸ­ä¿¡</b></font></td></tr>"
+                mail_view = vbcrlf & "<tr" & table2 & " height=25><td align=center background=images/" & web_var(web_config,5) & "/bar_3_bg.gif><font class=end><b>²é¿´¶ÌĞÅ</b></font></td></tr>"
                 red_3     = ""
                 sql       = "select * from user_mail where (send_u='" & login_username & "' or accept_u='" & login_username & "') and id=" & id
                 Set rs    = conn.execute(sql)
 
                 If rs.eof And rs.bof Then
                     rs.Close:Set rs = Nothing
-                    red_3     = "<br><li>æ‚¨æ‰€æŸ¥çœ‹çš„ <font class=red_3>çŸ­ä¿¡ID</font> ä¸å­˜åœ¨æˆ–æœ‰é”™è¯¯ï¼"
+                    red_3     = "<br><li>ÄúËù²é¿´µÄ <font class=red_3>¶ÌĞÅID</font> ²»´æÔÚ»òÓĞ´íÎó£¡"
                     red_3     = found_error(red_3,"240")
                     mail_view = mail_view & "<tr" & table3 & "><td align=center height=150>" & red_3 & "</td></tr>"
                     Exit Function
@@ -458,9 +458,9 @@ Sub mail_reply()
                 accept_u  = rs("accept_u")
                 types     = Int(rs("types"))
                 isread    = rs("isread")
-                mail_view = mail_view & vbcrlf & "<tr" & table3 & "><td height=50>&nbsp;&nbsp;çŸ­ä¿¡ä¸»é¢˜ï¼š<font class=red_3>" & code_html(rs("topic"),1,0) & "</font></td></tr>" & _
+                mail_view = mail_view & vbcrlf & "<tr" & table3 & "><td height=50>&nbsp;&nbsp;¶ÌĞÅÖ÷Ìâ£º<font class=red_3>" & code_html(rs("topic"),1,0) & "</font></td></tr>" & _
                 vbcrlf & "<tr" & table3 & "><td height=80 align=center><table border=0 width='96%' class=tf><tr><td height=8></td></tr><tr><td class=bw>" & code_jk(rs("word")) & "</td></tr><tr><td height=8></td></tr></table></td></tr>" & _
-                vbcrlf & "<tr" & table3 & "><td align=center height=30>ä»¥ä¸Šæ˜¯ " & format_user_view(send_u,1,1) & " äº " & time_type(rs("tim"),88) & " ç»™æ‚¨å‘é€çš„çŸ­ä¿¡</td></tr>"
+                vbcrlf & "<tr" & table3 & "><td align=center height=30>ÒÔÉÏÊÇ " & format_user_view(send_u,1,1) & " ÓÚ " & time_type(rs("tim"),88) & " ¸øÄú·¢ËÍµÄ¶ÌĞÅ</td></tr>"
                 rs.Close:Set rs = Nothing
 
                 If Not(send_u = login_username And accept_u <> login_username) And isread = False Then
@@ -481,7 +481,7 @@ Sub mail_reply()
                 vbcrlf & "  return;" & _
                 vbcrlf & "}</script>" & _
                 vbcrlf & "<select name=friend_select size=1 onchange=Do_accept(this.options[this.selectedIndex].value)>" & _
-                vbcrlf & "<option value='0'>é€‰æ‹©æˆ‘çš„å¥½å‹</option>"
+                vbcrlf & "<option value='0'>Ñ¡ÔñÎÒµÄºÃÓÑ</option>"
                 sql               = "select username2 from user_friend where username1='" & login_username & "' order by id"
                 Set rs            = conn.execute(sql)
 
@@ -496,7 +496,7 @@ Sub mail_reply()
             End Function %>
 <script language=javascript>
 <!--
-//è°ƒç”¨æ–¹æ³•:onsubmit="frm_submitonce(this);"
+//µ÷ÓÃ·½·¨:onsubmit="frm_submitonce(this);"
 function frm_submitonce(theform)
 {
   if (document.all||document.getElementById)

@@ -6,11 +6,11 @@
 ' http://beyondest.com
 ' ====================
 
-tit = "<a href='admin_update.asp?'>ç½‘ç«™æ›´æ–°</a> â”‹ " & _
-"<a href='admin_data.asp'>æ•°æ®æ›´æ–°</a> â”‹ " & _
-"<a href='admin_update.asp?nsort=news'>æ›´æ–°å…¬å‘Š</a> â”‹ " & _
-"<a href='admin_update.asp?nsort=forum'>è®ºå›å…¬å‘Š</a> â”‹ " & _
-"<a href='admin_update.asp?action=add'>æ–°å¢å…¬å‘Š</a>"
+tit = "<a href='admin_update.asp?'>ÍøÕ¾¸üĞÂ</a> ©¯ " & _
+"<a href='admin_data.asp'>Êı¾İ¸üĞÂ</a> ©¯ " & _
+"<a href='admin_update.asp?nsort=news'>¸üĞÂ¹«¸æ</a> ©¯ " & _
+"<a href='admin_update.asp?nsort=forum'>ÂÛÌ³¹«¸æ</a> ©¯ " & _
+"<a href='admin_update.asp?action=add'>ĞÂÔö¹«¸æ</a>"
 Response.Write header(7,tit)
 
 Dim actions:actions = Trim(Request.querystring("actions"))
@@ -100,7 +100,7 @@ Sub update_config()
     sql = "update configs set num_topic=" & num_topic & ",num_data=" & num_data & ",num_reg=" & num_reg & ",new_username='" & new_username & "',num_news=" & num_news & ",num_article=" & num_article & ",num_down=" & num_down & ",num_flash=" & num_flash & ",num_film=" & num_film & ",num_photo=" & num_photo & ",num_desktop=" & num_desktop & " where id=1"
     conn.execute(sql)
 
-    Response.Write "<script language=javascript>alert(""æˆåŠŸæ›´æ–°äº†ç½‘ç«™ç»Ÿè®¡æ•°æ®ï¼"");</script>"
+    Response.Write "<script language=javascript>alert(""³É¹¦¸üĞÂÁËÍøÕ¾Í³¼ÆÊı¾İ£¡"");</script>"
 End Sub
 
 Sub update_forum()
@@ -147,7 +147,7 @@ Sub update_forum()
 
     rsf.Close:Set rsf = Nothing
 
-    Response.Write "<script language=javascript>alert(""æˆåŠŸæ›´æ–°äº†åˆ†è®ºå›æ•°æ®ï¼"");</script>"
+    Response.Write "<script language=javascript>alert(""³É¹¦¸üĞÂÁË·ÖÂÛÌ³Êı¾İ£¡"");</script>"
 End Sub
 
 Sub clear_notes()
@@ -156,17 +156,17 @@ Sub clear_notes()
     Select Case actions
         Case "week"
             sql       = "delete from notes where DateDiff('d',tim,'" & now_time & "')>7"
-            clear_msg = "ä¸€å‘¨å‰"
+            clear_msg = "Ò»ÖÜÇ°"
         Case "all"
             sql       = "delete from notes"
-            clear_msg = "æ‰€æœ‰"
+            clear_msg = "ËùÓĞ"
         Case Else
             sql       = "delete from notes where DateDiff('d',tim,'" & now_time & "')>30"
-            clear_msg = "ä¸€ä¸ªæœˆå‰"
+            clear_msg = "Ò»¸öÔÂÇ°"
     End Select
 
     conn.execute(sql)
-    Response.Write "<script language=javascript>alert(""æˆåŠŸæ¸…ç†äº†" & clear_msg & "çš„æ¶ˆè´¹æ•°æ®ï¼"");</script>"
+    Response.Write "<script language=javascript>alert(""³É¹¦ÇåÀíÁË" & clear_msg & "µÄÏû·ÑÊı¾İ£¡"");</script>"
 End Sub
 
 Sub clear_message()
@@ -175,47 +175,47 @@ Sub clear_message()
     Select Case actions
         Case "week"
             sql = "delete from user_mail where DateDiff('d',tim,'" & now_time & "')>7"
-            clear_msg = "ä¸€å‘¨å‰"
+            clear_msg = "Ò»ÖÜÇ°"
         Case "all"
             sql = "delete from user_mail"
-            clear_msg = "æ‰€æœ‰"
+            clear_msg = "ËùÓĞ"
         Case Else
             sql = "delete from user_mail where DateDiff('d',tim,'" & now_time & "')>30"
-            clear_msg = "ä¸€ä¸ªæœˆå‰"
+            clear_msg = "Ò»¸öÔÂÇ°"
     End Select
 
     conn.execute(sql)
-    Response.Write "<script language=javascript>alert(""æˆåŠŸæ¸…ç†äº†" & clear_msg & "çš„ç”¨æˆ·çŸ­ä¿¡æ¯ï¼"");</script>"
+    Response.Write "<script language=javascript>alert(""³É¹¦ÇåÀíÁË" & clear_msg & "µÄÓÃ»§¶ÌĞÅÏ¢£¡"");</script>"
 End Sub %>
 <table border=1 cellspacing=0 cellpadding=2 width=500 bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>
 <tr height=50 align=center>
-<td width='20%'><font class=red_2>æ³¨æ„äº‹é¡¹</font></td>
-<td width='80%'>ä¸‹é¢æœ‰çš„æ“ä½œå¯èƒ½å°†éå¸¸æ¶ˆè€—æœåŠ¡å™¨èµ„æºï¼Œè€Œä¸”æ›´æ–°æ—¶é—´å¾ˆé•¿ï¼Œè¯·ä»”ç»†ç¡®è®¤æ¯ä¸€æ­¥æ“ä½œåæ‰§è¡Œï¼</td>
+<td width='20%'><font class=red_2>×¢ÒâÊÂÏî</font></td>
+<td width='80%'>ÏÂÃæÓĞµÄ²Ù×÷¿ÉÄÜ½«·Ç³£ÏûºÄ·şÎñÆ÷×ÊÔ´£¬¶øÇÒ¸üĞÂÊ±¼äºÜ³¤£¬Çë×ĞÏ¸È·ÈÏÃ¿Ò»²½²Ù×÷ºóÖ´ĞĞ£¡</td>
 </tr>
 <tr align=center height=80>
-<td><font class=red_3>æ›´æ–°ç½‘ç«™æ€»æ•°æ®</font></td>
-<td class=htd>ç‚¹å‡»ä¸‹é¢çš„æŒ‰é’®å°†é‡æ–°è®¡ç®—æ•´ä¸ªè®ºç½‘ç«™çš„åŸºæœ¬ä¿¡æ¯ï¼ŒåŒ…æ‹¬æ–°é—»ã€æ–‡ç« ã€è½¯ä»¶ã€è®ºå›ç­‰ï¼Œå»ºè®®æ¯éš”ä¸€æ®µæ—¶é—´è¿è¡Œä¸€æ¬¡ã€‚<br>
-<input type=button value='ç«‹å³æ›´æ–°ç½‘ç«™ç»Ÿè®¡æ•°æ®' onclick=update_config() class=red></td>
+<td><font class=red_3>¸üĞÂÍøÕ¾×ÜÊı¾İ</font></td>
+<td class=htd>µã»÷ÏÂÃæµÄ°´Å¥½«ÖØĞÂ¼ÆËãÕû¸öÂÛÍøÕ¾µÄ»ù±¾ĞÅÏ¢£¬°üÀ¨ĞÂÎÅ¡¢ÎÄÕÂ¡¢Èí¼ş¡¢ÂÛÌ³µÈ£¬½¨ÒéÃ¿¸ôÒ»¶ÎÊ±¼äÔËĞĞÒ»´Î¡£<br>
+<input type=button value='Á¢¼´¸üĞÂÍøÕ¾Í³¼ÆÊı¾İ' onclick=update_config() class=red></td>
 </tr>
 <tr align=center height=80>
-<td><font class=red_3>æ›´æ–°åˆ†è®ºå›æ•°æ®</font></td>
-<td class=htd>ç‚¹å‡»ä¸‹é¢çš„æŒ‰é’®å°†é‡æ–°è®¡ç®—æ¯ä¸ªè®ºå›çš„å¸–å­ä¸»é¢˜ã€å›å¤æ•°é‡ï¼Œæœ€æ–°ä¸»é¢˜ã€å›å¤ã€æ—¶é—´ç­‰ä¿¡æ¯ï¼Œå»ºè®®æ¯éš”ä¸€æ®µæ—¶é—´è¿è¡Œä¸€æ¬¡ã€‚<br>
-<input type=button value='ç«‹å³æ›´æ–°åˆ†è®ºå›æ•°æ®' onclick=update_forum() class=red></td>
+<td><font class=red_3>¸üĞÂ·ÖÂÛÌ³Êı¾İ</font></td>
+<td class=htd>µã»÷ÏÂÃæµÄ°´Å¥½«ÖØĞÂ¼ÆËãÃ¿¸öÂÛÌ³µÄÌû×ÓÖ÷Ìâ¡¢»Ø¸´ÊıÁ¿£¬×îĞÂÖ÷Ìâ¡¢»Ø¸´¡¢Ê±¼äµÈĞÅÏ¢£¬½¨ÒéÃ¿¸ôÒ»¶ÎÊ±¼äÔËĞĞÒ»´Î¡£<br>
+<input type=button value='Á¢¼´¸üĞÂ·ÖÂÛÌ³Êı¾İ' onclick=update_forum() class=red></td>
 </tr>
 <tr align=center height=80>
-<td><font class=red_3>æ¸…ç†æ¶ˆè´¹æ•°æ®</font></td>
-<td class=htd>ç‚¹å‡»ä¸‹é¢çš„æŒ‰é’®å°†é‡æ–°æ¸…ç†ç”¨æˆ·æ¶ˆè´¹è´§å¸çš„æ•°æ®ä¿¡æ¯ï¼Œå»ºè®®æ¯éš”ä¸€æ®µæ—¶é—´è¿è¡Œä¸€æ¬¡ã€‚<br>
-<input type=button value='æ¸…é™¤ä¸€ä¸ªæœˆå‰çš„æ•°æ®' onclick="javascript:clear_notes('month');" class=red style="width:140px;">&nbsp;&nbsp;
-<input type=button value='æ¸…é™¤ä¸€å‘¨å‰çš„æ•°æ®' onclick="javascript:clear_notes('week');" class=red style="width:120px;">&nbsp;&nbsp;
-<input type=button value='å…¨éƒ¨æ¸…ç©º' onclick="javascript:clear_notes('all');" class=red>
+<td><font class=red_3>ÇåÀíÏû·ÑÊı¾İ</font></td>
+<td class=htd>µã»÷ÏÂÃæµÄ°´Å¥½«ÖØĞÂÇåÀíÓÃ»§Ïû·Ñ»õ±ÒµÄÊı¾İĞÅÏ¢£¬½¨ÒéÃ¿¸ôÒ»¶ÎÊ±¼äÔËĞĞÒ»´Î¡£<br>
+<input type=button value='Çå³ıÒ»¸öÔÂÇ°µÄÊı¾İ' onclick="javascript:clear_notes('month');" class=red style="width:140px;">&nbsp;&nbsp;
+<input type=button value='Çå³ıÒ»ÖÜÇ°µÄÊı¾İ' onclick="javascript:clear_notes('week');" class=red style="width:120px;">&nbsp;&nbsp;
+<input type=button value='È«²¿Çå¿Õ' onclick="javascript:clear_notes('all');" class=red>
 </td>
 </tr>
 <tr align=center height=80>
-<td><font class=red_3>æ¸…ç†ç”¨æˆ·çŸ­ä¿¡æ¯</font></td>
-<td class=htd>ç‚¹å‡»ä¸‹é¢çš„æŒ‰é’®å°†é‡æ–°æ¸…ç†ç”¨æˆ·çŸ­ä¿¡æ¯çš„æ•°æ®ä¿¡æ¯ï¼Œå»ºè®®æ¯éš”ä¸€æ®µæ—¶é—´è¿è¡Œä¸€æ¬¡ã€‚<br>
-<input type=button value='æ¸…é™¤ä¸€ä¸ªæœˆå‰çš„çŸ­ä¿¡' onclick="javascript:clear_message('month');" class=red style="width:140px;">&nbsp;&nbsp;
-<input type=button value='æ¸…é™¤ä¸€å‘¨å‰çš„çŸ­ä¿¡' onclick="javascript:clear_message('week');" class=red style="width:120px;">&nbsp;&nbsp;
-<input type=button value='å…¨éƒ¨æ¸…ç©º' onclick="javascript:clear_message('all');" class=red>
+<td><font class=red_3>ÇåÀíÓÃ»§¶ÌĞÅÏ¢</font></td>
+<td class=htd>µã»÷ÏÂÃæµÄ°´Å¥½«ÖØĞÂÇåÀíÓÃ»§¶ÌĞÅÏ¢µÄÊı¾İĞÅÏ¢£¬½¨ÒéÃ¿¸ôÒ»¶ÎÊ±¼äÔËĞĞÒ»´Î¡£<br>
+<input type=button value='Çå³ıÒ»¸öÔÂÇ°µÄ¶ÌĞÅ' onclick="javascript:clear_message('month');" class=red style="width:140px;">&nbsp;&nbsp;
+<input type=button value='Çå³ıÒ»ÖÜÇ°µÄ¶ÌĞÅ' onclick="javascript:clear_message('week');" class=red style="width:120px;">&nbsp;&nbsp;
+<input type=button value='È«²¿Çå¿Õ' onclick="javascript:clear_message('all');" class=red>
 </td>
 </tr>
 </table>
@@ -223,25 +223,25 @@ End Sub %>
 <!--
 function update_config()
 {
-  if (confirm("æ­¤æ“ä½œå°† æ›´æ–°åˆ†è®ºå›æ•°æ®ï¼\n\nçœŸçš„è¦è¿›è¡Œå—ï¼Ÿ\n\næ›´æ–°åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½« ¸üĞÂ·ÖÂÛÌ³Êı¾İ£¡\n\nÕæµÄÒª½øĞĞÂğ£¿\n\n¸üĞÂºó½«ÎŞ·¨»Ö¸´£¡"))
     window.location="?action=update_config"
 }
 
 function update_forum()
 {
-  if (confirm("æ­¤æ“ä½œå°† æ›´æ–°ç½‘ç«™ç»Ÿè®¡æ•°æ®ï¼\n\nçœŸçš„è¦è¿›è¡Œå—ï¼Ÿ\n\næ›´æ–°åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½« ¸üĞÂÍøÕ¾Í³¼ÆÊı¾İ£¡\n\nÕæµÄÒª½øĞĞÂğ£¿\n\n¸üĞÂºó½«ÎŞ·¨»Ö¸´£¡"))
     window.location="?action=update_forum"
 }
 
 function clear_notes(cv)
 {
-  if (confirm("æ­¤æ“ä½œå°† æ¸…ç†æ¶ˆè´¹æ•°æ®ï¼\n\nçœŸçš„è¦è¿›è¡Œå—ï¼Ÿ\n\næ›´æ–°åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½« ÇåÀíÏû·ÑÊı¾İ£¡\n\nÕæµÄÒª½øĞĞÂğ£¿\n\n¸üĞÂºó½«ÎŞ·¨»Ö¸´£¡"))
     window.location="?action=clear_notes&actions="+cv
 }
 
 function clear_message(cv)
 {
-  if (confirm("æ­¤æ“ä½œå°† æ¸…ç†ç”¨æˆ·çŸ­ä¿¡æ¯ï¼\n\nçœŸçš„è¦è¿›è¡Œå—ï¼Ÿ\n\næ›´æ–°åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½« ÇåÀíÓÃ»§¶ÌĞÅÏ¢£¡\n\nÕæµÄÒª½øĞĞÂğ£¿\n\n¸üĞÂºó½«ÎŞ·¨»Ö¸´£¡"))
     window.location="?action=clear_message&actions="+cv
 }
 //-->

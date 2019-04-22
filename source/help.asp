@@ -7,7 +7,7 @@
 ' ====================
 
 index_url = "user_main"
-tit       = "å¸®åŠ©ä¸­å¿ƒ"
+tit       = "°ïÖúÖÐÐÄ"
 tit_fir   = format_menu(index_url)
 
 Call web_head(0,1,0,0,0)
@@ -46,16 +46,16 @@ Sub help_left(ljt)
     If ljt <> "" Then ljt = img_small(ljt)
     tit = vbcrlf & "<table border=0 width='96%' cellpadding=0 cellspacing=6 align=center>" & _
     vbcrlf & "<tr><td width='50%'></td><td width='50%'></td></tr>" & _
-    vbcrlf & "<tr><td>" & ljt & "<a href='?action=about'>å…³äºŽæˆ‘ä»¬</a></td><td>" & ljt & "<a href='?action=register'>æ³¨å†Œè¯´æ˜Ž</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & ljt & "<a href='?action=put'>å‘å¸ƒä¿¡æ¯</a></td><td>" & ljt & "<a href='?action=mail'>ç«™å†…çŸ­ä¿¡</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & ljt & "<a href='?action=forum'>è®ºå›å¸®åŠ©</a></td><td>" & ljt & "<a href='?action=ubb'>UBBè¯­æ³•</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & ljt & "<a href='?action=about'>¹ØÓÚÎÒÃÇ</a></td><td>" & ljt & "<a href='?action=register'>×¢²áËµÃ÷</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & ljt & "<a href='?action=put'>·¢²¼ÐÅÏ¢</a></td><td>" & ljt & "<a href='?action=mail'>Õ¾ÄÚ¶ÌÐÅ</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & ljt & "<a href='?action=forum'>ÂÛÌ³°ïÖú</a></td><td>" & ljt & "<a href='?action=ubb'>UBBÓï·¨</a></td></tr>" & _
     vbcrlf & "</table>"
     Call left_type(tit,"help",1)
 End Sub
 
 Sub help_main()
     Response.Write table1 %>
-<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>å¸®åŠ©ä¸­å¿ƒ</b></font></td></tr>
+<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>°ïÖúÖÐÐÄ</b></font></td></tr>
 <tr<% Response.Write table3 %>><td class=htd></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
 
@@ -66,32 +66,32 @@ End Sub
 
 Sub help_register()
     Response.Write table1 %>
-<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>æ³¨å†Œè¯´æ˜Ž</b></font></td></tr>
+<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>×¢²áËµÃ÷</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <br>
   <table border=0 width='94%'>
-  <tr><td class=htd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;æ¬¢è¿Žæ‚¨åŠ å…¥æœ¬ç«™ï¼ˆ<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>ï¼‰å‚åŠ äº¤æµå’Œè®¨è®ºï¼Œ<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>ä¸ºå®Œå…¨éžèµ¢åˆ©æ€§ã€å•†ä¸šæ€§çš„ç½‘ç«™ï¼Œ<font color="#FF0000">æˆ‘ä»¬çš„ç›®çš„æ˜¯æŽ¨å¹¿Beyondçš„éŸ³ä¹ï¼Œå®£ä¼ Beyondçš„ç²¾ç¥žï¼Œç ”ç©¶ç›¸å…³çš„æŠ€æœ¯å’Œè‰ºæœ¯é—®é¢˜ã€‚æˆ‘ä»¬æ‰¿è¯ºä»¥æ›´å¥½åœ°ä¸ºå¹¿å¤§æ­Œè¿·æœ‹å‹æä¾›å„ç§æ–¹ä¾¿å’ŒæœåŠ¡ä¸ºå®—æ—¨ï¼Œå› æ­¤æˆ‘ä»¬çš„æ‰€æœ‰æœåŠ¡éƒ½æ˜¯å…è´¹çš„ï¼Œæˆ‘ä»¬å†³ä¸ä»¥ä»»ä½•ç†ç”±å‘ç”¨æˆ·æ”¶å–ä»»ä½•è´¹ç”¨ï¼Œå†³ä¸å‘ç”¨æˆ·å‡ºå”®ä»»ä½•å•†å“ã€‚</font><br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ä¸ºç»´æŠ¤ç½‘ä¸Šå…¬å…±ç§©åºï¼Œè¯·æ‚¨è‡ªè§‰éµå®ˆä»¥ä¸‹æ¡æ¬¾<br><br>
-ã€€ä¸€ã€ä¸å¾—åˆ©ç”¨æœ¬ç«™å±å®³å›½å®¶å®‰å…¨ã€æ³„éœ²å›½å®¶ç§˜å¯†ï¼Œä¸å¾—ä¾µçŠ¯å›½å®¶ã€ç¤¾ä¼šã€é›†ä½“å’Œå…¬æ°‘çš„åˆæ³•æƒç›Šï¼Œä¸å¾—åˆ©ç”¨æœ¬ç«™åˆ¶ä½œã€å¤åˆ¶å’Œä¼ æ’­ä¸‹åˆ—ä¿¡æ¯ï¼š <br>
-ã€€ã€€ï¼ˆä¸€ï¼‰ç…½åŠ¨æŠ—æ‹’ã€ç ´åå®ªæ³•å’Œæ³•å¾‹å®žæ–½çš„ï¼›<br>
-ã€€ã€€ï¼ˆäºŒï¼‰ç…½åŠ¨é¢ è¦†å›½å®¶æ”¿æƒï¼ŒæŽ¨ç¿»ç¤¾ä¼šä¸»ä¹‰åˆ¶åº¦çš„ï¼›<br>
-ã€€ã€€ï¼ˆä¸‰ï¼‰ç…½åŠ¨åˆ†è£‚å›½å®¶ã€ç ´åå›½å®¶ç»Ÿä¸€çš„ï¼›<br>
-ã€€ã€€ï¼ˆå››ï¼‰ç…½åŠ¨æ°‘æ—ä»‡æ¨ã€æ°‘æ—æ­§è§†ï¼Œç ´åæ°‘æ—å›¢ç»“çš„ï¼›<br>
-ã€€ã€€ï¼ˆäº”ï¼‰æé€ æˆ–è€…æ­ªæ›²äº‹å®žï¼Œæ•£å¸ƒè°£è¨€ï¼Œæ‰°ä¹±ç¤¾ä¼šç§©åºçš„ï¼›<br>
-ã€€ã€€ï¼ˆå…­ï¼‰å®£æ‰¬å°å»ºè¿·ä¿¡ã€æ·«ç§½ã€è‰²æƒ…ã€èµŒåšã€æš´åŠ›ã€å‡¶æ€ã€ææ€–ã€æ•™å”†çŠ¯ç½ªçš„ï¼›<br>
-ã€€ã€€ï¼ˆä¸ƒï¼‰å…¬ç„¶ä¾®è¾±ä»–äººæˆ–è€…æé€ äº‹å®žè¯½è°¤ä»–äººçš„ï¼Œæˆ–è€…è¿›è¡Œå…¶ä»–æ¶æ„æ”»å‡»çš„ï¼›<br>
-ã€€ã€€ï¼ˆå…«ï¼‰æŸå®³æœ¬ç«™ä¿¡èª‰çš„ï¼›<br>
-ã€€ã€€ï¼ˆä¹ï¼‰æ¶æ„ä½¿ç”¨æ±¡è¨€ç§½è¯­çš„ï¼›<br>
-ã€€ã€€ï¼ˆåï¼‰è¿›è¡Œå•†ä¸šæ€§è´¨çš„è¡Œä¸ºçš„ã€‚<br>
-ã€€äºŒã€äº’ç›¸å°Šé‡ï¼Œå¯¹è‡ªå·±çš„è¨€è®ºå’Œè¡Œä¸ºè´Ÿè´£ã€‚<br>
-ã€€ä¸‰ã€å°Šé‡æˆ‘ä»¬çš„åŠ³åŠ¨æˆæžœã€‚<br>
-ã€€ã€€ï¼ˆä¸€ï¼‰è½¬è½½æœ¬ç«™èµ„æ–™è¯·æ³¨æ˜Žå‡ºå¤„ï¼›<br>
-ã€€ã€€ï¼ˆäºŒï¼‰è¯·å‹¿å°†æœ¬ç«™æä¾›çš„èµ„æ–™ç”¨äºŽå•†ä¸šç”¨é€”ã€‚<br>
+  <tr><td class=htd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;»¶Ó­Äú¼ÓÈë±¾Õ¾£¨<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>£©²Î¼Ó½»Á÷ºÍÌÖÂÛ£¬<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>ÎªÍêÈ«·ÇÓ®ÀûÐÔ¡¢ÉÌÒµÐÔµÄÍøÕ¾£¬<font color="#FF0000">ÎÒÃÇµÄÄ¿µÄÊÇÍÆ¹ãBeyondµÄÒôÀÖ£¬Ðû´«BeyondµÄ¾«Éñ£¬ÑÐ¾¿Ïà¹ØµÄ¼¼ÊõºÍÒÕÊõÎÊÌâ¡£ÎÒÃÇ³ÐÅµÒÔ¸üºÃµØÎª¹ã´ó¸èÃÔÅóÓÑÌá¹©¸÷ÖÖ·½±ãºÍ·þÎñÎª×ÚÖ¼£¬Òò´ËÎÒÃÇµÄËùÓÐ·þÎñ¶¼ÊÇÃâ·ÑµÄ£¬ÎÒÃÇ¾ö²»ÒÔÈÎºÎÀíÓÉÏòÓÃ»§ÊÕÈ¡ÈÎºÎ·ÑÓÃ£¬¾ö²»ÏòÓÃ»§³öÊÛÈÎºÎÉÌÆ·¡£</font><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ÎªÎ¬»¤ÍøÉÏ¹«¹²ÖÈÐò£¬ÇëÄú×Ô¾õ×ñÊØÒÔÏÂÌõ¿î<br><br>
+¡¡Ò»¡¢²»µÃÀûÓÃ±¾Õ¾Î£º¦¹ú¼Ò°²È«¡¢Ð¹Â¶¹ú¼ÒÃØÃÜ£¬²»µÃÇÖ·¸¹ú¼Ò¡¢Éç»á¡¢¼¯ÌåºÍ¹«ÃñµÄºÏ·¨È¨Òæ£¬²»µÃÀûÓÃ±¾Õ¾ÖÆ×÷¡¢¸´ÖÆºÍ´«²¥ÏÂÁÐÐÅÏ¢£º <br>
+¡¡¡¡£¨Ò»£©É¿¶¯¿¹¾Ü¡¢ÆÆ»µÏÜ·¨ºÍ·¨ÂÉÊµÊ©µÄ£»<br>
+¡¡¡¡£¨¶þ£©É¿¶¯µß¸²¹ú¼ÒÕþÈ¨£¬ÍÆ·­Éç»áÖ÷ÒåÖÆ¶ÈµÄ£»<br>
+¡¡¡¡£¨Èý£©É¿¶¯·ÖÁÑ¹ú¼Ò¡¢ÆÆ»µ¹ú¼ÒÍ³Ò»µÄ£»<br>
+¡¡¡¡£¨ËÄ£©É¿¶¯Ãñ×å³ðºÞ¡¢Ãñ×åÆçÊÓ£¬ÆÆ»µÃñ×åÍÅ½áµÄ£»<br>
+¡¡¡¡£¨Îå£©ÄóÔì»òÕßÍáÇúÊÂÊµ£¬É¢²¼Ò¥ÑÔ£¬ÈÅÂÒÉç»áÖÈÐòµÄ£»<br>
+¡¡¡¡£¨Áù£©ÐûÑï·â½¨ÃÔÐÅ¡¢Òù»à¡¢É«Çé¡¢¶Ä²©¡¢±©Á¦¡¢Ð×É±¡¢¿Ö²À¡¢½ÌËô·¸×ïµÄ£»<br>
+¡¡¡¡£¨Æß£©¹«È»ÎêÈèËûÈË»òÕßÄóÔìÊÂÊµ·Ì°ùËûÈËµÄ£¬»òÕß½øÐÐÆäËû¶ñÒâ¹¥»÷µÄ£»<br>
+¡¡¡¡£¨°Ë£©Ëðº¦±¾Õ¾ÐÅÓþµÄ£»<br>
+¡¡¡¡£¨¾Å£©¶ñÒâÊ¹ÓÃÎÛÑÔ»àÓïµÄ£»<br>
+¡¡¡¡£¨Ê®£©½øÐÐÉÌÒµÐÔÖÊµÄÐÐÎªµÄ¡£<br>
+¡¡¶þ¡¢»¥Ïà×ðÖØ£¬¶Ô×Ô¼ºµÄÑÔÂÛºÍÐÐÎª¸ºÔð¡£<br>
+¡¡Èý¡¢×ðÖØÎÒÃÇµÄÀÍ¶¯³É¹û¡£<br>
+¡¡¡¡£¨Ò»£©×ªÔØ±¾Õ¾×ÊÁÏÇë×¢Ã÷³ö´¦£»<br>
+¡¡¡¡£¨¶þ£©ÇëÎð½«±¾Õ¾Ìá¹©µÄ×ÊÁÏÓÃÓÚÉÌÒµÓÃÍ¾¡£<br>
 
   </td></tr>
   <form name=form_reg action='login.asp?action=register' method=post>
   <input type=hidden name=reg_action value='reg_main'>
-  <tr><td align=center height=30><input type=submit value='æˆ‘å·²é˜…è¯»å¹¶åŒæ„ä»¥ä¸Šæ¡æ¬¾'></td></tr>
+  <tr><td align=center height=30><input type=submit value='ÎÒÒÑÔÄ¶Á²¢Í¬ÒâÒÔÉÏÌõ¿î'></td></tr>
   </form>
   </table>
   <br>
@@ -102,33 +102,33 @@ End Sub
 
 Sub help_put()
     Response.Write table1 %>
-<tr<% Response.Write table2 %> height=25><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>å‘å¸ƒä¿¡æ¯</b></font></td></tr>
+<tr<% Response.Write table2 %> height=25><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>·¢²¼ÐÅÏ¢</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
   <tr valign=top>
   <td width='30%'>
     <table border=0>
-    <tr><td class=htd>ã€€ã€€æ‚¨å¯ä»¥åœ¨æœ¬ç«™å‘å¸ƒä¸€äº›å¦‚æ–‡ç« æˆ–è½¯ä»¶ç­‰å›¾æ–‡ä¿¡æ¯ï¼Œé€šè¿‡ç®¡ç†å‘˜å®¡æ ¸ä¹‹åŽå°±å¯ä»¥åœ¨ç½‘ç«™é‡Œæ˜¾ç¤ºå‡ºæ¥å’Œå¤§å®¶åˆ†äº«äº†ï¼Œæˆ‘ä»¬æ¬¢è¿Žå¹¶æ„Ÿè°¢æ‚¨ä¸ºæœ¬ç«™æä¾›å„ç§èµ„æ–™ã€‚<br>ã€€ã€€è¯·åœ¨å‘å¸ƒä¿¡æ¯å‰å…ˆ<a href='login.asp?action=register'>æ³¨å†Œ</a>å¹¶ä¸”<a href='login.asp'>ç™»é™†</a>æœ¬ç«™ï¼Œè¿™æ ·æ‚¨å°±èƒ½æ­£å¸¸çš„è¿›è¡Œä¿¡æ¯å‘å¸ƒã€‚</td></tr>
+    <tr><td class=htd>¡¡¡¡Äú¿ÉÒÔÔÚ±¾Õ¾·¢²¼Ò»Ð©ÈçÎÄÕÂ»òÈí¼þµÈÍ¼ÎÄÐÅÏ¢£¬Í¨¹ý¹ÜÀíÔ±ÉóºËÖ®ºó¾Í¿ÉÒÔÔÚÍøÕ¾ÀïÏÔÊ¾³öÀ´ºÍ´ó¼Ò·ÖÏíÁË£¬ÎÒÃÇ»¶Ó­²¢¸ÐÐ»ÄúÎª±¾Õ¾Ìá¹©¸÷ÖÖ×ÊÁÏ¡£<br>¡¡¡¡ÇëÔÚ·¢²¼ÐÅÏ¢Ç°ÏÈ<a href='login.asp?action=register'>×¢²á</a>²¢ÇÒ<a href='login.asp'>µÇÂ½</a>±¾Õ¾£¬ÕâÑùÄú¾ÍÄÜÕý³£µÄ½øÐÐÐÅÏ¢·¢²¼¡£</td></tr>
     </table>
   </td>
   <td width='3%'></td>
   <td width='67%'>
     <table border=0>
     <tr><td height=1 width='5%'></td><td width='95%'></td></tr>
-    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=news'>å‘å¸ƒæˆ‘çš„æ–°é—»</a></td></tr>
-    <tr><td></td><td class=htd>å‘å¸ƒå…³äºŽBeyondçš„æ–°é—»ï¼Œå…·ä½“å†…å®¹æœ‰ï¼šæ ‡é¢˜ã€å†…å®¹ã€å‡ºå¤„ã€å…³é”®å­—ã€å›¾ç‰‡ï¼ˆå¯ä¸Šä¼ ï¼‰ç­‰ï¼Œé¡»ç®¡ç†å‘˜å®¡æ ¸ã€‚</td></tr>
+    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=news'>·¢²¼ÎÒµÄÐÂÎÅ</a></td></tr>
+    <tr><td></td><td class=htd>·¢²¼¹ØÓÚBeyondµÄÐÂÎÅ£¬¾ßÌåÄÚÈÝÓÐ£º±êÌâ¡¢ÄÚÈÝ¡¢³ö´¦¡¢¹Ø¼ü×Ö¡¢Í¼Æ¬£¨¿ÉÉÏ´«£©µÈ£¬Ðë¹ÜÀíÔ±ÉóºË¡£</td></tr>
     <tr><td height=5></td></tr>
-    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=article'>å‘è¡¨æˆ‘çš„æ–‡ç« </a></td></tr>
-    <tr><td></td><td class=htd>å‘å¸ƒå…³äºŽBeyondçš„æ–‡ç« ï¼Œå…·ä½“å†…å®¹æœ‰ï¼šæ ‡é¢˜ã€ç±»åž‹å’Œå†…å®¹ç­‰ï¼Œé¡»ç®¡ç†å‘˜å®¡æ ¸ã€‚</td></tr>
+    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=article'>·¢±íÎÒµÄÎÄÕÂ</a></td></tr>
+    <tr><td></td><td class=htd>·¢²¼¹ØÓÚBeyondµÄÎÄÕÂ£¬¾ßÌåÄÚÈÝÓÐ£º±êÌâ¡¢ÀàÐÍºÍÄÚÈÝµÈ£¬Ðë¹ÜÀíÔ±ÉóºË¡£</td></tr>
     <tr><td height=5></td></tr>
-    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=down'>å‘å¸ƒæˆ‘çš„éŸ³ä¹</a></td></tr>
-    <tr><td></td><td class=htd>å’Œå¤§å®¶åˆ†äº«Beyondçš„ç²¾å½©ï¼å…·ä½“å†…å®¹æœ‰ï¼šåç§°ã€ç±»åž‹ã€å¤§å°ã€æŽ¨èç­‰çº§ã€æ’­æ”¾è½¯ä»¶ã€è¯´æ˜Žã€å…³é”®å­—ã€å›¾ç‰‡ï¼ˆå¯ä¸Šä¼ ï¼‰ç­‰ï¼Œé¡»ç®¡ç†å‘˜å®¡æ ¸ã€‚</td></tr>
+    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=down'>·¢²¼ÎÒµÄÒôÀÖ</a></td></tr>
+    <tr><td></td><td class=htd>ºÍ´ó¼Ò·ÖÏíBeyondµÄ¾«²Ê£¡¾ßÌåÄÚÈÝÓÐ£ºÃû³Æ¡¢ÀàÐÍ¡¢´óÐ¡¡¢ÍÆ¼öµÈ¼¶¡¢²¥·ÅÈí¼þ¡¢ËµÃ÷¡¢¹Ø¼ü×Ö¡¢Í¼Æ¬£¨¿ÉÉÏ´«£©µÈ£¬Ðë¹ÜÀíÔ±ÉóºË¡£</td></tr>
     <tr><td height=5></td></tr>
-    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=gallery'>ä¸Šä¼ æˆ‘çš„å›¾ç‰‡</a></td></tr>
-    <tr><td></td><td class=htd>ä¸Šä¼ Beyondçš„å›¾ç‰‡æˆ–FLASHï¼Œå…·ä½“å†…å®¹æœ‰ï¼šåç§°ã€ç±»åž‹ã€è¯´æ˜Žã€å›¾ç‰‡ï¼ˆå¯ä¸Šä¼ ï¼‰ç­‰ï¼Œé¡»ç®¡ç†å‘˜å®¡æ ¸ã€‚</td></tr>
+    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=gallery'>ÉÏ´«ÎÒµÄÍ¼Æ¬</a></td></tr>
+    <tr><td></td><td class=htd>ÉÏ´«BeyondµÄÍ¼Æ¬»òFLASH£¬¾ßÌåÄÚÈÝÓÐ£ºÃû³Æ¡¢ÀàÐÍ¡¢ËµÃ÷¡¢Í¼Æ¬£¨¿ÉÉÏ´«£©µÈ£¬Ðë¹ÜÀíÔ±ÉóºË¡£</td></tr>
     <tr><td height=5></td></tr>
-    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=website'>æˆ‘è¦æŽ¨èç½‘ç«™</a></td></tr>
-    <tr><td></td><td class=htd>æŽ¨èç›¸å…³çš„ç½‘ç«™æˆ–ç½‘é¡µï¼Œå…·ä½“å†…å®¹æœ‰ï¼šåç§°ã€ç±»åž‹ã€åœ°å€ã€å›½å®¶åœ°åŒºã€ç«™ç‚¹è¯­è¨€ã€è¯´æ˜Žã€å›¾ç‰‡ï¼ˆå¯ä¸Šä¼ ï¼‰ç­‰ï¼Œé¡»ç®¡ç†å‘˜å®¡æ ¸ã€‚</td></tr>
+    <tr><td colspan=2 height=20><% Response.Write img_small("jt1") %><a href='user_put.asp?action=website'>ÎÒÒªÍÆ¼öÍøÕ¾</a></td></tr>
+    <tr><td></td><td class=htd>ÍÆ¼öÏà¹ØµÄÍøÕ¾»òÍøÒ³£¬¾ßÌåÄÚÈÝÓÐ£ºÃû³Æ¡¢ÀàÐÍ¡¢µØÖ·¡¢¹ú¼ÒµØÇø¡¢Õ¾µãÓïÑÔ¡¢ËµÃ÷¡¢Í¼Æ¬£¨¿ÉÉÏ´«£©µÈ£¬Ðë¹ÜÀíÔ±ÉóºË¡£</td></tr>
     </table>
   </td></tr>
   </table>
@@ -139,20 +139,20 @@ End Sub
 
 Sub help_mail()
     Response.Write table1 %>
-<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>ç«™å†…çŸ­ä¿¡</b></font></td></tr>
-<tr<% Response.Write table3 %>><td class=htd align=center height=30>ç«™å†…çŸ­ä¿¡å¯ä½¿ä½ è‡ªå¦‚ï¼Œå®‰å…¨åœ°æ”¶å‘ç§äººä¿¡æ¯ã€‚ä¸ä¼šè¢«ä»–äººç›‘å¬æˆ–æŸ¥çœ‹åˆ°ï¼</td></tr>
+<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>Õ¾ÄÚ¶ÌÐÅ</b></font></td></tr>
+<tr<% Response.Write table3 %>><td class=htd align=center height=30>Õ¾ÄÚ¶ÌÐÅ¿ÉÊ¹Äã×ÔÈç£¬°²È«µØÊÕ·¢Ë½ÈËÐÅÏ¢¡£²»»á±»ËûÈË¼àÌý»ò²é¿´µ½£¡</td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='80%'>
   <tr><td width='5%'></td><td width='95%'></td></tr>
-  <tr><td colspan=2 class=blue><% Response.Write img_small("jt0") %>å‘é€ç«™å†…çŸ­ä¿¡</td></tr>
-  <tr><td></td><td class=htd>é¦–å…ˆè¯·è¿›å…¥<a href='user_main.asp'>â€œç”¨æˆ·ä¸­å¿ƒâ€</a>ç‚¹å‡»â€œ
-  ç«™å†…çŸ­ä¿¡â€ï¼Œå†åœ¨å…¶ä¸­ç‚¹å‡»â€œå‘é€æ¶ˆæ¯â€æŒ‰é’®ï¼Œè¾“å…¥æ”¶ä»¶äººçš„åå­—å’Œä¿¡æ¯ä¸»é¢˜ã€‚å¦‚æžœç‰ˆå—æ”¯æŒå¿ƒæƒ…å›¾é‡Šï¼Œæ‰€è¾“å…¥çš„å›¾é‡Šä»£ç å°†ä¼šè‡ªåŠ¨è½¬åŒ–ä¸ºç›¸åº”å›¾ç‰‡ã€‚æ³¨æ„ï¼Œåœ¨æŒ‰å‘é€é”®å‰è¯·ç¡®ä¿å·²å¡«å†™å®Œæ‰€æœ‰çš„é¡¹ç›®ã€‚</td></tr>
-  <tr><td colspan=2 class=blue><% Response.Write img_small("jt0") %>æ”¶ä»¶ç®±</td></tr>
-  <tr><td></td><td class=htd>æ‚¨çš„æ”¶ä»¶ç®±ä¸­å­˜æ”¾æ‰€æœ‰å‘ç»™ä½ çš„ç§äººä¿¡æ¯ï¼Œæ‚¨å¯ä»¥é˜…è¯»æˆ–æ˜¯åˆ é™¤å®ƒä»¬ã€‚</td></tr>
-  <tr><td colspan=2 class=blue><% Response.Write img_small("jt0") %>å‘ä»¶ç®±</td></tr>
-  <tr><td></td><td class=htd>å‘ä»¶ç®±ä¸­åˆ™å­˜æ”¾æœ‰æ‚¨æ‰€å‘é€è¿‡çš„å…¨éƒ¨æ¶ˆæ¯è®°å½•ï¼Œä»¥ä½¿ä½ æ¸…æ¥šå‘è°å‘é€è¿‡ä»€ä¹ˆæ¶ˆæ¯ã€‚é™¤äº†é˜…è¯»å¤–ï¼Œæ‚¨åˆ é™¤å®ƒä»¬ï¼</td></tr>
-  <tr><td colspan=2 class=blue><% Response.Write img_small("jt0") %>ç‰¹åˆ«æé†’</td></tr>
-  <tr><td></td><td class=htd>è¯·ä¸è¦ç”¨æ­¤ä¿¡ä½¿å‘é€æ— èŠæˆ–æ˜¯ä½¿äººä¸æ„‰å¿«çš„æ¶ˆæ¯ï¼Œå°Šé‡ä»–äººï¼Œä¹Ÿæ˜¯å°Šé‡è‡ªå·±ï¼</td></tr>
+  <tr><td colspan=2 class=blue><% Response.Write img_small("jt0") %>·¢ËÍÕ¾ÄÚ¶ÌÐÅ</td></tr>
+  <tr><td></td><td class=htd>Ê×ÏÈÇë½øÈë<a href='user_main.asp'>¡°ÓÃ»§ÖÐÐÄ¡±</a>µã»÷¡°
+  Õ¾ÄÚ¶ÌÐÅ¡±£¬ÔÙÔÚÆäÖÐµã»÷¡°·¢ËÍÏûÏ¢¡±°´Å¥£¬ÊäÈëÊÕ¼þÈËµÄÃû×ÖºÍÐÅÏ¢Ö÷Ìâ¡£Èç¹û°æ¿éÖ§³ÖÐÄÇéÍ¼ÊÍ£¬ËùÊäÈëµÄÍ¼ÊÍ´úÂë½«»á×Ô¶¯×ª»¯ÎªÏàÓ¦Í¼Æ¬¡£×¢Òâ£¬ÔÚ°´·¢ËÍ¼üÇ°ÇëÈ·±£ÒÑÌîÐ´ÍêËùÓÐµÄÏîÄ¿¡£</td></tr>
+  <tr><td colspan=2 class=blue><% Response.Write img_small("jt0") %>ÊÕ¼þÏä</td></tr>
+  <tr><td></td><td class=htd>ÄúµÄÊÕ¼þÏäÖÐ´æ·ÅËùÓÐ·¢¸øÄãµÄË½ÈËÐÅÏ¢£¬Äú¿ÉÒÔÔÄ¶Á»òÊÇÉ¾³ýËüÃÇ¡£</td></tr>
+  <tr><td colspan=2 class=blue><% Response.Write img_small("jt0") %>·¢¼þÏä</td></tr>
+  <tr><td></td><td class=htd>·¢¼þÏäÖÐÔò´æ·ÅÓÐÄúËù·¢ËÍ¹ýµÄÈ«²¿ÏûÏ¢¼ÇÂ¼£¬ÒÔÊ¹ÄãÇå³þÏòË­·¢ËÍ¹ýÊ²Ã´ÏûÏ¢¡£³ýÁËÔÄ¶ÁÍâ£¬ÄúÉ¾³ýËüÃÇ£¡</td></tr>
+  <tr><td colspan=2 class=blue><% Response.Write img_small("jt0") %>ÌØ±ðÌáÐÑ</td></tr>
+  <tr><td></td><td class=htd>Çë²»ÒªÓÃ´ËÐÅÊ¹·¢ËÍÎÞÁÄ»òÊÇÊ¹ÈË²»Óä¿ìµÄÏûÏ¢£¬×ðÖØËûÈË£¬Ò²ÊÇ×ðÖØ×Ô¼º£¡</td></tr>
   </table>
 </td></tr>
 </table>
@@ -161,43 +161,43 @@ End Sub
 
 Sub help_forum()
     Response.Write table1 %>
-<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>è®ºå›å¸®åŠ©</b></font></td></tr>
-<tr<% Response.Write table4 %>><td class=htd align=center bgcolor=<% = web_var(web_color,6) %>><font class=red_3>æœ¬ç¤¾åŒºæ³¨å†Œã€å‘è´´ã€å›žå¸–ã€åˆ é™¤å¸–å­ç­‰æ“ä½œå¯¹ç”¨æˆ·åˆ†å€¼çš„å½±å“å¦‚ä¸‹è¯´æ˜Žæ‰€ç¤ºï¼š</font></td></tr>
+<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>ÂÛÌ³°ïÖú</b></font></td></tr>
+<tr<% Response.Write table4 %>><td class=htd align=center bgcolor=<% = web_var(web_color,6) %>><font class=red_3>±¾ÉçÇø×¢²á¡¢·¢Ìù¡¢»ØÌû¡¢É¾³ýÌû×ÓµÈ²Ù×÷¶ÔÓÃ»§·ÖÖµµÄÓ°ÏìÈçÏÂËµÃ÷ËùÊ¾£º</font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='95%'>
-  <tr><td colspan=2 class=btd>&nbsp;<font class=blue>ï¼ˆä¸€ï¼‰è´´å­</font></td></tr>
-  <tr><td width='5%'></td><td width='95%'>æ³¨å†Œåˆå§‹è´´å­ï¼š<font class=red>0</font>&nbsp;&nbsp;å‘å¸–å¢žåŠ è´´å­ï¼š<font class=red>1</font>&nbsp;å›žå¸–å¢žåŠ è´´å­ï¼š<font class=red>1</font>&nbsp;&nbsp;åˆ é™¤å¢žåŠ è´´å­ï¼š<font class=red>1</font></td></tr>
+  <tr><td colspan=2 class=btd>&nbsp;<font class=blue>£¨Ò»£©Ìù×Ó</font></td></tr>
+  <tr><td width='5%'></td><td width='95%'>×¢²á³õÊ¼Ìù×Ó£º<font class=red>0</font>&nbsp;&nbsp;·¢ÌûÔö¼ÓÌù×Ó£º<font class=red>1</font>&nbsp;»ØÌûÔö¼ÓÌù×Ó£º<font class=red>1</font>&nbsp;&nbsp;É¾³ýÔö¼ÓÌù×Ó£º<font class=red>1</font></td></tr>
   </table>
 </td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='95%'>
-  <tr><td colspan=2 class=btd>&nbsp;<font class=blue>ï¼ˆäºŒï¼‰ç§¯åˆ†</font></td></tr>
-  <tr><td width='5%'></td><td width='95%'>æ³¨å†Œåˆå§‹ç§¯åˆ†ï¼š<font class=red>0</font>&nbsp;&nbsp;å‘å¸–å¢žåŠ ç§¯åˆ†ï¼š<font class=red>2</font>&nbsp;&nbsp;å›žå¸–å¢žåŠ ç§¯åˆ†ï¼š<font class=red>1</font>&nbsp;&nbsp;åˆ é™¤å‡å°‘ç§¯åˆ†ï¼šä¸»è´´&nbsp;<font class=red>3</font>&nbsp;&nbsp;å›žè´´&nbsp;<font class=red>2</font></td></tr>
+  <tr><td colspan=2 class=btd>&nbsp;<font class=blue>£¨¶þ£©»ý·Ö</font></td></tr>
+  <tr><td width='5%'></td><td width='95%'>×¢²á³õÊ¼»ý·Ö£º<font class=red>0</font>&nbsp;&nbsp;·¢ÌûÔö¼Ó»ý·Ö£º<font class=red>2</font>&nbsp;&nbsp;»ØÌûÔö¼Ó»ý·Ö£º<font class=red>1</font>&nbsp;&nbsp;É¾³ý¼õÉÙ»ý·Ö£ºÖ÷Ìù&nbsp;<font class=red>3</font>&nbsp;&nbsp;»ØÌù&nbsp;<font class=red>2</font></td></tr>
   </table>
 </td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='95%'>
-  <tr><td colspan=2 class=btd>&nbsp;<font class=blue>ï¼ˆä¸‰ï¼‰é‡‘é’±</font></td></tr>
-  <tr><td width='5%'></td><td width='95%'>æ³¨å†Œåˆå§‹é‡‘é’±ï¼š<font class=red>0</font>&nbsp;&nbsp;&nbsp;&nbsp;<font class=gray>å…¶ä½™å¾…å®šâ€¦â€¦</font></td></tr>
+  <tr><td colspan=2 class=btd>&nbsp;<font class=blue>£¨Èý£©½ðÇ®</font></td></tr>
+  <tr><td width='5%'></td><td width='95%'>×¢²á³õÊ¼½ðÇ®£º<font class=red>0</font>&nbsp;&nbsp;&nbsp;&nbsp;<font class=gray>ÆäÓà´ý¶¨¡­¡­</font></td></tr>
   </table>
 </td></tr>
-<tr<% Response.Write table4 %>><td class=htd align=center bgcolor=<% = web_var(web_color,6) %>><font class=red_3>æœ¬ç¤¾åŒºç”¨æˆ·ç§¯åˆ†ï¼ˆç­‰çº§ï¼‰å›¾ä¾‹é€‰é¡¹å¦‚ä¸‹è¯´æ˜Žæ‰€ç¤ºï¼š</font></td></tr>
+<tr<% Response.Write table4 %>><td class=htd align=center bgcolor=<% = web_var(web_color,6) %>><font class=red_3>±¾ÉçÇøÓÃ»§»ý·Ö£¨µÈ¼¶£©Í¼ÀýÑ¡ÏîÈçÏÂËµÃ÷ËùÊ¾£º</font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0>
   <tr align=center>
-  <td height=30 width=100><% Response.Write img_small("icon_admin") %>ç®¡ç†å‘˜</td>
+  <td height=30 width=100><% Response.Write img_small("icon_admin") %>¹ÜÀíÔ±</td>
   <td width=100><img src='IMAGES/STAR/star_admin.gif'></td>
-  <td width=100><% Response.Write img_small("icon_super") %>è®ºå›ç‰ˆä¸»</td>
+  <td width=100><% Response.Write img_small("icon_super") %>ÂÛÌ³°æÖ÷</td>
   <td width=100><img src='IMAGES/STAR/star_super.gif'></td>
   </tr>
   </table>
   <table border=0>
   <tr align=center>
-  <td height=30 width=50 align=left>çº§åˆ«</td>
-  <td><% Response.Write img_small("icon_user") %>æ™®é€š/<% Response.Write img_small("icon_puser") %>ä¼šå‘˜ç”¨æˆ·</td>
-  <td><% Response.Write img_small("icon_vip") %>VIPç”¨æˆ·</td>
-  <td width=80>ç­‰çº§åç§°</td>
-  <td>æ‰€éœ€ç§¯åˆ†</td>
+  <td height=30 width=50 align=left>¼¶±ð</td>
+  <td><% Response.Write img_small("icon_user") %>ÆÕÍ¨/<% Response.Write img_small("icon_puser") %>»áÔ±ÓÃ»§</td>
+  <td><% Response.Write img_small("icon_vip") %>VIPÓÃ»§</td>
+  <td width=80>µÈ¼¶Ãû³Æ</td>
+  <td>ËùÐè»ý·Ö</td>
   </tr>
 <%
     Dim sdim
@@ -207,14 +207,14 @@ Sub help_forum()
 
     For sn = 0 To UBound(sdim) %>
   <tr>
-  <td><% Response.Write sn %>çº§</td>
+  <td><% Response.Write sn %>¼¶</td>
   <td><img src='images/star/star_<% Response.Write sn %>.gif'></td>
   <td><img src='images/star/star_p<% Response.Write sn %>.gif'></td>
   <td align=center><% Response.Write Right(sdim(sn),Len(sdim(sn)) - InStr(sdim(sn),":")) %></td>
   <td><%
 
         If sn = Int(UBound(sdim)) Then
-            Response.Write Left(sdim(sn),InStr(sdim(sn),":") - 1) & "åˆ†ä»¥ä¸Š"
+            Response.Write Left(sdim(sn),InStr(sdim(sn),":") - 1) & "·ÖÒÔÉÏ"
         Else
             Response.Write Left(sdim(sn),InStr(sdim(sn),":") - 1) & "-" & (Left(sdim(sn + 1),InStr(sdim(sn + 1),":") - 1) - 1)
         End If %></td>
@@ -225,23 +225,23 @@ Sub help_forum()
     Erase sdim %>
   </table>
 </td></tr>
-<tr<% Response.Write table4 %>><td class=htd align=center bgcolor=<% = web_var(web_color,6) %>><font class=red_3>æœ¬ç¤¾åŒºç”¨æˆ·å‘è´´å’Œä¸ªäººç­¾åå¯ç”¨ä¸Žä¸å¯èƒ½é€‰é¡¹å¦‚ä¸‹è¯´æ˜Žæ‰€ç¤ºï¼š</font></td></tr>
+<tr<% Response.Write table4 %>><td class=htd align=center bgcolor=<% = web_var(web_color,6) %>><font class=red_3>±¾ÉçÇøÓÃ»§·¢ÌùºÍ¸öÈËÇ©Ãû¿ÉÓÃÓë²»¿ÉÄÜÑ¡ÏîÈçÏÂËµÃ÷ËùÊ¾£º</font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='90%'>
-  <tr><td class=htd><% Response.Write web_var(web_error,3) & "<br>å°äºŽ" & web_var(web_num,6) & "KB" %></td></tr>
+  <tr><td class=htd><% Response.Write web_var(web_error,3) & "<br>Ð¡ÓÚ" & web_var(web_num,6) & "KB" %></td></tr>
   </table>
 </td></tr>
 </table>
 <% Response.Write kong & table1 %>
-<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>è®ºå›å›¾ä¾‹</b></font></td></tr>
+<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>ÂÛÌ³Í¼Àý</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center height=30><% Response.Write ip_sys(0,0) %></td></tr>
 <tr<% Response.Write table3 %>><td align=center height=30><% Response.Write user_power_type(0) %></td></tr>
 <tr<% Response.Write table3 %>><td align=center height=30>
-<% Response.Write img_small("isok") %>&nbsp;å¼€æ”¾çš„ä¸»é¢˜&nbsp;&nbsp;
-<% Response.Write img_small("ishot") %>&nbsp;å›žå¤è¶…è¿‡10è´´&nbsp;&nbsp;
-<% Response.Write img_small("islock") %>&nbsp;é”å®šçš„ä¸»é¢˜&nbsp;&nbsp;
-<% Response.Write img_small("istop") %>&nbsp;å›ºå®šé¡¶ç«¯çš„ä¸»é¢˜&nbsp;&nbsp;
-<% Response.Write img_small("isgood") %>&nbsp;ç²¾åŽå¸–å­
+<% Response.Write img_small("isok") %>&nbsp;¿ª·ÅµÄÖ÷Ìâ&nbsp;&nbsp;
+<% Response.Write img_small("ishot") %>&nbsp;»Ø¸´³¬¹ý10Ìù&nbsp;&nbsp;
+<% Response.Write img_small("islock") %>&nbsp;Ëø¶¨µÄÖ÷Ìâ&nbsp;&nbsp;
+<% Response.Write img_small("istop") %>&nbsp;¹Ì¶¨¶¥¶ËµÄÖ÷Ìâ&nbsp;&nbsp;
+<% Response.Write img_small("isgood") %>&nbsp;¾«»ªÌû×Ó
 </td></tr>
 </table>
 <%
@@ -249,45 +249,45 @@ End Sub
 
 Sub help_ubb()
     Response.Write table1 %>
-<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>UBBè¯­æ³•</b></font></td></tr>
-<tr<% Response.Write table3 %>><td class=htd>ã€€ã€€ä»¥ä¸‹ä¸ºæœ¬ç«™ä½¿ç”¨çš„UBBè¯­æ³•çš„å…·ä½“ä½¿ç”¨è¯´æ˜Žï¼Œå› ä¸ºéœ€è¦è€Œè¿›è¡Œäº†ä¸€äº›æ”¹è¿›ã€‚UBBæ ‡ç­¾å°±æ˜¯ä¸å…è®¸ä½¿ç”¨HTMLè¯­æ³•çš„æƒ…å†µä¸‹ï¼Œé€šè¿‡ç‰¹æ®Šè½¬æ¢ç¨‹åºï¼Œä»¥è‡³å¯ä»¥æ”¯æŒå°‘é‡å¸¸ç”¨çš„ã€æ— å±å®³æ€§çš„HTMLæ•ˆæžœæ˜¾ç¤ºã€‚</td></tr>
+<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>UBBÓï·¨</b></font></td></tr>
+<tr<% Response.Write table3 %>><td class=htd>¡¡¡¡ÒÔÏÂÎª±¾Õ¾Ê¹ÓÃµÄUBBÓï·¨µÄ¾ßÌåÊ¹ÓÃËµÃ÷£¬ÒòÎªÐèÒª¶ø½øÐÐÁËÒ»Ð©¸Ä½ø¡£UBB±êÇ©¾ÍÊÇ²»ÔÊÐíÊ¹ÓÃHTMLÓï·¨µÄÇé¿öÏÂ£¬Í¨¹ýÌØÊâ×ª»»³ÌÐò£¬ÒÔÖÁ¿ÉÒÔÖ§³ÖÉÙÁ¿³£ÓÃµÄ¡¢ÎÞÎ£º¦ÐÔµÄHTMLÐ§¹ûÏÔÊ¾¡£</td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
   <tr><td class=htd>
-<li><font color=red>[B]</font><B>æ–‡å­—</B><font color=red>[/B]</font>ï¼šåœ¨æ–‡å­—çš„ä½ç½®å¯ä»¥ä»»æ„åŠ å…¥æ‚¨éœ€è¦çš„å­—ç¬¦ï¼Œæ˜¾ç¤ºä¸ºç²—ä½“æ•ˆæžœã€‚</li>
-<li><font color=red>[I]</font><I>æ–‡å­—</I><font color=red>[/I]</font>ï¼šåœ¨æ–‡å­—çš„ä½ç½®å¯ä»¥ä»»æ„åŠ å…¥æ‚¨éœ€è¦çš„å­—ç¬¦ï¼Œæ˜¾ç¤ºä¸ºæ–œä½“æ•ˆæžœã€‚</li>
-<li><font color=red>[U]</font><U>æ–‡å­—</U><font color=red>[/U]</font>ï¼šåœ¨æ–‡å­—çš„ä½ç½®å¯ä»¥ä»»æ„åŠ å…¥æ‚¨éœ€è¦çš„å­—ç¬¦ï¼Œæ˜¾ç¤ºä¸ºä¸‹åˆ’çº¿æ•ˆæžœã€‚</li>
-<li><font color=red>[ALIGN=center]</font>æ–‡å­—<font color=red>[/ALIGN]</font>ï¼šåœ¨æ–‡å­—çš„ä½ç½®å¯ä»¥ä»»æ„åŠ å…¥æ‚¨éœ€è¦çš„å­—ç¬¦ï¼Œcenterä½ç½®centerè¡¨ç¤ºå±…ä¸­ï¼Œleftè¡¨ç¤ºå±…å·¦ï¼Œrightè¡¨ç¤ºå±…å³ã€‚</li>
-<li><font color=red>[COLOR=é¢œè‰²ä»£ç ]</font>æ–‡å­—<font color=red>[/COLOR]</font>ï¼šè¾“å…¥æ‚¨çš„é¢œè‰²ä»£ç ï¼Œåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æ–‡å­—å¯ä»¥å®žçŽ°æ–‡å­—é¢œè‰²æ”¹å˜ã€‚</li>
-<li><font color=red>[SIZE=æ•°å­—]</font>æ–‡å­—<font color=red>[/SIZE]</font>ï¼šè¾“å…¥æ‚¨çš„å­—ä½“å¤§å°ï¼Œåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æ–‡å­—å¯ä»¥å®žçŽ°æ–‡å­—å¤§å°æ”¹å˜ã€‚</li>
-<li><font color=red>[FACE=å­—ä½“]</font>æ–‡å­—<font color=red>[/FACE]</font>ï¼šè¾“å…¥æ‚¨éœ€è¦çš„å­—ä½“ï¼Œåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æ–‡å­—å¯ä»¥å®žçŽ°æ–‡å­—å­—ä½“è½¬æ¢ã€‚</li>
-<li><font color=red>[FLY]</font>é£žç¿”çš„æ–‡å­—<font color=red>[/FLY]</font>ï¼šåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æ–‡å­—å¯ä»¥å®žçŽ°æ–‡å­—é£žç¿”æ•ˆæžœï¼Œç±»ä¼¼è·‘é©¬ç¯ã€‚</li>
-<li><font color=red>[MOVE]</font>ç§»åŠ¨çš„æ–‡å­—<font color=red>[/MOVE]</font>ï¼šåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æ–‡å­—å¯ä»¥å®žçŽ°æ–‡å­—ç§»åŠ¨æ•ˆæžœï¼Œä¸ºæ¥å›žé£˜åŠ¨ã€‚</li>
-<li><font color=red>[GLOW=255,red,2]</font>æ–‡å­—<font color=red>[/GLOW]</font>ï¼šåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æ–‡å­—å¯ä»¥å®žçŽ°æ–‡å­—å‘å…‰ç‰¹æ•ˆï¼Œglowå†…å±žæ€§ä¾æ¬¡ä¸ºå®½åº¦ã€é¢œè‰²å’Œè¾¹ç•Œå¤§å°ã€‚</li>
-<li><font color=red>[SHADOW=255,red,2]</font>æ–‡å­—<font color=red>[/SHADOW]</font>ï¼šåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æ–‡å­—å¯ä»¥å®žçŽ°æ–‡å­—é˜´å½±ç‰¹æ•ˆï¼Œshadowå†…å±žæ€§ä¾æ¬¡ä¸ºå®½åº¦ã€é¢œè‰²å’Œè¾¹ç•Œå¤§å°ã€‚</li>
+<li><font color=red>[B]</font><B>ÎÄ×Ö</B><font color=red>[/B]</font>£ºÔÚÎÄ×ÖµÄÎ»ÖÃ¿ÉÒÔÈÎÒâ¼ÓÈëÄúÐèÒªµÄ×Ö·û£¬ÏÔÊ¾Îª´ÖÌåÐ§¹û¡£</li>
+<li><font color=red>[I]</font><I>ÎÄ×Ö</I><font color=red>[/I]</font>£ºÔÚÎÄ×ÖµÄÎ»ÖÃ¿ÉÒÔÈÎÒâ¼ÓÈëÄúÐèÒªµÄ×Ö·û£¬ÏÔÊ¾ÎªÐ±ÌåÐ§¹û¡£</li>
+<li><font color=red>[U]</font><U>ÎÄ×Ö</U><font color=red>[/U]</font>£ºÔÚÎÄ×ÖµÄÎ»ÖÃ¿ÉÒÔÈÎÒâ¼ÓÈëÄúÐèÒªµÄ×Ö·û£¬ÏÔÊ¾ÎªÏÂ»®ÏßÐ§¹û¡£</li>
+<li><font color=red>[ALIGN=center]</font>ÎÄ×Ö<font color=red>[/ALIGN]</font>£ºÔÚÎÄ×ÖµÄÎ»ÖÃ¿ÉÒÔÈÎÒâ¼ÓÈëÄúÐèÒªµÄ×Ö·û£¬centerÎ»ÖÃcenter±íÊ¾¾ÓÖÐ£¬left±íÊ¾¾Ó×ó£¬right±íÊ¾¾ÓÓÒ¡£</li>
+<li><font color=red>[COLOR=ÑÕÉ«´úÂë]</font>ÎÄ×Ö<font color=red>[/COLOR]</font>£ºÊäÈëÄúµÄÑÕÉ«´úÂë£¬ÔÚ±êÇ©µÄÖÐ¼ä²åÈëÎÄ×Ö¿ÉÒÔÊµÏÖÎÄ×ÖÑÕÉ«¸Ä±ä¡£</li>
+<li><font color=red>[SIZE=Êý×Ö]</font>ÎÄ×Ö<font color=red>[/SIZE]</font>£ºÊäÈëÄúµÄ×ÖÌå´óÐ¡£¬ÔÚ±êÇ©µÄÖÐ¼ä²åÈëÎÄ×Ö¿ÉÒÔÊµÏÖÎÄ×Ö´óÐ¡¸Ä±ä¡£</li>
+<li><font color=red>[FACE=×ÖÌå]</font>ÎÄ×Ö<font color=red>[/FACE]</font>£ºÊäÈëÄúÐèÒªµÄ×ÖÌå£¬ÔÚ±êÇ©µÄÖÐ¼ä²åÈëÎÄ×Ö¿ÉÒÔÊµÏÖÎÄ×Ö×ÖÌå×ª»»¡£</li>
+<li><font color=red>[FLY]</font>·ÉÏèµÄÎÄ×Ö<font color=red>[/FLY]</font>£ºÔÚ±êÇ©µÄÖÐ¼ä²åÈëÎÄ×Ö¿ÉÒÔÊµÏÖÎÄ×Ö·ÉÏèÐ§¹û£¬ÀàËÆÅÜÂíµÆ¡£</li>
+<li><font color=red>[MOVE]</font>ÒÆ¶¯µÄÎÄ×Ö<font color=red>[/MOVE]</font>£ºÔÚ±êÇ©µÄÖÐ¼ä²åÈëÎÄ×Ö¿ÉÒÔÊµÏÖÎÄ×ÖÒÆ¶¯Ð§¹û£¬ÎªÀ´»ØÆ®¶¯¡£</li>
+<li><font color=red>[GLOW=255,red,2]</font>ÎÄ×Ö<font color=red>[/GLOW]</font>£ºÔÚ±êÇ©µÄÖÐ¼ä²åÈëÎÄ×Ö¿ÉÒÔÊµÏÖÎÄ×Ö·¢¹âÌØÐ§£¬glowÄÚÊôÐÔÒÀ´ÎÎª¿í¶È¡¢ÑÕÉ«ºÍ±ß½ç´óÐ¡¡£</li>
+<li><font color=red>[SHADOW=255,red,2]</font>ÎÄ×Ö<font color=red>[/SHADOW]</font>£ºÔÚ±êÇ©µÄÖÐ¼ä²åÈëÎÄ×Ö¿ÉÒÔÊµÏÖÎÄ×ÖÒõÓ°ÌØÐ§£¬shadowÄÚÊôÐÔÒÀ´ÎÎª¿í¶È¡¢ÑÕÉ«ºÍ±ß½ç´óÐ¡¡£</li>
 <li><font color=red>[URL]</font><A href="<% Response.Write web_var(web_config,2) %>"><% Response.Write web_var(web_config,2) %></A><font color=red>[/URL]</font></li>
-<li><font color=red>[URL=<% Response.Write web_var(web_config,2) %>]</font><A href="<% Response.Write web_var(web_config,2) %>"><% Response.Write web_var(web_config,1) %></A><font color=red>[/URL]</font>ï¼šæœ‰ä¸¤ç§æ–¹æ³•å¯ä»¥åŠ å…¥è¶…çº§è¿žæŽ¥ï¼Œå¯ä»¥è¿žæŽ¥å…·ä½“åœ°å€æˆ–è€…æ–‡å­—è¿žæŽ¥ã€‚</li>
+<li><font color=red>[URL=<% Response.Write web_var(web_config,2) %>]</font><A href="<% Response.Write web_var(web_config,2) %>"><% Response.Write web_var(web_config,1) %></A><font color=red>[/URL]</font>£ºÓÐÁ½ÖÖ·½·¨¿ÉÒÔ¼ÓÈë³¬¼¶Á¬½Ó£¬¿ÉÒÔÁ¬½Ó¾ßÌåµØÖ·»òÕßÎÄ×ÖÁ¬½Ó¡£</li>
 <li><font color=red>[EMAIL]</font><A href="mailto:plinq@live.com">plinq@live.com</A><font color=red>[/EMAIL]</font></li>
-<li><font color=red>[EMAIL=plinq@live.com]</font><A href="mailto:plinq@live.com">ç¬¼æ°‘</A><font color=red>[/EMAIL]</font>ï¼šæœ‰ä¸¤ç§æ–¹æ³•å¯ä»¥åŠ å…¥é‚®ä»¶è¿žæŽ¥ï¼Œå¯ä»¥è¿žæŽ¥å…·ä½“åœ°å€æˆ–è€…æ–‡å­—è¿žæŽ¥ã€‚</li>
-<li><font color=red>[IMG]images/logo.gif[/IMG]</font> ï¼šåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥å›¾ç‰‡åœ°å€å¯ä»¥å®žçŽ°æ’å›¾æ•ˆæžœã€‚
-<li><font color=red>[DOWNLOAD]http://beyondest.com/music/test.rar[/DOWNLOAD]</font>ï¼šåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æä¾›ä¸‹è½½çš„æ–‡ä»¶åœ°å€å¯ä»¥å®žçŽ°æ–‡ä»¶ä¸‹è½½æ•ˆæžœã€‚
+<li><font color=red>[EMAIL=plinq@live.com]</font><A href="mailto:plinq@live.com">ÁýÃñ</A><font color=red>[/EMAIL]</font>£ºÓÐÁ½ÖÖ·½·¨¿ÉÒÔ¼ÓÈëÓÊ¼þÁ¬½Ó£¬¿ÉÒÔÁ¬½Ó¾ßÌåµØÖ·»òÕßÎÄ×ÖÁ¬½Ó¡£</li>
+<li><font color=red>[IMG]images/logo.gif[/IMG]</font> £ºÔÚ±êÇ©µÄÖÐ¼ä²åÈëÍ¼Æ¬µØÖ·¿ÉÒÔÊµÏÖ²åÍ¼Ð§¹û¡£
+<li><font color=red>[DOWNLOAD]http://beyondest.com/music/test.rar[/DOWNLOAD]</font>£ºÔÚ±êÇ©µÄÖÐ¼ä²åÈëÌá¹©ÏÂÔØµÄÎÄ¼þµØÖ·¿ÉÒÔÊµÏÖÎÄ¼þÏÂÔØÐ§¹û¡£
 
-<li><font color=red>[FLASH=å®½åº¦,é«˜åº¦]</font>Flashè¿žæŽ¥åœ°å€<font color=red>[/FLASH]</font>ï¼šåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥Flashå›¾ç‰‡åœ°å€å¯ä»¥å®žçŽ°æ’å…¥Flashã€‚</li>
-<li><font color=red>[CODE]</font>æ–‡å­—<font color=red>[/CODE]</font>ï¼šåœ¨æ ‡ç­¾ä¸­å†™å…¥æ–‡å­—å¯å®žçŽ°htmlä¸­ç¼–å·æ•ˆæžœã€‚</li>
-<li><font color=red>[OTE]</font>å¼•ç”¨<font color=red>[/QUOTE]</font>ï¼šåœ¨æ ‡ç­¾çš„ä¸­é—´æ’å…¥æ–‡å­—å¯ä»¥å®žçŽ°HTMlä¸­å¼•ç”¨æ–‡å­—æ•ˆæžœã€‚</li>
-<li><font color=red>[RM=å®½åº¦,é«˜åº¦]</font>http://<font color=red>[/RM]</font>ï¼šä¸ºæ’å…¥realplayeræ ¼å¼çš„rmæ–‡ä»¶ï¼Œä¸­é—´çš„æ•°å­—ä¸ºå®½åº¦å’Œé•¿åº¦ã€‚</li>
-<li><font color=red>[MP=å®½åº¦,é«˜åº¦]</font>http://<font color=red>[/MP]</font>ï¼šä¸ºæ’å…¥ä¸ºmidia playeræ ¼å¼çš„æ–‡ä»¶ï¼Œä¸­é—´çš„æ•°å­—ä¸ºå®½åº¦å’Œé•¿åº¦ã€‚</li>
-<li><font color=red>[DIR=å®½åº¦,é«˜åº¦]</font>http://<font color=red>[/DIR]</font>ï¼šä¸ºæ’å…¥shockwaveæ ¼å¼æ–‡ä»¶ï¼Œä¸­é—´çš„æ•°å­—ä¸ºå®½åº¦å’Œé•¿åº¦ã€‚</li>
-<li><font color=red>[QT=500,350]</font>http://<font color=red>[/QT]</font>ï¼šä¸ºæ’å…¥ä¸ºQuick timeæ ¼å¼çš„æ–‡ä»¶ï¼Œä¸­é—´çš„æ•°å­—ä¸ºå®½åº¦å’Œé•¿åº¦ã€‚</li>
+<li><font color=red>[FLASH=¿í¶È,¸ß¶È]</font>FlashÁ¬½ÓµØÖ·<font color=red>[/FLASH]</font>£ºÔÚ±êÇ©µÄÖÐ¼ä²åÈëFlashÍ¼Æ¬µØÖ·¿ÉÒÔÊµÏÖ²åÈëFlash¡£</li>
+<li><font color=red>[CODE]</font>ÎÄ×Ö<font color=red>[/CODE]</font>£ºÔÚ±êÇ©ÖÐÐ´ÈëÎÄ×Ö¿ÉÊµÏÖhtmlÖÐ±àºÅÐ§¹û¡£</li>
+<li><font color=red>[OTE]</font>ÒýÓÃ<font color=red>[/QUOTE]</font>£ºÔÚ±êÇ©µÄÖÐ¼ä²åÈëÎÄ×Ö¿ÉÒÔÊµÏÖHTMlÖÐÒýÓÃÎÄ×ÖÐ§¹û¡£</li>
+<li><font color=red>[RM=¿í¶È,¸ß¶È]</font>http://<font color=red>[/RM]</font>£ºÎª²åÈërealplayer¸ñÊ½µÄrmÎÄ¼þ£¬ÖÐ¼äµÄÊý×ÖÎª¿í¶ÈºÍ³¤¶È¡£</li>
+<li><font color=red>[MP=¿í¶È,¸ß¶È]</font>http://<font color=red>[/MP]</font>£ºÎª²åÈëÎªmidia player¸ñÊ½µÄÎÄ¼þ£¬ÖÐ¼äµÄÊý×ÖÎª¿í¶ÈºÍ³¤¶È¡£</li>
+<li><font color=red>[DIR=¿í¶È,¸ß¶È]</font>http://<font color=red>[/DIR]</font>£ºÎª²åÈëshockwave¸ñÊ½ÎÄ¼þ£¬ÖÐ¼äµÄÊý×ÖÎª¿í¶ÈºÍ³¤¶È¡£</li>
+<li><font color=red>[QT=500,350]</font>http://<font color=red>[/QT]</font>£ºÎª²åÈëÎªQuick time¸ñÊ½µÄÎÄ¼þ£¬ÖÐ¼äµÄÊý×ÖÎª¿í¶ÈºÍ³¤¶È¡£</li>
   </td></tr>
   </table>
 </td></tr>
-<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>EM è´´å›¾</b></font></td></tr>
+<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>EM ÌùÍ¼</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0>
   <tr><td width=80></td><td></td></tr>
   <tr align=center>
-  <td>å° EM è´´å›¾<br>ï¼ˆ1-8ï¼‰</td>
+  <td>Ð¡ EM ÌùÍ¼<br>£¨1-8£©</td>
   <td>
     <table border=0>
     <tr align=center><%
@@ -305,7 +305,7 @@ Sub help_ubb()
   </tr>
   <tr><td colspan=2 background='IMAGES/BG_DIAN.GIF'></td></tr>
   <tr align=center>
-  <td>å° EM è´´å›¾<br>ï¼ˆ9-16ï¼‰</td>
+  <td>Ð¡ EM ÌùÍ¼<br>£¨9-16£©</td>
   <td>
     <table border=0>
     <tr align=center><%
@@ -323,7 +323,7 @@ Sub help_ubb()
   </tr>
   <tr><td colspan=2 background='IMAGES/BG_DIAN.GIF'></td></tr>
   <tr align=center>
-  <td>å¤§ EM è´´å›¾<br>ï¼ˆ1-7ï¼‰</td>
+  <td>´ó EM ÌùÍ¼<br>£¨1-7£©</td>
   <td>
     <table border=0>
     <tr><%
@@ -341,7 +341,7 @@ Sub help_ubb()
   </tr>
   <tr><td colspan=2 background='IMAGES/BG_DIAN.GIF'></td></tr>
   <tr>
-  <td align=center>å¤§ EM è´´å›¾<br>ï¼ˆ8-13ï¼‰</td>
+  <td align=center>´ó EM ÌùÍ¼<br>£¨8-13£©</td>
   <td>
     <table border=0>
     <tr><%
@@ -365,12 +365,12 @@ End Sub
 
 Sub help_about()
     Response.Write table1 %>
-<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>å…³äºŽæˆ‘ä»¬</b></font></td></tr>
+<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>¹ØÓÚÎÒÃÇ</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
   <tr>
-  <td width='100%' class=htd>ã€€ã€€æœ¬ç«™ï¼ˆ<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>ï¼‰æ­£å¼åˆ›å»ºäºŽ1999å¹´12æœˆï¼Œå±žäºŽæˆ‘å›½æ¯”è¾ƒæ—©çš„ä¸€æ‰¹Beyondç½‘ç«™ã€‚å½“æ—¶æœ€åˆçš„ç‰ˆæœ¬ä¸ºçº¯é™æ€çš„htmlï¼Œå¹¶å°†é‡ç‚¹æ”¾åœ¨äº†è§†è§‰è®¾è®¡ä¸Šï¼Œç»è¿‡å‡ æ¬¡è¾ƒå¤§è§„æ¨¡çš„å‡çº§ä¸Žæ”¹è¿›ï¼Œæˆ‘ä»¬çš„è¶Šæ¥è¶Šæ³¨é‡æŠ€æœ¯çš„æé«˜ã€‚ç”±äºŽç»æµŽæ¡ä»¶å’Œå­¦ä¸šçš„åŽŸå› ï¼Œä»Ž2000å¹´ä¸‹åŠå¹´èµ·æœ¬ç«™çš„å‘å±•ä¸€ç›´å±€é™åœ¨å¾ˆå°çš„èŒƒå›´å†…ï¼Œå¹¶æœ€ç»ˆéžå¸¸å‹‰å¼ºåœ°ç»´æŒåˆ°äº†2003å¹´ã€‚ä½†æ˜¯ç»è¿‡4å¹´çš„èµ„æ–™æ”¶é›†å’ŒæŠ€æœ¯æé«˜ï¼Œæˆ‘ä»¬çš„ä¸æ‡ˆåŠªåŠ›å’Œç§¯ç´¯ç»ˆäºŽä½¿<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>åˆå…·è§„æ¨¡ã€‚æœ¬ç«™çŽ°é‡‡ç”¨äº†asp+accessæŠ€æœ¯ï¼Œä»ŠåŽå°†å‘ä»¥æŠ€æœ¯ä¸ºä¸»çš„ç»¼åˆåž‹ç½‘ç«™å‘å±•ã€‚<br>
-ã€€ã€€<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>é•¿æœŸä»¥æ¥å§‹ç»ˆåšæŒâ€œè‡ªç”±â€çš„ç²¾ç¥žï¼Œæ˜¯å®Œå…¨éžèµ¢åˆ©æ€§ã€éžå•†ä¸šæ€§çš„ç½‘ç«™ã€‚æˆ‘ä»¬ä»¥æ›´å¥½åœ°ä¸ºå¹¿å¤§æ­Œè¿·æœ‹å‹æä¾›å„ç§æ–¹ä¾¿å’ŒæœåŠ¡ä¸ºå®—æ—¨ï¼Œå› æ­¤æˆ‘ä»¬çš„æ‰€æœ‰ç½‘ç«™å†…å®¹å’ŒæœåŠ¡å’Œéƒ½æ˜¯å…è´¹çš„ï¼Œæˆ‘ä»¬å†³ä¸ä»¥ä»»ä½•ç†ç”±å‘ç”¨æˆ·æ”¶å–ä»»ä½•è´¹ç”¨ï¼Œå†³ä¸å‘ç”¨æˆ·å‡ºå”®ä»»ä½•å•†å“ã€‚æˆ‘ä»¬æ‰€åšçš„ä¸€åˆ‡ï¼Œç›®çš„ä»…ä»…æ˜¯æŽ¨å¹¿Beyondçš„éŸ³ä¹ï¼Œå®£ä¼ Beyondçš„ç²¾ç¥žï¼Œç ”ç©¶ç›¸å…³çš„æŠ€æœ¯å’Œè‰ºæœ¯é—®é¢˜ã€‚
+  <td width='100%' class=htd>¡¡¡¡±¾Õ¾£¨<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>£©ÕýÊ½´´½¨ÓÚ1999Äê12ÔÂ£¬ÊôÓÚÎÒ¹ú±È½ÏÔçµÄÒ»ÅúBeyondÍøÕ¾¡£µ±Ê±×î³õµÄ°æ±¾Îª´¿¾²Ì¬µÄhtml£¬²¢½«ÖØµã·ÅÔÚÁËÊÓ¾õÉè¼ÆÉÏ£¬¾­¹ý¼¸´Î½Ï´ó¹æÄ£µÄÉý¼¶Óë¸Ä½ø£¬ÎÒÃÇµÄÔ½À´Ô½×¢ÖØ¼¼ÊõµÄÌá¸ß¡£ÓÉÓÚ¾­¼ÃÌõ¼þºÍÑ§ÒµµÄÔ­Òò£¬´Ó2000ÄêÏÂ°ëÄêÆð±¾Õ¾µÄ·¢Õ¹Ò»Ö±¾ÖÏÞÔÚºÜÐ¡µÄ·¶Î§ÄÚ£¬²¢×îÖÕ·Ç³£ÃãÇ¿µØÎ¬³Öµ½ÁË2003Äê¡£µ«ÊÇ¾­¹ý4ÄêµÄ×ÊÁÏÊÕ¼¯ºÍ¼¼ÊõÌá¸ß£¬ÎÒÃÇµÄ²»Ð¸Å¬Á¦ºÍ»ýÀÛÖÕÓÚÊ¹<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>³õ¾ß¹æÄ£¡£±¾Õ¾ÏÖ²ÉÓÃÁËasp+access¼¼Êõ£¬½ñºó½«ÏòÒÔ¼¼ÊõÎªÖ÷µÄ×ÛºÏÐÍÍøÕ¾·¢Õ¹¡£<br>
+¡¡¡¡<a href='<% = web_var(web_config,2) %>'><% = web_var(web_config,1) %></a>³¤ÆÚÒÔÀ´Ê¼ÖÕ¼á³Ö¡°×ÔÓÉ¡±µÄ¾«Éñ£¬ÊÇÍêÈ«·ÇÓ®ÀûÐÔ¡¢·ÇÉÌÒµÐÔµÄÍøÕ¾¡£ÎÒÃÇÒÔ¸üºÃµØÎª¹ã´ó¸èÃÔÅóÓÑÌá¹©¸÷ÖÖ·½±ãºÍ·þÎñÎª×ÚÖ¼£¬Òò´ËÎÒÃÇµÄËùÓÐÍøÕ¾ÄÚÈÝºÍ·þÎñºÍ¶¼ÊÇÃâ·ÑµÄ£¬ÎÒÃÇ¾ö²»ÒÔÈÎºÎÀíÓÉÏòÓÃ»§ÊÕÈ¡ÈÎºÎ·ÑÓÃ£¬¾ö²»ÏòÓÃ»§³öÊÛÈÎºÎÉÌÆ·¡£ÎÒÃÇËù×öµÄÒ»ÇÐ£¬Ä¿µÄ½ö½öÊÇÍÆ¹ãBeyondµÄÒôÀÖ£¬Ðû´«BeyondµÄ¾«Éñ£¬ÑÐ¾¿Ïà¹ØµÄ¼¼ÊõºÍÒÕÊõÎÊÌâ¡£
 </td>
   </tr>
   </table>
@@ -380,17 +380,17 @@ Sub help_about()
 <br>
 
 <% Response.Write table1 %>
-<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>å…³äºŽæˆ‘</b></font></td></tr>
+<tr<% Response.Write table2 %>><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk0") %>&nbsp;<font class=end><b>¹ØÓÚÎÒ</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
   <tr>
         <td width='100%' class=htd><br><center><img src=images/yandixin.jpg></center>
-          <br>ã€€ã€€æœ‰çš„äººåšç½‘ç«™ï¼Œæ˜¯å› ä¸ºç¤¾ä¼šæœ‰è¿™æ ·ä¸€ç§å•†å“éœ€æ±‚ï¼›æœ‰çš„äººåšç½‘ç«™ï¼Œæ˜¯å› ä¸ºä»–æœ‰ä¸€äº›è¯è¦è¯´ã€‚ä½†æ˜¯çœŸæ­£çš„å‹‡å£«ï¼Œæ•¢äºŽç›´é¢æƒ¨æ·¡çš„äººç”Ÿã€‚<br>
-<br>ã€€ã€€æ¯æ¯åœ¨é‚£äº›å¤±çœ çš„å¤œé‡Œï¼Œææƒšè¿·æ¼“ä¸­å¬ä¸€äº›è€æ­Œï¼Œæƒ³èµ·å’Œé‚£ä¸ªæ­Œæ‰‹ä¸€æ ·ç¦»åŽ»çš„äººå’Œäº‹ï¼Œæƒ³èµ·é‚£äº›å¦‚ç«å¦‚è¼ã€æŒ¥æ–¥æ–¹é’çš„æ—¶èŠ‚â€¦â€¦ï¼Œä¸€é˜µä¼¤æ€€ï¼šä»Šå¤œï¼Œåªæœ‰æˆ‘è¿˜åœ¨ï¼éŸ³ä¹ï¼éŸ³ä¹ï¼ï¼ï¼å¸¦ç€å®ƒçš„é”åˆ©ï¼Œç©¿é€æ—¶ç©ºï¼Œç©¿é€æˆ‘çš„å¿ƒè„ï¼<br>
+          <br>¡¡¡¡ÓÐµÄÈË×öÍøÕ¾£¬ÊÇÒòÎªÉç»áÓÐÕâÑùÒ»ÖÖÉÌÆ·ÐèÇó£»ÓÐµÄÈË×öÍøÕ¾£¬ÊÇÒòÎªËûÓÐÒ»Ð©»°ÒªËµ¡£µ«ÊÇÕæÕýµÄÓÂÊ¿£¬¸ÒÓÚÖ±Ãæ²Òµ­µÄÈËÉú¡£<br>
+<br>¡¡¡¡Ã¿Ã¿ÔÚÄÇÐ©Ê§ÃßµÄÒ¹Àï£¬»Ðã±ÃÔÀìÖÐÌýÒ»Ð©ÀÏ¸è£¬ÏëÆðºÍÄÇ¸ö¸èÊÖÒ»ÑùÀëÈ¥µÄÈËºÍÊÂ£¬ÏëÆðÄÇÐ©Èç»ðÈçÝ±¡¢»Ó³â·½åÙµÄÊ±½Ú¡­¡­£¬Ò»ÕóÉË»³£º½ñÒ¹£¬Ö»ÓÐÎÒ»¹ÔÚ£¡ÒôÀÖ£¡ÒôÀÖ£¡£¡£¡´ø×ÅËüµÄÈñÀû£¬´©Í¸Ê±¿Õ£¬´©Í¸ÎÒµÄÐÄÔà£¡<br>
 <br>
 
 
-ã€€ã€€å¬å¥½çš„éŸ³ä¹ï¼Œåˆ›é€ å¥½çš„ç”Ÿæ´»ï¼ï¼ï¼
+¡¡¡¡ÌýºÃµÄÒôÀÖ£¬´´ÔìºÃµÄÉú»î£¡£¡£¡
 
 
 

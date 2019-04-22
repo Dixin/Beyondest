@@ -39,7 +39,7 @@ Set rs = conn.execute(sql)
 If rs.eof And rs.bof Then
     rs.Close:Set rs = Nothing
     Call close_conn()
-    Response.Write "document.write(""æ²¡æœ‰æ­¤è°ƒæŸ¥åˆ—è¡¨ï¼"");"
+    Response.Write "document.write(""Ã»ÓĞ´Ëµ÷²éÁĞ±í£¡"");"
     Response.End
 End If
 
@@ -59,7 +59,7 @@ Do While Not rs.eof
 Loop
 
 rs.Close:Set rs = Nothing
-Response.Write vbcrlf & "document.write(""<tr><td align=center height=25><input onclick=\""javascript:open_win('','vote_view'," & w & "," & h & ",'no');\"" type=submit value='æŠ•ç¥¨'>&nbsp;&nbsp;<a href='javascript:;' onclick=\""javascript:open_win('votetype.asp?action=view&vid=" & id & "','vote_view'," & w & "," & h & ",'no');\"">æŸ¥çœ‹ç»“æœ</a><font class=gray>(å…±<font class=blue>" & c & "</font>ç¥¨)</font></td></tr>"");"
+Response.Write vbcrlf & "document.write(""<tr><td align=center height=25><input onclick=\""javascript:open_win('','vote_view'," & w & "," & h & ",'no');\"" type=submit value='Í¶Æ±'>&nbsp;&nbsp;<a href='javascript:;' onclick=\""javascript:open_win('votetype.asp?action=view&vid=" & id & "','vote_view'," & w & "," & h & ",'no');\"">²é¿´½á¹û</a><font class=gray>(¹²<font class=blue>" & c & "</font>Æ±)</font></td></tr>"");"
 Response.Write vbcrlf & "document.write(""</form></table>"");"
 
 Call close_conn() %>

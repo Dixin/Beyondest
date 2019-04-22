@@ -78,7 +78,7 @@ Sub chk_csid(cid,sid)
             now_id = Int(rs2(0))
             Response.Write vbcrlf & "<option value='" & nid & "-" & now_id & "'"
             If sid = now_id Then Response.Write " selected"
-            Response.Write ">ã€€" & rs2(1) & "</option>"
+            Response.Write ">¡¡" & rs2(1) & "</option>"
             rs2.movenext
         Loop
 
@@ -112,9 +112,9 @@ Sub left_sort()
             now_id = Int(rs2(0))
 
             If sid = now_id Then
-                Response.Write vbcrlf & "ã€€<a href='?c_id=" & nid & "&s_id=" & now_id & "'><font class=blue>" & rs2(1) & "</a></a><br>"
+                Response.Write vbcrlf & "¡¡<a href='?c_id=" & nid & "&s_id=" & now_id & "'><font class=blue>" & rs2(1) & "</a></a><br>"
             Else
-                Response.Write vbcrlf & "ã€€<a href='?c_id=" & nid & "&s_id=" & now_id & "'>" & rs2(1) & "</a><br>"
+                Response.Write vbcrlf & "¡¡<a href='?c_id=" & nid & "&s_id=" & now_id & "'>" & rs2(1) & "</a><br>"
             End If
 
             rs2.movenext
@@ -149,9 +149,9 @@ Sub left_sort2()
             now_id = Int(rs2(0))
 
             If sid = now_id Then
-                Response.Write vbcrlf & "ã€€<a href='?types=" & types & "&c_id=" & nid & "&s_id=" & now_id & "'><font class=blue>" & rs2(1) & "</a></a><br>"
+                Response.Write vbcrlf & "¡¡<a href='?types=" & types & "&c_id=" & nid & "&s_id=" & now_id & "'><font class=blue>" & rs2(1) & "</a></a><br>"
             Else
-                Response.Write vbcrlf & "ã€€<a href='?types=" & types & "&c_id=" & nid & "&s_id=" & now_id & "'>" & rs2(1) & "</a><br>"
+                Response.Write vbcrlf & "¡¡<a href='?types=" & types & "&c_id=" & nid & "&s_id=" & now_id & "'>" & rs2(1) & "</a><br>"
             End If
 
             rs2.movenext
@@ -174,13 +174,13 @@ Sub chk_power(power,pt)
         Response.Write ">" & Right(ddim(i),Len(ddim(i)) - InStr(ddim(i),":"))
     Next
 
-    Erase ddim %><input type=checkbox name=power value='0' class=bg_1<% If InStr(1,"." & power & ".",".0.") > 0 Then Response.Write " checked" %>>æ¸¸å®¢<%
+    Erase ddim %><input type=checkbox name=power value='0' class=bg_1<% If InStr(1,"." & power & ".",".0.") > 0 Then Response.Write " checked" %>>ÓÎ¿Í<%
 End Sub
 
 Sub chk_emoney(ee)
-    Response.Write "&nbsp;è´§å¸ï¼š<input type=text name=emoney value='" & ee & "' size=6 maxlength=10>"
+    Response.Write "&nbsp;»õ±Ò£º<input type=text name=emoney value='" & ee & "' size=6 maxlength=10>"
 End Sub
 
-Sub chk_h_u() %>&nbsp;&nbsp;<input type=checkbox name=hidden<% If rs("hidden") = False Then Response.Write " checked" %> value='yes'>&nbsp;éšè—
-&nbsp;<input type=checkbox name=username_my value='yes'>&nbsp;<font alt='å‘å¸ƒäººï¼š<% Response.Write rs("username") %>'>ä¿®æ”¹å‘å¸ƒäººä¸ºæˆ‘</font><%
+Sub chk_h_u() %>&nbsp;&nbsp;<input type=checkbox name=hidden<% If rs("hidden") = False Then Response.Write " checked" %> value='yes'>&nbsp;Òş²Ø
+&nbsp;<input type=checkbox name=username_my value='yes'>&nbsp;<font alt='·¢²¼ÈË£º<% Response.Write rs("username") %>'>ĞŞ¸Ä·¢²¼ÈËÎªÎÒ</font><%
 End Sub %>

@@ -6,12 +6,12 @@
 
 function login_true() {
     if (login_frm.username.value == "") {
-        alert("è¯·è¾“å…¥æ‚¨åœ¨æœ¬ç«™æ³¨å†Œæ—¶çš„ ç”¨æˆ·åç§° ï¼");
+        alert("ÇëÊäÈëÄúÔÚ±¾Õ¾×¢²áÊ±µÄ ÓÃ»§Ãû³Æ £¡");
         login_frm.username.focus();
         return false;
     }
     if (login_frm.password.value == "") {
-        alert("è¯·è¾“å…¥æ‚¨åœ¨æœ¬ç«™æ³¨å†Œæ—¶çš„ ç™»é™†å¯†ç  ï¼");
+        alert("ÇëÊäÈëÄúÔÚ±¾Õ¾×¢²áÊ±µÄ µÇÂ½ÃÜÂë £¡");
         login_frm.password.focus();
         return false;
     }

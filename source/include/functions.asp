@@ -100,7 +100,7 @@ Sub time_load(tt,t1,t2)
 
         Function found_error(error_type,error_len)
             If error_len > 600 Or error_len < 200 Then error_len = 300
-            found_error = VbCrLf & "<table border=0 width=" & error_len & " clas=fr><tr><td align=center height=50><font class=red>ç³»ç»Ÿå‘ç°ä½ è¾“å…¥çš„æ•°æ®æœ‰ä»¥ä¸‹é”™è¯¯ï¼š</font></td></tr><tr><td class=htd>" & error_type & "</td></tr><tr><td align=center height=50>" & go_back & "</td></tr></table>"
+            found_error = VbCrLf & "<table border=0 width=" & error_len & " clas=fr><tr><td align=center height=50><font class=red>ÏµÍ³·¢ÏÖÄãÊäÈëµÄÊı¾İÓĞÒÔÏÂ´íÎó£º</font></td></tr><tr><td class=htd>" & error_type & "</td></tr><tr><td align=center height=50>" & go_back & "</td></tr></table>"
         End Function
 
         Function url_true(puu,pus)
@@ -123,37 +123,37 @@ Sub time_load(tt,t1,t2)
             Select Case tt
                 Case 1	'10-10
                     time_type = Month(ttt) & "-" & Day(ttt)
-                Case 11	'æœˆ-æ—¥
-                    time_type = Month(ttt) & "æœˆ" & Day(ttt) & "æ—¥"
-                Case 2	'å¹´(2)-æœˆ-æ—¥ 00-10-10
+                Case 11	'ÔÂ-ÈÕ
+                    time_type = Month(ttt) & "ÔÂ" & Day(ttt) & "ÈÕ"
+                Case 2	'Äê(2)-ÔÂ-ÈÕ 00-10-10
                     time_type = Right(Year(ttt),2) & "-" & Month(ttt) & "-" & Day(ttt)
                 Case 3	'2000-10-10
                     time_type = Year(ttt) & "-" & Month(ttt) & "-" & Day(ttt)
-                Case 33	'å¹´(4)-æœˆ-æ—¥
-                    time_type = Year(ttt) & "å¹´" & Month(ttt) & "æœˆ" & Day(ttt) & "æ—¥"
+                Case 33	'Äê(4)-ÔÂ-ÈÕ
+                    time_type = Year(ttt) & "Äê" & Month(ttt) & "ÔÂ" & Day(ttt) & "ÈÕ"
                 Case 4	'23:45
                     time_type = Hour(ttt) & ":" & Minute(ttt)
-                Case 44	'æ—¶:åˆ†
-                    time_type = Hour(ttt) & "æ—¶" & Minute(ttt) & "åˆ†"
+                Case 44	'Ê±:·Ö
+                    time_type = Hour(ttt) & "Ê±" & Minute(ttt) & "·Ö"
                 Case 5	'23:45:36
                     time_type = Hour(ttt) & ":" & Minute(ttt) & ":" & Second(ttt)
-                Case 55	'æ—¶:åˆ†:ç§’
-                    time_type = Hour(ttt) & "æ—¶" & Minute(ttt) & "åˆ†" & Second(ttt) & "ç§’"
+                Case 55	'Ê±:·Ö:Ãë
+                    time_type = Hour(ttt) & "Ê±" & Minute(ttt) & "·Ö" & Second(ttt) & "Ãë"
                 Case 6	'10-10 23:45
                     time_type = Month(ttt) & "-" & Day(ttt) & " " & Hour(ttt) & ":" & Minute(ttt)
-                Case 66	'æœˆ-æ—¥ æ—¶:åˆ†
-                    time_type = Month(ttt) & "æœˆ" & Day(ttt) & "æ—¥ " & Hour(ttt) & "æ—¶" & Minute(ttt) & "åˆ†"
-                Case 7	'å¹´(2)-æœˆ-æ—¥ æ—¶:åˆ†  00-10-10 23:45
+                Case 66	'ÔÂ-ÈÕ Ê±:·Ö
+                    time_type = Month(ttt) & "ÔÂ" & Day(ttt) & "ÈÕ " & Hour(ttt) & "Ê±" & Minute(ttt) & "·Ö"
+                Case 7	'Äê(2)-ÔÂ-ÈÕ Ê±:·Ö  00-10-10 23:45
                     time_type = Right(Year(ttt),2) & "-" & Month(ttt) & "-" & Day(ttt) & " " & Hour(ttt) & ":" & Minute(ttt)
                 Case 8	'2000-10-10 23:45
                     time_type = Year(ttt) & "-" & Month(ttt) & "-" & Day(ttt) & " " & Hour(ttt) & ":" & Minute(ttt)
-                Case 88	'å¹´(4)-æœˆ-æ—¥ æ—¶:åˆ†
-                    time_type = Year(ttt) & "å¹´" & Month(ttt) & "æœˆ" & Day(ttt) & "æ—¥ " & Hour(ttt) & "æ—¶" & Minute(ttt) & "åˆ†"
+                Case 88	'Äê(4)-ÔÂ-ÈÕ Ê±:·Ö
+                    time_type = Year(ttt) & "Äê" & Month(ttt) & "ÔÂ" & Day(ttt) & "ÈÕ " & Hour(ttt) & "Ê±" & Minute(ttt) & "·Ö"
                 Case 9	'2000-10-10 23:45:45
                     time_type = Year(ttt) & "-" & Month(ttt) & "-" & Day(ttt) & " " & Hour(ttt) & ":" & Minute(ttt) & ":" & Second(ttt)
                     time_type = FormatDateTime(time_type)
-                Case 99	'å¹´(4)-æœˆ-æ—¥ æ—¶:åˆ†:ç§’
-                    time_type = Year(ttt) & "å¹´" & Month(ttt) & "æœˆ" & Day(ttt) & "æ—¥ " & Hour(ttt) & "æ—¶" & Minute(ttt) & "åˆ†" & Second(ttt) & "ç§’"
+                Case 99	'Äê(4)-ÔÂ-ÈÕ Ê±:·Ö:Ãë
+                    time_type = Year(ttt) & "Äê" & Month(ttt) & "ÔÂ" & Day(ttt) & "ÈÕ " & Hour(ttt) & "Ê±" & Minute(ttt) & "·Ö" & Second(ttt) & "Ãë"
                 Case Else
                     time_type = ttt
             End Select
@@ -165,7 +165,7 @@ Sub time_load(tt,t1,t2)
             ttt         = Replace(ttt,":",""):ttt = Replace(ttt,"-","")
             ttt         = Replace(ttt," ",""):ttt = Replace(ttt,"/","")
             ttt         = Replace(ttt,"PM",""):ttt = Replace(ttt,"AM","")
-            ttt         = Replace(ttt,"ä¸Šåˆ",""):ttt = Replace(ttt,"ä¸‹åˆ","")
+            ttt         = Replace(ttt,"ÉÏÎç",""):ttt = Replace(ttt,"ÏÂÎç","")
             upload_time = ttt
         End Function
 
@@ -200,7 +200,7 @@ Sub time_load(tt,t1,t2)
                     strer = Replace(strer,Chr(10),"")
                     strer = Replace(strer,Chr(13),"")
                 Case 2
-                    strer = Replace(strer,Chr(9),"&nbsp;ã€€&nbsp;")
+                    strer = Replace(strer,Chr(9),"&nbsp;¡¡&nbsp;")
                     strer = Replace(strer,Chr(10),"<br>")
                     strer = Replace(strer,Chr(13),"<br>")
             End Select
@@ -292,7 +292,7 @@ Sub time_load(tt,t1,t2)
                         ip_sys = userip
                     End If
 
-                    If isu = 0 Then ip_sys = "æ‚¨çš„çœŸå®ï¼©ï¼°æ˜¯ï¼š" & ip_sys & ":" & Request.ServerVariables("REMOTE_PORT") & "ï¼Œ" & view_sys(Request.Servervariables("HTTP_USER_AGENT")):Exit Function
+                    If isu = 0 Then ip_sys = "ÄúµÄÕæÊµ£É£ĞÊÇ£º" & ip_sys & ":" & Request.ServerVariables("REMOTE_PORT") & "£¬" & view_sys(Request.Servervariables("HTTP_USER_AGENT")):Exit Function
                     If iun = 1 Then ip_sys = ip_sys & ":" & Request.ServerVariables("REMOTE_PORT")
             End Select
 
@@ -322,7 +322,7 @@ Sub time_load(tt,t1,t2)
 
             Select Case BcType
                 Case 0
-                    Browser = "å…¶å®ƒ":sSystem = "å…¶å®ƒ"
+                    Browser = "ÆäËü":sSystem = "ÆäËü"
                 Case 1
                     Ver     = Mid(Agent(0),InStr(Agent(0), "/") + 1)
                     Ver     = Mid(Ver,1,InStr(Ver, " ") - 1)
@@ -343,8 +343,8 @@ Sub time_load(tt,t1,t2)
             strSystem       = Replace(strSystem, "NT5.2", "2003")
             strBrowser      = Replace(Browser, "MSIE", "Internet Explorer")
             Set Browser     = Nothing:Set sSystem = Nothing
-            view_sys        = "æ“ä½œç³»ç»Ÿï¼š" & Trim(strSystem) & " ï¼Œæµè§ˆå™¨ï¼š" & Trim(strBrowser)
-            If Err Then Err.Clear:view_sys = "æœªçŸ¥çš„æ“ä½œç³»ç»Ÿå’Œæµè§ˆå™¨"
+            view_sys        = "²Ù×÷ÏµÍ³£º" & Trim(strSystem) & " £¬ä¯ÀÀÆ÷£º" & Trim(strBrowser)
+            If Err Then Err.Clear:view_sys = "Î´ÖªµÄ²Ù×÷ÏµÍ³ºÍä¯ÀÀÆ÷"
         End Function
 
         Function ip_true(tips)
@@ -378,7 +378,7 @@ Sub time_load(tt,t1,t2)
 
             Select Case wip
                 Case 0
-                    ip_types = "*.*.*.*":ip_types = tu & " çš„IPæ˜¯ï¼š" & ip_types
+                    ip_types = "*.*.*.*":ip_types = tu & " µÄIPÊÇ£º" & ip_types
                     If tt <> 0 Then ip_types = "<img src='images/small/ip.gif' align=absMiddle title='" & ip_types & "' border=0>"
                 Case 1
                     ipn          = InStr(tip2,":")
@@ -390,10 +390,10 @@ Sub time_load(tt,t1,t2)
                     End If
 
                     ip_type      = Split(ip_types,"."):ip_types = ip_type(0) & "." & ip_type(1) & ".*.*"
-                    Erase ip_type:ip_types = tu & " çš„IPæ˜¯ï¼š" & ip_types
+                    Erase ip_type:ip_types = tu & " µÄIPÊÇ£º" & ip_types
                     If tt <> 0 Then ip_types = "<img src='images/small/ip.gif' align=absMiddle title='" & ip_types & "' border=0>"
                 Case Else
-                    ip_types = tu & " çš„IPæ˜¯ï¼š" & tip2
+                    ip_types = tu & " µÄIPÊÇ£º" & tip2
                     If tt <> 0 Then ip_types = "<a href='ip_address.asp?ip=" & tip2 & "'><img src='images/small/ip.gif' align=absMiddle title='" & ip_types & "' border=0></a>"
             End Select
 
@@ -420,7 +420,7 @@ Sub time_load(tt,t1,t2)
             Dim city
             Dim irs
             Dim sip:sip = sips
-            If Not(IsNumeric(Left(sip,2))) Then ip_address = "æœªçŸ¥":Exit Function
+            If Not(IsNumeric(Left(sip,2))) Then ip_address = "Î´Öª":Exit Function
             If sip = "127.0.0.1" Then sip = "192.168.0.1"
             str1        = Left(sip,InStr(sip,".") - 1):sip = Mid(sip,InStr(sip,".") + 1)
             str2        = Left(sip,InStr(sip,".") - 1):sip = Mid(sip,InStr(sip,".") + 1)
@@ -433,7 +433,7 @@ Sub time_load(tt,t1,t2)
                 irs.open sql,conn,1,1
 
                 If irs.eof And irs.bof Then
-                    country = "äºšæ´²":city = ""
+                    country = "ÑÇÖŞ":city = ""
                 Else
                     country = irs(0):city = irs(1)
                 End If

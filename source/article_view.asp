@@ -50,7 +50,7 @@ author   = rs("author")
 keyes    = rs("keyes")
 rs.Close
 
-cname = "Ф√┤Г╚═Ф╣▐Х╖┬"
+cname = "ндубД╞юю"
 sname = ""
 
 If cid > 0 Then
@@ -65,7 +65,7 @@ If cid > 0 Then
 
     If Not (rs.eof And rs.bof) Then
         cname = rs("c_name"):tit = cname
-        If sid > 0 Then sname = rs("s_name"):tit = cname & "О╪┬" & sname & "О╪┴"
+        If sid > 0 Then sname = rs("s_name"):tit = cname & "ё╗" & sname & "ё╘"
     End If
 
     rs.Close
@@ -80,14 +80,14 @@ conn.execute(sql)
 Call font_word_js() %>
 <table border=0 width='96%' cellspacing=0 cellpadding=0>
 <tr><td align=center height=50><font class=red_3 size=3><b><% Response.Write topic %></b></font></td></tr>
-<tr><td align=center class=gray><% Response.Write time_type(tim,33) & "&nbsp;&nbsp;Д╫°Х─┘О╪ " & author & "&nbsp;&nbsp;" & web_var(web_config,1) %>&nbsp;&nbsp;<% Call font_word_action() %>&nbsp;&nbsp;Ф°╛Ф√┤Е╥╡Х╒╚Ф╣▐Х╖┬&nbsp;<% Response.Write counter %>&nbsp;Ф╛║</td></tr>
+<tr><td align=center class=gray><% Response.Write time_type(tim,33) & "&nbsp;&nbsp;вВуъё╨" & author & "&nbsp;&nbsp;" & web_var(web_config,1) %>&nbsp;&nbsp;<% Call font_word_action() %>&nbsp;&nbsp;╠╬ндря╠╩Д╞юю&nbsp;<% Response.Write counter %>&nbsp;╢н</td></tr>
 <tr><td height=10></td></tr>
 <tr><td valign=top><% Call font_word_type(word) %></td></tr>
 <tr><td height=10></td></tr>
 <tr><td>
   <table border=0 width='100%'>
   <tr><td width='25%' class=htd>
-&nbsp;Е▐▒Е╦┐Д╨╨О╪ <% Response.Write format_user_view(username,1,1) %><br>
+&nbsp;╥╒╡╪хкё╨<% Response.Write format_user_view(username,1,1) %><br>
 &nbsp;<% Response.Write put_type("article") %>
   </td><td width='75%' class=htd>
 <%
@@ -95,24 +95,24 @@ sql       = "select id,topic from article where hidden=1 and id=" & id - 1
 Set rs    = conn.execute(sql)
 
 If rs.eof And rs.bof Then
-    topic = "<font class=gray>Ф╡║Ф°┴Ф┴╬Е┬╟Г⌡╦Е┘ЁФ√┤Г╚═</font>"
+    topic = "<font class=gray>ц╩спур╣╫оЮ╧ьндуб</font>"
 Else
     topic = "<a href='article_view.asp?id=" & rs(0) & "'>" & code_html(rs(1),1,30) & "</a>"
 End If
 
 rs.Close
-Response.Write "Д╦┼Г╞┤Ф√┤Г╚═О╪ " & topic & "<br>"
+Response.Write "иоф╙ндубё╨" & topic & "<br>"
 sql = "select id,topic from article where hidden=1 and id=" & id + 1
 Set rs = conn.execute(sql)
 
 If rs.eof And rs.bof Then
-    topic = "<font class=gray>Ф╡║Ф°┴Ф┴╬Е┬╟Г⌡╦Е┘ЁФ√┤Г╚═</font>"
+    topic = "<font class=gray>ц╩спур╣╫оЮ╧ьндуб</font>"
 Else
     topic = "<a href='article_view.asp?id=" & rs(0) & "'>" & code_html(rs(1),1,30) & "</a>"
 End If
 
 rs.Close
-Response.Write "Д╦▀Г╞┤Ф√┤Г╚═О╪ " & topic %>
+Response.Write "обф╙ндубё╨" & topic %>
   </td></tr></table>
 </td></tr>
 </table>

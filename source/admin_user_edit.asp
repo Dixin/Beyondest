@@ -18,15 +18,15 @@ End If %>
 Dim admin_menu
 Dim udim
 Dim unum
-admin_menu     = "<a href='admin_user_list.asp'>ç”¨æˆ·ç®¡ç†</a>ã€€ã€€â”‹"
+admin_menu     = "<a href='admin_user_list.asp'>ÓÃ»§¹ÜÀí</a>¡¡¡¡©¯"
 udim           = Split(user_power,"|"):unum = UBound(udim) + 1
 
 For i = 0 To unum - 1
-    admin_menu = admin_menu & "<a href='admin_user_list.asp?power=" & Left(udim(i),InStr(udim(i),":") - 1) & "'>" & Right(udim(i),Len(udim(i)) - InStr(udim(i),":")) & "</a>â”‹"
+    admin_menu = admin_menu & "<a href='admin_user_list.asp?power=" & Left(udim(i),InStr(udim(i),":") - 1) & "'>" & Right(udim(i),Len(udim(i)) - InStr(udim(i),":")) & "</a>©¯"
 Next
 
-admin_menu     = admin_menu & "ã€€ã€€<a href='admin_user_list.asp?hidden=true'>æ­£å¸¸ç”¨æˆ·</a>â”‹" & _
-"<a href='admin_user_list.asp?hidden=false'>é”å®šç”¨æˆ·</a>"
+admin_menu     = admin_menu & "¡¡¡¡<a href='admin_user_list.asp?hidden=true'>Õı³£ÓÃ»§</a>©¯" & _
+"<a href='admin_user_list.asp?hidden=false'>Ëø¶¨ÓÃ»§</a>"
 
 Response.Write header(1,admin_menu) %>
 <table border=0 width='98%' cellspacing=0 cellpadding=2 align=center>
@@ -43,7 +43,7 @@ If rs.eof And rs.bof Then
     Response.End
 End If
 
-If rs("username") = "ç¬¼æ°‘" Then
+If rs("username") = "ÁıÃñ" Then
     rs.Close:Set rs = Nothing
     Call close_conn()
     Response.redirect "admin_user_list.asp"
@@ -133,45 +133,45 @@ Function user_chk()
     rs("power") = power
     rs("hidden") = hidden
     rs.update
-    Response.Write "<font class=red>ç”¨æˆ·ä¿¡æ¯ä¿®æ”¹æˆåŠŸï¼</font><br><br><a href='admin_user_list.asp'>ç‚¹å‡»è¿”å›</a>"
+    Response.Write "<font class=red>ÓÃ»§ĞÅÏ¢ĞŞ¸Ä³É¹¦£¡</font><br><br><a href='admin_user_list.asp'>µã»÷·µ»Ø</a>"
 End Function
 
 Function user_type() %>
 <table border=0 width=300>
 <form action='admin_user_edit.asp?edit=ok&id=<% Response.Write id %>' method=post>
   <tr>
-    <td colspan=2 align=center height=50><font class=red>ç”¨æˆ·ç®¡ç†ä¿®æ”¹</font></td>
+    <td colspan=2 align=center height=50><font class=red>ÓÃ»§¹ÜÀíĞŞ¸Ä</font></td>
   </tr>
   <tr>
-    <td width='30%'>ç”¨æˆ·åç§°ï¼š</td>
+    <td width='30%'>ÓÃ»§Ãû³Æ£º</td>
     <td width='70%'><input type=text value='<% Response.Write rs("username") %>' readonly size=25></td>
   </tr>
   <tr>
-    <td>ç”¨æˆ·å¯†ç ï¼š</td>
+    <td>ÓÃ»§ÃÜÂë£º</td>
     <td><input type=text name=password value='<% Response.Write rs("password") %>' size=25 maxlength=20><input type=hidden name=password2 value='<% Response.Write rs("password") %>'></td>
   </tr>
   <tr>
-    <td>å¯†ç é’¥åŒ™ï¼š</td>
+    <td>ÃÜÂëÔ¿³×£º</td>
     <td><input type=text name=passwd value='<% Response.Write rs("passwd") %>' size=25 maxlength=20><input type=hidden name=passwd2 value='<% Response.Write rs("passwd") %>'></td>
   </tr>
   <tr>
-    <td>è®ºå›å‘è´´ï¼š</td>
+    <td>ÂÛÌ³·¢Ìù£º</td>
     <td><input type=text name=bbs_counter value='<% Response.Write rs("bbs_counter") %>' size=15 maxlength=10></td>
   </tr><input type=hidden name=bbs_counter2 value='<% Response.Write rs("bbs_counter") %>'>
   <tr>
-    <td>æ–‡æ å‘è´´ï¼š</td>
+    <td>ÎÄÀ¸·¢Ìù£º</td>
     <td><input type=text name=counter value='<% Response.Write rs("counter") %>' size=15 maxlength=10></td>
   </tr><input type=hidden name=counter2 value='<% Response.Write rs("counter") %>'>
   <tr>
-    <td>ç”¨æˆ·ç§¯åˆ†ï¼š</td>
+    <td>ÓÃ»§»ı·Ö£º</td>
     <td><input type=text name=integral value='<% Response.Write rs("integral") %>' size=15 maxlength=10></td>
   </tr><input type=hidden name=integral2 value='<% Response.Write rs("integral") %>'>
   <tr>
-    <td>ç”¨æˆ·é‡‘é’±ï¼š</td>
+    <td>ÓÃ»§½ğÇ®£º</td>
     <td><input type=text name=emoney value='<% Response.Write rs("emoney") %>' size=15 maxlength=10></td>
   </tr><input type=hidden name=emoney2 value='<% Response.Write rs("emoney") %>'>
   <tr>
-    <td>ç”¨æˆ·ç±»å‹ï¼š</td>
+    <td>ÓÃ»§ÀàĞÍ£º</td>
     <td><select name=power size=1><%
     Dim power
     Dim pi
@@ -184,10 +184,10 @@ Function user_type() %>
         Response.Write vbcrlf & "<option value='" & format_power2(pi,1) & "'"
         If power = format_power2(pi,1) Then Response.Write " selected"
         Response.Write ">" & format_power2(pi,2) & "</option>"
-    Next %></select>ï¼ˆ<% Response.Write power %>ï¼‰</td>
+    Next %></select>£¨<% Response.Write power %>£©</td>
   </tr>
   <tr>
-    <td>ç±»å‹çŠ¶æ€ï¼š</td>
+    <td>ÀàĞÍ×´Ì¬£º</td>
     <td><%
     hidden = rs("hidden")
 
@@ -197,10 +197,10 @@ Function user_type() %>
     Else
         h1 = ""
         h2 = " checked"
-    End If %><input type=radio name=hidden value=true<% Response.Write h1 %>>æ­£å¸¸<input type=radio name=hidden value=false<% Response.Write h2 %>>é”å®š</td>
+    End If %><input type=radio name=hidden value=true<% Response.Write h1 %>>Õı³£<input type=radio name=hidden value=false<% Response.Write h2 %>>Ëø¶¨</td>
   </tr>
   <tr>
-    <td colspan=2 align=center height=30><input type=submit value=' æ äº¤ ä¿® æ”¹ '></td>
+    <td colspan=2 align=center height=30><input type=submit value=' Ìá ½» ĞŞ ¸Ä '></td>
   </tr>
 </form>
 </table>

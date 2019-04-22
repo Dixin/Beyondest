@@ -23,16 +23,16 @@ action     = Trim(Request.querystring("action"))
 
 Select Case action
     Case "hot"
-        tit   = "è®ºå›çƒ­è´´"
+        tit   = "ÂÛÌ³ÈÈÌù"
         sql   = "select * from bbs_topic where re_counter>10 order by re_counter desc,id desc"
     Case "top"
-        tit   = "è®ºå›ç½®é¡¶"
+        tit   = "ÂÛÌ³ÖÃ¶¥"
         sql   = "select * from bbs_topic where is" & action & "<>0 order by istop desc,id desc"
     Case "good"
-        tit   = "è®ºå›ç²¾å"
+        tit   = "ÂÛÌ³¾«»ª"
         sql   = "select * from bbs_topic where is" & action & "=1 order by id desc"
     Case "tim"
-        tit   = "å›å¤æ–°è´´"
+        tit   = "»Ø¸´ĞÂÌù"
         sql   = "select top 100 * from bbs_topic order by re_tim desc,id desc"
     Case "user"
         usern = Replace(Trim(Request.querystring("username")),"'","")
@@ -51,16 +51,16 @@ Select Case action
         End If
 
         rs.Close
-        tit     = "æŸ¥çœ‹ " & usern & " å‚ä¸è¿‡çš„ä¸»é¢˜"
+        tit     = "²é¿´ " & usern & " ²ÎÓë¹ıµÄÖ÷Ìâ"
         pageurl = "?action=" & action & "&username=" & usern & "&"
         sql     = "select bbs_topic.id,bbs_topic.forum_id,bbs_topic.username,bbs_topic.topic,bbs_topic.tim,bbs_topic.counter,bbs_topic.re_counter,bbs_topic.re_username,bbs_topic.re_tim,bbs_topic.istop,bbs_topic.islock,bbs_topic.isgood " & _
         "from bbs_data inner join bbs_topic on bbs_data.reply_id=bbs_topic.id where bbs_data.username='" & usern & "' group by bbs_topic.id,bbs_topic.forum_id,bbs_topic.username,bbs_topic.topic,bbs_topic.tim,bbs_topic.counter,bbs_topic.re_counter,bbs_topic.re_username,bbs_topic.re_tim,bbs_topic.istop,bbs_topic.islock,bbs_topic.isgood order by bbs_topic.id desc"
     Case "my"
-        tit = "æˆ‘æ‰€å‚ä¸è¿‡çš„ä¸»é¢˜"
+        tit = "ÎÒËù²ÎÓë¹ıµÄÖ÷Ìâ"
         sql = "select bbs_topic.id,bbs_topic.forum_id,bbs_topic.username,bbs_topic.topic,bbs_topic.tim,bbs_topic.counter,bbs_topic.re_counter,bbs_topic.re_username,bbs_topic.re_tim,bbs_topic.istop,bbs_topic.islock,bbs_topic.isgood " & _
         "from bbs_data inner join bbs_topic on bbs_data.reply_id=bbs_topic.id where bbs_data.username='" & login_username & "' group by bbs_topic.id,bbs_topic.forum_id,bbs_topic.username,bbs_topic.topic,bbs_topic.tim,bbs_topic.counter,bbs_topic.re_counter,bbs_topic.re_username,bbs_topic.re_tim,bbs_topic.istop,bbs_topic.islock,bbs_topic.isgood order by bbs_topic.id desc"
     Case Else
-        tit = "è®ºå›æ–°è´´"
+        tit = "ÂÛÌ³ĞÂÌù"
         sql = "select top 100 * from bbs_topic order by id desc"
 End Select
 
@@ -99,34 +99,34 @@ rs.Close:Set rs = Nothing
 Response.Write forum_table1 %>
 <tr height=30 bgcolor=<% = web_var(web_color,6) %> align=center>
 <td width='75%'><font class=red_3><b><% Response.Write tit %></b></font>&nbsp;&nbsp;&nbsp;
-å…±&nbsp;<font class=red><% Response.Write rssum %></font>&nbsp;è´´&nbsp;â”‹&nbsp;
-æ¯&nbsp;<font class=red><% Response.Write nummer %></font>&nbsp;é¡µ&nbsp;â”‹&nbsp;
-å…±&nbsp;<font class=red><% Response.Write thepages %></font>&nbsp;é¡µ&nbsp;â”‹&nbsp;
-è¿™æ˜¯ç¬¬&nbsp;<font class=red><% Response.Write viewpage %></font>&nbsp;é¡µ</td>
+¹²&nbsp;<font class=red><% Response.Write rssum %></font>&nbsp;Ìù&nbsp;©¯&nbsp;
+Ã¿&nbsp;<font class=red><% Response.Write nummer %></font>&nbsp;Ò³&nbsp;©¯&nbsp;
+¹²&nbsp;<font class=red><% Response.Write thepages %></font>&nbsp;Ò³&nbsp;©¯&nbsp;
+ÕâÊÇµÚ&nbsp;<font class=red><% Response.Write viewpage %></font>&nbsp;Ò³</td>
 </tr>
 </table>
 <% Response.Write kong & forum_table1 %>
 <tr align=center<% Response.Write forum_table2 %> height=25>
 <td width='5%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;</td>
-<td width='58%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end>è®ºå›ä¸»é¢˜</font></td>
-<td width='14%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end>ä½œè€…</font></td>
-<td width='9%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end>äººæ°”</font></td>
-<td width='14%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end>æœ€åå›å¤</font></td>
+<td width='58%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end>ÂÛÌ³Ö÷Ìâ</font></td>
+<td width='14%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end>×÷Õß</font></td>
+<td width='9%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end>ÈËÆø</font></td>
+<td width='14%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end>×îºó»Ø¸´</font></td>
 </tr>
 <% Response.Write forum_temp %>
 </table>
 <br>
 <% Response.Write forum_table1 %>
 <tr height=30 bgcolor=<% = web_var(web_color,6) %>>
-<td width='70%'>&nbsp;åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td>
+<td width='70%'>&nbsp;·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td>
 <td width='30%' align=center><% Response.Write forum_go() %></td>
 </tr>
 <tr<% Response.Write forum_table4 %>><td align=center height=30 colspan=2>
-<% Response.Write img_small("isok") %>&nbsp;å¼€æ”¾çš„ä¸»é¢˜&nbsp;&nbsp;
-<% Response.Write img_small("ishot") %>&nbsp;å›å¤è¶…è¿‡10è´´&nbsp;&nbsp;
-<% Response.Write img_small("islock") %>&nbsp;é”å®šçš„ä¸»é¢˜&nbsp;&nbsp;
-<% Response.Write img_small("istop") %>&nbsp;å›ºå®šé¡¶ç«¯çš„ä¸»é¢˜&nbsp;&nbsp;
-<% Response.Write img_small("isgood") %>&nbsp;ç²¾åå¸–å­
+<% Response.Write img_small("isok") %>&nbsp;¿ª·ÅµÄÖ÷Ìâ&nbsp;&nbsp;
+<% Response.Write img_small("ishot") %>&nbsp;»Ø¸´³¬¹ı10Ìù&nbsp;&nbsp;
+<% Response.Write img_small("islock") %>&nbsp;Ëø¶¨µÄÖ÷Ìâ&nbsp;&nbsp;
+<% Response.Write img_small("istop") %>&nbsp;¹Ì¶¨¶¥¶ËµÄÖ÷Ìâ&nbsp;&nbsp;
+<% Response.Write img_small("isgood") %>&nbsp;¾«»ªÌû×Ó
 </td></tr>
 </table>
 <br>
@@ -195,7 +195,7 @@ Function forum_view()
     End If
 
     forum_view = vbcrlf & "<tr align=center" & forum_table4 & "><td><img src='images/small/" & folder_type & ".gif' border=0></td>" & _
-    vbcrlf & "<td align=left>" & topic_head & "<a href='" & view_url & "' title='ä¸»é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘è´´æ—¶é—´ï¼š" & tim & "<br>æœ€åå›å¤ï¼š" & re_username & "<br>å›å¤æ—¶é—´ï¼š" & re_tim & "'>" & code_html(topic,1,25) & "</a>&nbsp;" & index_pagecute(view_url,re_counter + 1,web_var(web_num,3),"#cc3300") & "</td>" & _
+    vbcrlf & "<td align=left>" & topic_head & "<a href='" & view_url & "' title='Ö÷Ìâ£º" & code_html(topic,1,0) & "<br>·¢ÌùÊ±¼ä£º" & tim & "<br>×îºó»Ø¸´£º" & re_username & "<br>»Ø¸´Ê±¼ä£º" & re_tim & "'>" & code_html(topic,1,25) & "</a>&nbsp;" & index_pagecute(view_url,re_counter + 1,web_var(web_num,3),"#cc3300") & "</td>" & _
     vbcrlf & "<td>" & format_user_view(username,1,"") & "</td>" & _
     vbcrlf & "<td class=timtd>" & re_counter & "/" & counter & "</td>" & _
     vbcrlf & "<td>" & format_user_view(re_username,1,"") & "</td></tr>"

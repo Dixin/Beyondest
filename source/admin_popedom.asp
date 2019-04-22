@@ -12,16 +12,16 @@ Dim usernames
 Dim username
 Dim frm_view
 Dim popedom
-tit_menu = "<a href='?'>æƒé™ç®¡ç†</a>"
+tit_menu = "<a href='?'>È¨ÏŞ¹ÜÀí</a>"
 Response.Write header (6,tit_menu)
 
 frm_view      = "no"
 username      = Trim(Request.querystring("username")) %>
 <table border=1 width=400 cellspacing=0 cellpadding=2<% Response.Write table1 %>>
 <tr align=center bgcolor=#ffffff>
-<td width='30%' class=red_3>ç°ä»»ç®¡ç†å‘˜</td>
-<td width='35%' class=red_3>ç³»ç»Ÿç®¡ç†æƒé™</td>
-<td width='35%' class=red_3>ç‰ˆé¢ç®¡ç†æƒé™</td>
+<td width='30%' class=red_3>ÏÖÈÎ¹ÜÀíÔ±</td>
+<td width='35%' class=red_3>ÏµÍ³¹ÜÀíÈ¨ÏŞ</td>
+<td width='35%' class=red_3>°æÃæ¹ÜÀíÈ¨ÏŞ</td>
 </tr>
 <tr align=center valign=top><td>
 <table border=0>
@@ -52,7 +52,7 @@ If frm_view = "yes" And Trim(Request.querystring("chk")) = "yes" Then
     popedoms = popedom
     sql      = "update user_data set popedom='" & popedom & "' where username='" & username & "' and power='" & format_power2(1,1) & "'"
     conn.execute(sql)
-    Response.Write "<script language=javascript>alert(""" & username & " çš„æƒé™ä¿®æ”¹æˆåŠŸï¼"");</script>"
+    Response.Write "<script language=javascript>alert(""" & username & " µÄÈ¨ÏŞĞŞ¸Ä³É¹¦£¡"");</script>"
 End If %>
 </table>
 </td>
@@ -63,26 +63,26 @@ If frm_view = "yes" Then
 End If %>
 <td>
 <table border=0>
-<tr><td><input type=checkbox name=popedom_cb1 value='1'<% If popedom_formated(popedoms,1,0) = 1 Then Response.Write " checked" %>></td><td>ç”¨æˆ·ç®¡ç†</td></tr>
-<tr><td><input type=checkbox name=popedom_cb2 value='1'<% If popedom_formated(popedoms,2,0) = 1 Then Response.Write " checked" %>></td><td>æ‰§è¡ŒSQL</td></tr>
-<tr><td><input type=checkbox name=popedom_cb3 value='1'<% If popedom_formated(popedoms,3,0) = 1 Then Response.Write " checked" %>></td><td>é…ç½®ä¿®æ”¹</td></tr>
+<tr><td><input type=checkbox name=popedom_cb1 value='1'<% If popedom_formated(popedoms,1,0) = 1 Then Response.Write " checked" %>></td><td>ÓÃ»§¹ÜÀí</td></tr>
+<tr><td><input type=checkbox name=popedom_cb2 value='1'<% If popedom_formated(popedoms,2,0) = 1 Then Response.Write " checked" %>></td><td>Ö´ĞĞSQL</td></tr>
+<tr><td><input type=checkbox name=popedom_cb3 value='1'<% If popedom_formated(popedoms,3,0) = 1 Then Response.Write " checked" %>></td><td>ÅäÖÃĞŞ¸Ä</td></tr>
 <input type=hidden name=popedom_cb4 value='0'>
-<tr><td><input type=checkbox name=popedom_cb5 value='1'<% If popedom_formated(popedoms,5,0) = 1 Then Response.Write " checked" %>></td><td>åˆ†ç±»ç®¡ç†</td></tr>
-<tr><td><input type=checkbox name=popedom_cb6 value='1'<% If popedom_formated(popedoms,6,0) = 1 Then Response.Write " checked" %>></td><td>æƒé™ç®¡ç†</td></tr>
-<tr><td><input type=checkbox name=popedom_cb7 value='1'<% If popedom_formated(popedoms,7,0) = 1 Then Response.Write " checked" %>></td><td>æ›´æ–°å…¬å‘Š</td></tr>
-<tr><td><input type=checkbox name=popedom_cb8 value='1'<% If popedom_formated(popedoms,8,0) = 1 Then Response.Write " checked" %>></td><td>è°ƒæŸ¥ç®¡ç†</td></tr>
-<tr><td><input type=checkbox name=popedom_cb9 value='1'<% If popedom_formated(popedoms,9,0) = 1 Then Response.Write " checked" %>></td><td>ä¸Šä¼ ç®¡ç†</td></tr>
+<tr><td><input type=checkbox name=popedom_cb5 value='1'<% If popedom_formated(popedoms,5,0) = 1 Then Response.Write " checked" %>></td><td>·ÖÀà¹ÜÀí</td></tr>
+<tr><td><input type=checkbox name=popedom_cb6 value='1'<% If popedom_formated(popedoms,6,0) = 1 Then Response.Write " checked" %>></td><td>È¨ÏŞ¹ÜÀí</td></tr>
+<tr><td><input type=checkbox name=popedom_cb7 value='1'<% If popedom_formated(popedoms,7,0) = 1 Then Response.Write " checked" %>></td><td>¸üĞÂ¹«¸æ</td></tr>
+<tr><td><input type=checkbox name=popedom_cb8 value='1'<% If popedom_formated(popedoms,8,0) = 1 Then Response.Write " checked" %>></td><td>µ÷²é¹ÜÀí</td></tr>
+<tr><td><input type=checkbox name=popedom_cb9 value='1'<% If popedom_formated(popedoms,9,0) = 1 Then Response.Write " checked" %>></td><td>ÉÏ´«¹ÜÀí</td></tr>
 <input type=hidden name=popedom_cb10 value='0'>
 </table>
 </td><td>
 <table border=0>
-<tr><td><input type=checkbox name=popedom_cb11 value='1'<% If popedom_formated(popedoms,11,0) = 1 Then Response.Write " checked" %>></td><td>è®ºå›ç®¡ç†</td></tr>
-<tr><td><input type=checkbox name=popedom_cb12 value='1'<% If popedom_formated(popedoms,12,0) = 1 Then Response.Write " checked" %>></td><td>è¡Œä¸šåŠ¨æ€</td></tr>
-<tr><td><input type=checkbox name=popedom_cb13 value='1'<% If popedom_formated(popedoms,13,0) = 1 Then Response.Write " checked" %>></td><td>æ–‡æ ç®¡ç†</td></tr>
-<tr><td><input type=checkbox name=popedom_cb14 value='1'<% If popedom_formated(popedoms,14,0) = 1 Then Response.Write " checked" %>></td><td>ä¸‹è½½æ ç›®</td></tr>
-<tr><td><input type=checkbox name=popedom_cb15 value='1'<% If popedom_formated(popedoms,15,0) = 1 Then Response.Write " checked" %>></td><td>ç½‘ç«™æ¨è</td></tr>
-<tr><td><input type=checkbox name=popedom_cb16 value='1'<% If popedom_formated(popedoms,16,0) = 1 Then Response.Write " checked" %>></td><td>å›¾åº“ç®¡ç†</td></tr>
-<tr><td><input type=checkbox name=popedom_cb17 value='1'<% If popedom_formated(popedoms,17,0) = 1 Then Response.Write " checked" %>></td><td>å‹æƒ…é“¾æ¥</td></tr>
+<tr><td><input type=checkbox name=popedom_cb11 value='1'<% If popedom_formated(popedoms,11,0) = 1 Then Response.Write " checked" %>></td><td>ÂÛÌ³¹ÜÀí</td></tr>
+<tr><td><input type=checkbox name=popedom_cb12 value='1'<% If popedom_formated(popedoms,12,0) = 1 Then Response.Write " checked" %>></td><td>ĞĞÒµ¶¯Ì¬</td></tr>
+<tr><td><input type=checkbox name=popedom_cb13 value='1'<% If popedom_formated(popedoms,13,0) = 1 Then Response.Write " checked" %>></td><td>ÎÄÀ¸¹ÜÀí</td></tr>
+<tr><td><input type=checkbox name=popedom_cb14 value='1'<% If popedom_formated(popedoms,14,0) = 1 Then Response.Write " checked" %>></td><td>ÏÂÔØÀ¸Ä¿</td></tr>
+<tr><td><input type=checkbox name=popedom_cb15 value='1'<% If popedom_formated(popedoms,15,0) = 1 Then Response.Write " checked" %>></td><td>ÍøÕ¾ÍÆ¼ö</td></tr>
+<tr><td><input type=checkbox name=popedom_cb16 value='1'<% If popedom_formated(popedoms,16,0) = 1 Then Response.Write " checked" %>></td><td>Í¼¿â¹ÜÀí</td></tr>
+<tr><td><input type=checkbox name=popedom_cb17 value='1'<% If popedom_formated(popedoms,17,0) = 1 Then Response.Write " checked" %>></td><td>ÓÑÇéÁ´½Ó</td></tr>
 <input type=hidden name=popedom_cb18 value='0'>
 <input type=hidden name=popedom_cb19 value='0'>
 <input type=hidden name=popedom_cb20 value='0'>
@@ -91,12 +91,12 @@ End If %>
 </tr>
 <tr><td colspan=3 align=center height=30>
 <% If frm_view = "yes" Then %>
-<input type=submit value='æ äº¤ ä¿® æ”¹'>
+<input type=submit value='Ìá ½» ĞŞ ¸Ä'>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type=reset value=' é‡ ç½® '>
+<input type=reset value=' ÖØ ÖÃ '>
 </td></form>
 <% Else %>
-<font class=red>è¯·ç‚¹é€‰å·¦è¾¹çš„ç®¡ç†å‘˜ä»¥è¿›è¡Œä¸‹ä¸€æ­¥æ“ä½œ</font></td>
+<font class=red>ÇëµãÑ¡×ó±ßµÄ¹ÜÀíÔ±ÒÔ½øĞĞÏÂÒ»²½²Ù×÷</font></td>
 <% End If %>
 </tr>
 </table>

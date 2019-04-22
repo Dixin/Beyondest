@@ -21,7 +21,7 @@ End If %>
 <!-- #include file="include/conn.asp" -->
 <html>
 <head>
-<title><% Response.Write web_var(web_config,1) %> - ç®¡ç†åå°ç™»é™†</title>
+<title><% Response.Write web_var(web_config,1) %> - ¹ÜÀíºóÌ¨µÇÂ½</title>
 <meta http-equiv=Content-Type content=text/html; charset=gb2312>
 <link rel=stylesheet href='include/beyondest.css' type=text/css>
 </head>
@@ -51,25 +51,25 @@ close_conn
 
 Function admin_login() %><table border=0 width=350><tr>
 <td align=left height=50 valign=top>
-<font class=red><b>ç®¡ ç† å‘˜ ç™» é™†</b></font>
+<font class=red><b>¹Ü Àí Ô± µÇ Â½</b></font>
 </td>
 </tr>
 <tr height=25 align=right>
 <form action='admin_login.asp' method=post>
 <input type=hidden name=admin_log value='ok'>
 <td width="30%">
-ç”¨æˆ·å&nbsp;&nbsp;&nbsp;&nbsp;<input type=text name=username value='<% Response.Write login_username %>' size=20>
+ÓÃ»§Ãû&nbsp;&nbsp;&nbsp;&nbsp;<input type=text name=username value='<% Response.Write login_username %>' size=20>
 </td></tr>
 <tr height=25 align=right>
 <td width="30%">
-å¯†&nbsp;&nbsp;&nbsp;ç &nbsp;&nbsp;&nbsp;&nbsp;<input type=password name=password size=20 maxlength=20>
+ÃÜ&nbsp;&nbsp;&nbsp;Âë&nbsp;&nbsp;&nbsp;&nbsp;<input type=password name=password size=20 maxlength=20>
 </td></tr>
 <tr><td align=right height=30>
-<input type=submit value="ç¡® å®š">&nbsp;&nbsp;&nbsp;
-<input type=button value="å– æ¶ˆ">
+<input type=submit value="È· ¶¨">&nbsp;&nbsp;&nbsp;
+<input type=button value="È¡ Ïû">
 </td></form></tr>
 <tr><td align=center height=60 align=bottom>
-<font class=red_4>æœ¬æ¬¡ç™»é™†åœ¨æ— æ´»åŠ¨çŠ¶æ€20åˆ†é’Ÿåå°†è‡ªåŠ¨æ³¨é”€</font>
+<font class=red_4>±¾´ÎµÇÂ½ÔÚÎŞ»î¶¯×´Ì¬20·ÖÖÓºó½«×Ô¶¯×¢Ïú</font>
 </td></tr>
 <tr><td align=center><% Response.Write web_var(web_error,4) %></td></tr>
 </table><%

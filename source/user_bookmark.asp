@@ -15,7 +15,7 @@ Dim id
 Dim name
 Dim url
 Dim rssum
-tit  = "ç½‘ç»œä¹¦ç­¾":n_sort = "book":rssum = 0
+tit  = "ÍøÂçÊéÇ©":n_sort = "book":rssum = 0
 g_id = Trim(Request.querystring("g_id"))
 If Not(IsNumeric(g_id)) Then g_id = 0
 
@@ -42,17 +42,17 @@ Select Case action
 End Select %>
 <% Response.Write ukong & table1 %>
 <tr<% Response.Write table2 %> height=25>
-<td class=end width='90%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small(us) %>&nbsp;<b>æˆ‘çš„ä¹¦ç­¾ç»„</b></td>
-<td class=end width='10%' align=center background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ç»„æ“ä½œ</b></td>
+<td class=end width='90%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small(us) %>&nbsp;<b>ÎÒµÄÊéÇ©×é</b></td>
+<td class=end width='10%' align=center background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>×é²Ù×÷</b></td>
 </tr>
 <form name=groupedit_frm action='?action=groupedit' method=post>
 <input type=hidden name=g_id value=''>
 <input type=hidden name=g_name value=''>
 </form>
 <tr<% Response.Write table3 %>>
-<td><% Response.Write img_small("jt0") %><a href='?g_id=0' class=gray>[ æ ¹ä¹¦ç­¾ç»„ ]</a>&nbsp;&nbsp;
-<% Response.Write img_small("jt0") %><a href='?action=all' class=gray>[ æµè§ˆæ‰€æœ‰ä¹¦ç­¾ ]</a></td>
-<td align=center class=gray>æ— </td>
+<td><% Response.Write img_small("jt0") %><a href='?g_id=0' class=gray>[ ¸ùÊéÇ©×é ]</a>&nbsp;&nbsp;
+<% Response.Write img_small("jt0") %><a href='?action=all' class=gray>[ ä¯ÀÀËùÓĞÊéÇ© ]</a></td>
+<td align=center class=gray>ÎŞ</td>
 </tr>
 <%
 sql            = "select g_id,g_name from jk_group where g_sort='" & n_sort & "' and username='" & login_username & "' order by g_id"
@@ -65,7 +65,7 @@ Do While Not rs.eof
     select_add = select_add & ">" & gname & "</option>" %>
 <tr<% Response.Write table3 %>>
 <td><% Response.Write img_small("jt0") %><a href='?g_id=<% Response.Write gid %>'<% If Int(g_id) = Int(gid) Then Response.Write " class=red_3" %>><% Response.Write gname %></a></td>
-<td align=center><a href="javascript:group_edit(<% Response.Write gid %>,'<% Response.Write gname %>');"><img src='IMAGES/SMALL/EDIT.GIF' border=0 title='ä¿®æ”¹'></a>&nbsp;<a href="javascript:group_del(<% Response.Write gid %>);"><img src='IMAGES/SMALL/DEL.GIF' border=0 title='åˆ é™¤'></a></td>
+<td align=center><a href="javascript:group_edit(<% Response.Write gid %>,'<% Response.Write gname %>');"><img src='IMAGES/SMALL/EDIT.GIF' border=0 title='ĞŞ¸Ä'></a>&nbsp;<a href="javascript:group_del(<% Response.Write gid %>);"><img src='IMAGES/SMALL/DEL.GIF' border=0 title='É¾³ı'></a></td>
 </tr>
 <%
     rs.movenext
@@ -75,10 +75,10 @@ rs.Close %>
 </table>
 <% Response.Write kong & table1 %>
 <tr<% Response.Write table2 %> align=center height=25>
-<td class=end width='6%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>åºå·</b></td>
-<td class=end width='34%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>æˆ‘çš„ä¸ªäººä¹¦ç­¾åç§°</b></td>
-<td class=end width='50%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ä¹¦ç­¾åœ°å€</b></td>
-<td class=end width='10%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>æ“ ä½œ</b></td>
+<td class=end width='6%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ĞòºÅ</b></td>
+<td class=end width='34%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ÎÒµÄ¸öÈËÊéÇ©Ãû³Æ</b></td>
+<td class=end width='50%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>ÊéÇ©µØÖ·</b></td>
+<td class=end width='10%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><b>²Ù ×÷</b></td>
 </tr>
 <form name=bookmarkedit_frm action='?action=bookmarkedit' method=post>
 <input type=hidden name=id value=''>
@@ -112,15 +112,15 @@ rs.Close %>
 </table>
 <% Response.Write kong & table1 %>
 <tr<% Response.Write table2 %> height=25>
-<td class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small(us) %>&nbsp;<b>æ·»åŠ æ–°çš„ä¹¦ç­¾ç»„</b></td>
+<td class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small(us) %>&nbsp;<b>Ìí¼ÓĞÂµÄÊéÇ©×é</b></td>
 </tr>
 <tr<% Response.Write table3 %>><td>
   <table border=0 cellpadding=5>
   <form action='?action=groupadd' method=post>
   <tr>
-  <td>ã€€ç»„åç§°ï¼š</td>
+  <td>¡¡×éÃû³Æ£º</td>
   <td><input type=text name=g_name size=20 maxlength=20></td>
-  <td><input type=submit value='æ·»åŠ ä¹¦ç­¾ç»„'></td>
+  <td><input type=submit value='Ìí¼ÓÊéÇ©×é'></td>
   </tr>
   </form>
   </table>
@@ -128,32 +128,32 @@ rs.Close %>
 </table>
 <% Response.Write kong & table1 %>
 <tr<% Response.Write table2 %> height=25>
-<td class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small(us) %>&nbsp;<b>æ·»åŠ æ–°çš„ä¸ªäººä¹¦ç­¾</b></td>
+<td class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small(us) %>&nbsp;<b>Ìí¼ÓĞÂµÄ¸öÈËÊéÇ©</b></td>
 </tr>
 <tr<% Response.Write table3 %>><td>
   <table border=0 cellpadding=2>
   <form action='?action=bookmarkadd' method=post>
   <tr>
-  <td>ã€€ä¹¦ç­¾åç§°ï¼š</td>
+  <td>¡¡ÊéÇ©Ãû³Æ£º</td>
   <td>
     <table border=0>
     <tr>
     <td><input type=text name=name size=30 maxlength=50></td>
-    <td>ã€€ä¹¦ç­¾ç»„ï¼š</td>
+    <td>¡¡ÊéÇ©×é£º</td>
     <td><select name=g_id>
-    <option value='0'>[ æ ¹ä¹¦ç­¾ç»„ ]</option>
+    <option value='0'>[ ¸ùÊéÇ©×é ]</option>
 <% Response.Write select_add %>
 </select></td>
     </tr>
     </table>
   </td></tr>
   <tr>
-  <td>ã€€ä¹¦ç­¾åœ°å€ï¼š</td>
+  <td>¡¡ÊéÇ©µØÖ·£º</td>
   <td>
     <table border=0>
     <tr>
     <td><input type=text name=url size=50 value='http://' maxlength=100></td>
-    <td>ã€€<input type=submit value='æ·»åŠ ä¹¦ç­¾'></td>
+    <td>¡¡<input type=submit value='Ìí¼ÓÊéÇ©'></td>
     </tr>
     </table>
   </td></tr>
@@ -171,7 +171,7 @@ Sub group_del()
 
     If Not(IsNumeric(gid)) Then
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æ‚¨åœ¨åˆ é™¤ä¹¦ç­¾ç»„æ—¶è¾“å…¥çš„ä¹¦ç­¾ç»„IDå‡ºé”™ï¼\n\nè¯·è¿”å›é‡æ–°è¾“å…¥ã€‚"");" & _
+        vbcrlf & "alert(""ÄúÔÚÉ¾³ıÊéÇ©×éÊ±ÊäÈëµÄÊéÇ©×éID³ö´í£¡\n\nÇë·µ»ØÖØĞÂÊäÈë¡£"");" & _
         vbcrlf & "history.back(1)" & _
         vbcrlf & "</script>")
         close_conn
@@ -184,7 +184,7 @@ Sub group_del()
         sql = "delete from user_bookmark where g_id=" & gid & " and username='" & login_username & "'"
         conn.execute(sql)
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æˆåŠŸçš„åˆ é™¤äº†ä¸€ä¹¦ç­¾ç»„ï¼"");" & _
+        vbcrlf & "alert(""³É¹¦µÄÉ¾³ıÁËÒ»ÊéÇ©×é£¡"");" & _
         vbcrlf & "</script>")
     End Sub
 
@@ -194,7 +194,7 @@ Sub group_del()
 
         If Len(gname) < 1 Or Len(gname) > 20 Or Not(IsNumeric(gid)) Then
             Response.Write("<script language=javascript>" & _
-            vbcrlf & "alert(""æ‚¨åœ¨ä¿®æ”¹ä¹¦ç­¾ç»„çš„ ç»„åç§° æ—¶è¾“å…¥çš„æ•°æ®æœ‰è¯¯ï¼\n\nè¯·è¿”å›é‡æ–°è¾“å…¥ã€‚"");" & _
+            vbcrlf & "alert(""ÄúÔÚĞŞ¸ÄÊéÇ©×éµÄ ×éÃû³Æ Ê±ÊäÈëµÄÊı¾İÓĞÎó£¡\n\nÇë·µ»ØÖØĞÂÊäÈë¡£"");" & _
             vbcrlf & "history.back(1)" & _
             vbcrlf & "</script>")
             close_conn
@@ -206,7 +206,7 @@ Sub group_del()
             conn.execute(sql)
             g_id = gid
             Response.Write("<script language=javascript>" & _
-            vbcrlf & "alert(""æˆåŠŸçš„ä¿®æ”¹äº†ä¹¦ç­¾ç»„çš„åç§°ï¼š" & gname & """);" & _
+            vbcrlf & "alert(""³É¹¦µÄĞŞ¸ÄÁËÊéÇ©×éµÄÃû³Æ£º" & gname & """);" & _
             vbcrlf & "</script>")
         End Sub
 
@@ -215,7 +215,7 @@ Sub group_del()
 
             If Not(IsNumeric(id)) Then
                 Response.Write("<script language=javascript>" & _
-                vbcrlf & "alert(""æ‚¨åœ¨åˆ é™¤ä¸ªäººä¹¦ç­¾æ—¶è¾“å…¥çš„ä¹¦ç­¾IDå‡ºé”™ï¼\n\nè¯·è¿”å›é‡æ–°è¾“å…¥ã€‚"");" & _
+                vbcrlf & "alert(""ÄúÔÚÉ¾³ı¸öÈËÊéÇ©Ê±ÊäÈëµÄÊéÇ©ID³ö´í£¡\n\nÇë·µ»ØÖØĞÂÊäÈë¡£"");" & _
                 vbcrlf & "history.back(1)" & _
                 vbcrlf & "</script>")
                 close_conn
@@ -226,7 +226,7 @@ Sub group_del()
                 sql = "delete from user_bookmark where id=" & id & " and username='" & login_username & "'"
                 conn.execute(sql)
                 Response.Write("<script language=javascript>" & _
-                vbcrlf & "alert(""æˆåŠŸçš„åˆ é™¤äº†ä¸€ä¹¦ç­¾ç»„ï¼"");" & _
+                vbcrlf & "alert(""³É¹¦µÄÉ¾³ıÁËÒ»ÊéÇ©×é£¡"");" & _
                 vbcrlf & "</script>")
             End Sub
 
@@ -237,7 +237,7 @@ Sub group_del()
 
                 If Len(name) < 1 Or Len(name) > 50 Or Len(url) < 1 Or Len(url) > 100 Or Not(IsNumeric(id)) Then
                     Response.Write("<script language=javascript>" & _
-                    vbcrlf & "alert(""æ‚¨åœ¨ä¿®æ”¹ä¸ªäººä¹¦ç­¾æ—¶è¾“å…¥çš„æ•°æ®æœ‰è¯¯ï¼\n\nè¯·è¿”å›é‡æ–°è¾“å…¥ã€‚"");" & _
+                    vbcrlf & "alert(""ÄúÔÚĞŞ¸Ä¸öÈËÊéÇ©Ê±ÊäÈëµÄÊı¾İÓĞÎó£¡\n\nÇë·µ»ØÖØĞÂÊäÈë¡£"");" & _
                     vbcrlf & "history.back(1)" & _
                     vbcrlf & "</script>")
                     close_conn
@@ -248,7 +248,7 @@ Sub group_del()
                     sql = "update user_bookmark set name='" & name & "',url='" & url & "' where id=" & id & " and username='" & login_username & "'"
                     conn.execute(sql)
                     Response.Write("<script language=javascript>" & _
-                    vbcrlf & "alert(""æˆåŠŸçš„ä¿®æ”¹äº†ä¸ªäººä¹¦ç­¾ï¼ˆåç§°ï¼š" & name & "ï¼‰ï¼"");" & _
+                    vbcrlf & "alert(""³É¹¦µÄĞŞ¸ÄÁË¸öÈËÊéÇ©£¨Ãû³Æ£º" & name & "£©£¡"");" & _
                     vbcrlf & "</script>")
                 End Sub
 
@@ -257,7 +257,7 @@ Sub group_del()
 
                     If Len(gname) < 1 Or Len(gname) > 20 Then
                         Response.Write("<script language=javascript>" & _
-                        vbcrlf & "alert(""æ·»åŠ ä¹¦ç­¾ç»„çš„ ç»„åç§° æ˜¯å¿…é¡»è¦çš„ï¼\n\nè¯·è¿”å›æ–°è¾“å…¥ã€‚"");" & _
+                        vbcrlf & "alert(""Ìí¼ÓÊéÇ©×éµÄ ×éÃû³Æ ÊÇ±ØĞëÒªµÄ£¡\n\nÇë·µ»ØĞÂÊäÈë¡£"");" & _
                         vbcrlf & "history.back(1)" & _
                         vbcrlf & "</script>")
                         close_conn
@@ -268,7 +268,7 @@ Sub group_del()
                         sql = "insert into jk_group(g_sort,g_name,username) values('" & n_sort & "','" & gname & "','" & login_username & "')"
                         conn.execute(sql)
                         Response.Write("<script language=javascript>" & _
-                        vbcrlf & "alert(""æˆåŠŸçš„æ·»åŠ äº†ä¸€ä¹¦ç­¾ç»„ï¼š" & gname & """);" & _
+                        vbcrlf & "alert(""³É¹¦µÄÌí¼ÓÁËÒ»ÊéÇ©×é£º" & gname & """);" & _
                         vbcrlf & "</script>")
                     End Sub
 
@@ -281,7 +281,7 @@ Sub group_del()
 
                         If Len(name) < 1 Or Len(name) > 50 Or Len(url) < 8 Or Len(url) > 100 Then
                             Response.Write("<script language=javascript>" & _
-                            vbcrlf & "alert(""æ·»åŠ æ–°ä¹¦ç­¾çš„ ä¹¦ç­¾åç§° å’Œ ä¹¦ç­¾åœ°å€ æ˜¯å¿…é¡»è¦çš„ï¼\n\nè¯·è¿”å›æ–°è¾“å…¥ã€‚"");" & _
+                            vbcrlf & "alert(""Ìí¼ÓĞÂÊéÇ©µÄ ÊéÇ©Ãû³Æ ºÍ ÊéÇ©µØÖ· ÊÇ±ØĞëÒªµÄ£¡\n\nÇë·µ»ØĞÂÊäÈë¡£"");" & _
                             vbcrlf & "history.back(1)" & _
                             vbcrlf & "</script>")
                             close_conn
@@ -292,18 +292,18 @@ Sub group_del()
                             sql = "insert into user_bookmark(g_id,username,name,url) values(" & gg & ",'" & login_username & "','" & name & "','" & url & "')"
                             conn.execute(sql)
                             Response.Write("<script language=javascript>" & _
-                            vbcrlf & "alert(""æˆåŠŸçš„æ·»åŠ äº†ä¸€ä¸ªæˆ‘çš„ä¸ªäººä¹¦ç­¾ï¼š" & name & """);" & _
+                            vbcrlf & "alert(""³É¹¦µÄÌí¼ÓÁËÒ»¸öÎÒµÄ¸öÈËÊéÇ©£º" & name & """);" & _
                             vbcrlf & "</script>")
                         End Sub %>
 <script language=javascript>
 <!--
 function group_edit(geid,gename)
 {
-  var gevar='è¯·è¾“å…¥è¦ä¿®æ”¹çš„ä¹¦ç­¾ç»„ï¼ˆIDï¼š'+geid+'ï¼‰çš„æ–°åç§°ï¼Œé•¿åº¦ä¸èƒ½è¶…è¿‡20ä½';
+  var gevar='ÇëÊäÈëÒªĞŞ¸ÄµÄÊéÇ©×é£¨ID£º'+geid+'£©µÄĞÂÃû³Æ£¬³¤¶È²»ÄÜ³¬¹ı20Î»';
   this.document.groupedit_frm.g_id.value=geid;
-  var gename=prompt(gevar+'ï¼š',gename);
+  var gename=prompt(gevar+'£º',gename);
   if (gename == null || gename == '' || gename.length>20)
-  { alert(gevar+"ï¼");return; }
+  { alert(gevar+"£¡");return; }
   else
   { this.document.groupedit_frm.g_name.value=gename; }
   this.document.groupedit_frm.submit();
@@ -311,24 +311,24 @@ function group_edit(geid,gename)
 
 function group_del(gdid)
 {
-  if (confirm("æ­¤æ“ä½œå°†åˆ é™¤IDä¸º "+gdid+" çš„ä¹¦ç­¾ç»„ï¼\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½«É¾³ıIDÎª "+gdid+" µÄÊéÇ©×é£¡\nÕæµÄÒªÉ¾³ıÂğ£¿\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
   { window.location="?action=groupdel&g_id="+gdid; }
 }
 
 function bookmark_edit(bid,bname,burl)
 {
-  var var1='è¯·è¾“å…¥è¦ä¿®æ”¹çš„ä¸ªäººä¹¦ç­¾ï¼ˆIDï¼š'+bid+'ï¼‰çš„åç§°ï¼Œé•¿åº¦ä¸èƒ½è¶…è¿‡50ä½';
-  var var2='è¯·è¾“å…¥è¦ä¿®æ”¹çš„ä¸ªäººä¹¦ç­¾ï¼ˆIDï¼š'+bid+'ï¼‰çš„åœ°å€ï¼Œé•¿åº¦ä¸èƒ½è¶…è¿‡100ä½';
+  var var1='ÇëÊäÈëÒªĞŞ¸ÄµÄ¸öÈËÊéÇ©£¨ID£º'+bid+'£©µÄÃû³Æ£¬³¤¶È²»ÄÜ³¬¹ı50Î»';
+  var var2='ÇëÊäÈëÒªĞŞ¸ÄµÄ¸öÈËÊéÇ©£¨ID£º'+bid+'£©µÄµØÖ·£¬³¤¶È²»ÄÜ³¬¹ı100Î»';
   this.document.bookmarkedit_frm.id.value=bid;
-  var bename=prompt(var1+'ï¼š',bname);
+  var bename=prompt(var1+'£º',bname);
   if (bename == null || bename == '' || bename.length>50)
-  { alert(var1+"ï¼");return; }
+  { alert(var1+"£¡");return; }
   else
   {
     this.document.bookmarkedit_frm.name.value=bename;
-    var beurl=prompt(var2+'ï¼š',burl);
+    var beurl=prompt(var2+'£º',burl);
     if (beurl == null || beurl == '' || beurl.length>100)
-    { alert(var2+"ï¼");return; }
+    { alert(var2+"£¡");return; }
     else
     {this.document.bookmarkedit_frm.url.value=beurl;}
   }
@@ -337,7 +337,7 @@ function bookmark_edit(bid,bname,burl)
 
 function bookmark_del(bdid)
 {
-  if (confirm("æ­¤æ“ä½œå°†åˆ é™¤IDä¸º "+bdid+" çš„ä¸ªäººä¹¦ç­¾ï¼\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+  if (confirm("´Ë²Ù×÷½«É¾³ıIDÎª "+bdid+" µÄ¸öÈËÊéÇ©£¡\nÕæµÄÒªÉ¾³ıÂğ£¿\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
   { window.location="?action=bookmarkdel&id="+bdid; }
 }
 -->

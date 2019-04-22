@@ -1,7 +1,7 @@
 <!-- #include file="include/config_down.asp" -->
 <%
 ' ====================
-'                     Beyondest.Com V4.6 Demoç‰ˆ
+'                     Beyondest.Com V4.6 Demo°æ
 ' 
 ' http://beyondest.com
 ' ====================
@@ -44,7 +44,7 @@ keyes  = rs("keyes")
 power  = rs("power")
 emoney = rs("emoney")
 
-cname  = "éŸ³ä¹æµè§ˆ":sname = ""
+cname  = "ÒôÀÖä¯ÀÀ":sname = ""
 
 If cid > 0 Then
 
@@ -58,7 +58,7 @@ If cid > 0 Then
 
     If Not (rs2.eof And rs2.bof) Then
         cname = rs2("c_name"):tit = cname
-        If sid > 0 Then sname = rs2("s_name"):tit = sname & "ï¼ˆ" & cname & "ï¼‰"
+        If sid > 0 Then sname = rs2("s_name"):tit = sname & "£¨" & cname & "£©"
     End If
 
     rs2.Close:Set rs2 = Nothing
@@ -110,21 +110,21 @@ Call web_center(0)
   <table border=1 cellspacing=0 cellpadding=4 width='98%' bordercolorlight=<% Response.Write web_var(web_color,3) %> bordercolordark=<% Response.Write web_var(web_color,5) %>>
   <tr bgcolor=<% Response.Write web_var(web_color,6) %> bordercolordark=<% Response.Write web_var(web_color,5) %>>
   <td align=center colspan=3 height=30><font size=3 class=blue><b><% Response.Write rs("name") %></b></font></td></tr>
-  <tr><td align=center width='15%' bgcolor=<% Response.Write web_var(web_color,5) %>>ä¸“è¾‘ç±»å‹ï¼š</td><td width='40%'><% Response.Write rs("genre") %>&nbsp;</td>
+  <tr><td align=center width='15%' bgcolor=<% Response.Write web_var(web_color,5) %>>×¨¼­ÀàĞÍ£º</td><td width='40%'><% Response.Write rs("genre") %>&nbsp;</td>
   <td align=center width='45%' rowspan=8>
    <%
 Response.Write "<img src='images/down/" & rs("pic") & "' border=0>" %>
 </td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>æ’­æ”¾è½¯ä»¶ï¼š</td><td><%
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>²¥·ÅÈí¼ş£º</td><td><%
 If rs("os") = "Realone" Then Response.Write "<a href=" & web_var(web_down,5) & "/soft/realoneplayer.rar><img src=images/down/tool_realone.gif alt='Real One Player'  border='0'></a>"
 If rs("os") = "WinMediaPlayer" Then Response.Write "<a href=" & web_var(web_down,5) & "/soft/wmp2k.rar><img src=images/down/TOOL_WMP.gif alt='Windows Media Player for 98 & Me & 2k'  border='0'></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=" & web_var(web_down,5) & "/soft/wmpxp.rar><img src=images/down/TOOL_WMP.gif alt='Windows Media Player for XP'  border='0'></a>"
 If rs("os") = "Winamp" Then Response.Write "<a href=" & web_var(web_down,5) & "/soft/Winamp.rar><img src=images/down/tool_winamp.gif alt='Winamp'  border='0'></a>" %>&nbsp;</td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>æ–‡ä»¶å¤§å°ï¼š</td><td><% Response.Write rs("sizes") %></td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>æ¨èç­‰çº§ï¼š</td><td><img src='images/down/star<% Response.Write rs("types") %>.gif' border=0></td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ä¸‹è½½æ¬¡æ•°ï¼š</td><td><font class=red><% Response.Write rs("counter") %></font></td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>å‘&nbsp;å¸ƒ&nbsp;äººï¼š</td><td><% Response.Write format_user_view(rs("username"),1,1) %></td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ä¸Šä¼ æ—¥æœŸï¼š</td><td><% Response.Write time_type(rs("tim"),88) %></td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>æ–‡ä»¶æ¥è‡ªï¼š</td><td><%
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ÎÄ¼ş´óĞ¡£º</td><td><% Response.Write rs("sizes") %></td></tr>
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ÍÆ¼öµÈ¼¶£º</td><td><img src='images/down/star<% Response.Write rs("types") %>.gif' border=0></td></tr>
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ÏÂÔØ´ÎÊı£º</td><td><font class=red><% Response.Write rs("counter") %></font></td></tr>
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>·¢&nbsp;²¼&nbsp;ÈË£º</td><td><% Response.Write format_user_view(rs("username"),1,1) %></td></tr>
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ÉÏ´«ÈÕÆÚ£º</td><td><% Response.Write time_type(rs("tim"),88) %></td></tr>
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ÎÄ¼şÀ´×Ô£º</td><td><%
 temp1 = rs("homepage")
 
 If temp1 = "" Or IsNull(temp1) Or temp1 = "http://" Then
@@ -132,17 +132,17 @@ If temp1 = "" Or IsNull(temp1) Or temp1 = "http://" Then
 Else
     Response.Write "<a href='" & temp1 & "' target=_blank>" & temp1 & "</a>"
 End If %></td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ä¸‹è½½æƒé™ï¼š</td><td colspan=2>&nbsp;æ³¨å†Œç”¨æˆ·</td></tr>
-  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ä¸‹è½½åœ°å€ï¼š</td><td colspan=2>&nbsp;&nbsp;&nbsp;<a href='?action=download&id=<% Response.Write id %>'<% Response.Write atb %>><img src='IMAGES/DOWN/DOWNLOAD.GIF' border=0></a>&nbsp;
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ÏÂÔØÈ¨ÏŞ£º</td><td colspan=2>&nbsp;×¢²áÓÃ»§</td></tr>
+  <tr><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ÏÂÔØµØÖ·£º</td><td colspan=2>&nbsp;&nbsp;&nbsp;<a href='?action=download&id=<% Response.Write id %>'<% Response.Write atb %>><img src='IMAGES/DOWN/DOWNLOAD.GIF' border=0></a>&nbsp;
 <% If Len(rs("url2")) > 8 Then %>
 &nbsp;&nbsp;&nbsp;<a href='?action=download&url=download2&id=<% Response.Write id %>'<% Response.Write atb %>><img src='IMAGES/DOWN/download2.gif' border=0></a>
 <% End If %></td></tr>
-  <tr height=50 valign=top><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>ä½œå“å¤‡æ³¨ï¼š</td><td colspan=2><table borer=0 width='100%' class=tf><tr><td><%
+  <tr height=50 valign=top><td align=center bgcolor=<% Response.Write web_var(web_color,5) %>>×÷Æ·±¸×¢£º</td><td colspan=2><table borer=0 width='100%' class=tf><tr><td><%
 
 temp1 = rs("remark")
 
 If Len(temp1) < 3 Then
-temp1 = "<font class=gray>å¥½åƒæ²¡æœ‰å…³äºè¯¥éŸ³ä¹çš„ä»‹ç»å“¦ï¼</font>"
+temp1 = "<font class=gray>ºÃÏñÃ»ÓĞ¹ØÓÚ¸ÃÒôÀÖµÄ½éÉÜÅ¶£¡</font>"
 Else
 temp1 = code_jk(temp1)
 End If
@@ -150,7 +150,7 @@ End If
 Response.Write temp1
 rs.Close %></td></tr></table></td></tr>
   <tr valign=top><td align=center bgcolor=<% Response.Write web_var(web_color
-Dim 5) %>>ç›¸å…³éŸ³ä¹ï¼š</td><td colspan=2><table border=0><% Dim tempsn
+Dim 5) %>>Ïà¹ØÒôÀÖ£º</td><td colspan=2><table border=0><% Dim tempsn
 Dim tempcn
 Dim sqls
 Dim sqlt
@@ -160,7 +160,7 @@ sql    = "select id,name,tim,counter,c_id,s_id from down where hidden=1 and keye
 Set rs = conn.execute(sql)
 
 If rs.eof And rs.bof Then
-Response.Write vbcrlf & "<tr><td class=gray>æ²¡æœ‰ä¸ä¹‹ç›¸å…³çš„ä½œå“</td></tr>"
+Response.Write vbcrlf & "<tr><td class=gray>Ã»ÓĞÓëÖ®Ïà¹ØµÄ×÷Æ·</td></tr>"
 Else
 
 Do While Not rs.eof
@@ -173,7 +173,7 @@ Do While Not rs.eof
     Set rst = conn.execute(sqlt)
     tempcn = rst("c_name")
     rst.Close:Set rst = Nothing
-    Response.Write vbcrlf & "<tr><td><img src=images/small/jt0.gif>&nbsp;" & tempsn & "ï¼ˆ" & tempcn & "ï¼‰ï¼š<a href='down_view.asp?id=" & rs("id") & "' title='" & code_html(temp1,1,0) & "'>" & code_html(temp1,1,30) & "</a></td></tr>"
+    Response.Write vbcrlf & "<tr><td><img src=images/small/jt0.gif>&nbsp;" & tempsn & "£¨" & tempcn & "£©£º<a href='down_view.asp?id=" & rs("id") & "' title='" & code_html(temp1,1,0) & "'>" & code_html(temp1,1,30) & "</a></td></tr>"
     rs.movenext
 Loop
 

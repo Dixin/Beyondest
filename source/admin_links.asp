@@ -18,12 +18,12 @@ Dim pageurl
 Dim page
 id   = Trim(Request.querystring("id"))
 sort = Trim(Request.querystring("sort"))
-tit  = "<a href='?'>å‹æƒ…é“¾æ¥</a>â”‹" & _
-"<a href='?action=main&sort=fir'>é¦–é¡µé“¾æ¥</a>â”‹" & _
-"<a href='?action=main&sort=sec'>å†…é¡µé“¾æ¥</a>â”‹" & _
-"<a href='?action=main&sort=txt'>æ–‡å­—é“¾æ¥</a>â”‹" & _
-"<a href='?action=add'>æ–°å¢é“¾æ¥</a>â”‹" & _
-"<a href='?action=list'>é‡æ–°æ’åº</a>"
+tit  = "<a href='?'>ÓÑÇéÁ´½Ó</a>©¯" & _
+"<a href='?action=main&sort=fir'>Ê×Ò³Á´½Ó</a>©¯" & _
+"<a href='?action=main&sort=sec'>ÄÚÒ³Á´½Ó</a>©¯" & _
+"<a href='?action=main&sort=txt'>ÎÄ×ÖÁ´½Ó</a>©¯" & _
+"<a href='?action=add'>ĞÂÔöÁ´½Ó</a>©¯" & _
+"<a href='?action=list'>ÖØĞÂÅÅĞò</a>"
 Response.Write header(17,tit)
 
 Select Case action
@@ -207,12 +207,12 @@ Function links_del(id)
     If Err Then
         Err.Clear
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æ‚¨çš„æ“ä½œæœ‰é”™è¯¯ï¼ˆerror in delï¼‰å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""ÄúµÄ²Ù×÷ÓĞ´íÎó£¨error in del£©´æÔÚ£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?action=main&sort=" & sort & "'" & _
         vbcrlf & "</script>")
     Else
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æˆåŠŸåˆ é™¤äº†ä¸€æ¡å‹æƒ…é“¾æ¥ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""³É¹¦É¾³ıÁËÒ»ÌõÓÑÇéÁ´½Ó£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?action=main&sort=" & sort & "'" & _
         vbcrlf & "</script>")
     End If
@@ -262,11 +262,11 @@ Function links_main()
 
         Select Case sort
             Case "fir"
-                sname = "é¦–é¡µ"
+                sname = "Ê×Ò³"
             Case "sec"
-                sname = "å†…é¡µ"
+                sname = "ÄÚÒ³"
             Case "txt"
-                sname = "æ–‡å­—"
+                sname = "ÎÄ×Ö"
         End Select
 
     End If
@@ -276,7 +276,7 @@ Function links_main()
     rs.open sql,conn,1,1
 
     If rs.eof And rs.bof Then
-        links_main = "ç°åœ¨è¿˜æ²¡æœ‰ï¼"
+        links_main = "ÏÖÔÚ»¹Ã»ÓĞ£¡"
     Else
         rssum      = rs.recordcount
         nummer     = 8
@@ -285,15 +285,15 @@ Function links_main()
         links_main = links_main & vbcrlf & "<script language=JavaScript><!--" & _
         vbcrlf & "function Do_del_data(data1)" & _
         vbcrlf & "{" & _
-        vbcrlf & "if (confirm(""æ­¤æ“ä½œå°†åˆ é™¤idä¸º ""+data1+"" çš„å‹æƒ…é“¾æ¥ï¼\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼""))" & _
+        vbcrlf & "if (confirm(""´Ë²Ù×÷½«É¾³ıidÎª ""+data1+"" µÄÓÑÇéÁ´½Ó£¡\nÕæµÄÒªÉ¾³ıÂğ£¿\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡""))" & _
         vbcrlf & "  window.location=""" & pageurl & "action=del&id=""+data1" & _
         vbcrlf & "}" & _
         vbcrlf & "//--></script>" & _
         vbcrlf & "<table border=1 width=500 cellspacing=0 cellpadding=1 bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>" & _
         vbcrlf & "<tr><td colspan=4 align=center height=30><table border=0 width='100%'cellspacing=0 cellpadding=0>" & _
-        vbcrlf & "<tr align=center><td width='40%'>ç°åœ¨æœ‰ <font class=red>" & rssum & "</font> ä¸ª <font class=red_4>" & sname & "</font> é“¾æ¥</td>" & _
+        vbcrlf & "<tr align=center><td width='40%'>ÏÖÔÚÓĞ <font class=red>" & rssum & "</font> ¸ö <font class=red_4>" & sname & "</font> Á´½Ó</td>" & _
         vbcrlf & "<td width='60%'>" & pagecute_fun(viewpage,thepages,pageurl) & "</td></tr></table></td></tr>" & _
-        "<tr align=center bgcolor=#ededed><td width='8%'>åºå·</td><td width='20%'>LOGO</td><td width='35%'>ç½‘ç«™åç§°</td><td width='37%'>æ“ä½œ</td></tr>"
+        "<tr align=center bgcolor=#ededed><td width='8%'>ĞòºÅ</td><td width='20%'>LOGO</td><td width='35%'>ÍøÕ¾Ãû³Æ</td><td width='37%'>²Ù×÷</td></tr>"
 
         If Int(viewpage) > 1 Then
             rs.move (viewpage - 1)*nummer
@@ -315,12 +315,12 @@ Function links_main()
             links_main     = links_main & "</td><td><a href='" & rs("url") & "' target=_blank>" & code_html(rs("nname"),1,12) & "</a></td><td>"
 
             If rs("hidden") = True Then
-                links_main = links_main & "<a href='" & pageurl & "action=hidden&id=" & iid & "'>æ˜¾ç¤º</a>â”‹"
+                links_main = links_main & "<a href='" & pageurl & "action=hidden&id=" & iid & "'>ÏÔÊ¾</a>©¯"
             Else
-                links_main = links_main & "<a href='" & pageurl & "action=hidden&id=" & iid & "'><font class=red_2>éšè—</font></a>â”‹"
+                links_main = links_main & "<a href='" & pageurl & "action=hidden&id=" & iid & "'><font class=red_2>Òş²Ø</font></a>©¯"
             End If
 
-            links_main     = links_main & "<a href='" & pageurl & "action=order&actiones=up&id=" & iid & "'>å‘ä¸Š</a>â”‹<a href='" & pageurl & "action=order&actiones=down&id=" & iid & "'>å‘ä¸‹</a>â”‹<a href='" & pageurl & "action=edit&id=" & iid & "'>ä¿®æ”¹</a>â”‹<a href='javascript:Do_del_data(" & iid & ")'>åˆ é™¤</a></td></tr>"
+            links_main     = links_main & "<a href='" & pageurl & "action=order&actiones=up&id=" & iid & "'>ÏòÉÏ</a>©¯<a href='" & pageurl & "action=order&actiones=down&id=" & iid & "'>ÏòÏÂ</a>©¯<a href='" & pageurl & "action=edit&id=" & iid & "'>ĞŞ¸Ä</a>©¯<a href='javascript:Do_del_data(" & iid & ")'>É¾³ı</a></td></tr>"
             rs.movenext
         Next
 
@@ -333,28 +333,28 @@ End Function
 Function links_add() %><table border=0 width=450 cellspacing=0 cellpadding=2>
 <form action='admin_links.asp?action=addchk' method=post>
   <tr>
-    <td colspan=2 align=center height=50><font class=red>æ–°å¢é“¾æ¥</font></td>
+    <td colspan=2 align=center height=50><font class=red>ĞÂÔöÁ´½Ó</font></td>
   </tr>
   <tr height=30>
-    <td width='20%'>é“¾æ¥ç±»å‹ï¼š</td>
-    <td width='80%'><input type=radio name=sort value='fir' checked>é¦–é¡µé“¾æ¥
-    <input type=radio name=sort value='sec'>å†…é¡µé“¾æ¥
-    <input type=radio name=sort value='txt'>æ–‡å­—é“¾æ¥</td>
+    <td width='20%'>Á´½ÓÀàĞÍ£º</td>
+    <td width='80%'><input type=radio name=sort value='fir' checked>Ê×Ò³Á´½Ó
+    <input type=radio name=sort value='sec'>ÄÚÒ³Á´½Ó
+    <input type=radio name=sort value='txt'>ÎÄ×ÖÁ´½Ó</td>
   </tr>
   <tr height=30>
-    <td>ç½‘ç«™åç§°ï¼š</td>
+    <td>ÍøÕ¾Ãû³Æ£º</td>
     <td><input type=text name=nname size=50 maxlength=20></td>
   </tr>
   <tr height=30>
-    <td>é“¾æ¥åœ°å€ï¼š</td>
+    <td>Á´½ÓµØÖ·£º</td>
     <td><input type=text name=url value='http://' size=50 maxlength=100></td>
   </tr>
   <tr height=30>
-    <td>é“¾æ¥LOGOï¼š</td>
+    <td>Á´½ÓLOGO£º</td>
     <td><input type=text name=pic value='images/links/' size=60 maxlength=100></td>
   </tr>
   <tr height=30 align=center>
-    <td colspan=2><input type=submit value='æ–° å¢ é“¾ æ¥'></td>
+    <td colspan=2><input type=submit value='ĞÂ Ôö Á´ ½Ó'></td>
   </tr>
 </form></table><%
 End Function
@@ -367,7 +367,7 @@ Function links_addchk()
 
     If Len( nname) < 1 Or ( sort = "fir" And sort = "sec" And sort = "txt" ) Then
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""ç½‘ç«™åç§° å’Œ é“¾æ¥ç±»å‹ æ˜¯å¿…é¡»è¦çš„ï¼\n\nè¯·è¿”å›è¾“å…¥ã€‚"");" & _
+        vbcrlf & "alert(""ÍøÕ¾Ãû³Æ ºÍ Á´½ÓÀàĞÍ ÊÇ±ØĞëÒªµÄ£¡\n\nÇë·µ»ØÊäÈë¡£"");" & _
         vbcrlf & "history.back(1)" & _
         vbcrlf & "</script>")
     Else
@@ -396,7 +396,7 @@ Function links_addchk()
         rs.update
         rs.Close:Set rs = Nothing
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æˆåŠŸæ–°å¢äº†é“¾æ¥ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""³É¹¦ĞÂÔöÁËÁ´½Ó£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?action=main&sort=" & sort & "'" & _
         vbcrlf & "</script>")
     End If
@@ -410,35 +410,35 @@ Function links_edit(id)
 
     If rs.eof And rs.bof Then
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""æ‚¨çš„æ“ä½œæœ‰é”™è¯¯ï¼ˆerror in editï¼‰å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+        vbcrlf & "alert(""ÄúµÄ²Ù×÷ÓĞ´íÎó£¨error in edit£©´æÔÚ£¡\n\nµã»÷·µ»Ø¡£"");" & _
         vbcrlf & "location='?action=main&sort=" & sort & "'" & _
         vbcrlf & "</script>")
     Else
         sss = rs("sort") %><table border=0 width=450 cellspacing=0 cellpadding=2>
 <form action='admin_links.asp?action=editchk&id=<% Response.Write id %>' method=post>
   <tr>
-    <td colspan=2 align=center height=50><font class=red>ä¿®æ”¹é“¾æ¥</font></td>
+    <td colspan=2 align=center height=50><font class=red>ĞŞ¸ÄÁ´½Ó</font></td>
   </tr>
   <tr height=30>
-    <td width='20%'>é“¾æ¥ç±»å‹ï¼š</td>
-    <td width='80%'><input type=radio name=sort value='fir'<% If sss = "fir" Then Response.Write " checked" %>>é¦–é¡µé“¾æ¥
-    <input type=radio name=sort value='sec'<% If sss = "sec" Then Response.Write " checked" %>>å†…é¡µé“¾æ¥
-    <input type=radio name=sort value='txt'<% If sss = "txt" Then Response.Write " checked" %>>æ–‡å­—é“¾æ¥</td>
+    <td width='20%'>Á´½ÓÀàĞÍ£º</td>
+    <td width='80%'><input type=radio name=sort value='fir'<% If sss = "fir" Then Response.Write " checked" %>>Ê×Ò³Á´½Ó
+    <input type=radio name=sort value='sec'<% If sss = "sec" Then Response.Write " checked" %>>ÄÚÒ³Á´½Ó
+    <input type=radio name=sort value='txt'<% If sss = "txt" Then Response.Write " checked" %>>ÎÄ×ÖÁ´½Ó</td>
   </tr>
   <tr height=30>
-    <td>ç½‘ç«™åç§°ï¼š</td>
+    <td>ÍøÕ¾Ãû³Æ£º</td>
     <td><input type=text name=nname value='<% Response.Write rs("nname") %>' size=50 maxlength=20></td>
   </tr>
   <tr height=30>
-    <td>é“¾æ¥åœ°å€ï¼š</td>
+    <td>Á´½ÓµØÖ·£º</td>
     <td><input type=text name=url value='<% Response.Write rs("url") %>' size=50 maxlength=100></td>
   </tr>
   <tr height=30>
-    <td>é“¾æ¥LOGOï¼š</td>
+    <td>Á´½ÓLOGO£º</td>
     <td><input type=text name=pic value='<% Response.Write rs("pic") %>' size=60 maxlength=100></td>
   </tr>
   <tr height=30 align=center>
-    <td colspan=2><input type=submit value='ä¿® æ”¹ é“¾ æ¥'></td>
+    <td colspan=2><input type=submit value='ĞŞ ¸Ä Á´ ½Ó'></td>
   </tr>
 </form></table><%
     End If
@@ -453,7 +453,7 @@ Function links_editchk(id)
 
     If Len( nname) < 1 Or ( sort = "fir" And sort = "sec" And sort = "txt" ) Then
         Response.Write("<script language=javascript>" & _
-        vbcrlf & "alert(""ç½‘ç«™åç§° å’Œ é“¾æ¥ç±»å‹ æ˜¯å¿…é¡»è¦çš„ï¼\n\nè¯·è¿”å›è¾“å…¥ã€‚"");" & _
+        vbcrlf & "alert(""ÍøÕ¾Ãû³Æ ºÍ Á´½ÓÀàĞÍ ÊÇ±ØĞëÒªµÄ£¡\n\nÇë·µ»ØÊäÈë¡£"");" & _
         vbcrlf & "history.back(1)" & _
         vbcrlf & "</script>")
     Else
@@ -463,7 +463,7 @@ Function links_editchk(id)
 
         If rs.eof And rs.bof Then
             Response.Write("<script language=javascript>" & _
-            vbcrlf & "alert(""æ‚¨çš„æ“ä½œæœ‰é”™è¯¯ï¼ˆerror in editchkï¼‰å­˜åœ¨ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+            vbcrlf & "alert(""ÄúµÄ²Ù×÷ÓĞ´íÎó£¨error in editchk£©´æÔÚ£¡\n\nµã»÷·µ»Ø¡£"");" & _
             vbcrlf & "location='?action=main&sort=" & sort & "'" & _
             vbcrlf & "</script>")
         Else
@@ -474,7 +474,7 @@ Function links_editchk(id)
             rs.update
             rs.Close:Set rs = Nothing
             Response.Write("<script language=javascript>" & _
-            vbcrlf & "alert(""æˆåŠŸä¿®æ”¹äº†é“¾æ¥ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+            vbcrlf & "alert(""³É¹¦ĞŞ¸ÄÁËÁ´½Ó£¡\n\nµã»÷·µ»Ø¡£"");" & _
             vbcrlf & "location='?action=main&sort=" & sort & "'" & _
             vbcrlf & "</script>")
         End If

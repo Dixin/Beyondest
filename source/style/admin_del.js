@@ -18,7 +18,7 @@ function suredel(del_num) {
     if (length > 1) {
         for (var i = 0; i < length; i++) {
             if (document.del_form.del_id[i].checked) {
-                cf = window.confirm("è®°å½•è¢«åˆ é™¤åŽå°†æ— æ³•æ¢å¤ï¼æ‚¨ç¡®å®šå—ï¼Ÿ");
+                cf = window.confirm("¼ÇÂ¼±»É¾³ýºó½«ÎÞ·¨»Ö¸´£¡ÄúÈ·¶¨Âð£¿");
                 if (cf) { return true; }
                 else { return false; }
             }
@@ -27,12 +27,12 @@ function suredel(del_num) {
     }
 
     if (ifcheck) {
-        cf = window.confirm("è®°å½•è¢«åˆ é™¤åŽå°†æ— æ³•æ¢å¤ï¼æ‚¨ç¡®å®šå—ï¼Ÿ");
+        cf = window.confirm("¼ÇÂ¼±»É¾³ýºó½«ÎÞ·¨»Ö¸´£¡ÄúÈ·¶¨Âð£¿");
         if (cf) { return true; }
         else { return false; }
     }
     else {
-        window.alert("æ²¡æœ‰é€‰æ‹©ä»»ä½•è®°å½•ï¼");
+        window.alert("Ã»ÓÐÑ¡ÔñÈÎºÎ¼ÇÂ¼£¡");
         return false;
     }
 }

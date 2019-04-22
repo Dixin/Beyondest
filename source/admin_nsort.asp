@@ -9,63 +9,63 @@
 Dim nsort
 Dim nsortn
 Dim jk_an
-tit = vbcrlf & "<a href='?nsort=art'>æ–‡æ åˆ†ç±»</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?nsort=down'>ä¸‹è½½åˆ†ç±»</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?nsort=news'>æ–°é—»åˆ†ç±»</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?nsort=paste'>å£çº¸åˆ†ç±»</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?nsort=film'>è§†é¢‘åˆ†ç±»</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?nsort=flash'>Flashåˆ†ç±»</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?nsort=web'>ç½‘ç«™åˆ†ç±»</a>"
+tit = vbcrlf & "<a href='?nsort=art'>ÎÄÀ¸·ÖÀà</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?nsort=down'>ÏÂÔØ·ÖÀà</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?nsort=news'>ĞÂÎÅ·ÖÀà</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?nsort=paste'>±ÚÖ½·ÖÀà</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?nsort=film'>ÊÓÆµ·ÖÀà</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?nsort=flash'>Flash·ÖÀà</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?nsort=web'>ÍøÕ¾·ÖÀà</a>"
 Response.Write header(5,tit)
 nsort  = Trim(Request.querystring("nsort"))
 action = Trim(Request.querystring("action"))
 
 Select Case nsort
     Case "down"
-        nsortn = "ä¸‹è½½åˆ†ç±»"
+        nsortn = "ÏÂÔØ·ÖÀà"
     Case "news"
-        nsortn = "æ–°é—»åˆ†ç±»"
+        nsortn = "ĞÂÎÅ·ÖÀà"
     Case "web"
-        nsortn = "ç½‘ç«™åˆ†ç±»"
+        nsortn = "ÍøÕ¾·ÖÀà"
     Case "gall"
-        nsortn = "å›¾åº“åˆ†ç±»"
+        nsortn = "Í¼¿â·ÖÀà"
     Case "film"
-        nsortn = "è§†é¢‘åˆ†ç±»"
+        nsortn = "ÊÓÆµ·ÖÀà"
     Case "flash"
-        nsortn = "Flashåˆ†ç±»"
+        nsortn = "Flash·ÖÀà"
     Case "baner"
-        nsortn = "ç›¸å†Œåˆ†ç±»"
+        nsortn = "Ïà²á·ÖÀà"
     Case "paste"
-        nsortn = "å£çº¸åˆ†ç±»"
+        nsortn = "±ÚÖ½·ÖÀà"
     Case Else
         nsort  = "art"
-        nsortn = "æ–‡æ åˆ†ç±»"
+        nsortn = "ÎÄÀ¸·ÖÀà"
 End Select
 
 Select Case action
     Case "up","down"
-        jk_an = "åˆ†ç±»æŸ¥çœ‹"
+        jk_an = "·ÖÀà²é¿´"
         Call jk_order()
     Case "del"
-        jk_an = "åˆ†ç±»æŸ¥çœ‹"
+        jk_an = "·ÖÀà²é¿´"
         Call jk_del()
     Case "list"
-        jk_an = "åˆ†ç±»æŸ¥çœ‹"
+        jk_an = "·ÖÀà²é¿´"
         Call jk_list()
     Case "addc"
-        jk_an = "æ·»åŠ ä¸€çº§åˆ†ç±»"
+        jk_an = "Ìí¼ÓÒ»¼¶·ÖÀà"
         Call jk_addc()
     Case "adds"
-        jk_an = "æ·»åŠ äºŒçº§åˆ†ç±»"
+        jk_an = "Ìí¼Ó¶ş¼¶·ÖÀà"
         Call jk_adds()
     Case "editc"
-        jk_an = "ä¿®æ”¹ä¸€çº§åˆ†ç±»"
+        jk_an = "ĞŞ¸ÄÒ»¼¶·ÖÀà"
         Call jk_editc()
     Case "edits"
-        jk_an = "ä¿®æ”¹äºŒçº§åˆ†ç±»"
+        jk_an = "ĞŞ¸Ä¶ş¼¶·ÖÀà"
         Call jk_edits()
     Case Else
-        jk_an = "åˆ†ç±»æŸ¥çœ‹"
+        jk_an = "·ÖÀà²é¿´"
         Call jk_main()
 End Select
 
@@ -221,20 +221,20 @@ Sub jk_del()
                             c_name = Replace(Trim(Request.form("c_name")),"'","")
 
                             If var_null(c_name) = "" Or Len(c_name) > 16 Then
-                                Response.Write "<font class=red_2>ä¸€çº§åˆ†ç±»åç§°ä¸èƒ½ä¸ºç©ºï¼ˆé•¿åº¦ä¸å¤§äº16ï¼‰ï¼</font><br><br>" & go_back
+                                Response.Write "<font class=red_2>Ò»¼¶·ÖÀàÃû³Æ²»ÄÜÎª¿Õ£¨³¤¶È²»´óÓÚ16£©£¡</font><br><br>" & go_back
                             Else
                                 rs("c_name") = c_name
                                 rs.update
-                                Response.Write "<font class=red_3>ä¿®æ”¹ä¸€çº§åˆ†ç±»æˆåŠŸï¼</font><br><br><a href='?nsort=" & nsort & "'>ç‚¹å‡»è¿”å›</a>"
+                                Response.Write "<font class=red_3>ĞŞ¸ÄÒ»¼¶·ÖÀà³É¹¦£¡</font><br><br><a href='?nsort=" & nsort & "'>µã»÷·µ»Ø</a>"
                             End If
 
                             Response.Write vbcrlf & "</td></tr>"
                         Else %><form action='?nsort=<% Response.Write nsort %>&action=editc&c_id=<% Response.Write cid %>&edit=ok' method=post>
 <tr height=50 align=center>
-<td>ä¸€çº§åˆ†ç±»åç§°ï¼š</td>
+<td>Ò»¼¶·ÖÀàÃû³Æ£º</td>
 <td><input type=text name=c_name value='<% Response.Write rs(0) %>' size=30 maxlength=16></td>
 </tr>
-<tr><td colspan=2 height=50 align=center><input type=submit value='ä¿®æ”¹ä¸€çº§åˆ†ç±»'></td></tr>
+<tr><td colspan=2 height=50 align=center><input type=submit value='ĞŞ¸ÄÒ»¼¶·ÖÀà'></td></tr>
 </form><%
                         End If
 
@@ -275,7 +275,7 @@ Sub jk_del()
                                 intro  = Replace(Trim(Request.form("intro")),"'","")
 
                                 If Len(s_name) < 1 Or Len(s_name) > 16 Then
-                                    Response.Write "<font class=red_2>äºŒçº§åˆ†ç±»åç§°ä¸èƒ½ä¸ºç©ºï¼ˆé•¿åº¦ä¸å¤§äº16ï¼‰ï¼</font><br><br>" & go_back
+                                    Response.Write "<font class=red_2>¶ş¼¶·ÖÀàÃû³Æ²»ÄÜÎª¿Õ£¨³¤¶È²»´óÓÚ16£©£¡</font><br><br>" & go_back
                                 Else
 
                                     If Int(ccid) <> Int(cid) Then
@@ -294,13 +294,13 @@ Sub jk_del()
 
                                     sql             = "update jk_sort set intro='" & intro & "',pic='" & pic & "',c_id=" & ccid & ",s_name='" & s_name & "'" & sqladd & " where s_id=" & sid
                                     conn.execute(sql)
-                                    Response.Write "<font class=red_3>ä¿®æ”¹äºŒçº§åˆ†ç±»æˆåŠŸï¼</font><br><br><a href='?nsort=" & nsort & "'>ç‚¹å‡»è¿”å›</a>"
+                                    Response.Write "<font class=red_3>ĞŞ¸Ä¶ş¼¶·ÖÀà³É¹¦£¡</font><br><br><a href='?nsort=" & nsort & "'>µã»÷·µ»Ø</a>"
                                 End If
 
                                 Response.Write vbcrlf & "</td></tr>"
                             Else %><form action='?nsort=<% Response.Write nsort %>&action=edits&s_id=<% Response.Write sid %>&edit=ok' method=post>
 <tr height=30 align=center>
-<td width=100>ä¸€çº§åˆ†ç±»ç±»å‹ï¼š</td>
+<td width=100>Ò»¼¶·ÖÀàÀàĞÍ£º</td>
 <td><select name=c_id size=1><%
                                 pic      = rs(2)
                                 intro    = rs(3)
@@ -318,18 +318,18 @@ Sub jk_del()
 </select></td>
 </tr>
 <tr height=30 align=center>
-<td>äºŒçº§åˆ†ç±»åç§°ï¼š</td>
+<td>¶ş¼¶·ÖÀàÃû³Æ£º</td>
 <td><input type=text name=s_name value='<% Response.Write s_name %>' size=30 maxlength=16></td>
 </tr>
 <tr height=30 align=center>
-<td>äºŒçº§åˆ†ç±»å›¾ç‰‡ï¼š</td>
+<td>¶ş¼¶·ÖÀàÍ¼Æ¬£º</td>
 <td><input type=text name=pic value='<% Response.Write pic %>' size=30 maxlength=16></td>
 </tr>
 <tr height=30 align=center>
-<td>äºŒçº§åˆ†ç±»ä»‹ç»ï¼š</td>
+<td>¶ş¼¶·ÖÀà½éÉÜ£º</td>
 <td><textarea rows=6 name=intro cols=70 value=''><% Response.Write intro %></textarea></td>
 </tr>
-<tr><td colspan=2 height=50 align=center><input type=submit value='ä¿®æ”¹äºŒçº§åˆ†ç±»'></td></tr>
+<tr><td colspan=2 height=50 align=center><input type=submit value='ĞŞ¸Ä¶ş¼¶·ÖÀà'></td></tr>
 </form><%
                             End If
 
@@ -347,7 +347,7 @@ Sub jk_del()
                                 c_name = Replace(Trim(Request.form("c_name")),"'","")
 
                                 If var_null(c_name) = "" Or Len(c_name) > 16 Then
-                                    Response.Write "<font class=red_2>ä¸€çº§åˆ†ç±»åç§°ä¸èƒ½ä¸ºç©ºï¼ˆé•¿åº¦ä¸å¤§äº16ï¼‰ï¼</font><br><br>" & go_back
+                                    Response.Write "<font class=red_2>Ò»¼¶·ÖÀàÃû³Æ²»ÄÜÎª¿Õ£¨³¤¶È²»´óÓÚ16£©£¡</font><br><br>" & go_back
                                 Else
                                     sql         = "select top 1 c_order from jk_class where nsort='" & nsort & "' order by c_order desc"
                                     Set rs      = conn.execute(sql)
@@ -361,16 +361,16 @@ Sub jk_del()
                                     rs.Close:Set rs = Nothing
                                     sql = "insert into jk_class(nsort,c_name,c_order) values('" & nsort & "','" & c_name & "'," & c_order & ")"
                                     conn.execute(sql)
-                                    Response.Write "<font class=red_3>æ·»åŠ ä¸€çº§åˆ†ç±»æˆåŠŸï¼</font><br><br><a href='?nsort=" & nsort & "'>ç‚¹å‡»è¿”å›</a>"
+                                    Response.Write "<font class=red_3>Ìí¼ÓÒ»¼¶·ÖÀà³É¹¦£¡</font><br><br><a href='?nsort=" & nsort & "'>µã»÷·µ»Ø</a>"
                                 End If
 
                                 Response.Write vbcrlf & "</td></tr>"
                             Else %><form action='?nsort=<% Response.Write nsort %>&action=addc&add=ok' method=post>
 <tr height=50 align=center>
-<td>ä¸€çº§åˆ†ç±»åç§°ï¼š</td>
+<td>Ò»¼¶·ÖÀàÃû³Æ£º</td>
 <td><input type=text name=c_name size=30 maxlength=16></td>
 </tr>
-<tr><td colspan=2 height=50 align=center><input type=submit value='æ·»åŠ ä¸€çº§åˆ†ç±»'></td></tr>
+<tr><td colspan=2 height=50 align=center><input type=submit value='Ìí¼ÓÒ»¼¶·ÖÀà'></td></tr>
 </form><%
                             End If
 
@@ -393,7 +393,7 @@ Sub jk_del()
                                 s_name = Replace(Trim(Request.form("s_name")),"'","")
 
                                 If Len(s_name) < 1 Or Len(s_name) > 16 Then
-                                    Response.Write "<font class=red_2>äºŒçº§åˆ†ç±»åç§°ä¸èƒ½ä¸ºç©ºï¼ˆé•¿åº¦ä¸å¤§äº16ï¼‰ï¼</font><br><br>" & go_back
+                                    Response.Write "<font class=red_2>¶ş¼¶·ÖÀàÃû³Æ²»ÄÜÎª¿Õ£¨³¤¶È²»´óÓÚ16£©£¡</font><br><br>" & go_back
                                 Else
                                     cid    = Trim(Request.form("c_id"))
                                     If Not(IsNumeric(cid)) Then cid = 0
@@ -422,13 +422,13 @@ Sub jk_del()
 
                                         sql = "insert into jk_sort(c_id,s_name,s_order) values(" & cid & ",'" & s_name & "'," & s_order & ")"
                                         conn.execute(sql)
-                                        Response.Write "<font class=red_3>æ·»åŠ äºŒçº§åˆ†ç±»æˆåŠŸï¼</font><br><br><a href='?nsort=" & nsort & "'>ç‚¹å‡»è¿”å›</a>"
+                                        Response.Write "<font class=red_3>Ìí¼Ó¶ş¼¶·ÖÀà³É¹¦£¡</font><br><br><a href='?nsort=" & nsort & "'>µã»÷·µ»Ø</a>"
                                     End If
 
                                     Response.Write vbcrlf & "</td></tr>"
                                 Else %><form action='?nsort=<% Response.Write nsort %>&action=adds&c_id=<% Response.Write cid %>&add=ok' method=post>
 <tr height=30 align=center>
-<td>ä¸€çº§åˆ†ç±»ç±»å‹ï¼š</td>
+<td>Ò»¼¶·ÖÀàÀàĞÍ£º</td>
 <td><select name=c_id size=1><%
                                     sql      = "select c_id,c_name from jk_class where nsort='" & nsort & "' order by c_order"
                                     Set rs   = conn.execute(sql)
@@ -445,10 +445,10 @@ Sub jk_del()
 </select></td>
 </tr>
 <tr height=30 align=center>
-<td>äºŒçº§åˆ†ç±»åç§°ï¼š</td>
+<td>¶ş¼¶·ÖÀàÃû³Æ£º</td>
 <td><input type=text name=s_name size=30 maxlength=16></td>
 </tr>
-<tr><td colspan=2 height=50 align=center><input type=submit value='æ·»åŠ äºŒçº§åˆ†ç±»'></td></tr>
+<tr><td colspan=2 height=50 align=center><input type=submit value='Ìí¼Ó¶ş¼¶·ÖÀà'></td></tr>
 </form><%
                                 End If
 
@@ -467,13 +467,13 @@ Sub jk_del()
 
                                 Do While Not rs.eof
                                     cid     = rs(0)
-                                    Response.Write vbcrlf & "<tr bgcolor=#ffffff align=center><td align=left>&nbsp;<font class=red_3><b>" & img_small("jt1") & rs(1) & "</b></font>&nbsp;&nbsp;ï¼ˆ<a href='?nsort=" & nsort & "&action=adds&c_id=" & cid & "'>æ·»åŠ äºŒçº§åˆ†ç±»</a>ï¼‰</td><td><a href='?nsort=" & nsort & "&action=editc&c_id=" & cid & "'>ä¿®æ”¹</a>&nbsp;&nbsp;<a href=""javascript:Do_del_class('" & cid & "');"">åˆ é™¤</a></td><td>æ’åºï¼š<a href='?nsort=" & nsort & "&action=up&c_id=" & cid & "'>å‘ä¸Š</a>&nbsp;&nbsp;<a href='?nsort=" & nsort & "&action=down&c_id=" & cid & "'>å‘ä¸‹</a></td></tr>"
+                                    Response.Write vbcrlf & "<tr bgcolor=#ffffff align=center><td align=left>&nbsp;<font class=red_3><b>" & img_small("jt1") & rs(1) & "</b></font>&nbsp;&nbsp;£¨<a href='?nsort=" & nsort & "&action=adds&c_id=" & cid & "'>Ìí¼Ó¶ş¼¶·ÖÀà</a>£©</td><td><a href='?nsort=" & nsort & "&action=editc&c_id=" & cid & "'>ĞŞ¸Ä</a>&nbsp;&nbsp;<a href=""javascript:Do_del_class('" & cid & "');"">É¾³ı</a></td><td>ÅÅĞò£º<a href='?nsort=" & nsort & "&action=up&c_id=" & cid & "'>ÏòÉÏ</a>&nbsp;&nbsp;<a href='?nsort=" & nsort & "&action=down&c_id=" & cid & "'>ÏòÏÂ</a></td></tr>"
                                     sql2    = "select s_id,s_name from jk_sort where c_id=" & cid & " order by s_order,s_id"
                                     Set rs2 = conn.execute(sql2)
 
                                     Do While Not rs2.eof
                                         sid = rs2(0)
-                                        Response.Write vbcrlf & "<tr align=center><td align=left>ã€€ã€€<font class=blue>" & rs2(1) & "</font></td><td><a href='?nsort=" & nsort & "&action=edits&s_id=" & sid & "'>ä¿®æ”¹</a>&nbsp;&nbsp;<a href=""javascript:Do_del_sort('" & sid & "');"">åˆ é™¤</a></td><td>æ’åºï¼š<a href='?nsort=" & nsort & "&action=up&s_id=" & sid & "'>å‘ä¸Š</a>&nbsp;&nbsp;<a href='?nsort=" & nsort & "&action=down&s_id=" & sid & "'>å‘ä¸‹</a></td></tr>"
+                                        Response.Write vbcrlf & "<tr align=center><td align=left>¡¡¡¡<font class=blue>" & rs2(1) & "</font></td><td><a href='?nsort=" & nsort & "&action=edits&s_id=" & sid & "'>ĞŞ¸Ä</a>&nbsp;&nbsp;<a href=""javascript:Do_del_sort('" & sid & "');"">É¾³ı</a></td><td>ÅÅĞò£º<a href='?nsort=" & nsort & "&action=up&s_id=" & sid & "'>ÏòÉÏ</a>&nbsp;&nbsp;<a href='?nsort=" & nsort & "&action=down&s_id=" & sid & "'>ÏòÏÂ</a></td></tr>"
                                         rs2.movenext
                                     Loop
 
@@ -482,17 +482,17 @@ Sub jk_del()
                                 Loop
 
                                 rs.Close:Set rs = Nothing
-                                Response.Write vbcrlf & "<tr><td height=30 align=center colspan=3><a href='?nsort=" & nsort & "&action=addc'>æ·»åŠ ä¸€çº§åˆ†ç±»</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href='?nsort=" & nsort & "&action=list'>é‡æ–°æ’åº</a></td></tr></table>" %><script language=JavaScript>
+                                Response.Write vbcrlf & "<tr><td height=30 align=center colspan=3><a href='?nsort=" & nsort & "&action=addc'>Ìí¼ÓÒ»¼¶·ÖÀà</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href='?nsort=" & nsort & "&action=list'>ÖØĞÂÅÅĞò</a></td></tr></table>" %><script language=JavaScript>
 <!--
 function Do_del_class(data1)
 {
-if (confirm("æ­¤æ“ä½œå°†åˆ é™¤idä¸º "+data1+" çš„ä¸€çº§åˆ†ç±»ï¼\n\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\n\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+if (confirm("´Ë²Ù×÷½«É¾³ıidÎª "+data1+" µÄÒ»¼¶·ÖÀà£¡\n\nÕæµÄÒªÉ¾³ıÂğ£¿\n\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
   window.location="?nsort=<% Response.Write nsort %>&action=del&c_id="+data1
 }
 
 function Do_del_sort(data1)
 {
-if (confirm("æ­¤æ“ä½œå°†åˆ é™¤idä¸º "+data1+" çš„äºŒçº§åˆ†ç±»ï¼\n\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\n\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+if (confirm("´Ë²Ù×÷½«É¾³ıidÎª "+data1+" µÄ¶ş¼¶·ÖÀà£¡\n\nÕæµÄÒªÉ¾³ıÂğ£¿\n\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
   window.location="?nsort=<% Response.Write nsort %>&action=del&s_id="+data1
 }
 //-->

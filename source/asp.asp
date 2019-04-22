@@ -3,19 +3,19 @@
 <%
 '####################################
 '#									#
-'#		 é˜¿æ±ŸASPæ¢é’ˆ V1.70			#
+'#		 °¢½­ASPÌ½Õë V1.70			#
 '#									#
-'#  é˜¿æ±Ÿå®ˆå€™ http://www.ajiang.net  #
-'#	 ç”µå­é‚®ä»¶ info@ajiang.net		#
+'#  °¢½­ÊØºò http://www.ajiang.net  #
+'#	 µç×ÓÓÊ¼ş info@ajiang.net		#
 '#									#
-'#    è½¬è½½æœ¬ç¨‹åºæ—¶è¯·ä¿ç•™è¿™äº›ä¿¡æ¯    #
+'#    ×ªÔØ±¾³ÌĞòÊ±Çë±£ÁôÕâĞ©ĞÅÏ¢    #
 '#								    #
 '####################################
 
-'ä¸ä½¿ç”¨è¾“å‡ºç¼“å†²åŒºï¼Œç›´æ¥å°†è¿è¡Œç»“æœæ˜¾ç¤ºåœ¨å®¢æˆ·ç«¯
+'²»Ê¹ÓÃÊä³ö»º³åÇø£¬Ö±½Ó½«ÔËĞĞ½á¹ûÏÔÊ¾ÔÚ¿Í»§¶Ë
 Response.Buffer = False
 
-'å£°æ˜å¾…æ£€æµ‹æ•°ç»„
+'ÉùÃ÷´ı¼ì²âÊı×é
 Dim ObjTotest(26
 Dim 4)
 
@@ -29,46 +29,46 @@ ObjTotest(6,0)  = "IISSample.ContentRotator"
 ObjTotest(7,0)  = "IISSample.PageCounter"
 ObjTotest(8,0)  = "MSWC.PermissionChecker"
 ObjTotest(9,0)  = "Scripting.FileSystemObject"
-ObjTotest(9,1)  = "(FSO æ–‡æœ¬æ–‡ä»¶è¯»å†™)"
+ObjTotest(9,1)  = "(FSO ÎÄ±¾ÎÄ¼ş¶ÁĞ´)"
 ObjTotest(10,0) = "adodb.connection"
-ObjTotest(10,1) = "(ADO æ•°æ®å¯¹è±¡)"
+ObjTotest(10,1) = "(ADO Êı¾İ¶ÔÏó)"
 
 ObjTotest(11,0) = "SoftArtisans.FileUp"
-ObjTotest(11,1) = "(SA-FileUp æ–‡ä»¶ä¸Šä¼ )"
+ObjTotest(11,1) = "(SA-FileUp ÎÄ¼şÉÏ´«)"
 ObjTotest(12,0) = "SoftArtisans.FileManager"
-ObjTotest(12,1) = "(SoftArtisans æ–‡ä»¶ç®¡ç†)"
+ObjTotest(12,1) = "(SoftArtisans ÎÄ¼ş¹ÜÀí)"
 ObjTotest(13,0) = "LyfUpload.UploadFile"
-ObjTotest(13,1) = "(åˆ˜äº‘å³°çš„æ–‡ä»¶ä¸Šä¼ ç»„ä»¶)"
+ObjTotest(13,1) = "(ÁõÔÆ·åµÄÎÄ¼şÉÏ´«×é¼ş)"
 ObjTotest(14,0) = "Persits.Upload.1"
-ObjTotest(14,1) = "(ASPUpload æ–‡ä»¶ä¸Šä¼ )"
+ObjTotest(14,1) = "(ASPUpload ÎÄ¼şÉÏ´«)"
 ObjTotest(15,0) = "w3.upload"
-ObjTotest(15,1) = "(Dimac æ–‡ä»¶ä¸Šä¼ )"
+ObjTotest(15,1) = "(Dimac ÎÄ¼şÉÏ´«)"
 
 ObjTotest(16,0) = "JMail.SmtpMail"
-ObjTotest(16,1) = "(Dimac JMail é‚®ä»¶æ”¶å‘) <a href='http://www.ajiang.net'>ä¸­æ–‡æ‰‹å†Œä¸‹è½½</a>"
+ObjTotest(16,1) = "(Dimac JMail ÓÊ¼şÊÕ·¢) <a href='http://www.ajiang.net'>ÖĞÎÄÊÖ²áÏÂÔØ</a>"
 ObjTotest(17,0) = "CDONTS.NewMail"
-ObjTotest(17,1) = "(è™šæ‹Ÿ SMTP å‘ä¿¡)"
+ObjTotest(17,1) = "(ĞéÄâ SMTP ·¢ĞÅ)"
 ObjTotest(18,0) = "Persits.MailSender"
-ObjTotest(18,1) = "(ASPemail å‘ä¿¡)"
+ObjTotest(18,1) = "(ASPemail ·¢ĞÅ)"
 ObjTotest(19,0) = "SMTPsvg.Mailer"
-ObjTotest(19,1) = "(ASPmail å‘ä¿¡)"
+ObjTotest(19,1) = "(ASPmail ·¢ĞÅ)"
 ObjTotest(20,0) = "DkQmail.Qmail"
-ObjTotest(20,1) = "(dkQmail å‘ä¿¡)"
+ObjTotest(20,1) = "(dkQmail ·¢ĞÅ)"
 ObjTotest(21,0) = "Geocel.Mailer"
-ObjTotest(21,1) = "(Geocel å‘ä¿¡)"
+ObjTotest(21,1) = "(Geocel ·¢ĞÅ)"
 ObjTotest(22,0) = "IISmail.Iismail.1"
-ObjTotest(22,1) = "(IISmail å‘ä¿¡)"
+ObjTotest(22,1) = "(IISmail ·¢ĞÅ)"
 ObjTotest(23,0) = "SmtpMail.SmtpMail.1"
-ObjTotest(23,1) = "(SmtpMail å‘ä¿¡)"
+ObjTotest(23,1) = "(SmtpMail ·¢ĞÅ)"
 
 ObjTotest(24,0) = "SoftArtisans.ImageGen"
-ObjTotest(24,1) = "(SA çš„å›¾åƒè¯»å†™ç»„ä»¶)"
+ObjTotest(24,1) = "(SA µÄÍ¼Ïñ¶ÁĞ´×é¼ş)"
 ObjTotest(25,0) = "W3Image.Image"
-ObjTotest(25,1) = "(Dimac çš„å›¾åƒè¯»å†™ç»„ä»¶)"
+ObjTotest(25,1) = "(Dimac µÄÍ¼Ïñ¶ÁĞ´×é¼ş)"
 
 Public IsObj,VerObj,TestObj
 
-'æ£€æŸ¥é¢„æŸ¥ç»„ä»¶æ”¯æŒæƒ…å†µåŠç‰ˆæœ¬
+'¼ì²éÔ¤²é×é¼şÖ§³ÖÇé¿ö¼°°æ±¾
 
 Dim i
 
@@ -79,7 +79,7 @@ For i = 0 To 25
     'dim TestObj
     TestObj     = ""
     Set TestObj = Server.CreateObject(ObjTotest(i,0))
-    If - 2147221005 <> Err Then		'æ„Ÿè°¢ç½‘å‹iAmFisherçš„å®è´µå»ºè®®
+    If - 2147221005 <> Err Then		'¸ĞĞ»ÍøÓÑiAmFisherµÄ±¦¹ó½¨Òé
     IsObj       = True
     VerObj      = TestObj.version
     If VerObj = "" Or IsNull(VerObj) Then VerObj = TestObj.about
@@ -89,14 +89,14 @@ ObjTotest(i,2) = IsObj
 ObjTotest(i,3) = VerObj
 Next
 
-'æ£€æŸ¥ç»„ä»¶æ˜¯å¦è¢«æ”¯æŒåŠç»„ä»¶ç‰ˆæœ¬çš„å­ç¨‹åº
+'¼ì²é×é¼şÊÇ·ñ±»Ö§³Ö¼°×é¼ş°æ±¾µÄ×Ó³ÌĞò
 Sub ObjTest(strObj)
 On Error Resume Next
 IsObj       = False
 VerObj      = ""
 TestObj     = ""
 Set TestObj = Server.CreateObject (strObj)
-If - 2147221005 <> Err Then		'æ„Ÿè°¢ç½‘å‹iAmFisherçš„å®è´µå»ºè®®
+If - 2147221005 <> Err Then		'¸ĞĞ»ÍøÓÑiAmFisherµÄ±¦¹ó½¨Òé
 IsObj       = True
 VerObj      = TestObj.version
 If VerObj = "" Or IsNull(VerObj) Then VerObj = TestObj.about
@@ -106,12 +106,12 @@ End Sub %>
 <HTML>
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<TITLE>ASPæ¢é’ˆV1.70ï¼é˜¿æ±Ÿhttp://www.ajiang.net</TITLE>
+<TITLE>ASPÌ½ÕëV1.70£­°¢½­http://www.ajiang.net</TITLE>
 <style>
 <!--
 BODY
 {
-	FONT-FAMILY: å®‹ä½“;
+	FONT-FAMILY: ËÎÌå;
 	FONT-SIZE: 9pt
 }
 TD
@@ -160,156 +160,156 @@ A:hover
 </STYLE>
 </HEAD>
 <BODY>
-<a href="mailto:info@ajiang.net">é˜¿æ±Ÿ</a>æ”¹å†™çš„ASPæ¢é’ˆ-<font class=fonts>V1.70</font><br><br>
-<font class=fonts>æ˜¯å¦æ”¯æŒASP</font>
-<br>å‡ºç°ä»¥ä¸‹æƒ…å†µå³è¡¨ç¤ºæ‚¨çš„ç©ºé—´ä¸æ”¯æŒASPï¼š
-<br>1ã€è®¿é—®æœ¬æ–‡ä»¶æ—¶æç¤ºä¸‹è½½ã€‚
-<br>2ã€è®¿é—®æœ¬æ–‡ä»¶æ—¶çœ‹åˆ°ç±»ä¼¼â€œ&lt;%@ Language="VBScript" %&gt;â€çš„æ–‡å­—ã€‚
+<a href="mailto:info@ajiang.net">°¢½­</a>¸ÄĞ´µÄASPÌ½Õë-<font class=fonts>V1.70</font><br><br>
+<font class=fonts>ÊÇ·ñÖ§³ÖASP</font>
+<br>³öÏÖÒÔÏÂÇé¿ö¼´±íÊ¾ÄúµÄ¿Õ¼ä²»Ö§³ÖASP£º
+<br>1¡¢·ÃÎÊ±¾ÎÄ¼şÊ±ÌáÊ¾ÏÂÔØ¡£
+<br>2¡¢·ÃÎÊ±¾ÎÄ¼şÊ±¿´µ½ÀàËÆ¡°&lt;%@ Language="VBScript" %&gt;¡±µÄÎÄ×Ö¡£
 <br><br>
 
-<font class=fonts>æœåŠ¡å™¨çš„æœ‰å…³å‚æ•°</font>
+<font class=fonts>·şÎñÆ÷µÄÓĞ¹Ø²ÎÊı</font>
 <table border=0 width=450 cellspacing=0 cellpadding=0 bgcolor="#3F8805">
 <tr><td>
 
 	<table border=0 width=450 cellspacing=1 cellpadding=0>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;æœåŠ¡å™¨å</td><td>&nbsp;<% = Request.ServerVariables("SERVER_NAME") %></td>
+		<td align=left>&nbsp;·şÎñÆ÷Ãû</td><td>&nbsp;<% = Request.ServerVariables("SERVER_NAME") %></td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;æœåŠ¡å™¨IP</td><td>&nbsp;<% = Request.ServerVariables("LOCAL_ADDR") %></td>
+		<td align=left>&nbsp;·şÎñÆ÷IP</td><td>&nbsp;<% = Request.ServerVariables("LOCAL_ADDR") %></td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;æœåŠ¡å™¨ç«¯å£</td><td>&nbsp;<% = Request.ServerVariables("SERVER_PORT") %></td>
+		<td align=left>&nbsp;·şÎñÆ÷¶Ë¿Ú</td><td>&nbsp;<% = Request.ServerVariables("SERVER_PORT") %></td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;æœåŠ¡å™¨æ—¶é—´</td><td>&nbsp;<% = Now %></td>
+		<td align=left>&nbsp;·şÎñÆ÷Ê±¼ä</td><td>&nbsp;<% = Now %></td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;IISç‰ˆæœ¬</td><td>&nbsp;<% = Request.ServerVariables("SERVER_SOFTWARE") %></td>
+		<td align=left>&nbsp;IIS°æ±¾</td><td>&nbsp;<% = Request.ServerVariables("SERVER_SOFTWARE") %></td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;è„šæœ¬è¶…æ—¶æ—¶é—´</td><td>&nbsp;<% = Server.ScriptTimeout %> ç§’</td>
+		<td align=left>&nbsp;½Å±¾³¬Ê±Ê±¼ä</td><td>&nbsp;<% = Server.ScriptTimeout %> Ãë</td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;æœ¬æ–‡ä»¶è·¯å¾„</td><td>&nbsp;<% = Request.ServerVariables("PATH_TRANSLATED") %></td>
+		<td align=left>&nbsp;±¾ÎÄ¼şÂ·¾¶</td><td>&nbsp;<% = Request.ServerVariables("PATH_TRANSLATED") %></td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;æœåŠ¡å™¨CPUæ•°é‡</td><td>&nbsp;<% = Request.ServerVariables("NUMBER_OF_PROCESSORS") %> ä¸ª</td>
+		<td align=left>&nbsp;·şÎñÆ÷CPUÊıÁ¿</td><td>&nbsp;<% = Request.ServerVariables("NUMBER_OF_PROCESSORS") %> ¸ö</td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;æœåŠ¡å™¨è§£è¯‘å¼•æ“</td><td>&nbsp;<% = ScriptEngine & "/" & ScriptEngineMajorVersion & "." & ScriptEngineMinorVersion & "." & ScriptEngineBuildVersion %></td>
+		<td align=left>&nbsp;·şÎñÆ÷½âÒëÒıÇæ</td><td>&nbsp;<% = ScriptEngine & "/" & ScriptEngineMajorVersion & "." & ScriptEngineMinorVersion & "." & ScriptEngineBuildVersion %></td>
 	  </tr>
 	  <tr bgcolor="#EEFEE0" height=18>
-		<td align=left>&nbsp;æœåŠ¡å™¨æ“ä½œç³»ç»Ÿ</td><td>&nbsp;<% = Request.ServerVariables("OS") %></td>
+		<td align=left>&nbsp;·şÎñÆ÷²Ù×÷ÏµÍ³</td><td>&nbsp;<% = Request.ServerVariables("OS") %></td>
 	  </tr>
 	</table>
 
 </td></tr>
 </table>
 <br>
-<font class=fonts>ç»„ä»¶æ”¯æŒæƒ…å†µ</font>
+<font class=fonts>×é¼şÖ§³ÖÇé¿ö</font>
 <%
 Dim strClass
 strClass = Trim(Request.Form("classname"))
 
 If "" <> strClass Then
-Response.Write "<br>æ‚¨æŒ‡å®šçš„ç»„ä»¶çš„æ£€æŸ¥ç»“æœï¼š"
+Response.Write "<br>ÄúÖ¸¶¨µÄ×é¼şµÄ¼ì²é½á¹û£º"
 Dim Verobj1
 ObjTest(strClass)
 
 If Not IsObj Then
-Response.Write "<br><font color=red>å¾ˆé—æ†¾ï¼Œè¯¥æœåŠ¡å™¨ä¸æ”¯æŒ " & strclass & " ç»„ä»¶ï¼</font>"
+Response.Write "<br><font color=red>ºÜÒÅº¶£¬¸Ã·şÎñÆ÷²»Ö§³Ö " & strclass & " ×é¼ş£¡</font>"
 Else
 
 If VerObj = "" Or IsNull(VerObj) Then
-    Verobj1 = "æ— æ³•å–å¾—è¯¥ç»„ä»¶ç‰ˆæœ¬"
+    Verobj1 = "ÎŞ·¨È¡µÃ¸Ã×é¼ş°æ±¾"
 Else
-    Verobj1 = "è¯¥ç»„ä»¶ç‰ˆæœ¬æ˜¯ï¼š" & VerObj
+    Verobj1 = "¸Ã×é¼ş°æ±¾ÊÇ£º" & VerObj
 End If
 
-Response.Write "<br><font class=fonts>æ­å–œï¼è¯¥æœåŠ¡å™¨æ”¯æŒ " & strclass & " ç»„ä»¶ã€‚" & verobj1 & "</font>"
+Response.Write "<br><font class=fonts>¹§Ï²£¡¸Ã·şÎñÆ÷Ö§³Ö " & strclass & " ×é¼ş¡£" & verobj1 & "</font>"
 End If
 
 Response.Write "<br>"
 End If %>
 
 
-<br>â–  IISè‡ªå¸¦çš„ASPç»„ä»¶
+<br>¡ö IIS×Ô´øµÄASP×é¼ş
 <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
-	<tr height=18 class=backs align=center><td width=320>ç»„ ä»¶ å ç§°</td><td width=130>æ”¯æŒåŠç‰ˆæœ¬</td></tr>
+	<tr height=18 class=backs align=center><td width=320>×é ¼ş Ãû ³Æ</td><td width=130>Ö§³Ö¼°°æ±¾</td></tr>
 	<% For i = 0 To 10 %>
 	<tr height="18" class=backq>
 		<td align=left>&nbsp;<% = ObjTotest(i,0) & "<font color=#888888>&nbsp;" & ObjTotest(i,1) %></font></td>
 		<td align=left>&nbsp;<%
 
 If Not ObjTotest(i,2) Then
-Response.Write "<font color=red><b>Ã—</b></font>"
+Response.Write "<font color=red><b>¡Á</b></font>"
 Else
-Response.Write "<font class=fonts><b>âˆš</b></font> <a title='" & ObjTotest(i,3) & "'>" & Left(ObjTotest(i,3),11) & "</a>"
+Response.Write "<font class=fonts><b>¡Ì</b></font> <a title='" & ObjTotest(i,3) & "'>" & Left(ObjTotest(i,3),11) & "</a>"
 End If %></td>
 	</tr>
 	<% Next %>
 </table>
 
-<br>â–  å¸¸è§çš„æ–‡ä»¶ä¸Šä¼ å’Œç®¡ç†ç»„ä»¶
+<br>¡ö ³£¼ûµÄÎÄ¼şÉÏ´«ºÍ¹ÜÀí×é¼ş
 <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
-	<tr height=18 class=backs align=center><td width=320>ç»„ ä»¶ å ç§°</td><td width=130>æ”¯æŒåŠç‰ˆæœ¬</td></tr>
+	<tr height=18 class=backs align=center><td width=320>×é ¼ş Ãû ³Æ</td><td width=130>Ö§³Ö¼°°æ±¾</td></tr>
 	<% For i = 11 To 15 %>
 	<tr height="18" class=backq>
 		<td align=left>&nbsp;<% = ObjTotest(i,0) & "<font color=#888888>&nbsp;" & ObjTotest(i,1) %></font></td>
 		<td align=left>&nbsp;<%
 
 If Not ObjTotest(i,2) Then
-Response.Write "<font color=red><b>Ã—</b></font>"
+Response.Write "<font color=red><b>¡Á</b></font>"
 Else
-Response.Write "<font class=fonts><b>âˆš</b></font> <a title='" & ObjTotest(i,3) & "'>" & Left(ObjTotest(i,3),11) & "</a>"
+Response.Write "<font class=fonts><b>¡Ì</b></font> <a title='" & ObjTotest(i,3) & "'>" & Left(ObjTotest(i,3),11) & "</a>"
 End If %></td>
 	</tr>
 	<% Next %>
 </table>
 
-<br>â–  å¸¸è§çš„æ”¶å‘é‚®ä»¶ç»„ä»¶
+<br>¡ö ³£¼ûµÄÊÕ·¢ÓÊ¼ş×é¼ş
 <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
-	<tr height=18 class=backs align=center><td width=320>ç»„ ä»¶ å ç§°</td><td width=130>æ”¯æŒåŠç‰ˆæœ¬</td></tr>
+	<tr height=18 class=backs align=center><td width=320>×é ¼ş Ãû ³Æ</td><td width=130>Ö§³Ö¼°°æ±¾</td></tr>
 	<% For i = 16 To 23 %>
 	<tr height="18" class=backq>
 		<td align=left>&nbsp;<% = ObjTotest(i,0) & "<font color=#888888>&nbsp;" & ObjTotest(i,1) %></font></td>
 		<td align=left>&nbsp;<%
 
 If Not ObjTotest(i,2) Then
-Response.Write "<font color=red><b>Ã—</b></font>"
+Response.Write "<font color=red><b>¡Á</b></font>"
 Else
-Response.Write "<font class=fonts><b>âˆš</b></font> <a title='" & ObjTotest(i,3) & "'>" & Left(ObjTotest(i,3),11) & "</a>"
+Response.Write "<font class=fonts><b>¡Ì</b></font> <a title='" & ObjTotest(i,3) & "'>" & Left(ObjTotest(i,3),11) & "</a>"
 End If %></td>
 	</tr>
 	<% Next %>
 </table>
 
-<br>â–  å›¾åƒå¤„ç†ç»„ä»¶
+<br>¡ö Í¼Ïñ´¦Àí×é¼ş
 <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
-	<tr height=18 class=backs align=center><td width=320>ç»„ ä»¶ å ç§°</td><td width=130>æ”¯æŒåŠç‰ˆæœ¬</td></tr>
+	<tr height=18 class=backs align=center><td width=320>×é ¼ş Ãû ³Æ</td><td width=130>Ö§³Ö¼°°æ±¾</td></tr>
 	<% For i = 24 To 25 %>
 	<tr height="18" class=backq>
 		<td align=left>&nbsp;<% = ObjTotest(i,0) & "<font color=#888888>&nbsp;" & ObjTotest(i,1) %></font></td>
 		<td align=left>&nbsp;<%
 
 If Not ObjTotest(i,2) Then
-Response.Write "<font color=red><b>Ã—</b></font>"
+Response.Write "<font color=red><b>¡Á</b></font>"
 Else
-Response.Write "<font class=fonts><b>âˆš</b></font> <a title='" & ObjTotest(i,3) & "'>" & Left(ObjTotest(i,3),11) & "</a>"
+Response.Write "<font class=fonts><b>¡Ì</b></font> <a title='" & ObjTotest(i,3) & "'>" & Left(ObjTotest(i,3),11) & "</a>"
 End If %></td>
 	</tr>
 	<% Next %>
 </table>
 
-<br>â–  å…¶ä»–ç»„ä»¶æ”¯æŒæƒ…å†µæ£€æµ‹<br>
-åœ¨ä¸‹é¢çš„è¾“å…¥æ¡†ä¸­è¾“å…¥ä½ è¦æ£€æµ‹çš„ç»„ä»¶çš„ProgIdæˆ–ClassIdã€‚
+<br>¡ö ÆäËû×é¼şÖ§³ÖÇé¿ö¼ì²â<br>
+ÔÚÏÂÃæµÄÊäÈë¿òÖĞÊäÈëÄãÒª¼ì²âµÄ×é¼şµÄProgId»òClassId¡£
 <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
 <FORM action=<% = Request.ServerVariables("SCRIPT_NAME") %> method=post id=form1 name=form1>
 	<tr height="18" class=backq>
 		<td align=center height=30><input class=input type=text value="" name="classname" size=40>
-<INPUT type=submit value=" ç¡® å®š " class=backc id=submit1 name=submit1>
-<INPUT type=reset value=" é‡ å¡« " class=backc id=reset1 name=reset1> 
+<INPUT type=submit value=" È· ¶¨ " class=backc id=submit1 name=submit1>
+<INPUT type=reset value=" ÖØ Ìî " class=backc id=reset1 name=reset1> 
 </td>
 	  </tr>
 </FORM>
@@ -319,22 +319,22 @@ End If %></td>
 
 Set fsoobj = Server.CreateObject("Scripting.FileSystemObject") %>
 
-<br><font class=fonts>ç£ç›˜ç›¸å…³æµ‹è¯•</font>
+<br><font class=fonts>´ÅÅÌÏà¹Ø²âÊÔ</font>
 
-<br>â–  æœåŠ¡å™¨ç£ç›˜ä¿¡æ¯
+<br>¡ö ·şÎñÆ÷´ÅÅÌĞÅÏ¢
 
 <table class=backq border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
   <tr height="18" align=center class="backs">
-	<td width="100">ç›˜ç¬¦å’Œç£ç›˜ç±»å‹</td>
-	<td width="50">å°±ç»ª</td>
-	<td width="80">å·æ ‡</td>
-	<td width="60">æ–‡ä»¶ç³»ç»Ÿ</td>
-	<td width="80">å¯ç”¨ç©ºé—´</td>
-	<td width="80">æ€»ç©ºé—´</td>
+	<td width="100">ÅÌ·ûºÍ´ÅÅÌÀàĞÍ</td>
+	<td width="50">¾ÍĞ÷</td>
+	<td width="80">¾í±ê</td>
+	<td width="60">ÎÄ¼şÏµÍ³</td>
+	<td width="80">¿ÉÓÃ¿Õ¼ä</td>
+	<td width="80">×Ü¿Õ¼ä</td>
   </tr>
 <%
 
-' æµ‹è¯•ç£ç›˜ä¿¡æ¯çš„æƒ³æ³•æ¥è‡ªâ€œCOCOON ASP æ¢é’ˆâ€
+' ²âÊÔ´ÅÅÌĞÅÏ¢µÄÏë·¨À´×Ô¡°COCOON ASP Ì½Õë¡±
 
 Set drvObj = fsoobj.Drives
 
@@ -342,7 +342,7 @@ For Each d in drvObj %>
   <tr height="18" align=center>
 	<td align="right"><% = cdrivetype(d.DriveType) & " " & d.DriveLetter %>:</td>
 <%
-If d.DriveLetter = "A" Then	'ä¸ºé˜²æ­¢å½±å“æœåŠ¡å™¨ï¼Œä¸æ£€æŸ¥è½¯é©±
+If d.DriveLetter = "A" Then	'Îª·ÀÖ¹Ó°Ïì·şÎñÆ÷£¬²»¼ì²éÈíÇı
 Response.Write "<td></td><td></td><td></td><td></td><td></td>"
 Else %>
 	<td><% = cIsReady(d.isReady) %></td>
@@ -358,19 +358,19 @@ Next %>
 </td></tr>
 </table>
 
-<br>â–  å½“å‰æ–‡ä»¶å¤¹ä¿¡æ¯
+<br>¡ö µ±Ç°ÎÄ¼ş¼ĞĞÅÏ¢
 <%
 dPath      = Server.MapPath("./")
 Set dDir   = fsoObj.GetFolder(dPath)
 Set dDrive = fsoObj.GetDrive(dDir.Drive) %>
-æ–‡ä»¶å¤¹: <% = dPath %>
+ÎÄ¼ş¼Ğ: <% = dPath %>
 <table class=backq border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
   <tr height="18" align="center" class="backs">
-	<td width="75">å·²ç”¨ç©ºé—´</td>
-	<td width="75">å¯ç”¨ç©ºé—´</td>
-	<td width="75">æ–‡ä»¶å¤¹æ•°</td>
-	<td width="75">æ–‡ä»¶æ•°</td>
-	<td width="150">åˆ›å»ºæ—¶é—´</td>
+	<td width="75">ÒÑÓÃ¿Õ¼ä</td>
+	<td width="75">¿ÉÓÃ¿Õ¼ä</td>
+	<td width="75">ÎÄ¼ş¼ĞÊı</td>
+	<td width="75">ÎÄ¼şÊı</td>
+	<td width="150">´´½¨Ê±¼ä</td>
   </tr>
   <tr height="18" align="center">
 	<td><% = cSize(dDir.Size) %></td>
@@ -382,12 +382,12 @@ Set dDrive = fsoObj.GetDrive(dDir.Drive) %>
 </td></tr>
 </table>
 
-<br>â–  ç£ç›˜æ–‡ä»¶æ“ä½œé€Ÿåº¦æµ‹è¯•<br>
+<br>¡ö ´ÅÅÌÎÄ¼ş²Ù×÷ËÙ¶È²âÊÔ<br>
 <%
 
-' æµ‹è¯•æ–‡ä»¶è¯»å†™çš„æƒ³æ³•æ¥è‡ªâ€œè¿·åŸæµªå­â€
+' ²âÊÔÎÄ¼ş¶ÁĞ´µÄÏë·¨À´×Ô¡°ÃÔ³ÇÀË×Ó¡±
 
-Response.Write "æ­£åœ¨é‡å¤åˆ›å»ºã€å†™å…¥å’Œåˆ é™¤æ–‡æœ¬æ–‡ä»¶50æ¬¡..."
+Response.Write "ÕıÔÚÖØ¸´´´½¨¡¢Ğ´ÈëºÍÉ¾³ıÎÄ±¾ÎÄ¼ş50´Î..."
 
 Dim thetime3
 Dim tempfile
@@ -403,7 +403,7 @@ Err.Clear
 Set tempfileOBJ = FsoObj.CreateTextFile(tempfile,True)
 
 If Err <> 0 Then
-Response.Write "åˆ›å»ºæ–‡ä»¶é”™è¯¯ï¼<br><br>"
+Response.Write "´´½¨ÎÄ¼ş´íÎó£¡<br><br>"
 iserr = True
 Err.Clear
 Exit For
@@ -412,7 +412,7 @@ End If
 tempfileOBJ.WriteLine "Only for test. Ajiang ASPcheck"
 
 If Err <> 0 Then
-Response.Write "å†™å…¥æ–‡ä»¶é”™è¯¯ï¼<br><br>"
+Response.Write "Ğ´ÈëÎÄ¼ş´íÎó£¡<br><br>"
 iserr = True
 Err.Clear
 Exit For
@@ -423,7 +423,7 @@ Set tempfileOBJ = FsoObj.GetFile(tempfile)
 tempfileOBJ.Delete
 
 If Err <> 0 Then
-Response.Write "åˆ é™¤æ–‡ä»¶é”™è¯¯ï¼<br><br>"
+Response.Write "É¾³ıÎÄ¼ş´íÎó£¡<br><br>"
 iserr = True
 Err.Clear
 Exit For
@@ -436,20 +436,20 @@ t2              = timer
 
 If iserr <> True Then
 thetime3        = CStr(Int(( (t2 - t1)*10000 ) + 0.5)/10)
-Response.Write "...å·²å®Œæˆï¼<font color=red>" & thetime3 & "æ¯«ç§’</font>ã€‚<br>" %>
+Response.Write "...ÒÑÍê³É£¡<font color=red>" & thetime3 & "ºÁÃë</font>¡£<br>" %>
 <table class=backq border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
   <tr height=18 align=center class="backs">
-	<td width=320>ä¾› å¯¹ ç…§ çš„ æœ åŠ¡ å™¨</td>
-	<td width=130>å®Œæˆæ—¶é—´(æ¯«ç§’)</td>
+	<td width=320>¹© ¶Ô ÕÕ µÄ ·ş Îñ Æ÷</td>
+	<td width=130>Íê³ÉÊ±¼ä(ºÁÃë)</td>
   </tr>
   <tr height=18>
-	<td align=left>&nbsp;<a href="http://www.ajiang.net">é˜¿æ±Ÿçš„ä¸ªäººä¸»æœºï¼ˆDDR512Mèµ›æ‰¬1.7G,å¸Œæ·7200è½¬/2Mï¼‰</a></td><td>&nbsp;140ï½200</td>
+	<td align=left>&nbsp;<a href="http://www.ajiang.net">°¢½­µÄ¸öÈËÖ÷»ú£¨DDR512MÈüÑï1.7G,Ï£½İ7200×ª/2M£©</a></td><td>&nbsp;140¡«200</td>
   </tr>
   <tr height=18>
-	<td align=left>&nbsp;<a href="http://www.ajiang.net">é˜¿æ±Ÿå•ä½çš„ç”µè„‘ï¼ˆSD256Mèµ›æ‰¬660,å¸Œæ·5400è½¬ï¼‰</a></td><td>&nbsp;350ï½600</td>
+	<td align=left>&nbsp;<a href="http://www.ajiang.net">°¢½­µ¥Î»µÄµçÄÔ£¨SD256MÈüÑï660,Ï£½İ5400×ª£©</a></td><td>&nbsp;350¡«600</td>
   </tr>
   <tr height=18>
-	<td align=left>&nbsp;<font color=red>è¿™å°æœåŠ¡å™¨: <% = Request.ServerVariables("SERVER_NAME") %></font>&nbsp;</td><td>&nbsp;<font color=red><% = thetime3 %></font></td>
+	<td align=left>&nbsp;<font color=red>ÕâÌ¨·şÎñÆ÷: <% = Request.ServerVariables("SERVER_NAME") %></font>&nbsp;</td><td>&nbsp;<font color=red><% = thetime3 %></font></td>
   </tr>
 </table>
 <%
@@ -459,13 +459,13 @@ Set fsoobj = Nothing
 
 End If %>
 <br>
-<font class=fonts>ASPè„šæœ¬è§£é‡Šå’Œè¿ç®—é€Ÿåº¦æµ‹è¯•</font><br>
+<font class=fonts>ASP½Å±¾½âÊÍºÍÔËËãËÙ¶È²âÊÔ</font><br>
 <%
 
-'æ„Ÿè°¢ç½‘é™…åŒå­¦å½• http://www.5719.net æ¨èä½¿ç”¨timerå‡½æ•°
-'å› ä¸ºåªè¿›è¡Œ50ä¸‡æ¬¡è®¡ç®—ï¼Œæ‰€ä»¥å»æ‰äº†æ˜¯å¦æ£€æµ‹çš„é€‰é¡¹è€Œç›´æ¥æ£€æµ‹
+'¸ĞĞ»Íø¼ÊÍ¬Ñ§Â¼ http://www.5719.net ÍÆ¼öÊ¹ÓÃtimerº¯Êı
+'ÒòÎªÖ»½øĞĞ50Íò´Î¼ÆËã£¬ËùÒÔÈ¥µôÁËÊÇ·ñ¼ì²âµÄÑ¡Ïî¶øÖ±½Ó¼ì²â
 
-Response.Write "æ•´æ•°è¿ç®—æµ‹è¯•ï¼Œæ­£åœ¨è¿›è¡Œ50ä¸‡æ¬¡åŠ æ³•è¿ç®—..."
+Response.Write "ÕûÊıÔËËã²âÊÔ£¬ÕıÔÚ½øĞĞ50Íò´Î¼Ó·¨ÔËËã..."
 Dim t1
 Dim t2
 Dim lsabc
@@ -479,9 +479,9 @@ Next
 
 t2      = timer
 thetime = CStr(Int(( (t2 - t1)*10000 ) + 0.5)/10)
-Response.Write "...å·²å®Œæˆï¼<font color=red>" & thetime & "æ¯«ç§’</font>ã€‚<br>"
+Response.Write "...ÒÑÍê³É£¡<font color=red>" & thetime & "ºÁÃë</font>¡£<br>"
 
-Response.Write "æµ®ç‚¹è¿ç®—æµ‹è¯•ï¼Œæ­£åœ¨è¿›è¡Œ20ä¸‡æ¬¡å¼€æ–¹è¿ç®—..."
+Response.Write "¸¡µãÔËËã²âÊÔ£¬ÕıÔÚ½øĞĞ20Íò´Î¿ª·½ÔËËã..."
 t1       = timer
 
 For i = 1 To 200000
@@ -490,53 +490,53 @@ Next
 
 t2       = timer
 thetime2 = CStr(Int(( (t2 - t1)*10000 ) + 0.5)/10)
-Response.Write "...å·²å®Œæˆï¼<font color=red>" & thetime2 & "æ¯«ç§’</font>ã€‚<br>" %>
+Response.Write "...ÒÑÍê³É£¡<font color=red>" & thetime2 & "ºÁÃë</font>¡£<br>" %>
 <table class=backq border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#3F8805" width="450">
   <tr height=18 align=center class="backs">
-	<td width=320>ä¾›å¯¹ç…§çš„æœåŠ¡å™¨åŠå®Œæˆæ—¶é—´(æ¯«ç§’)</td>
-    <td width=65>æ•´æ•°è¿ç®—</td><td width=65>æµ®ç‚¹è¿ç®—</td>
+	<td width=320>¹©¶ÔÕÕµÄ·şÎñÆ÷¼°Íê³ÉÊ±¼ä(ºÁÃë)</td>
+    <td width=65>ÕûÊıÔËËã</td><td width=65>¸¡µãÔËËã</td>
   </tr>
   <tr height=18>
-	<td align=left>&nbsp;<a href="http://www.100u.com?come=aspcheck&keyword=è™šæ‹Ÿä¸»æœº"
-	>ç™¾ä¼˜ç§‘æŠ€ 100u ä¸»æœº, <font color=#888888>2003-11-1</font></a></td><td>&nbsp;181ï½233</td><td>&nbsp;156ï½218</td>
+	<td align=left>&nbsp;<a href="http://www.100u.com?come=aspcheck&keyword=ĞéÄâÖ÷»ú"
+	>°ÙÓÅ¿Æ¼¼ 100u Ö÷»ú, <font color=#888888>2003-11-1</font></a></td><td>&nbsp;181¡«233</td><td>&nbsp;156¡«218</td>
   </tr>
   <tr height=18>
 	<td align=left>&nbsp;<a href="http://www.west263.com/index.asp?ads=ajiang"
-	>è¥¿éƒ¨æ•°ç  west263 ä¸»æœº, <font color=#888888>2003-11-1</font></a></td><td>&nbsp;171ï½233</td><td>&nbsp;156ï½171</td>
+	>Î÷²¿ÊıÂë west263 Ö÷»ú, <font color=#888888>2003-11-1</font></a></td><td>&nbsp;171¡«233</td><td>&nbsp;156¡«171</td>
   </tr>
   <tr height=18>
 	<td align=left>&nbsp;<a href="http://www.linkwww.com "
-	>è”ç½‘ç§‘æŠ€ linkwww ä¸»æœº,  <font color=#888888>2003-11-1</font></a></td><td>&nbsp;181ï½203</td><td>&nbsp;171</td>
+	>ÁªÍø¿Æ¼¼ linkwww Ö÷»ú,  <font color=#888888>2003-11-1</font></a></td><td>&nbsp;181¡«203</td><td>&nbsp;171</td>
   </tr>
   <tr height=18>
 	<td align=left>&nbsp;<a href="http://www.9s5.com/"
-	>å°±æ˜¯æˆ‘www.9s5.comå…¨åŠŸèƒ½(ASP+PHP+JSP)ä¸»æœº,<font color=#888888>2003-11-1</font></a></td><td>&nbsp;171ï½187</td><td>&nbsp;156ï½171</td>
+	>¾ÍÊÇÎÒwww.9s5.comÈ«¹¦ÄÜ(ASP+PHP+JSP)Ö÷»ú,<font color=#888888>2003-11-1</font></a></td><td>&nbsp;171¡«187</td><td>&nbsp;156¡«171</td>
   </tr>
   <tr height=18>
 	<td align=left>&nbsp;<a href="http://www.dnsmy.com/"
-	>æ°¸è®¯ç½‘ç»œ Dnsmy ä¸»æœº, <font color=#888888>2003-11-1</font></a></td><td>&nbsp;155ï½180</td><td>&nbsp;122ï½172</td>
+	>ÓÀÑ¶ÍøÂç Dnsmy Ö÷»ú, <font color=#888888>2003-11-1</font></a></td><td>&nbsp;155¡«180</td><td>&nbsp;122¡«172</td>
   </tr>
   <tr height=18>
 	<td align=left>&nbsp;<a href="http://www.senye.net/"
-	>èƒœæ˜“ç½‘ç»œ Senye.net ä¸»æœº, <font color=#888888>2003-10-28</font></a></td><td>&nbsp;171ï½187</td><td>&nbsp;156ï½171</td>
+	>Ê¤Ò×ÍøÂç Senye.net Ö÷»ú, <font color=#888888>2003-10-28</font></a></td><td>&nbsp;171¡«187</td><td>&nbsp;156¡«171</td>
   </tr>
   <tr height=18>
-	<td align=left>&nbsp;<font color=red>è¿™å°æœåŠ¡å™¨: <% = Request.ServerVariables("SERVER_NAME") %></font>&nbsp;</td><td>&nbsp;<font color=red><% = thetime %></font></td><td>&nbsp;<font color=red><% = thetime2 %></font></td>
+	<td align=left>&nbsp;<font color=red>ÕâÌ¨·şÎñÆ÷: <% = Request.ServerVariables("SERVER_NAME") %></font>&nbsp;</td><td>&nbsp;<font color=red><% = thetime %></font></td><td>&nbsp;<font color=red><% = thetime2 %></font></td>
   </tr>
 </table>
 <br>
 <table border=0 width=450 cellspacing=0 cellpadding=0>
 <tr><td align=center>
-<b>[<a href="http://www.ajiang.net/products/aspcheck/serverlist.asp#notice">æé†’Â·è¯´æ˜</a>]
-&nbsp;[<a href="http://www.ajiang.net/products/aspcheck/serverlist.asp">æ›´å¤šç©ºé—´å•†å³æ—¶å®æµ‹æ•°æ®</a>]
-&nbsp;[<a href="http://www.ajiang.net/products/aspcheck/">æŸ¥çœ‹ä¸‹è½½æœ€æ–°ç‰ˆ</a>]</b>
+<b>[<a href="http://www.ajiang.net/products/aspcheck/serverlist.asp#notice">ÌáĞÑ¡¤ËµÃ÷</a>]
+&nbsp;[<a href="http://www.ajiang.net/products/aspcheck/serverlist.asp">¸ü¶à¿Õ¼äÉÌ¼´Ê±Êµ²âÊı¾İ</a>]
+&nbsp;[<a href="http://www.ajiang.net/products/aspcheck/">²é¿´ÏÂÔØ×îĞÂ°æ</a>]</b>
 </td></tr>
 </table>
 <br>
 <table border=0 width=450 cellspacing=0 cellpadding=0>
 <tr><td align=center>
-æ¬¢è¿è®¿é—® ã€é˜¿æ±Ÿå®ˆå€™ã€‘ <a href="http://www.ajiang.net">http://www.ajiang.net</a>
-<br>æœ¬ç¨‹åºç”±é˜¿æ±Ÿ(<a href="mailto:info@ajiang.net?subject=é˜¿æ±Ÿæ¢é’ˆ">info@ajiang.net</a>)ç¼–å†™ï¼Œè½¬è½½æ—¶è¯·ä¿ç•™è¿™äº›ä¿¡æ¯
+»¶Ó­·ÃÎÊ ¡¾°¢½­ÊØºò¡¿ <a href="http://www.ajiang.net">http://www.ajiang.net</a>
+<br>±¾³ÌĞòÓÉ°¢½­(<a href="mailto:info@ajiang.net?subject=°¢½­Ì½Õë">info@ajiang.net</a>)±àĞ´£¬×ªÔØÊ±Çë±£ÁôÕâĞ©ĞÅÏ¢
 </td></tr>
 </table>
 </BODY>
@@ -547,12 +547,12 @@ Response.Write "...å·²å®Œæˆï¼<font color=red>" & thetime2 & "æ¯«ç§’</font>ã€‚<
 Function cdrivetype(tnum)
 
 Select Case tnum
-Case 0: cdrivetype = "æœªçŸ¥"
-Case 1: cdrivetype = "å¯ç§»åŠ¨ç£ç›˜"
-Case 2: cdrivetype = "æœ¬åœ°ç¡¬ç›˜"
-Case 3: cdrivetype = "ç½‘ç»œç£ç›˜"
+Case 0: cdrivetype = "Î´Öª"
+Case 1: cdrivetype = "¿ÉÒÆ¶¯´ÅÅÌ"
+Case 2: cdrivetype = "±¾µØÓ²ÅÌ"
+Case 3: cdrivetype = "ÍøÂç´ÅÅÌ"
 Case 4: cdrivetype = "CD-ROM"
-Case 5: cdrivetype = "RAM ç£ç›˜"
+Case 5: cdrivetype = "RAM ´ÅÅÌ"
 End Select
 
 End Function
@@ -560,8 +560,8 @@ End Function
 Function cIsReady(trd)
 
 Select Case trd
-Case True: cIsReady = "<font class=fonts><b>âˆš</b></font>"
-Case False: cIsReady = "<font color='red'><b>Ã—</b></font>"
+Case True: cIsReady = "<font class=fonts><b>¡Ì</b></font>"
+Case False: cIsReady = "<font color='red'><b>¡Á</b></font>"
 End Select
 
 End Function

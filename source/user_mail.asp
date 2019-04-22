@@ -9,7 +9,7 @@
 Dim nummer
 Dim rssum
 Dim action_temp
-tit    = "ç«™å†…çŸ­ä¿¡"
+tit    = "Õ¾ÄÚ¶ÌĞÅ"
 nummer = 0
 
 Call web_head(2,0,0,0,0)
@@ -22,18 +22,18 @@ Response.Write ukong
 Call user_mail_menu(0)
 Response.Write table1 %>
 <tr align=center<% Response.Write table2 %> height=25>
-<td width='6%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>å·²è¯»</b></font></td>
+<td width='6%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>ÒÑ¶Á</b></font></td>
 <td width='20%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b><%
 
 If action = "outbox" Or action = "issend" Then
-    Response.Write "æ”¶"
+    Response.Write "ÊÕ"
 Else
-    Response.Write "å‘"
-End If %>ä¿¡äºº</b></font></td>
-<td width='38%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>çŸ­ä¿¡ä¸»é¢˜</b></font></td>
-<td width='20%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>å‘é€æ—¥æœŸ</b></font></td>
-<td width='10%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>å¤§å°</b></font></td>
-<td width='6%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>æ“ä½œ</b></font></td>
+    Response.Write "·¢"
+End If %>ĞÅÈË</b></font></td>
+<td width='38%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>¶ÌĞÅÖ÷Ìâ</b></font></td>
+<td width='20%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>·¢ËÍÈÕÆÚ</b></font></td>
+<td width='10%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>´óĞ¡</b></font></td>
+<td width='6%' background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif><font class=end><b>²Ù×÷</b></font></td>
 </tr>
 <script language=javascript src='STYLE/admin_del.js'></script>
 <form name=del_form action='user_mail.asp?action=<% Response.Write action %>' method=post>
@@ -76,9 +76,9 @@ Function del_select()
         Erase del_dim
 
         If del_type = "recycle" Then
-            del_select = "çŸ­ä¿¡åˆ é™¤æˆåŠŸï¼å…±åˆ é™¤äº† " & del_num + 1 & " æ¡çŸ­ä¿¡ã€‚\n\nçŸ­ä¿¡å·²å½»åº•åˆ é™¤ï¼"
+            del_select = "¶ÌĞÅÉ¾³ı³É¹¦£¡¹²É¾³ıÁË " & del_num + 1 & " Ìõ¶ÌĞÅ¡£\n\n¶ÌĞÅÒÑ³¹µ×É¾³ı£¡"
         Else
-            del_select = "çŸ­ä¿¡åˆ é™¤æˆåŠŸï¼å…±åˆ é™¤äº† " & del_num + 1 & " æ¡çŸ­ä¿¡ã€‚\n\nåˆ é™¤çš„çŸ­ä¿¡å°†ç½®äºæ‚¨çš„å›æ”¶ç«™å†…ã€‚"
+            del_select = "¶ÌĞÅÉ¾³ı³É¹¦£¡¹²É¾³ıÁË " & del_num + 1 & " Ìõ¶ÌĞÅ¡£\n\nÉ¾³ıµÄ¶ÌĞÅ½«ÖÃÓÚÄúµÄ»ØÊÕÕ¾ÄÚ¡£"
         End If
 
         del_select     = vbcrlf & "<script language=javascript>alert(""" & del_select & """);</script>"
@@ -95,17 +95,17 @@ sql = "select * from user_mail where "
 Select Case action
     Case "outbox"
         sql         = sql & "send_u='" & login_username & "' and types=2"
-        action_temp = "è‰ç¨¿ç®±"
+        action_temp = "²İ¸åÏä"
     Case "issend"
         sql         = sql & "send_u='" & login_username & "' and types=1"
-        action_temp = "å·²å‘çŸ­ä¿¡"
+        action_temp = "ÒÑ·¢¶ÌĞÅ"
     Case "recycle"
         sql         = sql & "(accept_u='" & login_username & "' or send_u='" & login_username & "') and types=4"
-        action_temp = "åºŸä¿¡ç®±"
+        action_temp = "·ÏĞÅÏä"
     Case Else
         action      = "inbox"
         sql         = sql & "accept_u='" & login_username & "' and types=1"
-        action_temp = "æ”¶ä¿¡ç®±"
+        action_temp = "ÊÕĞÅÏä"
 End Select
 
 sql           = sql & " order by id desc"
@@ -123,10 +123,10 @@ If Not(rs.eof And rs.bof) Then
     Next
 
 End If %>
-<tr><td colspan=6 bgcolor=<% Response.Write web_var(web_color,5) %> height=30 align=center class=htd>å…±<font class=red><% Response.Write nummer %></font>æ¡çŸ­ä¿¡<font class=gray>ï¼ˆä¸ºäº†èŠ‚çœç©ºé—´ï¼Œè¯·åŠæ—¶åˆ é™¤æ— ç”¨ä¿¡æ¯ï¼‰</font>
-<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write nummer %>') class=bg_3> é€‰ä¸­æ‰€æœ‰
-<input type=submit name=del_sel value='åˆ é™¤æ‰€é€‰' onclick="return suredel('<% Response.Write nummer %>');">
-<input type=submit name=clear onclick="{if(confirm('ç¡®å®šæ¸…ç©º<% Response.Write action_temp %>æ‰€æœ‰çš„çºªå½•å—?\n\næ¸…ç©ºåå°†æ— æ³•æ¢å¤ï¼')){this.document.del_form.submit();return true;}return false;}" value="æ¸…ç©º<% Response.Write action_temp %>" style='width:90px'></td></tr>
+<tr><td colspan=6 bgcolor=<% Response.Write web_var(web_color,5) %> height=30 align=center class=htd>¹²<font class=red><% Response.Write nummer %></font>Ìõ¶ÌĞÅ<font class=gray>£¨ÎªÁË½ÚÊ¡¿Õ¼ä£¬Çë¼°Ê±É¾³ıÎŞÓÃĞÅÏ¢£©</font>
+<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write nummer %>') class=bg_3> Ñ¡ÖĞËùÓĞ
+<input type=submit name=del_sel value='É¾³ıËùÑ¡' onclick="return suredel('<% Response.Write nummer %>');">
+<input type=submit name=clear onclick="{if(confirm('È·¶¨Çå¿Õ<% Response.Write action_temp %>ËùÓĞµÄ¼ÍÂ¼Âğ?\n\nÇå¿Õºó½«ÎŞ·¨»Ö¸´£¡')){this.document.del_form.submit();return true;}return false;}" value="Çå¿Õ<% Response.Write action_temp %>" style='width:90px'></td></tr>
 </table>
 <%
 Response.Write ukong
@@ -139,16 +139,16 @@ Function mail_clear()
     Select Case Trim(Request.form("del_type"))
         Case "inbox"
             conn.execute("delete from user_mail where accept_u='" & login_username & "' and types=1")
-            clear_type = "æ”¶ä¿¡ç®±"
+            clear_type = "ÊÕĞÅÏä"
         Case "outbox"
             conn.execute("delete from user_mail where send_u='" & login_username & "' and types=2")
-            clear_type = "è‰ç¨¿ç®±"
+            clear_type = "²İ¸åÏä"
         Case "issend"
             conn.execute("delete from user_mail where send_u='" & login_username & "' and types=1")
-            clear_type = "å·²å‘çŸ­ä¿¡"
+            clear_type = "ÒÑ·¢¶ÌĞÅ"
         Case "recycle"
             conn.execute("delete from user_mail where (accept_u='" & login_username & "' or send_u='" & login_username & "') and types=4")
-            clear_type = "åºŸä¿¡ç®±"
+            clear_type = "·ÏĞÅÏä"
     End Select
 
 End Function

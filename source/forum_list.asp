@@ -12,9 +12,9 @@ Call forum_first()
 
 Select Case action
     Case "manage"
-        tit = forumname & " [ç‰ˆé¢ç®¡ç†]"
+        tit = forumname & " [°æÃæ¹ÜÀí]"
     Case "isgood"
-        tit = forumname & " [æœ¬ç‰ˆç²¾å]"
+        tit = forumname & " [±¾°æ¾«»ª]"
     Case "move"
     Case Else
         action = ""
@@ -67,7 +67,7 @@ sea_type      = Trim(Request.querystring("sea_type"))
 
 If (sea_type = "topic" Or sea_type = "username" Or sea_type = "re_username") And Len(keyword) > 0 Then
     sea_true  = "yes"
-    sea_write = ".æœç´¢"
+    sea_write = ".ËÑË÷"
     pageurl   = pageurl & "sea_type=" & sea_type & "&keyword=" & Server.htmlencode(keyword) & "&"
 Else
     sea_true  = "no"
@@ -76,15 +76,15 @@ End If
 
 Select Case action
     Case "manage"
-        Response.Write forum_top("å¸–å­åˆ—è¡¨ [ç‰ˆé¢ç®¡ç†" & sea_write & "]")
+        Response.Write forum_top("Ìû×ÓÁĞ±í [°æÃæ¹ÜÀí" & sea_write & "]")
     Case "isgood"
-        Response.Write forum_top("å¸–å­åˆ—è¡¨ [ç²¾ååˆ—è¡¨" & sea_write & "]")
+        Response.Write forum_top("Ìû×ÓÁĞ±í [¾«»ªÁĞ±í" & sea_write & "]")
     Case Else
 
         If sea_true = "yes" Then
-            Response.Write forum_top("å¸–å­åˆ—è¡¨ [æœç´¢ç»“æœ]")
+            Response.Write forum_top("Ìû×ÓÁĞ±í [ËÑË÷½á¹û]")
         Else
-            Response.Write forum_top("å¸–å­åˆ—è¡¨ ï¼ˆä¸»é¢˜ï¼š<font class=red>" & forumtopicnum & "</font>ï¼‰")
+            Response.Write forum_top("Ìû×ÓÁĞ±í £¨Ö÷Ìâ£º<font class=red>" & forumtopicnum & "</font>£©")
         End If
 
 End Select %>
@@ -110,16 +110,16 @@ function load_tree(f_id,v_id){
 -->
 </script>
 <iframe width=0 height=0 src='about:blank' id=hiddenframe></iframe>
-<table border=0 width='98%'><tr><td align=left width='15%'><a href='forum_write.asp?forum_id=<% = forumid %>'><img src='images/<% = web_var(web_config,5) %>/new_topic.gif' align=absMiddle border=0 title='åœ¨ <% = forumname %> é‡Œå‘è¡¨æˆ‘çš„æ–°è´´'></a></td><td align=right width='85%'><table border=0><form action='?' method=get><input type=hidden name=forum_id value='<% = forumid %>'><input type=hidden name=action value='<% = action %>'><input type=hidden name=page value='<% = viewpage %>'><tr><td>è®ºå›æœç´¢ï¼š</td><td><select name=sea_type size=1><option value='topic'>æŒ‰ä¸»é¢˜</option><option value='username'>æŒ‰ä½œè€…</option><option value='re_username'>æŒ‰å›å¤äºº</option></select></td><td><input type=text name=keyword size=20 maxlength=20></td><td>&nbsp;<input type=submit value='æœ ç´¢'></td></tr></table></td></tr></table>
+<table border=0 width='98%'><tr><td align=left width='15%'><a href='forum_write.asp?forum_id=<% = forumid %>'><img src='images/<% = web_var(web_config,5) %>/new_topic.gif' align=absMiddle border=0 title='ÔÚ <% = forumname %> Àï·¢±íÎÒµÄĞÂÌù'></a></td><td align=right width='85%'><table border=0><form action='?' method=get><input type=hidden name=forum_id value='<% = forumid %>'><input type=hidden name=action value='<% = action %>'><input type=hidden name=page value='<% = viewpage %>'><tr><td>ÂÛÌ³ËÑË÷£º</td><td><select name=sea_type size=1><option value='topic'>°´Ö÷Ìâ</option><option value='username'>°´×÷Õß</option><option value='re_username'>°´»Ø¸´ÈË</option></select></td><td><input type=text name=keyword size=20 maxlength=20></td><td>&nbsp;<input type=submit value='ËÑ Ë÷'></td></tr></table></td></tr></table>
 <% Response.Write forum_table1 %>
 <tr align=center<% Response.Write forum_table2 %> height=25 >
-<td rowap width='4%' class=end  background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>å›¾</td>
-<td rowap width='3%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>ä¾‹</td>
-<td rowap width='48%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>ä¸»é¢˜ï¼ˆæ¯é¡µ&nbsp;<% Response.Write nummer %>&nbsp;è´´&nbsp;&nbsp;ç‚¹å‡»&nbsp;<img src='IMAGES/SMALL/FK_PLUS.GIF' align=absMiddle border=0>&nbsp;å¯å±•å¼€è´´å­åˆ—è¡¨ï¼‰</td>
-<td rowap width='12%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>ä½œè€…</td>
+<td rowap width='4%' class=end  background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>Í¼</td>
+<td rowap width='3%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>Àı</td>
+<td rowap width='48%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>Ö÷Ìâ£¨Ã¿Ò³&nbsp;<% Response.Write nummer %>&nbsp;Ìù&nbsp;&nbsp;µã»÷&nbsp;<img src='IMAGES/SMALL/FK_PLUS.GIF' align=absMiddle border=0>&nbsp;¿ÉÕ¹¿ªÌù×ÓÁĞ±í£©</td>
+<td rowap width='12%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>×÷Õß</td>
 <td rowap width='4%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;</td>
-<td rowap width='7%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>äººæ°”</td>
-<td rowap width='22%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>æœ€åå›å¤ä¿¡æ¯</td>
+<td rowap width='7%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>ÈËÆø</td>
+<td rowap width='22%' class=end background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>×îºó»Ø¸´ĞÅÏ¢</td>
 </tr>
 <%
 
@@ -156,7 +156,7 @@ Set rs    = conn.execute(sql)
 
 If rs.eof And rs.bof Then
     rssum = 0
-    Response.Write "<tr><td colspan=8 align=center height=50>æœ¬è®ºå›æš‚æ—¶æ²¡æœ‰è´´å­ã€‚</td></tr>"
+    Response.Write "<tr><td colspan=8 align=center height=50>±¾ÂÛÌ³ÔİÊ±Ã»ÓĞÌù×Ó¡£</td></tr>"
 Else
     rssum = forumtopicnum		'rs.recordcount
 End If
@@ -201,26 +201,26 @@ If Int(thepages) < 1 Then page_cute_num = 1
 Response.Write kong & forum_table1 %>
 <tr height=25<% Response.Write forum_table3 %>>
 <td width='35%'>
-ä¸»é¢˜ï¼š<font class=red><% Response.Write forumtopicnum %></font>&nbsp;
+Ö÷Ìâ£º<font class=red><% Response.Write forumtopicnum %></font>&nbsp;
 <%
 
 If action <> "isgood" And sea_true <> "yes" Then
-    Response.Write "è´´å­æ€»æ•°ï¼š<font class=red>" & forumdatanum & "</font>&nbsp;"
+    Response.Write "Ìù×Ó×ÜÊı£º<font class=red>" & forumdatanum & "</font>&nbsp;"
 End If %>
-é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage & "</font>/<font class=red>" & thepages %></font><td align=center>
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,page_cute_num,"#ff0000") %></td>
+Ò³´Î£º<font class=red><% Response.Write viewpage & "</font>/<font class=red>" & thepages %></font><td align=center>
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,page_cute_num,"#ff0000") %></td>
 </td><td align=center width='25%'><% Response.Write forum_go() %></td>
 </tr>
 <% If action = "manage" Then %>
 <script language=javascript src='STYLE/admin_del.js'></script>
-<tr<% Response.Write format_table(3,1) %>><td height=25 align=center colspan=3>ç‰ˆé¢ç®¡ç†ï¼šã€€<input type=checkbox name=del_all value=1 onClick="selectall('<% Response.Write del_temp %>')" class=bg_1> é€‰ä¸­æ‰€æœ‰ã€€<input type=submit value='åˆ é™¤æ‰€é€‰' onclick="return suredel('<% Response.Write del_temp %>');"></td></tr>
+<tr<% Response.Write format_table(3,1) %>><td height=25 align=center colspan=3>°æÃæ¹ÜÀí£º¡¡<input type=checkbox name=del_all value=1 onClick="selectall('<% Response.Write del_temp %>')" class=bg_1> Ñ¡ÖĞËùÓĞ¡¡<input type=submit value='É¾³ıËùÑ¡' onclick="return suredel('<% Response.Write del_temp %>');"></td></tr>
 </form>
 <% End If %>
 </table>
 <table border=0 width='95%'>
 
 <tr><td align=center colspan=2 height=30>
-<% Response.Write web_var(web_config,1) %>è®ºå›ä¸»é¢˜å›¾ä¾‹ï¼š&nbsp;
+<% Response.Write web_var(web_config,1) %>ÂÛÌ³Ö÷ÌâÍ¼Àı£º&nbsp;
 <% Call is_type() %>
 </td></tr>
 </table>

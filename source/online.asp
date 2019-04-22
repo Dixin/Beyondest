@@ -9,7 +9,7 @@
 Dim wt:wt = Int(Mid(web_setup
 Dim 3
 Dim 1))
-tit = "ä¸æˆ‘åœ¨çº¿"
+tit = "ÓëÎÒÔÚÏß"
 
 Call web_head(0,0,0,0,0)
 '------------------------------------left----------------------------------
@@ -26,14 +26,14 @@ Response.Write ukong %>
 
 Select Case wt
     Case 1
-        Response.Write "<font class=red>æœ¬ç«™ç°åœ¨å·²å¼€å¯ <font class=blue>" & web_var(web_stamp,wt + 1) & "</font> æ¨¡å¼ï¼æ‰€æœ‰ç™»é™†å’Œæµè§ˆæœ¬ç«™çš„äººè¢«å¹¶è®°å½•åœ¨çº¿åˆ—è¡¨ã€‚</font>"
+        Response.Write "<font class=red>±¾Õ¾ÏÖÔÚÒÑ¿ªÆô <font class=blue>" & web_var(web_stamp,wt + 1) & "</font> Ä£Ê½£¡ËùÓĞµÇÂ½ºÍä¯ÀÀ±¾Õ¾µÄÈË±»²¢¼ÇÂ¼ÔÚÏßÁĞ±í¡£</font>"
     Case 2
-        Response.Write "<font class=red>æœ¬ç«™ç°åœ¨å·²å¼€å¯ <font class=blue>" & web_var(web_stamp,wt + 1) & "</font> æ¨¡å¼ï¼æœ¬ç«™çš„æ³¨å†Œç”¨æˆ·å¯ä»¥ç™»é™†ï¼Œå¹¶è®°å½•ç”¨æˆ·åœ¨çº¿åˆ—è¡¨ã€‚</font>"
+        Response.Write "<font class=red>±¾Õ¾ÏÖÔÚÒÑ¿ªÆô <font class=blue>" & web_var(web_stamp,wt + 1) & "</font> Ä£Ê½£¡±¾Õ¾µÄ×¢²áÓÃ»§¿ÉÒÔµÇÂ½£¬²¢¼ÇÂ¼ÓÃ»§ÔÚÏßÁĞ±í¡£</font>"
     Case Else
-        Response.Write "<font class=red>æœ¬ç«™ç°åœ¨å·²å¼€å¯ <font class=blue>" & web_var(web_stamp,wt + 1) & "</font> æ¨¡å¼ï¼æœ¬ç«™çš„æ³¨å†Œç”¨æˆ·å¯ä»¥ç™»é™†ï¼Œä¸è®°å½•åœ¨çº¿åˆ—è¡¨ã€‚</font>"
+        Response.Write "<font class=red>±¾Õ¾ÏÖÔÚÒÑ¿ªÆô <font class=blue>" & web_var(web_stamp,wt + 1) & "</font> Ä£Ê½£¡±¾Õ¾µÄ×¢²áÓÃ»§¿ÉÒÔµÇÂ½£¬²»¼ÇÂ¼ÔÚÏßÁĞ±í¡£</font>"
 End Select
 
-Response.Write "<br>æœ‰å…³ <a href='help.asp?action=web'>ç½‘ç«™æ¨¡å¼</a> çš„è¯¦ç»†è¯´æ˜ï¼Œè¯·è¿›å…¥ <a href='help.asp?action=web'>ç½‘ç«™å¸®åŠ©</a> æŸ¥çœ‹ç›¸å…³ä¿¡æ¯ã€‚" %></td></tr>
+Response.Write "<br>ÓĞ¹Ø <a href='help.asp?action=web'>ÍøÕ¾Ä£Ê½</a> µÄÏêÏ¸ËµÃ÷£¬Çë½øÈë <a href='help.asp?action=web'>ÍøÕ¾°ïÖú</a> ²é¿´Ïà¹ØĞÅÏ¢¡£" %></td></tr>
 <tr><td align=center height=5></td></tr>
 </table>
 <%
@@ -50,12 +50,12 @@ Sub online_main()
         If wt = 1 Then
             Response.Write Request.cookies("beyondest_online")("guest_name")
         Else
-            Response.Write "æ¸¸å®¢"
+            Response.Write "ÓÎ¿Í"
         End If
 
-        Response.Write "</font>ï¼Œæ‚¨å¥½ï¼" & web_var(web_error,2)
+        Response.Write "</font>£¬ÄúºÃ£¡" & web_var(web_error,2)
     Else
-        Response.Write "<font class=blue>" & login_username & "</font>ï¼Œæ‚¨å¥½ï¼æ¬¢è¿æ‚¨æ³¨å†Œå¹¶ç™»é™†æœ¬ç«™ï¼æ‚¨ç°åœ¨å¯ä»¥ç‚¹å‡»æµè§ˆå…¶å®ƒæ ç›®çš„è¯¦ç»†å†…å®¹ã€‚"
+        Response.Write "<font class=blue>" & login_username & "</font>£¬ÄúºÃ£¡»¶Ó­Äú×¢²á²¢µÇÂ½±¾Õ¾£¡ÄúÏÖÔÚ¿ÉÒÔµã»÷ä¯ÀÀÆäËüÀ¸Ä¿µÄÏêÏ¸ÄÚÈİ¡£"
     End If
 
     If wt = 0 Then
@@ -77,7 +77,7 @@ Sub online_main()
             End If %>
 </td></tr>
 <tr><td height=5></td></tr>
-<tr><td><% Response.Write img_small("jt1") %><font class=red_3><b>åœ¨çº¿ä¼šå‘˜</b></font>&nbsp;ï¼ˆ<font class=red><% Response.Write rssum %></font>&nbsp;äººï¼‰</td></tr>
+<tr><td><% Response.Write img_small("jt1") %><font class=red_3><b>ÔÚÏß»áÔ±</b></font>&nbsp;£¨<font class=red><% Response.Write rssum %></font>&nbsp;ÈË£©</td></tr>
 <tr><td align=center height=150 valign=top>
   <table border=0 width='100%'>
   <tr><td width='20%'></td><td width='20%'></td><td width='20%'></td><td width='20%'></td><td width='20%'></td></tr>
@@ -89,7 +89,7 @@ Sub online_main()
                 For i = 1 To 5
                     If rs.eof Then Exit For
                     l_username = rs("l_username")
-                    Response.Write "<td>" & img_small("icon_" & rs("power")) & "<a href='user_view.asp?username=" & Server.urlencode(l_username) & "' title='ç›®å‰ä½ç½®ï¼š" & rs("l_where") & "<br>æ¥è®¿æ—¶é—´ï¼š" & rs("l_tim_login") & "<br>æ´»åŠ¨æ—¶é—´ï¼š" & rs("l_tim_end") & "<br>çœŸå®IPï¼š" & ip_types(rs("l_ip"),l_username,0) & "<br>" & view_sys(rs("l_sys")) & "' target=_blank>" & l_username & "</a></td>"
+                    Response.Write "<td>" & img_small("icon_" & rs("power")) & "<a href='user_view.asp?username=" & Server.urlencode(l_username) & "' title='Ä¿Ç°Î»ÖÃ£º" & rs("l_where") & "<br>À´·ÃÊ±¼ä£º" & rs("l_tim_login") & "<br>»î¶¯Ê±¼ä£º" & rs("l_tim_end") & "<br>ÕæÊµIP£º" & ip_types(rs("l_ip"),l_username,0) & "<br>" & view_sys(rs("l_sys")) & "' target=_blank>" & l_username & "</a></td>"
                     rs.movenext
                 Next
 
@@ -110,7 +110,7 @@ Sub online_main()
                 rssum = rs.recordcount
             End If %>
 </td></tr>
-<tr><td><% Response.Write img_small("jt12") %><font class=red_3><b>åœ¨çº¿æ¸¸å®¢</b></font>&nbsp;ï¼ˆ<font class=red><% Response.Write rssum %></font>&nbsp;äººï¼‰</td></tr>
+<tr><td><% Response.Write img_small("jt12") %><font class=red_3><b>ÔÚÏßÓÎ¿Í</b></font>&nbsp;£¨<font class=red><% Response.Write rssum %></font>&nbsp;ÈË£©</td></tr>
 <tr><td align=center height=150 valign=top>
   <table border=0 width='98%'>
   <tr><td width='25%'></td><td width='25%'></td><td width='25%'></td><td width='25%'></td></tr>
@@ -122,7 +122,7 @@ Sub online_main()
                 For i = 1 To 4
                     If rs.eof Then Exit For
                     l_username = rs("l_username")
-                    Response.Write "<td>" & img_small("icon_other") & "<font title='ç›®å‰ä½ç½®ï¼š" & rs("l_where") & "<br>æ¥è®¿æ—¶é—´ï¼š" & rs("l_tim_login") & "<br>æ´»åŠ¨æ—¶é—´ï¼š" & rs("l_tim_end") & "<br>" & ip_types(rs("l_ip"),l_username,0) & "<br>" & view_sys(rs("l_sys")) & "' target=_blank>" & l_username & "</font></td>"
+                    Response.Write "<td>" & img_small("icon_other") & "<font title='Ä¿Ç°Î»ÖÃ£º" & rs("l_where") & "<br>À´·ÃÊ±¼ä£º" & rs("l_tim_login") & "<br>»î¶¯Ê±¼ä£º" & rs("l_tim_end") & "<br>" & ip_types(rs("l_ip"),l_username,0) & "<br>" & view_sys(rs("l_sys")) & "' target=_blank>" & l_username & "</font></td>"
                     rs.movenext
                 Next
 

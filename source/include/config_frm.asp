@@ -5,10 +5,10 @@
 ' ====================
 Sub frm_ubb(fn,tn,uw) %><script language=javascript>
 <!--
-var defmode="advmode";		//é»˜è®¤æ¨¡å¼ï¼Œå¯é€‰ normalmode, advmode, æˆ– helpmode
+var defmode="advmode";		//Ä¬ÈÏÄ£Ê½£¬¿ÉÑ¡ normalmode, advmode, »ò helpmode
 var ubb_w=450;
 var ubb_h=350;
-var ubb_name="UBBä»£ç  - ";
+var ubb_name="UBB´úÂë - ";
 
 if (defmode == "advmode")
 { helpmode = false; normalmode = false; advmode = true; }
@@ -22,17 +22,17 @@ function jk_ubb_mode(swtch)
   if (swtch == 1)
   {
     advmode = false; normalmode = false; helpmode = true;
-    alert(ubb_name+"å¸®åŠ©ä¿¡æ¯\n\nç‚¹å‡»ç›¸åº”çš„ä»£ç æŒ‰é’®å³å¯è·å¾—ç›¸åº”çš„è¯´æ˜å’Œæç¤º");
+    alert(ubb_name+"°ïÖúĞÅÏ¢\n\nµã»÷ÏàÓ¦µÄ´úÂë°´Å¥¼´¿É»ñµÃÏàÓ¦µÄËµÃ÷ºÍÌáÊ¾");
   }
   else if (swtch == 0)
   {
     helpmode = false; normalmode = false; advmode = true;
-    alert(ubb_name+"ç›´æ¥æ’å…¥\n\nç‚¹å‡»ä»£ç æŒ‰é’®åä¸å‡ºç°æç¤ºå³ç›´æ¥æ’å…¥ç›¸åº”ä»£ç ");
+    alert(ubb_name+"Ö±½Ó²åÈë\n\nµã»÷´úÂë°´Å¥ºó²»³öÏÖÌáÊ¾¼´Ö±½Ó²åÈëÏàÓ¦´úÂë");
   }
   else if (swtch == 2)
   {
     helpmode = false; advmode = false; normalmode = true;
-    alert(ubb_name+"æç¤ºæ’å…¥\n\nç‚¹å‡»ä»£ç æŒ‰é’®åå‡ºç°å‘å¯¼çª—å£å¸®åŠ©æ‚¨å®Œæˆä»£ç æ’å…¥");
+    alert(ubb_name+"ÌáÊ¾²åÈë\n\nµã»÷´úÂë°´Å¥ºó³öÏÖÏòµ¼´°¿Ú°ïÖúÄúÍê³É´úÂë²åÈë");
   }
 }
 
@@ -63,17 +63,17 @@ function insertAtCaret (textEl, text)
 function jk_ubb_email()
 {
   if (helpmode)
-  { alert(ubb_name +"æ’å…¥é‚®ä»¶åœ°å€\n\næ’å…¥é‚®ä»¶åœ°å€è¿æ¥ï¼\nä¾‹å¦‚ï¼š\n[email]plinq@live.com[/email]\n[email=plinq@live.com]ç¬¼æ°‘[/email]"); }
+  { alert(ubb_name +"²åÈëÓÊ¼şµØÖ·\n\n²åÈëÓÊ¼şµØÖ·Á¬½Ó£¡\nÀıÈç£º\n[email]plinq@live.com[/email]\n[email=plinq@live.com]ÁıÃñ[/email]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[email]" + range.text + "[/email]"; }
   else if (advmode)
   { AddTxt="[email][/email]"; AddText(AddTxt); }
   else
   { 
-    txt2=prompt(ubb_name+"è¯·è¾“å…¥é“¾æ¥æ˜¾ç¤ºçš„æ–‡å­—ï¼Œå¦‚æœç•™ç©ºåˆ™ç›´æ¥æ˜¾ç¤ºé‚®ä»¶åœ°å€ï¼",""); 
+    txt2=prompt(ubb_name+"ÇëÊäÈëÁ´½ÓÏÔÊ¾µÄÎÄ×Ö£¬Èç¹ûÁô¿ÕÔòÖ±½ÓÏÔÊ¾ÓÊ¼şµØÖ·£¡",""); 
     if (txt2!=null)
     {
-      txt = prompt(ubb_name +"è¯·è¾“å…¥é‚®ä»¶åœ°å€ï¼ä¾‹ï¼šplinq@live.com","");      
+      txt = prompt(ubb_name +"ÇëÊäÈëÓÊ¼şµØÖ·£¡Àı£ºplinq@live.com","");      
       if (txt!=null)
       {
         if (txt2=="")
@@ -89,14 +89,14 @@ function jk_ubb_email()
 function jk_ubb_size(size)
 {
   if (helpmode)
-  { alert(ubb_name+"è®¾ç½®å­—å·\n\nå°†æ ‡ç­¾æ‰€åŒ…å›´çš„æ–‡å­—è®¾ç½®æˆæŒ‡å®šå­—å·ï¼\nä¾‹å¦‚ï¼š[size=3]æ–‡å­—å¤§å°ä¸º 3[/size]"); }
+  { alert(ubb_name+"ÉèÖÃ×ÖºÅ\n\n½«±êÇ©Ëù°üÎ§µÄÎÄ×ÖÉèÖÃ³ÉÖ¸¶¨×ÖºÅ£¡\nÀıÈç£º[size=3]ÎÄ×Ö´óĞ¡Îª 3[/size]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[size=" + size + "]" + range.text + "[/size]"; }
   else if (advmode)
   { AddTxt="[size="+size+"][/size]"; AddText(AddTxt); }
   else
   {           
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦è®¾ç½®ä¸ºå­—å· "+size+" çš„æ–‡å­—ï¼","æ–‡å­—"); 
+    txt=prompt(ubb_name+"ÇëÊäÈëÒªÉèÖÃÎª×ÖºÅ "+size+" µÄÎÄ×Ö£¡","ÎÄ×Ö"); 
     if (txt!=null) { AddTxt="[size="+size+"]"+txt; AddText(AddTxt); AddText("[/size]"); }  
   }
 }
@@ -104,14 +104,14 @@ function jk_ubb_size(size)
 function jk_ubb_font(font)
 {
   if (helpmode)
-  { alert(ubb_name+"è®¾å®šå­—ä½“\n\nå°†æ ‡ç­¾æ‰€åŒ…å›´çš„æ–‡å­—è®¾ç½®æˆæŒ‡å®šå­—ä½“ï¼\nä¾‹å¦‚ï¼š[face=ä»¿å®‹]å­—ä½“ä¸ºä»¿å®‹[/face]"); }
+  { alert(ubb_name+"Éè¶¨×ÖÌå\n\n½«±êÇ©Ëù°üÎ§µÄÎÄ×ÖÉèÖÃ³ÉÖ¸¶¨×ÖÌå£¡\nÀıÈç£º[face=·ÂËÎ]×ÖÌåÎª·ÂËÎ[/face]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[face=" + font + "]" + range.text + "[/face]"; }
   else if (advmode)
   { AddTxt="[face="+font+"][/face]"; AddText(AddTxt); }
   else
   {      
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦è®¾ç½®æˆ "+font+" çš„æ–‡å­—ï¼","æ–‡å­—");
+    txt=prompt(ubb_name+"ÇëÊäÈëÒªÉèÖÃ³É "+font+" µÄÎÄ×Ö£¡","ÎÄ×Ö");
     if (txt!=null) { AddTxt="[face="+font+"]"+txt; AddText(AddTxt); AddText("[/face]"); }  
   }
 }
@@ -120,14 +120,14 @@ function jk_ubb_font(font)
 function jk_ubb_bold()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥ç²—ä½“æ–‡æœ¬\n\nå°†æ ‡ç­¾æ‰€åŒ…å›´çš„æ–‡æœ¬å˜æˆç²—ä½“ï¼\nä¾‹å¦‚ï¼š[b]Beyondest.com[/b]"); }
+  { alert(ubb_name+"²åÈë´ÖÌåÎÄ±¾\n\n½«±êÇ©Ëù°üÎ§µÄÎÄ±¾±ä³É´ÖÌå£¡\nÀıÈç£º[b]Beyondest.com[/b]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[b]" + range.text + "[/b]"; }
   else if (advmode)
   { AddTxt="[b][/b]"; AddText(AddTxt); }
   else
   {  
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦è®¾ç½®æˆç²—ä½“çš„æ–‡å­—ï¼","æ–‡å­—");     
+    txt=prompt(ubb_name+"ÇëÊäÈëÒªÉèÖÃ³É´ÖÌåµÄÎÄ×Ö£¡","ÎÄ×Ö");     
     if (txt!=null) { AddTxt="[b]"+txt; AddText(AddTxt); AddText("[/b]"); }       
   }
 }
@@ -135,14 +135,14 @@ function jk_ubb_bold()
 function jk_ubb_italicize()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥æ–œä½“æ–‡æœ¬\n\nå°†æ ‡ç­¾æ‰€åŒ…å›´çš„æ–‡æœ¬å˜æˆæ–œä½“ï¼\nä¾‹å¦‚ï¼š[i]Beyondest.com[/i]"); }
+  { alert(ubb_name+"²åÈëĞ±ÌåÎÄ±¾\n\n½«±êÇ©Ëù°üÎ§µÄÎÄ±¾±ä³ÉĞ±Ìå£¡\nÀıÈç£º[i]Beyondest.com[/i]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[i]" + range.text + "[/i]"; }
   else if (advmode)
   { AddTxt="[i][/i]"; AddText(AddTxt); }
   else
   {   
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦è®¾ç½®æˆæ–œä½“çš„æ–‡å­—ï¼","æ–‡å­—");     
+    txt=prompt(ubb_name+"ÇëÊäÈëÒªÉèÖÃ³ÉĞ±ÌåµÄÎÄ×Ö£¡","ÎÄ×Ö");     
     if (txt!=null) { AddTxt="[i]"+txt; AddText(AddTxt); AddText("[/i]"); }         
   }
 }
@@ -150,14 +150,14 @@ function jk_ubb_italicize()
 function jk_ubb_quote()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥å¼•ç”¨\n\nå°†æ ‡ç­¾æ‰€åŒ…å›´çš„æ–‡æœ¬ä½œä¸ºå¼•ç”¨ç‰¹æ®Šæ˜¾ç¤ºï¼\nä¾‹å¦‚ï¼š[quote]Beyondest.com[/quote]"); }
+  { alert(ubb_name+"²åÈëÒıÓÃ\n\n½«±êÇ©Ëù°üÎ§µÄÎÄ±¾×÷ÎªÒıÓÃÌØÊâÏÔÊ¾£¡\nÀıÈç£º[quote]Beyondest.com[/quote]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[quote]" + range.text + "[/quote]"; }
   else if (advmode)
   { AddTxt="\r[quote]\r[/quote]"; AddText(AddTxt); }
   else
   {
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦ä½œä¸ºå¼•ç”¨æ˜¾ç¤ºçš„æ–‡å­—ï¼","æ–‡å­—");     
+    txt=prompt(ubb_name+"ÇëÊäÈëÒª×÷ÎªÒıÓÃÏÔÊ¾µÄÎÄ×Ö£¡","ÎÄ×Ö");     
     if(txt!=null) { AddTxt="\r[quote]\r"+txt; AddText(AddTxt); AddText("\r[/quote]"); }         
   }
 }
@@ -165,14 +165,14 @@ function jk_ubb_quote()
 function jk_ubb_color(color)
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥å®šä¹‰é¢œè‰²æ–‡æœ¬\n\nå°†æ ‡ç­¾æ‰€åŒ…å›´çš„æ–‡æœ¬å˜ä¸ºåˆ¶å®šé¢œè‰²ï¼\nä¾‹å¦‚ï¼š[color=red]çº¢é¢œè‰²[/color]"); }
+  { alert(ubb_name+"²åÈë¶¨ÒåÑÕÉ«ÎÄ±¾\n\n½«±êÇ©Ëù°üÎ§µÄÎÄ±¾±äÎªÖÆ¶¨ÑÕÉ«£¡\nÀıÈç£º[color=red]ºìÑÕÉ«[/color]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[color=" + color + "]" + range.text + "[/color]"; }
   else if (advmode)
   { AddTxt="[color="+color+"][/color]"; AddText(AddTxt); }
   else
   {
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦è®¾ç½®æˆé¢œè‰² "+color+" çš„æ–‡å­—ï¼","æ–‡å­—");
+    txt=prompt(ubb_name+"ÇëÊäÈëÒªÉèÖÃ³ÉÑÕÉ« "+color+" µÄÎÄ×Ö£¡","ÎÄ×Ö");
     if(txt!=null) { AddTxt="[color="+color+"]"+txt; AddText(AddTxt); AddText("[/color]"); }
   }
 }
@@ -180,14 +180,14 @@ function jk_ubb_color(color)
 function jk_ubb_center()
 {
   if (helpmode)
-  { alert(ubb_name+"å±…ä¸­å¯¹é½\n\nå°†æ ‡ç­¾æ‰€åŒ…å›´çš„æ–‡æœ¬å±…ä¸­å¯¹é½æ˜¾ç¤ºï¼\nä¾‹å¦‚ï¼š[align=center]å†…å®¹å±…ä¸­[/align]"); }
+  { alert(ubb_name+"¾ÓÖĞ¶ÔÆë\n\n½«±êÇ©Ëù°üÎ§µÄÎÄ±¾¾ÓÖĞ¶ÔÆëÏÔÊ¾£¡\nÀıÈç£º[align=center]ÄÚÈİ¾ÓÖĞ[/align]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[center]" + range.text + "[/center]"; }
   else if (advmode)
   { AddTxt="[align=center][/align]"; AddText(AddTxt); }
   else
   {  
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦å±…ä¸­å¯¹é½çš„æ–‡å­—ï¼","æ–‡å­—");     
+    txt=prompt(ubb_name+"ÇëÊäÈëÒª¾ÓÖĞ¶ÔÆëµÄÎÄ×Ö£¡","ÎÄ×Ö");     
     if (txt!=null) { AddTxt="\r[align=center]"+txt; AddText(AddTxt); AddText("[/align]"); }        
   }
 }
@@ -195,15 +195,15 @@ function jk_ubb_center()
 function jk_ubb_link()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥è¶…çº§é“¾æ¥\n\næ’å…¥ä¸€ä¸ªè¶…çº§è¿æ¥ï¼\nä¾‹å¦‚ï¼š\n[url]http://beyondest.com/[/url]\n[url=http://beyondest.com/]Beyondest.com[/url]"); }
+  { alert(ubb_name+"²åÈë³¬¼¶Á´½Ó\n\n²åÈëÒ»¸ö³¬¼¶Á¬½Ó£¡\nÀıÈç£º\n[url]http://beyondest.com/[/url]\n[url=http://beyondest.com/]Beyondest.com[/url]"); }
   else if (advmode)
   { AddTxt="[url][/url]"; AddText(AddTxt); }
   else
   { 
-    txt2=prompt(ubb_name+"è¯·è¾“å…¥é“¾æ¥æ˜¾ç¤ºçš„æ–‡å­—ï¼Œå¦‚æœç•™ç©ºåˆ™ç›´æ¥æ˜¾ç¤ºé“¾æ¥ï¼",""); 
+    txt2=prompt(ubb_name+"ÇëÊäÈëÁ´½ÓÏÔÊ¾µÄÎÄ×Ö£¬Èç¹ûÁô¿ÕÔòÖ±½ÓÏÔÊ¾Á´½Ó£¡",""); 
     if (txt2!=null)
     {
-      txt=prompt(ubb_name+"è¯·è¾“å…¥ URLï¼ä¾‹ï¼šhttp://beyondest.com/","http://");      
+      txt=prompt(ubb_name+"ÇëÊäÈë URL£¡Àı£ºhttp://beyondest.com/","http://");      
       if (txt!=null)
       {
         if (txt2=="")
@@ -218,12 +218,12 @@ function jk_ubb_link()
 function jk_ubb_image()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥å›¾åƒ\n\nåœ¨æ–‡æœ¬ä¸­æ’å…¥ä¸€å¹…å›¾åƒï¼\nä¾‹å¦‚ï¼š[IMG]http://beyondest.com/images/logo.gif[/IMG]"); }
+  { alert(ubb_name+"²åÈëÍ¼Ïñ\n\nÔÚÎÄ±¾ÖĞ²åÈëÒ»·ùÍ¼Ïñ£¡\nÀıÈç£º[IMG]http://beyondest.com/images/logo.gif[/IMG]"); }
   else if (advmode)
   { AddTxt="[IMG][/IMG]"; AddText(AddTxt); }
   else
   {  
-    txt=prompt(ubb_name+"è¯·è¾“å…¥å›¾åƒçš„ URLï¼ä¾‹ï¼šhttp://beyondest.com/images/logo.gif","http://");    
+    txt=prompt(ubb_name+"ÇëÊäÈëÍ¼ÏñµÄ URL£¡Àı£ºhttp://beyondest.com/images/logo.gif","http://");    
     if(txt!=null) { AddTxt="\r[IMG]"+txt; AddText(AddTxt); AddText("[/IMG]");
     }       
   }
@@ -232,14 +232,14 @@ function jk_ubb_image()
 function jk_ubb_code()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥ä»£ç \n\næ’å…¥ç¨‹åºæˆ–è„šæœ¬åŸå§‹ä»£ç ï¼\nä¾‹å¦‚ï¼š[code]Beyondest.com[/code]"); }
+  { alert(ubb_name+"²åÈë´úÂë\n\n²åÈë³ÌĞò»ò½Å±¾Ô­Ê¼´úÂë£¡\nÀıÈç£º[code]Beyondest.com[/code]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[code]" + range.text + "[/code]"; }
   else if (advmode)
   { AddTxt="\r[code][/code]"; AddText(AddTxt); }
   else
   {   
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦æ’å…¥çš„ä»£ç ï¼","");     
+    txt=prompt(ubb_name+"ÇëÊäÈëÒª²åÈëµÄ´úÂë£¡","");     
     if (txt!=null) { AddTxt="\r[code]"+txt; AddText(AddTxt); AddText("[/code]"); }
   }
 }
@@ -247,15 +247,15 @@ function jk_ubb_code()
 function jk_ubb_flash()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥ Flash\n\nåœ¨æ–‡æœ¬ä¸­æ’å…¥ Flash åŠ¨ç”»ï¼\nä¾‹å¦‚ï¼š[FLASH="+ubb_w+","+ubb_h+"]http://www.Beyondrest.com/images/banner.swf[/FLASH]"); }
+  { alert(ubb_name+"²åÈë Flash\n\nÔÚÎÄ±¾ÖĞ²åÈë Flash ¶¯»­£¡\nÀıÈç£º[FLASH="+ubb_w+","+ubb_h+"]http://www.Beyondrest.com/images/banner.swf[/FLASH]"); }
   else if (advmode)
   { AddTxt="[FLASH="+ubb_w+","+ubb_h+"][/FLASH]"; AddText(AddTxt); }
   else
   {
-    stxt=prompt(ubb_name+"è¯·è¾“å…¥ Flash åŠ¨ç”»çš„å¤§å°ã€€",ubb_w+","+ubb_h);
+    stxt=prompt(ubb_name+"ÇëÊäÈë Flash ¶¯»­µÄ´óĞ¡¡¡",ubb_w+","+ubb_h);
     if (stxt!=null)
     {
-      txt=prompt(ubb_name+"è¯·è¾“å…¥ Flash åŠ¨ç”»çš„åœ°å€ï¼","http://");
+      txt=prompt(ubb_name+"ÇëÊäÈë Flash ¶¯»­µÄµØÖ·£¡","http://");
       if(txt!=null) { AddTxt="\r[FLASH="+stxt+"]"+txt; AddText(AddTxt); AddText("[/FLASH]"); }
     }
   }
@@ -264,15 +264,15 @@ function jk_ubb_flash()
 function jk_ubb_rm()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥ RM\n\nåœ¨æ–‡æœ¬ä¸­æ’å…¥ Realplay è§†é¢‘æ–‡ä»¶ï¼\nä¾‹å¦‚ï¼š[RM="+ubb_w+","+ubb_h+"]http://beyondest.com/images/test.ram[/RM]"); }
+  { alert(ubb_name+"²åÈë RM\n\nÔÚÎÄ±¾ÖĞ²åÈë Realplay ÊÓÆµÎÄ¼ş£¡\nÀıÈç£º[RM="+ubb_w+","+ubb_h+"]http://beyondest.com/images/test.ram[/RM]"); }
   else if (advmode)
   { AddTxt="[RM="+ubb_w+","+ubb_h+"][/RM]"; AddText(AddTxt); }
   else
   {
-    stxt=prompt(ubb_name+"è¯·è¾“å…¥ Realplay è§†é¢‘æ–‡ä»¶çš„å¤§å°ï¼",ubb_w+","+ubb_h);
+    stxt=prompt(ubb_name+"ÇëÊäÈë Realplay ÊÓÆµÎÄ¼şµÄ´óĞ¡£¡",ubb_w+","+ubb_h);
     if (stxt!=null)
     {
-      txt=prompt(ubb_name+"è¯·è¾“å…¥ Realplay è§†é¢‘æ–‡ä»¶çš„åœ°å€ rstp://ç­‰éƒ½æ”¯æŒ","http://");
+      txt=prompt(ubb_name+"ÇëÊäÈë Realplay ÊÓÆµÎÄ¼şµÄµØÖ· rstp://µÈ¶¼Ö§³Ö","http://");
       if(txt!=null) { AddTxt="\r[RM="+stxt+"]"+txt; AddText(AddTxt); AddText("[/RM]"); }
     }
   }
@@ -281,15 +281,15 @@ function jk_ubb_rm()
 function jk_ubb_mp()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥ MP\n\nåœ¨æ–‡æœ¬ä¸­æ’å…¥ Windows Media Player è§†é¢‘æ–‡ä»¶ï¼\nä¾‹å¦‚ï¼š[MP="+ubb_w+","+ubb_h+"]http://beyondest.com/images/test.wmv[/MP]"); }
+  { alert(ubb_name+"²åÈë MP\n\nÔÚÎÄ±¾ÖĞ²åÈë Windows Media Player ÊÓÆµÎÄ¼ş£¡\nÀıÈç£º[MP="+ubb_w+","+ubb_h+"]http://beyondest.com/images/test.wmv[/MP]"); }
   else if (advmode)
   { AddTxt="[MP="+ubb_w+","+ubb_h+"][/MP]"; AddText(AddTxt); }
   else
   {
-    stxt=prompt(ubb_name+"è¯·è¾“å…¥ Windows Media Player è§†é¢‘æ–‡ä»¶çš„å¤§å°ï¼",ubb_w+","+ubb_h);
+    stxt=prompt(ubb_name+"ÇëÊäÈë Windows Media Player ÊÓÆµÎÄ¼şµÄ´óĞ¡£¡",ubb_w+","+ubb_h);
     if (stxt!=null)
     {
-      txt=prompt(ubb_name+"è¯·è¾“å…¥ Windows Media Player è§†é¢‘æ–‡ä»¶çš„åœ°å€ï¼Œå„ç§åœ°å€å¤´éƒ½æ”¯æŒï¼","http://");    
+      txt=prompt(ubb_name+"ÇëÊäÈë Windows Media Player ÊÓÆµÎÄ¼şµÄµØÖ·£¬¸÷ÖÖµØÖ·Í·¶¼Ö§³Ö£¡","http://");    
       if(txt!=null) { AddTxt="\r[MP="+stxt+"]"+txt; AddText(AddTxt); AddText("[/MP]"); }
     }
   }
@@ -298,14 +298,14 @@ function jk_ubb_mp()
 function jk_ubb_underline()
 {
   if (helpmode)
-  { alert(ubb_name+"æ’å…¥ä¸‹åˆ’çº¿\n\nç»™æ ‡ç­¾æ‰€åŒ…å›´çš„æ–‡æœ¬åŠ ä¸Šä¸‹åˆ’çº¿ï¼\nä¾‹å¦‚ï¼š[u]Beyondest.com[/u]"); }
+  { alert(ubb_name+"²åÈëÏÂ»®Ïß\n\n¸ø±êÇ©Ëù°üÎ§µÄÎÄ±¾¼ÓÉÏÏÂ»®Ïß£¡\nÀıÈç£º[u]Beyondest.com[/u]"); }
   else if (document.selection && document.selection.type == "Text")
   { var range = document.selection.createRange(); range.text = "[u]" + range.text + "[/u]"; }
   else if (advmode)
   { AddTxt="[u][/u]"; AddText(AddTxt); }
   else
   {  
-    txt=prompt(ubb_name+"è¯·è¾“å…¥è¦åŠ ä¸‹åˆ’çº¿çš„æ–‡å­—ï¼","æ–‡å­—");
+    txt=prompt(ubb_name+"ÇëÊäÈëÒª¼ÓÏÂ»®ÏßµÄÎÄ×Ö£¡","ÎÄ×Ö");
     if (txt!=null) { AddTxt="[u]"+txt; AddText(AddTxt); AddText("[/u]"); }         
   }
 }
@@ -314,8 +314,8 @@ function setfocus() { document.<% Response.Write fn & "." & tn %>.focus(); }
 -->
 </script><table border=0 cellspacing=0 cellpadding=0><tr>
 <td height=30><% Response.Write uw %><select onchange="javascript:jk_ubb_font(this.options[this.selectedIndex].value);" size=1 name=font>
-<option value=å®‹ä½“>å®‹ä½“</option>
-<option value=é»‘ä½“>é»‘ä½“</option>
+<option value=ËÎÌå>ËÎÌå</option>
+<option value=ºÚÌå>ºÚÌå</option>
 <option value=arial>arial</option>
 <option value="Book antiqua">Book antiqua</option>
 <option value="Century Gothic">Century Gothic</option>
@@ -357,65 +357,65 @@ function setfocus() { document.<% Response.Write fn & "." & tn %>.focus(); }
 </tr>
 </table>
 <table border=0 cellspacing=0 cellpadding=0>
-<tr><td height=30><% Response.Write uw %><a href="javascript:jk_ubb_bold();"><img alt='æ’å…¥ç²—ä½“æ–‡æœ¬' src='images/ubb/bold.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_italicize();"><img alt='æ’å…¥æ–œä½“æ–‡æœ¬' src='images/ubb/italicize.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_underline();"><img alt='æ’å…¥ä¸‹åˆ’çº¿' src='images/ubb/underline.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_center();"><img alt='å±…ä¸­å¯¹é½' src='images/ubb/center.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_link();"><img alt='æ’å…¥è¶…çº§é“¾æ¥' src='images/ubb/url.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_email();"><img alt='æ’å…¥é‚®ä»¶åœ°å€' src='images/ubb/email.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_image();"><img alt='æ’å…¥å›¾åƒ' src='images/ubb/image.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_flash();"><img alt='æ’å…¥ flash' src='images/ubb/flash.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_code();"><img alt='æ’å…¥ä»£ç ' src='images/ubb/code.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_quote();"><img alt='æ’å…¥å¼•ç”¨' src='images/ubb/quote.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_rm();"><img alt='æ’å…¥Realplayè§†é¢‘æ–‡ä»¶' src='images/ubb/rm.gif' border=0></a>&nbsp;
-<a href="javascript:jk_ubb_mp();"><img alt='æ’å…¥Media Playeræ’­æ”¾æ–‡ä»¶' src='images/ubb/mp.gif' border=0></a></td></tr></table><%
+<tr><td height=30><% Response.Write uw %><a href="javascript:jk_ubb_bold();"><img alt='²åÈë´ÖÌåÎÄ±¾' src='images/ubb/bold.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_italicize();"><img alt='²åÈëĞ±ÌåÎÄ±¾' src='images/ubb/italicize.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_underline();"><img alt='²åÈëÏÂ»®Ïß' src='images/ubb/underline.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_center();"><img alt='¾ÓÖĞ¶ÔÆë' src='images/ubb/center.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_link();"><img alt='²åÈë³¬¼¶Á´½Ó' src='images/ubb/url.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_email();"><img alt='²åÈëÓÊ¼şµØÖ·' src='images/ubb/email.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_image();"><img alt='²åÈëÍ¼Ïñ' src='images/ubb/image.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_flash();"><img alt='²åÈë flash' src='images/ubb/flash.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_code();"><img alt='²åÈë´úÂë' src='images/ubb/code.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_quote();"><img alt='²åÈëÒıÓÃ' src='images/ubb/quote.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_rm();"><img alt='²åÈëRealplayÊÓÆµÎÄ¼ş' src='images/ubb/rm.gif' border=0></a>&nbsp;
+<a href="javascript:jk_ubb_mp();"><img alt='²åÈëMedia Player²¥·ÅÎÄ¼ş' src='images/ubb/mp.gif' border=0></a></td></tr></table><%
 End Sub
 
-Sub frm_ubb_type() %>è¾…åŠ©æ¨¡å¼ï¼š<br><input onclick="javascript:jk_ubb_mode('2');" type=radio value=2 name=mode class=bg_1> æç¤ºæ’å…¥<br>
-<input onclick="javascript:jk_ubb_mode('0');" type=radio value=0 name=mode class=bg_1 checked> ç›´æ¥æ’å…¥<br>
-<input onclick="javascript:jk_ubb_mode('1');" type=radio value=1 name=mode class=bg_1> å¸®åŠ©ä¿¡æ¯<%
+Sub frm_ubb_type() %>¸¨ÖúÄ£Ê½£º<br><input onclick="javascript:jk_ubb_mode('2');" type=radio value=2 name=mode class=bg_1> ÌáÊ¾²åÈë<br>
+<input onclick="javascript:jk_ubb_mode('0');" type=radio value=0 name=mode class=bg_1 checked> Ö±½Ó²åÈë<br>
+<input onclick="javascript:jk_ubb_mode('1');" type=radio value=1 name=mode class=bg_1> °ïÖúĞÅÏ¢<%
 End Sub
 
 Sub frm_word_size(fn,tn,ws,wv) %>
-<a href="javascript:checklength(document.<% Response.Write fn %>);">[å­—æ•°æ£€æŸ¥]</a>
+<a href="javascript:checklength(document.<% Response.Write fn %>);">[×ÖÊı¼ì²é]</a>
 <script language=JavaScript>
 <!--
 function checklength(theform)
 {
   var postmaxchars=<% Response.Write ws %>;
   var postchars=theform.<% Response.Write tn %>.value.length;
-  var post_1="æ‚¨è¾“å…¥çš„<% Response.Write wv %>å·²ç»è¶…è¿‡ç³»ç»Ÿå…è®¸çš„æœ€å¤§å€¼ï¼\nè¯·åˆ å‡éƒ¨åˆ†<% Response.Write wv %>ï¼";
+  var post_1="ÄúÊäÈëµÄ<% Response.Write wv %>ÒÑ¾­³¬¹ıÏµÍ³ÔÊĞíµÄ×î´óÖµ£¡\nÇëÉ¾¼õ²¿·Ö<% Response.Write wv %>£¡";
   var message="";
-  if (postmaxchars != 0) { message = "ç³»ç»Ÿå…è®¸ï¼š"+postmaxchars+"KBï¼ˆçº¦"+postmaxchars*1024+"ä¸ªå­—ç¬¦ï¼‰"; }
+  if (postmaxchars != 0) { message = "ÏµÍ³ÔÊĞí£º"+postmaxchars+"KB£¨Ô¼"+postmaxchars*1024+"¸ö×Ö·û£©"; }
   if (postmaxchars*1024>=postchars)
   {
     var postc=postmaxchars*1024-postchars;
-    post_1="æ‚¨è¿˜å¯ä»¥è¾“å…¥ï¼š"+postc+"ä¸ªå­—ç¬¦ï¼ˆçº¦"+Math.round(postc/1024)+"KBï¼‰";
+    post_1="Äú»¹¿ÉÒÔÊäÈë£º"+postc+"¸ö×Ö·û£¨Ô¼"+Math.round(postc/1024)+"KB£©";
   }
-  alert("æ‚¨è¾“å…¥çš„<% Response.Write wv %>çš„ç»Ÿè®¡ä¿¡æ¯å¦‚ä¸‹ï¼š\n\nå½“å‰é•¿åº¦ï¼š"+postchars+"ä¸ªå­—ç¬¦ï¼ˆçº¦"+Math.round(postchars/1024)+"KBï¼‰\n"+message+"\n"+post_1);
+  alert("ÄúÊäÈëµÄ<% Response.Write wv %>µÄÍ³¼ÆĞÅÏ¢ÈçÏÂ£º\n\nµ±Ç°³¤¶È£º"+postchars+"¸ö×Ö·û£¨Ô¼"+Math.round(postchars/1024)+"KB£©\n"+message+"\n"+post_1);
 }
 -->
 </script><%
 End Sub
 
 Sub frm_topic(fn,tn) %><select onchange="document.<% Response.Write fn & "." & tn %>.focus(); document.<% Response.Write fn & "." & tn %>.value = this.options[this.selectedIndex].value + document.<% Response.Write fn & "." & tn %>.value;"> 
-<option value='' selected>é€‰æ‹©</option>
-<option value=[åŸåˆ›]>[åŸåˆ›]</option>
-<option value=[è½¬å¸–]>[è½¬å¸–]</option>
+<option value='' selected>Ñ¡Ôñ</option>
+<option value=[Ô­´´]>[Ô­´´]</option>
+<option value=[×ªÌû]>[×ªÌû]</option>
 <option value=[Hack]>[Hack]</option>
-<option value=[ç –å¤´]>[ç –å¤´]</option>
-<option value=[ä¹±å¼¹]>[ä¹±å¼¹]</option>
-<option value=[çŒæ°´]>[çŒæ°´]</option>
-<option value=[è®¨è®º]>[è®¨è®º]</option>
-<option value=[è­¦å‘Š]>[è­¦å‘Š]</option> 
-<option value=[æ±‚åŠ©]>[æ±‚åŠ©]</option>
-<option value=[æ¨è]>[æ¨è]</option> 
-<option value=[å…¬å‘Š]>[å…¬å‘Š]</option>
-<option value=[æˆäºº]>[æˆäºº]</option> 
-<option value=[æ³¨æ„]>[æ³¨æ„]</option>
-<option value=[è´´å›¾]>[è´´å›¾]</option> 
-<option value=[å»ºè®®]>[å»ºè®®]</option>
-<option value=[ä¸‹è½½]>[ä¸‹è½½]</option>
-<option value=[åˆ†äº«]>[åˆ†äº«]</option>
+<option value=[×©Í·]>[×©Í·]</option>
+<option value=[ÂÒµ¯]>[ÂÒµ¯]</option>
+<option value=[¹àË®]>[¹àË®]</option>
+<option value=[ÌÖÂÛ]>[ÌÖÂÛ]</option>
+<option value=[¾¯¸æ]>[¾¯¸æ]</option> 
+<option value=[ÇóÖú]>[ÇóÖú]</option>
+<option value=[ÍÆ¼ö]>[ÍÆ¼ö]</option> 
+<option value=[¹«¸æ]>[¹«¸æ]</option>
+<option value=[³ÉÈË]>[³ÉÈË]</option> 
+<option value=[×¢Òâ]>[×¢Òâ]</option>
+<option value=[ÌùÍ¼]>[ÌùÍ¼]</option> 
+<option value=[½¨Òé]>[½¨Òé]</option>
+<option value=[ÏÂÔØ]>[ÏÂÔØ]</option>
+<option value=[·ÖÏí]>[·ÖÏí]</option>
 </select><%
 End Sub %>

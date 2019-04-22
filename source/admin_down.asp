@@ -33,11 +33,11 @@ Dim page
 Dim viewpage
 Dim del_temp
 Dim csid
-tit = "<a href='?action='>éŸ³ä¹åˆ—è¡¨</a>&nbsp;â”‹&nbsp;" & _
-"<a href='?action=add'>æ·»åŠ éŸ³ä¹</a>&nbsp;â”‹&nbsp;" & _
-"<a href='admin_nsort.asp?nsort=down'>ä¸‹è½½åˆ†ç±»</a>&nbsp;â”‹&nbsp;" & _
-"<a href='?action=code'>æ³¨å†Œç åˆ—è¡¨</a>&nbsp;â”‹&nbsp;" & _
-"<a href='?action=code_add'>æ·»åŠ æ³¨å†Œç </a>"
+tit = "<a href='?action='>ÒôÀÖÁĞ±í</a>&nbsp;©¯&nbsp;" & _
+"<a href='?action=add'>Ìí¼ÓÒôÀÖ</a>&nbsp;©¯&nbsp;" & _
+"<a href='admin_nsort.asp?nsort=down'>ÏÂÔØ·ÖÀà</a>&nbsp;©¯&nbsp;" & _
+"<a href='?action=code'>×¢²áÂëÁĞ±í</a>&nbsp;©¯&nbsp;" & _
+"<a href='?action=code_add'>Ìí¼Ó×¢²áÂë</a>"
 Response.Write header(14,tit)
 pageurl = "?action=" & action & "&":nsort = "down":sqladd = "":data_name = "down":sqladd = "":nummer = 15
 Call admin_cid_sid()
@@ -131,7 +131,7 @@ Sub down_edit()
                 types    = Request.form("types")
 
                 If Len(csid) < 1 Or var_null(name) = "" Or var_null(url) = "" Then
-                    Response.Write("<font class=red_2>è½¯ä»¶çš„ç±»å‹ã€åç§°å’Œä¸‹è½½åœ°å€ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back)
+                    Response.Write("<font class=red_2>Èí¼şµÄÀàĞÍ¡¢Ãû³ÆºÍÏÂÔØµØÖ·²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back)
                 Else
                     Call chk_cid_sid()
                     rs("c_id") = cid
@@ -167,7 +167,7 @@ Sub down_edit()
                     If IsNumeric(counter) Then rs("counter") = counter
                     rs.update
                     Call upload_note(data_name,id)
-                    Response.Write "<font class=red>è½¯ä»¶ä¿®æ”¹æˆåŠŸï¼</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>ç‚¹å‡»è¿”å›</a>" & _
+                    Response.Write "<font class=red>Èí¼şĞŞ¸Ä³É¹¦£¡</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>µã»÷·µ»Ø</a>" & _
                     vbcrlf & "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=?c_id=" & cid & "&s_id=" & sid & "'>"
                 End If
 
@@ -177,20 +177,20 @@ Sub down_edit()
                 If InStr(ispic,"/") > 0 Then ispic = Right(ispic,Len(ispic) - InStr(ispic,"/"))
                 If InStr(ispic,".") > 0 Then ispic = Left(ispic,InStr(ispic,".") - 1)
                 If ispic = "no_pic" Then ispic = "n_" & id:pic = "" %><table border=0 width='98%' cellspacing=0 cellpadding=2>
-  <tr><td colspan=2 height=50 align=center><font class=red>è½¯ä»¶ä¸‹è½½å±æ€§ä¿®æ”¹</font></td></tr>
+  <tr><td colspan=2 height=50 align=center><font class=red>Èí¼şÏÂÔØÊôĞÔĞŞ¸Ä</font></td></tr>
 <form name='add_frm' action="?action=down_edit&types=edit&id=<% Response.Write id %>" method=post>
 <input type=hidden name=upid value=''>
-  <tr><td width='15%' align=center>éŸ³ä¹åç§°ï¼š</td><td width='85%'><input type=text name=name value='<% Response.Write rs("name") %>' size=70 maxlength=40><% Response.Write redx %></td></tr>
-  <tr><td align=center>æ‰€å±ç±»åˆ«ï¼š</td><td><% Call chk_csid(cid,sid):Call chk_emoney(rs("emoney")):Call chk_h_u() %></td></tr>
-  <tr><td align=center>ä¸‹è½½æƒé™ï¼š</td><td><% Call chk_power(rs("power"),0) %></td></tr>
-  <tr><td align=center>æ–‡ä»¶å¤§å°ï¼š</td><td><input type=text name=sizes value='<% Response.Write rs("sizes") %>' size=20 maxlength=10>&nbsp;&nbsp;&nbsp;æ¨èç­‰çº§ï¼š<select name=types size=1>
-<option value='0'<% If types = 0 Then Response.Write " selected" %>>æ²¡æœ‰ç­‰çº§</option>
-<option value='1'<% If types = 1 Then Response.Write " selected" %>>ä¸€æ˜Ÿçº§</option>
-<option value='2'<% If types = 2 Then Response.Write " selected" %>>äºŒæ˜Ÿçº§</option>
-<option value='3'<% If types = 3 Then Response.Write " selected" %>>ä¸‰æ˜Ÿçº§</option>
-<option value='4'<% If types = 4 Then Response.Write " selected" %>>å››æ˜Ÿçº§</option>
-<option value='5'<% If types = 5 Then Response.Write " selected" %>>äº”æ˜Ÿçº§</option>
-</select>&nbsp;&nbsp;&nbsp;éŸ³ä¹ç±»å‹ï¼š<select name=genre size=1><%
+  <tr><td width='15%' align=center>ÒôÀÖÃû³Æ£º</td><td width='85%'><input type=text name=name value='<% Response.Write rs("name") %>' size=70 maxlength=40><% Response.Write redx %></td></tr>
+  <tr><td align=center>ËùÊôÀà±ğ£º</td><td><% Call chk_csid(cid,sid):Call chk_emoney(rs("emoney")):Call chk_h_u() %></td></tr>
+  <tr><td align=center>ÏÂÔØÈ¨ÏŞ£º</td><td><% Call chk_power(rs("power"),0) %></td></tr>
+  <tr><td align=center>ÎÄ¼ş´óĞ¡£º</td><td><input type=text name=sizes value='<% Response.Write rs("sizes") %>' size=20 maxlength=10>&nbsp;&nbsp;&nbsp;ÍÆ¼öµÈ¼¶£º<select name=types size=1>
+<option value='0'<% If types = 0 Then Response.Write " selected" %>>Ã»ÓĞµÈ¼¶</option>
+<option value='1'<% If types = 1 Then Response.Write " selected" %>>Ò»ĞÇ¼¶</option>
+<option value='2'<% If types = 2 Then Response.Write " selected" %>>¶şĞÇ¼¶</option>
+<option value='3'<% If types = 3 Then Response.Write " selected" %>>ÈıĞÇ¼¶</option>
+<option value='4'<% If types = 4 Then Response.Write " selected" %>>ËÄĞÇ¼¶</option>
+<option value='5'<% If types = 5 Then Response.Write " selected" %>>ÎåĞÇ¼¶</option>
+</select>&nbsp;&nbsp;&nbsp;ÒôÀÖÀàĞÍ£º<select name=genre size=1><%
                 Dim tt:tt = rs("genre"):ddim = Split(web_var(web_down
                 Dim 4)
                 Dim ":")
@@ -202,7 +202,7 @@ Sub down_edit()
                 Next
 
                 Erase ddim %></select></td></tr>
-  <tr><td align=center>æ’­æ”¾è½¯ä»¶ï¼š</td><td><%
+  <tr><td align=center>²¥·ÅÈí¼ş£º</td><td><%
                 tt = rs("os"):ddim = Split(web_var(web_down,3),":")
 
                 For i = 0 To UBound(ddim)
@@ -212,14 +212,14 @@ Sub down_edit()
                 Next
 
                 Erase ddim %></td></tr>
-  <tr><td align=center>ä¸‹è½½åœ°å€1ï¼š</td><td><input type=text name=url value='<% Response.Write rs("url") %>' size=70 maxlength=200><% Response.Write redx %></td></tr>
-  <tr><td align=center>ä¸‹è½½åœ°å€2ï¼š</td><td><input type=text name=url2 value='<% Response.Write rs("url2") %>' size=70 maxlength=200></td></tr>
-  <tr><td align=center>æ–‡ä»¶æ¥è‡ªï¼š</td><td><input type=text name=homepage value='<% Response.Write rs("homepage") %>' size=50 maxlength=50>&nbsp;&nbsp;&nbsp;ä¸‹è½½æ¬¡æ•°ï¼š<input type=text name=counter value='<% Response.Write rs("counter") %>' size=4 maxlength=10></td></tr>
+  <tr><td align=center>ÏÂÔØµØÖ·1£º</td><td><input type=text name=url value='<% Response.Write rs("url") %>' size=70 maxlength=200><% Response.Write redx %></td></tr>
+  <tr><td align=center>ÏÂÔØµØÖ·2£º</td><td><input type=text name=url2 value='<% Response.Write rs("url2") %>' size=70 maxlength=200></td></tr>
+  <tr><td align=center>ÎÄ¼şÀ´×Ô£º</td><td><input type=text name=homepage value='<% Response.Write rs("homepage") %>' size=50 maxlength=50>&nbsp;&nbsp;&nbsp;ÏÂÔØ´ÎÊı£º<input type=text name=counter value='<% Response.Write rs("counter") %>' size=4 maxlength=10></td></tr>
   <tr height=35<% Response.Write format_table(3,1) %>><td align=center><% Call frm_ubb_type() %></td><td><% Call frm_ubb("add_frm","remark","&nbsp;&nbsp;") %></td></tr>
-  <tr><td align=center valign=top><br>éŸ³ä¹å¤‡æ³¨ï¼š</td><td><% Response.Write("<textarea rows=6 name=remark cols=70>" & rs("remark") & "</textarea>") %></td></tr>
-  <tr><td align=center>å…³ é”® å­—ï¼š</td><td><input type=text name=keyes value='<% Response.Write rs("keyes") %>' size=12 maxlength=20>&nbsp;å›¾ç‰‡ï¼š<input type=test name=pic value='<% If ispic <> "no_pic.gif" Then Response.Write pic %>' size=30 maxlength=100>&nbsp;<a href='upload.asp?uppath=down&upname=<% Response.Write ispic %>&uptext=pic' target=upload_frame>ä¸Šä¼ å›¾ç‰‡</a>&nbsp;&nbsp;<a href='upload.asp?uppath=down&upname=d&uptext=remark' target=upload_frame>ä¸Šä¼ è‡³å†…å®¹</a></td></tr>
-  <tr><td align=center>ä¸Šä¼ å›¾ç‰‡ï¼š</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=down&upname=<% Response.Write ispic %>&uptext=pic'></iframe></td></tr>
-  <tr height=30><td></td><td><input type=submit value=' æ äº¤ ä¿® æ”¹ '></td></tr>
+  <tr><td align=center valign=top><br>ÒôÀÖ±¸×¢£º</td><td><% Response.Write("<textarea rows=6 name=remark cols=70>" & rs("remark") & "</textarea>") %></td></tr>
+  <tr><td align=center>¹Ø ¼ü ×Ö£º</td><td><input type=text name=keyes value='<% Response.Write rs("keyes") %>' size=12 maxlength=20>&nbsp;Í¼Æ¬£º<input type=test name=pic value='<% If ispic <> "no_pic.gif" Then Response.Write pic %>' size=30 maxlength=100>&nbsp;<a href='upload.asp?uppath=down&upname=<% Response.Write ispic %>&uptext=pic' target=upload_frame>ÉÏ´«Í¼Æ¬</a>&nbsp;&nbsp;<a href='upload.asp?uppath=down&upname=d&uptext=remark' target=upload_frame>ÉÏ´«ÖÁÄÚÈİ</a></td></tr>
+  <tr><td align=center>ÉÏ´«Í¼Æ¬£º</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=down&upname=<% Response.Write ispic %>&uptext=pic'></iframe></td></tr>
+  <tr height=30><td></td><td><input type=submit value=' Ìá ½» ĞŞ ¸Ä '></td></tr>
 </form></table><%
             End If
 
@@ -252,7 +252,7 @@ Sub down_edit()
                 types    = Request.form("types")
 
                 If Len(csid) < 1 Or var_null(name) = "" Or var_null(url) = "" Then
-                    Response.Write("<font class=red_2>æ–‡ä»¶çš„ç±»å‹ã€åç§°å’Œä¸‹è½½åœ°å€ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back)
+                    Response.Write("<font class=red_2>ÎÄ¼şµÄÀàĞÍ¡¢Ãû³ÆºÍÏÂÔØµØÖ·²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back)
                 Else
                     Call chk_cid_sid()
                     sql    = "select * from " & data_name
@@ -287,26 +287,26 @@ Sub down_edit()
                     rs.update
                     rs.Close:Set rs = Nothing
                     Call upload_note(data_name,first_id(data_name))
-                    Response.Write "<font class=red>éŸ³ä¹æ·»åŠ æˆåŠŸï¼</font>&nbsp;<a href='?c_id=" & cid & "&s_id=" & sid & "'>ç‚¹å‡»è¿”å›</a><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "&action=down_add'>ç‚¹å‡»ç»§ç»­æ·»åŠ </a>" & _
+                    Response.Write "<font class=red>ÒôÀÖÌí¼Ó³É¹¦£¡</font>&nbsp;<a href='?c_id=" & cid & "&s_id=" & sid & "'>µã»÷·µ»Ø</a><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "&action=down_add'>µã»÷¼ÌĞøÌí¼Ó</a>" & _
                     VbCrLf & "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=?c_id=" & cid & "&s_id=" & sid & "&action=down_add'>"
                 End If
 
             Else %>
 <table border=0 width='98%' cellspacing=0 cellpadding=2>
-  <tr><td colspan=2 height=50 align=center><font class=red>æ·»åŠ æ–°è½¯ä»¶ä¸‹è½½</font></td></tr>
+  <tr><td colspan=2 height=50 align=center><font class=red>Ìí¼ÓĞÂÈí¼şÏÂÔØ</font></td></tr>
 <form name='add_frm' action='?action=add&types=add' method=post>
 <input type=hidden name=upid value=''>
-  <tr><td width='15%' align=center>éŸ³ä¹åç§°ï¼š</td><td width='85%'><input type=text name=name size=70 maxlength=40><% Response.Write redx %></td></tr>
-  <tr><td align=center>æ‰€å±ç±»åˆ«ï¼š</td><td><% Call chk_csid(cid,sid):Call chk_emoney(0) %></td></tr>
-  <tr><td align=center>ä¸‹è½½æƒé™ï¼š</td><td><% Call chk_power("",1) %></td></tr>
-  <tr><td align=center>æ–‡ä»¶å¤§å°ï¼š</td><td><input type=text name=sizes value='KB' size=10 maxlength=10>&nbsp;&nbsp;&nbsp;æ¨èç­‰çº§ï¼š<select name=types size=1>
-<option value='0'>æ²¡æœ‰ç­‰çº§</option>
-<option value='1'>ä¸€æ˜Ÿçº§</option>
-<option value='2'>äºŒæ˜Ÿçº§</option>
-<option value='3'>ä¸‰æ˜Ÿçº§</option>
-<option value='4'>å››æ˜Ÿçº§</option>
-<option value='5'>äº”æ˜Ÿçº§</option>
-</select>&nbsp;&nbsp;&nbsp;éŸ³ä¹ç±»å‹ï¼š<select name=genre size=1><%
+  <tr><td width='15%' align=center>ÒôÀÖÃû³Æ£º</td><td width='85%'><input type=text name=name size=70 maxlength=40><% Response.Write redx %></td></tr>
+  <tr><td align=center>ËùÊôÀà±ğ£º</td><td><% Call chk_csid(cid,sid):Call chk_emoney(0) %></td></tr>
+  <tr><td align=center>ÏÂÔØÈ¨ÏŞ£º</td><td><% Call chk_power("",1) %></td></tr>
+  <tr><td align=center>ÎÄ¼ş´óĞ¡£º</td><td><input type=text name=sizes value='KB' size=10 maxlength=10>&nbsp;&nbsp;&nbsp;ÍÆ¼öµÈ¼¶£º<select name=types size=1>
+<option value='0'>Ã»ÓĞµÈ¼¶</option>
+<option value='1'>Ò»ĞÇ¼¶</option>
+<option value='2'>¶şĞÇ¼¶</option>
+<option value='3'>ÈıĞÇ¼¶</option>
+<option value='4'>ËÄĞÇ¼¶</option>
+<option value='5'>ÎåĞÇ¼¶</option>
+</select>&nbsp;&nbsp;&nbsp;ÒôÀÖÀàĞÍ£º<select name=genre size=1><%
                 ddim = Split(web_var(web_down,4),":")
 
                 For i = 0 To UBound(ddim)
@@ -314,7 +314,7 @@ Sub down_edit()
                 Next
 
                 Erase ddim %></select></td></tr>
-  <tr><td align=center>æ’­æ”¾è½¯ä»¶ï¼š</td><td><%
+  <tr><td align=center>²¥·ÅÈí¼ş£º</td><td><%
                 ddim = Split(web_var(web_down,3),":")
 
                 For i = 0 To UBound(ddim)
@@ -322,15 +322,15 @@ Sub down_edit()
                 Next
 
                 Erase ddim %></td></tr>
-  <tr><td align=center>æœ¬ç«™ä¸‹è½½ï¼š</td><td><input type=text name=url size=70 maxlength=200><% Response.Write redx %></td></tr>
-  <tr><td align=center>é•œåƒä¸‹è½½ï¼š</td><td><input type=text name=url2 value='http://' size=70 maxlength=200></td></tr>
-  <tr><td align=center>æ–‡ä»¶æ¥è‡ªï¼š</td><td><input type=text name=homepage value='http://' size=50 maxlength=50></td></tr>
+  <tr><td align=center>±¾Õ¾ÏÂÔØ£º</td><td><input type=text name=url size=70 maxlength=200><% Response.Write redx %></td></tr>
+  <tr><td align=center>¾µÏñÏÂÔØ£º</td><td><input type=text name=url2 value='http://' size=70 maxlength=200></td></tr>
+  <tr><td align=center>ÎÄ¼şÀ´×Ô£º</td><td><input type=text name=homepage value='http://' size=50 maxlength=50></td></tr>
   <tr height=35<% Response.Write format_table(3,1) %>><td align=center><% Call frm_ubb_type() %></td><td><% Call frm_ubb("add_frm","remark","&nbsp;&nbsp;") %></td></tr>
-  <tr><td valign=top align=center><br>éŸ³ä¹å¤‡æ³¨</td><td><textarea rows=6 name=remark cols=70></textarea></td></tr>
+  <tr><td valign=top align=center><br>ÒôÀÖ±¸×¢</td><td><textarea rows=6 name=remark cols=70></textarea></td></tr>
 <% ispic = "d" & upload_time(now_time) %>
-  <tr><td align=center>å…³ é”® å­—ï¼š</td><td><input type=text name=keyes size=12 maxlength=20>&nbsp;&nbsp;&nbsp;&nbsp;å›¾ç‰‡ï¼š<input type=text name=pic size=30 maxlength=100>&nbsp;&nbsp;&nbsp;<a href='upload.asp?uppath=down&upname=<% Response.Write ispic %>&uptext=pic' target=upload_frame>ä¸Šä¼ å›¾ç‰‡</a>&nbsp;&nbsp;<a href='upload.asp?uppath=down&upname=d&uptext=remark' target=upload_frame>ä¸Šä¼ è‡³å†…å®¹</a></td></tr>
-  <tr><td align=center>ä¸Šä¼ æ–‡ä»¶ï¼š</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=down&upname=<% Response.Write ispic %>&uptext=pic'></iframe></td></tr>
-  <tr height=30><td></td><td><input type=submit value=' æ äº¤ æ·» åŠ  '></td></tr>
+  <tr><td align=center>¹Ø ¼ü ×Ö£º</td><td><input type=text name=keyes size=12 maxlength=20>&nbsp;&nbsp;&nbsp;&nbsp;Í¼Æ¬£º<input type=text name=pic size=30 maxlength=100>&nbsp;&nbsp;&nbsp;<a href='upload.asp?uppath=down&upname=<% Response.Write ispic %>&uptext=pic' target=upload_frame>ÉÏ´«Í¼Æ¬</a>&nbsp;&nbsp;<a href='upload.asp?uppath=down&upname=d&uptext=remark' target=upload_frame>ÉÏ´«ÖÁÄÚÈİ</a></td></tr>
+  <tr><td align=center>ÉÏ´«ÎÄ¼ş£º</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=down&upname=<% Response.Write ispic %>&uptext=pic'></iframe></td></tr>
+  <tr height=30><td></td><td><input type=submit value=' Ìá ½» Ìí ¼Ó '></td></tr>
 </form></table><%
             End If %></td></tr></table><%
         End Sub
@@ -365,7 +365,7 @@ Sub down_edit()
                         remark   = Request("remark")
 
                         If name = "" Or IsNull(name) Or code = "" Or IsNull(code) Then
-                            Response.Write("éŸ³ä¹åç§°å’Œæ³¨ å†Œ ç ä¸èƒ½ä¸ºç©ºï¼<br><br>" & go_back)
+                            Response.Write("ÒôÀÖÃû³ÆºÍ×¢ ²á Âë²»ÄÜÎª¿Õ£¡<br><br>" & go_back)
                         Else
                             rs("name") = name
                             rs("username") = username
@@ -373,19 +373,19 @@ Sub down_edit()
                             rs("remark") = remark
                             rs.update
                             rs.Close:Set rs = Nothing
-                            Response.Write("æ³¨å†Œç ä¿®æ”¹æˆåŠŸï¼<br><br><a href='admin_down.asp?action=code'>ç‚¹å‡»è¿”å›</a>")
+                            Response.Write("×¢²áÂëĞŞ¸Ä³É¹¦£¡<br><br><a href='admin_down.asp?action=code'>µã»÷·µ»Ø</a>")
                             Response.Write(VbCrLf & "<meta http-equiv='refresh' content='" & time_go & "; url=admin_down.asp?action=code'>")
                         End If
 
                     Else %>
 <table border="0" width="400" cellspacing="0" cellpadding="2">
-  <tr><td colspan=2 height=50 align=center><font class=font_color1>æ³¨å†Œç å±æ€§ä¿®æ”¹</font></td></tr>
+  <tr><td colspan=2 height=50 align=center><font class=font_color1>×¢²áÂëÊôĞÔĞŞ¸Ä</font></td></tr>
   <form action="?action=code_edit&types=edit&id=<% = id %>" method=post>
-  <tr><td>æ–‡ä»¶åç§°</td><td><input type=text name=name value='<% = rs("name") %>' size=50 maxlength=100></td></tr>
-  <tr><td>æ³¨å†Œåç§°</td><td><input type=text name=username value='<% = rs("username") %>' size=50 maxlength=100></td></tr>
-  <tr><td>æ³¨ å†Œ ç </td><td><input type=text name=code value='<% = rs("code") %>' size=50 maxlength=100></td></tr>
-  <tr><td>å¤‡æ³¨è¯´æ˜</td><td><% Response.Write("<textarea rows=6 name=remark cols=50>" & rs("remark") & "</textarea>") %></td></tr>
-  <tr height=30><td></td><td><input type="submit" value=" ä¿® æ”¹ "></td></tr>
+  <tr><td>ÎÄ¼şÃû³Æ</td><td><input type=text name=name value='<% = rs("name") %>' size=50 maxlength=100></td></tr>
+  <tr><td>×¢²áÃû³Æ</td><td><input type=text name=username value='<% = rs("username") %>' size=50 maxlength=100></td></tr>
+  <tr><td>×¢ ²á Âë</td><td><input type=text name=code value='<% = rs("code") %>' size=50 maxlength=100></td></tr>
+  <tr><td>±¸×¢ËµÃ÷</td><td><% Response.Write("<textarea rows=6 name=remark cols=50>" & rs("remark") & "</textarea>") %></td></tr>
+  <tr height=30><td></td><td><input type="submit" value=" ĞŞ ¸Ä "></td></tr>
 </form></table>
 <% End If %></td></tr><tr></table><%
 
@@ -405,7 +405,7 @@ Sub down_edit()
                         remark   = Request("remark")
 
                         If name = "" Or IsNull(name) Or code = "" Or IsNull(code) Then
-                            Response.Write("æ–‡ä»¶åç§°å’Œæ³¨ å†Œ ç ä¸èƒ½ä¸ºç©ºï¼<br><br>" & go_back)
+                            Response.Write("ÎÄ¼şÃû³ÆºÍ×¢ ²á Âë²»ÄÜÎª¿Õ£¡<br><br>" & go_back)
                         Else
                             Dim rs
                             Dim strsql
@@ -420,18 +420,18 @@ Sub down_edit()
                             rs.update
                             rs.Close
                             Set rs = Nothing
-                            Response.Write("æ³¨å†Œç æ·»åŠ æˆåŠŸï¼<br><br><a href='admin_down.asp?action=code_add'>ç‚¹å‡»ç»§ç»­æ·»åŠ </a>")
+                            Response.Write("×¢²áÂëÌí¼Ó³É¹¦£¡<br><br><a href='admin_down.asp?action=code_add'>µã»÷¼ÌĞøÌí¼Ó</a>")
                             Response.Write(VbCrLf & "<meta http-equiv='refresh' content='" & time_go & "; url=admin_down.asp?action=code_add'>")
                         End If
 
                     Else %><table border="0" width="400" cellspacing="0" cellpadding="2">
 <form action="?action=code_add&types=add" method=post>
-  <tr><td colspan=2 height=50 align=center><font class=font_color1>æ·»åŠ æ–°æ³¨å†Œç </font></td></tr>
-  <tr><td>æ–‡ä»¶åç§°</td><td><input type=text name=name size=50 maxlength=100></td></tr>
-  <tr><td>æ³¨å†Œåç§°</td><td><input type=text name=username size=50 maxlength=100></td></tr>
-  <tr><td>æ³¨ å†Œ ç </td><td><input type=text name=code size=50 maxlength=100></td></tr>
-  <tr><td>å¤‡æ³¨è¯´æ˜</td><td><textarea rows="6" name=remark cols="50"></textarea></td></tr>
-  <tr height=30><td></td><td><input type="submit" value=" æ·» åŠ  "></td></tr>
+  <tr><td colspan=2 height=50 align=center><font class=font_color1>Ìí¼ÓĞÂ×¢²áÂë</font></td></tr>
+  <tr><td>ÎÄ¼şÃû³Æ</td><td><input type=text name=name size=50 maxlength=100></td></tr>
+  <tr><td>×¢²áÃû³Æ</td><td><input type=text name=username size=50 maxlength=100></td></tr>
+  <tr><td>×¢ ²á Âë</td><td><input type=text name=code size=50 maxlength=100></td></tr>
+  <tr><td>±¸×¢ËµÃ÷</td><td><textarea rows="6" name=remark cols="50"></textarea></td></tr>
+  <tr height=30><td></td><td><input type="submit" value=" Ìí ¼Ó "></td></tr>
 </form></table>
 <% End If %></td></tr></table><%
 
@@ -452,8 +452,8 @@ Sub down_edit()
                     End If
 
                     Call format_pagecute()
-                    Response.Write "<tr><td colspan=3 align=center height=30>å…±æœ‰ä¸ª <font class=red>" & rssum & "</font> æ³¨å†Œç   åˆ†é¡µ:" & jk_pagecute(nummer,thepages,viewpage,pageurl,10,"#ff0000") & "</td></tr>" & _
-                    "<tr align=center><td width='10%'>åºå·</td><td width='75%'>ç±»å‹å’Œåç§°</td><td width='15%'>æ“ä½œ</td></tr>"
+                    Response.Write "<tr><td colspan=3 align=center height=30>¹²ÓĞ¸ö <font class=red>" & rssum & "</font> ×¢²áÂë  ·ÖÒ³:" & jk_pagecute(nummer,thepages,viewpage,pageurl,10,"#ff0000") & "</td></tr>" & _
+                    "<tr align=center><td width='10%'>ĞòºÅ</td><td width='75%'>ÀàĞÍºÍÃû³Æ</td><td width='15%'>²Ù×÷</td></tr>"
 
                     If Int(viewpage) > 1 Then
                         rs.move (viewpage - 1)*nummer
@@ -461,7 +461,7 @@ Sub down_edit()
 
                     For i = 1 To nummer
                         If rs.eof Then Exit For
-                        Response.Write "<tr align=center><td>" & (viewpage - 1)*nummer + i & "</td><td align=left>" & rs("name") & "</td><td><a href='admin_down.asp?action=code_edit&id=" & rs("id") & "'>ä¿®æ”¹</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='admin_down.asp?action=code_del&id=" & rs("id") & "'>åˆ é™¤</a></td></tr>"
+                        Response.Write "<tr align=center><td>" & (viewpage - 1)*nummer + i & "</td><td align=left>" & rs("name") & "</td><td><a href='admin_down.asp?action=code_edit&id=" & rs("id") & "'>ĞŞ¸Ä</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='admin_down.asp?action=code_del&id=" & rs("id") & "'>É¾³ı</a></td></tr>"
                         rs.movenext
                     Next
 
@@ -494,10 +494,10 @@ Sub down_edit()
                         del_temp = rssum - nummer*(thepages - 1)
                     End If %>
 <tr><td colspan=3 align=center height=25>
-ç°æœ‰<font class=red><% Response.Write rssum %></font>ä¸ªè½¯ä»¶ã€€<% Response.Write "<a href='?action=add&c_id=" & cid & "&s_id=" & sid & "'>æ·»åŠ éŸ³ä¹</a>" %>
-ã€€<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> é€‰ä¸­æ‰€æœ‰ã€€<input type=submit value='åˆ é™¤æ‰€é€‰' onclick=""return suredel('<% Response.Write del_temp %>');"">
+ÏÖÓĞ<font class=red><% Response.Write rssum %></font>¸öÈí¼ş¡¡<% Response.Write "<a href='?action=add&c_id=" & cid & "&s_id=" & sid & "'>Ìí¼ÓÒôÀÖ</a>" %>
+¡¡<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> Ñ¡ÖĞËùÓĞ¡¡<input type=submit value='É¾³ıËùÑ¡' onclick=""return suredel('<% Response.Write del_temp %>');"">
 </td></tr>
-<tr align=center bgcolor=#ffffff><td width='8%'>åºå·</td><td width='77%'>ç±»å‹å’Œåç§°</td><td width='15%'>æ“ä½œ</td></tr>
+<tr align=center bgcolor=#ffffff><td width='8%'>ĞòºÅ</td><td width='77%'>ÀàĞÍºÍÃû³Æ</td><td width='15%'>²Ù×÷</td></tr>
 <%
 
                     If Int(viewpage) > 1 Then
@@ -510,19 +510,19 @@ Sub down_edit()
                         Response.Write vbcrlf & "<tr align=center><td>" & (viewpage - 1)*nummer + i & "</td><td align=left><a href='?action=down_edit&id=" & now_id & "'>" & rs("name") & "</a></td><td align=right><a href='?action=hidden&c_id=" & cid & "&s_id=" & sid & "&id=" & now_id & "&page=" & viewpage & "'>"
 
                         If rs("hidden") = True Then
-                            Response.Write "æ˜¾</a> "
+                            Response.Write "ÏÔ</a> "
                         Else
-                            Response.Write "<font class=red_2>éš</font></a> "
+                            Response.Write "<font class=red_2>Òş</font></a> "
                         End If
 
-                        Response.Write "<font class=red>" & nid & "</font>&nbsp;æ˜Ÿ&nbsp;<input type=checkbox name=del_id value='" & now_id & "'></td></tr>"
+                        Response.Write "<font class=red>" & nid & "</font>&nbsp;ĞÇ&nbsp;<input type=checkbox name=del_id value='" & now_id & "'></td></tr>"
                         rs.movenext
                     Next
 
                     rs.Close:Set rs = Nothing %></form>
 <tr><td colspan=3 height=1 bgcolor=#ededede></td></tr>
-<tr><td colspan=3 height=25>é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
+<tr><td colspan=3 height=25>Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
 </td></tr>
 </table></td></tr></table><%
                 End Sub %>

@@ -56,7 +56,7 @@ Function del_select(delid)
         Next
 
         Erase del_dim
-        del_select = vbcrlf & "<script language=javascript>alert(""鍏卞垹闄や簡 " & del_num + 1 & " 鏉¤褰曪紒"");</script>"
+        del_select = vbcrlf & "<script language=javascript>alert(""共删除了 " & del_num + 1 & " 条记录！"");</script>"
     End If
 
 End Function
@@ -72,14 +72,14 @@ Function header(popedomnum,titmenu)
 
     End If
 
-    header = VbCrLf & "<html><head><title>" & web_var(web_config,1) & " - 绠＄悊鍚庡彴</title>" & _
+    header = VbCrLf & "<html><head><title>" & web_var(web_config,1) & " - 管理后台</title>" & _
     VbCrLf & "<meta http-equiv=Content-Type content=text/html; charset=gb2312>" & _
     VbCrLf & "<link rel=stylesheet href='include/beyondest.css' type=text/css>" & _
     VbCrLf & "<script langiage='javascript' src='style/open_win.js'></script>" & _
     VbCrLf & "<script langiage='javascript' src='style/mouse_on_title.js'></script>" & _
     VbCrLf & "</head>" & VbCrLf & "<body topmargin=0 leftmargin=0 bgcolor=" & color1 & "><center>" & _
     VbCrLf & "<table border=0 width=600 cellspacing=0 cellpadding=0>" & _
-    vbcrlf & "<tr><td height=50 align=center>" & titmenu & "&nbsp;鈹�&nbsp;<a href='javascript:;' onclick=""javascript:document.location.reload()"">鍒锋柊</a></td></tr><tr><td align=center height=350>"
+    vbcrlf & "<tr><td height=50 align=center>" & titmenu & "&nbsp;┋&nbsp;<a href='javascript:;' onclick=""javascript:document.location.reload()"">刷新</a></td></tr><tr><td align=center height=350>"
 End Function
 
 Function popedom_formated(popedom1,popedomnum,popedomtype)

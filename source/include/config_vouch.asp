@@ -37,15 +37,15 @@ Sub vouch_left(vjt,vjt2)
     If vjt2 <> "" Then vjt2 = img_small(vjt2)
     temp1 = vbcrlf & "<table border=0 width='80%' cellspacing=0 cellpadding=2 align=center>" & _
     vbcrlf & "<tr height=5><td></td></tr>" & _
-    vbcrlf & "<tr><td>" & vjt & "<a href='gallery.asp?action=paste'>æ¡Œé¢å£çº¸</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & vjt & "<a href='gallery.asp?action=paste'>×ÀÃæ±ÚÖ½</a></td></tr>" & _
     vbcrlf & "<tr><td>" & vjt & "<a href='gallery.asp?action=flash'>Flash MTV</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & vjt & "<a href='gallery.asp?action=film'>ç²¾å½©è§†é¢‘</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & vjt & "<a href='gallery.asp?action=baner'>Beyondç›¸å†Œ</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & vjt & "<a href='website.asp'>ç²¾å½©ç½‘ç«™</a></td></tr>" & _
-    vbcrlf & "<tr><td align=right>" & vjt2 & "<a href='user_put.asp?action=gallery'>æˆ‘è¦ä¸Šä¼ å›¾ç‰‡</a></td></tr>" & _
-    vbcrlf & "<tr><td align=right>" & vjt2 & "<a href='user_put.asp?action=website'>æˆ‘è¦æ¨èç½‘ç«™</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & vjt & "<a href='gallery.asp?action=film'>¾«²ÊÊÓÆµ</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & vjt & "<a href='gallery.asp?action=baner'>BeyondÏà²á</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & vjt & "<a href='website.asp'>¾«²ÊÍøÕ¾</a></td></tr>" & _
+    vbcrlf & "<tr><td align=right>" & vjt2 & "<a href='user_put.asp?action=gallery'>ÎÒÒªÉÏ´«Í¼Æ¬</a></td></tr>" & _
+    vbcrlf & "<tr><td align=right>" & vjt2 & "<a href='user_put.asp?action=website'>ÎÒÒªÍÆ¼öÍøÕ¾</a></td></tr>" & _
     vbcrlf & "</table>"
-    Call vouch_skin("ç²¾å½©æ ç›®ç‰¹åˆ«æ¨è",temp1,"",1)
+    Call vouch_skin("¾«²ÊÀ¸Ä¿ÌØ±ğÍÆ¼ö",temp1,"",1)
 End Sub
 
 Sub vouch_skin(t1,t2,t3,t4)
@@ -64,17 +64,17 @@ Sub web_site_type() %>
 <tr><td></td><td>
   <table border=0 width='98%'>
   <tr><td width='18%'></td><td width='30%'</td><td width='18%'></td><td width='34%'></td></tr>
-  <tr><td>å›½å®¶åœ°åŒºï¼š</td><td><% Response.Write rs("country") %></td><td>ç«™ç‚¹è¯­è¨€ï¼š</td><td><% Response.Write rs("lang") %></td></tr>
-  <tr><td>æ¨ è äººï¼š</td><td><% Response.Write format_user_view(rs("username"),1,"") %></td><td>æ·»åŠ æ—¶é—´ï¼š</td><td><% Response.Write time_type(rs("tim"),8) %></td></tr>
-  <tr><td>ç«™ç‚¹å±æ€§ï¼š</td><td><%
+  <tr><td>¹ú¼ÒµØÇø£º</td><td><% Response.Write rs("country") %></td><td>Õ¾µãÓïÑÔ£º</td><td><% Response.Write rs("lang") %></td></tr>
+  <tr><td>ÍÆ ¼ö ÈË£º</td><td><% Response.Write format_user_view(rs("username"),1,"") %></td><td>Ìí¼ÓÊ±¼ä£º</td><td><% Response.Write time_type(rs("tim"),8) %></td></tr>
+  <tr><td>Õ¾µãÊôĞÔ£º</td><td><%
 
     If rs("isgood") = True Then
-        Response.Write "<font class=red_3>æ¨è</font>"
+        Response.Write "<font class=red_3>ÍÆ¼ö</font>"
     Else
-        Response.Write "æ™®é€š"
-    End If %></td><td>æµè§ˆäººæ°”ï¼š</td><td class=red><% Response.Write rs("counter") %></td></tr>
-  <tr><td>ç½‘ç«™åœ°å€ï¼š</td><td colspan=3><a href='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=view&id=<% Response.Write nid %>' target=_blank><% Response.Write url %></a></td></tr>
-  <tr><td colspan=2>ç½‘ç«™ä»‹ç»ï¼š</td><td colspan=2 align=center><a href="javascript:window.external.AddFavorite('<% Response.Write url %>','<% Response.Write name %>')" style='target: ' _self?>ã€–åŠ å…¥æ”¶è—å¤¹ã€—</a></td></tr>
+        Response.Write "ÆÕÍ¨"
+    End If %></td><td>ä¯ÀÀÈËÆø£º</td><td class=red><% Response.Write rs("counter") %></td></tr>
+  <tr><td>ÍøÕ¾µØÖ·£º</td><td colspan=3><a href='?c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&action=view&id=<% Response.Write nid %>' target=_blank><% Response.Write url %></a></td></tr>
+  <tr><td colspan=2>ÍøÕ¾½éÉÜ£º</td><td colspan=2 align=center><a href="javascript:window.external.AddFavorite('<% Response.Write url %>','<% Response.Write name %>')" style='target: ' _self?>¡¼¼ÓÈëÊÕ²Ø¼Ğ¡½</a></td></tr>
   <tr><td colspan=4><table border=0 width='94%' align=center><tr><td><% Response.Write code_html(rs("remark"),1,0) %></td></tr></table></td></tr>
   </table>
 </td></tr></table>
@@ -153,7 +153,7 @@ Sub film_view(ispic,width,height)
 </object>
 
 <% Case "asf","wmv","mpg","mpeg","wma","asx","mms","avi" %>
-<object id="beyondest.com.mPlayer" width=544 height=440 classid="CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6" type="application/x-oleobject" standby="æ­£åœ¨è½½å…¥ Windows Media Player æ’­æ”¾æµ ...">
+<object id="beyondest.com.mPlayer" width=544 height=440 classid="CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6" type="application/x-oleobject" standby="ÕıÔÚÔØÈë Windows Media Player ²¥·ÅÁ÷ ...">
   <param name="URL" value="<% Response.Write url_true(upload_file,ispic) %>">
   <param name="Album" value="Beyondest.com"/>
   <param name="rate" value="1">
@@ -227,8 +227,8 @@ Sub gallery_main(gma)
 <tr>
 <td background='images/main/bar_3_bg.gif' width=35 valign=bottom><img border='0' src='images/main/icon_1.gif'></td>
 <td background='images/main/bar_3_bg.gif' valign=top>
-<table border=0 cellspacing=0 cellpadding=0 width='100%' height=30><tr><td valign=middle>&nbsp;<a href='news.asp'><b><font class=end><% If tit2 = "ç›¸å†Œ" Then tit2 = "ç…§ç‰‡"
-    Response.Write tit2 %>åˆ—è¡¨</font></b></a></td></tr></table>
+<table border=0 cellspacing=0 cellpadding=0 width='100%' height=30><tr><td valign=middle>&nbsp;<a href='news.asp'><b><font class=end><% If tit2 = "Ïà²á" Then tit2 = "ÕÕÆ¬"
+    Response.Write tit2 %>ÁĞ±í</font></b></a></td></tr></table>
 </td>
 <td valign=top  width=30 background='images/main/bar_3_bg.gif' align=right><img border=0 src='images/main/bar_1_rt.gif'></td>
 </tr></table>
@@ -315,7 +315,7 @@ Sub gallery_main(gma)
                 "<tr><td align=center width=" & pic_width + 10 & "  valign=top><a href='" & pic_link & "' target='_blank'><img src='images/video/" & pic & "' border=0 width=" & pic_width & " height=" & pic_height & "></a></td>"
 
                 If action <> "paste" Then
-                    pic_temp = pic_temp & "<td align=left width=" &  - pic_width + 540 & ">" & kong & "<b><font class=big>" & name & "</font></b>" & kong & "ç‚¹å‡»ï¼š<font class=red>" & rs("counter") & "</font>æ¬¡&nbsp;&nbsp;â”‹&nbsp;&nbsp;æƒé™ï¼šæ³¨å†Œç”¨æˆ·&nbsp;&nbsp;â”‹&nbsp;&nbsp;æ•´ç†ï¼š" & format_user_view(rs("username"),1,"") & kong & "è¯´æ˜ï¼š" & rs("remark") & "</td>"
+                    pic_temp = pic_temp & "<td align=left width=" &  - pic_width + 540 & ">" & kong & "<b><font class=big>" & name & "</font></b>" & kong & "µã»÷£º<font class=red>" & rs("counter") & "</font>´Î&nbsp;&nbsp;©¯&nbsp;&nbsp;È¨ÏŞ£º×¢²áÓÃ»§&nbsp;&nbsp;©¯&nbsp;&nbsp;ÕûÀí£º" & format_user_view(rs("username"),1,"") & kong & "ËµÃ÷£º" & rs("remark") & "</td>"
                 End If
 
                 pic_temp     = pic_temp & "</tr></table>"
@@ -361,7 +361,7 @@ Sub gallery_main(gma)
                     "<tr><td align=center><a href='" & pic_link & "' target='_blank'><img src='images/" & pic & "' border=0 width=" & pic_width & " height=" & pic_height & "></a></td></tr>"
 
                     If action <> "paste" Then
-                        pic_temp = pic_temp & "<tr><td align=center class=blue><b>" & code_html(name,1,20) & "</b></td></tr><tr><td align=center>æƒé™:<font class=red_3>æ³¨å†Œç”¨æˆ·</font>&nbsp;&nbsp;ç‚¹å‡»:<font class=red>" & rs("counter") & "æ¬¡</font></td></tr>"
+                        pic_temp = pic_temp & "<tr><td align=center class=blue><b>" & code_html(name,1,20) & "</b></td></tr><tr><td align=center>È¨ÏŞ:<font class=red_3>×¢²áÓÃ»§</font>&nbsp;&nbsp;µã»÷:<font class=red>" & rs("counter") & "´Î</font></td></tr>"
                     End If
 
                     pic_temp     = pic_temp & "</table>"
@@ -381,10 +381,10 @@ Sub gallery_main(gma)
 
 <table border=0 width='100%' cellspacing=0 cellpadding=0>
 <tr align=center valign=bottom><td width='40%' align=left>
-ç°æœ‰<font class=red><% Response.Write rssum %></font>ä¸ªæ–‡ä»¶â”‹
-æ¯é¡µ<font class=red><% Response.Write nummer %></font>ä¸ª
+ÏÖÓĞ<font class=red><% Response.Write rssum %></font>¸öÎÄ¼ş©¯
+Ã¿Ò³<font class=red><% Response.Write nummer %></font>¸ö
 </td><td width='60%' align=right>
-é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font> åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
+Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font> ·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
 </td></tr>
 </table>
 
@@ -434,8 +434,8 @@ Sub gallery_view()
 <tr><td height=5></td></tr>
 </table>
 <table border=0 width='98%' align=center class=tf>
-<tr><td>æ–‡ä»¶è¯´æ˜ï¼š<% Response.Write code_jk(rs("remark")) %></td></tr>
-<tr><td>ä¸Šä¼ ç”¨æˆ·ï¼š<% Response.Write format_user_view(rs("username"),1,"") %>ã€€ã€€ä¸Šä¼ æ—¶é—´ï¼š<% Response.Write rs("tim") %>ã€€ã€€äººæ°”ï¼š<font class=red><% Response.Write rs("counter") %></font>ã€€ã€€<% Response.Write img_small("jt0") %><a href='<% Response.Write url_true(upload_file,ispic) %>' target=_blank>åœ¨æ–°çª—å£ä¸­æµè§ˆ</a></td></tr>
+<tr><td>ÎÄ¼şËµÃ÷£º<% Response.Write code_jk(rs("remark")) %></td></tr>
+<tr><td>ÉÏ´«ÓÃ»§£º<% Response.Write format_user_view(rs("username"),1,"") %>¡¡¡¡ÉÏ´«Ê±¼ä£º<% Response.Write rs("tim") %>¡¡¡¡ÈËÆø£º<font class=red><% Response.Write rs("counter") %></font>¡¡¡¡<% Response.Write img_small("jt0") %><a href='<% Response.Write url_true(upload_file,ispic) %>' target=_blank>ÔÚĞÂ´°¿ÚÖĞä¯ÀÀ</a></td></tr>
 <tr><td height=10></td></tr>
 <tr><td align=center><% Call review_type(n_sort,id,"gallery.asp?action=view&c_id=" & cid & "&s_id=" & sid & "&id=" & id,1) %></td></tr>
 </table>

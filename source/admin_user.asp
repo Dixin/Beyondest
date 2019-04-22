@@ -30,16 +30,16 @@ Dim checkbox_val
 Dim power
 Dim hidden
 Dim keyword
-tit     = "<a href='?'>ç”¨æˆ·ç®¡ç†</a>ã€€â”‹"
+tit     = "<a href='?'>ÓÃ»§¹ÜÀí</a>¡¡©¯"
 udim    = Split(user_power,"|"):unum = UBound(udim) + 1
 
 For i = 0 To unum - 1
-    tit = tit & "<a href='?power=" & Left(udim(i),InStr(udim(i),":") - 1) & "'>" & Right(udim(i),Len(udim(i)) - InStr(udim(i),":")) & "</a>â”‹"
+    tit = tit & "<a href='?power=" & Left(udim(i),InStr(udim(i),":") - 1) & "'>" & Right(udim(i),Len(udim(i)) - InStr(udim(i),":")) & "</a>©¯"
 Next
 
 Erase udim
-tit = tit & "ã€€<a href='?hidden=true'>æ­£å¸¸ç”¨æˆ·</a>â”‹" & _
-"<a href='?hidden=false'>æœªå®¡æ ¸ç”¨æˆ·</a>"
+tit = tit & "¡¡<a href='?hidden=true'>Õı³£ÓÃ»§</a>©¯" & _
+"<a href='?hidden=false'>Î´ÉóºËÓÃ»§</a>"
 Response.Write header(1,tit) %>
 <script language=javascript src='STYLE/admin_del.js'></script>
 <table border=0 width='98%' cellspacing=0 cellpadding=2 align=center>
@@ -149,9 +149,9 @@ Sub user_hidden()
                     Next
 
                     Erase del_dim
-                    del_select = vbcrlf & "<script language=javascript>alert(""å…±åˆ é™¤äº† " & del_num + 1 & " æ¡è®°å½•ï¼"");</script>"
+                    del_select = vbcrlf & "<script language=javascript>alert(""¹²É¾³ıÁË " & del_num + 1 & " Ìõ¼ÇÂ¼£¡"");</script>"
                 Else
-                    del_select = vbcrlf & "<script language=javascript>alert(""æ²¡æœ‰åˆ é™¤è®°å½•ï¼"");</script>"
+                    del_select = vbcrlf & "<script language=javascript>alert(""Ã»ÓĞÉ¾³ı¼ÇÂ¼£¡"");</script>"
                 End If
 
             End Function
@@ -290,48 +290,48 @@ Sub user_hidden()
                                 rs("hidden") = hidden
                                 rs("popedom") = u_popedom
                                 rs.update
-                                Response.Write "<br><br><br><br><br><br><font class=red>ç”¨æˆ·ä¿¡æ¯ä¿®æ”¹æˆåŠŸï¼</font><br><br><a href='?power=" & power & "'>ç‚¹å‡»è¿”å›</a>"
+                                Response.Write "<br><br><br><br><br><br><font class=red>ÓÃ»§ĞÅÏ¢ĞŞ¸Ä³É¹¦£¡</font><br><br><a href='?power=" & power & "'>µã»÷·µ»Ø</a>"
                             Else
                                 power = rs("power"):hidden = rs("hidden") %>
 <table border=0 width=300>
   <form action='?action=edit&edit=ok&power=<% Response.Write power %>&id=<% Response.Write id %>' method=post>
-  <tr><td colspan=2 align=center height=50><font class=red>ç”¨æˆ·ç®¡ç†ä¿®æ”¹</font></td></tr>
-  <tr><td width='30%'>ç”¨æˆ·åç§°ï¼š</td><td width='70%'><input type=text value='<% Response.Write rs("username") %>' readonly size=25></td></tr>
-  <tr><td>ç”¨æˆ·å¯†ç ï¼š</td><td><input type=text name=password value='<% Response.Write rs("password") %>' size=25 maxlength=20><input type=hidden name=password2 value='<% Response.Write rs("password") %>'></td></tr>
-  <tr><td>å¯†ç é’¥åŒ™ï¼š</td><td><input type=text name=passwd value='<% Response.Write rs("passwd") %>' size=25 maxlength=20><input type=hidden name=passwd2 value='<% Response.Write rs("passwd") %>'></td></tr>
-  <tr><td>è®ºå›å‘è´´ï¼š</td><td><input type=text name=bbs_counter value='<% Response.Write rs("bbs_counter") %>' size=15 maxlength=10></td></tr><input type=hidden name=bbs_counter2 value='<% Response.Write rs("bbs_counter") %>'>
-  <tr><td>æ–‡æ å‘è´´ï¼š</td><td><input type=text name=counter value='<% Response.Write rs("counter") %>' size=15 maxlength=10></td></tr><input type=hidden name=counter2 value='<% Response.Write rs("counter") %>'>
-  <tr><td>ç”¨æˆ·ç§¯åˆ†ï¼š</td><td><input type=text name=integral value='<% Response.Write rs("integral") %>' size=15 maxlength=10></td></tr><input type=hidden name=integral2 value='<% Response.Write rs("integral") %>'>
-  <tr><td>ç”¨æˆ·é‡‘é’±ï¼š</td><td><input type=text name=emoney value='<% Response.Write rs("emoney") %>' size=15 maxlength=10></td></tr><input type=hidden name=emoney2 value='<% Response.Write rs("emoney") %>'>
-  <tr><td>ç”¨æˆ·ç±»å‹ï¼š</td><td><select name=power size=1><%
+  <tr><td colspan=2 align=center height=50><font class=red>ÓÃ»§¹ÜÀíĞŞ¸Ä</font></td></tr>
+  <tr><td width='30%'>ÓÃ»§Ãû³Æ£º</td><td width='70%'><input type=text value='<% Response.Write rs("username") %>' readonly size=25></td></tr>
+  <tr><td>ÓÃ»§ÃÜÂë£º</td><td><input type=text name=password value='<% Response.Write rs("password") %>' size=25 maxlength=20><input type=hidden name=password2 value='<% Response.Write rs("password") %>'></td></tr>
+  <tr><td>ÃÜÂëÔ¿³×£º</td><td><input type=text name=passwd value='<% Response.Write rs("passwd") %>' size=25 maxlength=20><input type=hidden name=passwd2 value='<% Response.Write rs("passwd") %>'></td></tr>
+  <tr><td>ÂÛÌ³·¢Ìù£º</td><td><input type=text name=bbs_counter value='<% Response.Write rs("bbs_counter") %>' size=15 maxlength=10></td></tr><input type=hidden name=bbs_counter2 value='<% Response.Write rs("bbs_counter") %>'>
+  <tr><td>ÎÄÀ¸·¢Ìù£º</td><td><input type=text name=counter value='<% Response.Write rs("counter") %>' size=15 maxlength=10></td></tr><input type=hidden name=counter2 value='<% Response.Write rs("counter") %>'>
+  <tr><td>ÓÃ»§»ı·Ö£º</td><td><input type=text name=integral value='<% Response.Write rs("integral") %>' size=15 maxlength=10></td></tr><input type=hidden name=integral2 value='<% Response.Write rs("integral") %>'>
+  <tr><td>ÓÃ»§½ğÇ®£º</td><td><input type=text name=emoney value='<% Response.Write rs("emoney") %>' size=15 maxlength=10></td></tr><input type=hidden name=emoney2 value='<% Response.Write rs("emoney") %>'>
+  <tr><td>ÓÃ»§ÀàĞÍ£º</td><td><select name=power size=1><%
 
                                 For i = 1 To unum
                                     Response.Write vbcrlf & "<option value='" & format_power2(i,1) & "'"
                                     If power = format_power2(i,1) Then Response.Write " selected"
                                     Response.Write ">" & format_power2(i,2) & "</option>"
-                                Next %></select>ï¼ˆ<% Response.Write power %>ï¼‰</td></tr>
-  <tr><td>æ³¨å†Œå®¡æ ¸ï¼š</td><td><%
+                                Next %></select>£¨<% Response.Write power %>£©</td></tr>
+  <tr><td>×¢²áÉóºË£º</td><td><%
 
                                 If hidden = True Then
                                     h1 = " checked":h2 = ""
                                 Else
                                     h1 = "":h2 = " checked"
-                                End If %><input type=radio name=hidden value=true<% Response.Write h1 %>>æ­£å¸¸<input type=radio name=hidden value=false<% Response.Write h2 %>>æœªå®¡æ ¸</td></tr>
-  <tr><td>æ˜¯å¦é”å®šï¼š</td><td><%
+                                End If %><input type=radio name=hidden value=true<% Response.Write h1 %>>Õı³£<input type=radio name=hidden value=false<% Response.Write h2 %>>Î´ÉóºË</td></tr>
+  <tr><td>ÊÇ·ñËø¶¨£º</td><td><%
 
                                 If Int(popedom_format(u_popedom,41)) = 0 Then
                                     h1 = " checked":h2 = ""
                                 Else
                                     h1 = "":h2 = " checked"
-                                End If %><input type=radio name=locked value='0'<% Response.Write h1 %>>æ­£å¸¸<input type=radio name=locked value='1'<% Response.Write h2 %>>é”å®š</td></tr>
-  <tr><td>è®ºå›å±è”½ï¼š</td><td><%
+                                End If %><input type=radio name=locked value='0'<% Response.Write h1 %>>Õı³£<input type=radio name=locked value='1'<% Response.Write h2 %>>Ëø¶¨</td></tr>
+  <tr><td>ÂÛÌ³ÆÁ±Î£º</td><td><%
 
                                 If Int(popedom_format(u_popedom,42)) = 0 Then
                                     h1 = " checked":h2 = ""
                                 Else
                                     h1 = "":h2 = " checked"
-                                End If %><input type=radio name=shield value='0'<% Response.Write h1 %>>æ­£å¸¸<input type=radio name=shield value='1'<% Response.Write h2 %>>å±è”½</td></tr>
-  <tr><td colspan=2 align=center height=30><input type=submit value=' æ äº¤ ä¿® æ”¹ '></td></tr>
+                                End If %><input type=radio name=shield value='0'<% Response.Write h1 %>>Õı³£<input type=radio name=shield value='1'<% Response.Write h2 %>>ÆÁ±Î</td></tr>
+  <tr><td colspan=2 align=center height=30><input type=submit value=' Ìá ½» ĞŞ ¸Ä '></td></tr>
   </form>
 </table>
 <%
@@ -346,11 +346,11 @@ Sub user_hidden()
                             If hidden = "true" Then
                                 sqladd   = "where hidden=1 "
                                 pageurl  = pageurl & "hidden=true&"
-                                user_tit = "æ­£å¸¸ç”¨æˆ·"
+                                user_tit = "Õı³£ÓÃ»§"
                             ElseIf hidden = "false" Then
                                 sqladd   = "where hidden=0 "
                                 pageurl  = pageurl & "hidden=false&"
-                                user_tit = "æœªå®¡æ ¸ç”¨æˆ·"
+                                user_tit = "Î´ÉóºËÓÃ»§"
                             End If
 
                             keyword      = Trim(Request.querystring("keyword"))
@@ -371,7 +371,7 @@ Sub user_hidden()
                             rs.open sql,conn,1,1
 
                             If rs.eof And rs.bof Then
-                                Response.Write "<br><br><br><br><br><br><br>è¿˜æ²¡æœ‰" & user_tit
+                                Response.Write "<br><br><br><br><br><br><br>»¹Ã»ÓĞ" & user_tit
 
                                 rs.Close:Set rs = Nothing:Exit Sub
                                 End If
@@ -383,18 +383,18 @@ Sub user_hidden()
 <table border=1 width='98%' cellspacing=0 cellpadding=2 align=center bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>
 <form name=del_form action='<% = pageurl %>del_ok=ok' method=post>
   <tr align=center height=30>
-  <td colspan=2>ç°åœ¨æœ‰ <font class=red><% = rssum %></font> ä½<% = user_tit %></td>
+  <td colspan=2>ÏÖÔÚÓĞ <font class=red><% = rssum %></font> Î»<% = user_tit %></td>
   <td colspan=6><% = jk_pagecute(nummer,thepages,viewpage,pageurl,8,"#ff0000") %></td>
   </tr>
   <tr align=center bgcolor=#ededed height=20>
-    <td width='6%'>åºå·</td>
-    <td width='30%'>ä¼šå‘˜åç§°</td>
-    <td width='22%'>æ³¨å†Œæ—¶é—´</td>
-    <td width='12%'>ç±»å‹</td>
-    <td width='8%'>å®¡æ ¸</td>
-    <td width='7%'>é”å®š</td>
-    <td width='7%'>å±è”½</td>
-    <td width='8%'>æ“ä½œ</td>
+    <td width='6%'>ĞòºÅ</td>
+    <td width='30%'>»áÔ±Ãû³Æ</td>
+    <td width='22%'>×¢²áÊ±¼ä</td>
+    <td width='12%'>ÀàĞÍ</td>
+    <td width='8%'>ÉóºË</td>
+    <td width='7%'>Ëø¶¨</td>
+    <td width='7%'>ÆÁ±Î</td>
+    <td width='8%'>²Ù×÷</td>
   </tr>
 <%
                                 If Int(viewpage) > 1 Then rs.move (viewpage - 1)*nummer
@@ -435,23 +435,23 @@ Sub user_hidden()
     <td><a href='?power=<% Response.Write power %>&hidden=<% Response.Write hidden %>&action=hidden&id=<% Response.Write now_id %>'><%
 
                                     If now_hidden = True Then
-                                        Response.Write "æ­£å¸¸"
+                                        Response.Write "Õı³£"
                                     Else
-                                        Response.Write "<font class=red_2>æœªå®¡æ ¸</font>"
+                                        Response.Write "<font class=red_2>Î´ÉóºË</font>"
                                     End If %></a></td>
     <td><a href='?power=<% Response.Write power %>&hidden=<% Response.Write hidden %>&action=locked&id=<% Response.Write now_id %>'><%
 
                                     If Int(popedom_format(u_popedom,41)) = 0 Then
-                                        Response.Write "æ­£å¸¸"
+                                        Response.Write "Õı³£"
                                     Else
-                                        Response.Write "<font class=red_2>é”å®š</font>"
+                                        Response.Write "<font class=red_2>Ëø¶¨</font>"
                                     End If %></a></td>
     <td><a href='?power=<% Response.Write power %>&hidden=<% Response.Write hidden %>&action=shield&id=<% Response.Write now_id %>'><%
 
                                     If Int(popedom_format(u_popedom,42)) = 0 Then
-                                        Response.Write "æ­£å¸¸"
+                                        Response.Write "Õı³£"
                                     Else
-                                        Response.Write "<font class=red_2>å±è”½</font>"
+                                        Response.Write "<font class=red_2>ÆÁ±Î</font>"
                                     End If %></a></td>
     <td><%
 
@@ -465,15 +465,15 @@ Sub user_hidden()
                                     rs.movenext
                                 Next %>
   <tr align=center height=30>
-  <td colspan=2><input type=submit value='åˆ é™¤æ‰€é€‰' onclick="return suredel('<% Response.Write del_temp %>');"> &nbsp;<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')>&nbsp;é€‰æ‹©æ‰€æœ‰</td>
+  <td colspan=2><input type=submit value='É¾³ıËùÑ¡' onclick="return suredel('<% Response.Write del_temp %>');"> &nbsp;<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')>&nbsp;Ñ¡ÔñËùÓĞ</td>
 </form>
   <td colspan=6>
     <table border=0>
     <form name=sea_frm action='<% Response.Write pageurl %>'>
     <tr>
-    <td>å…³é”®å­—ï¼š</td>
+    <td>¹Ø¼ü×Ö£º</td>
     <td><input type=text name=keyword value='<% Response.Write keyword %>' size=20 maxlength=20>&nbsp;</td>
-    <td>&nbsp;<input type=submit value=' æœ ç´¢ '>&nbsp;</td>
+    <td>&nbsp;<input type=submit value=' ËÑ Ë÷ '>&nbsp;</td>
     </tr>
     </form>
     </table>

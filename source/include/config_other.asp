@@ -21,9 +21,9 @@ table3 = format_table(3,1)
 table4 = format_table(3,5)
 
 Sub user_data_top(utt,ijt,sh,n_num)
-    'ç§¯åˆ†æ’è¡Œ	integral
-    'å‘è´´æ’è¡Œ	bbs_counter
-    'è´¢å¯Œæ’è¡Œ	emoney
+    '»ı·ÖÅÅĞĞ	integral
+    '·¢ÌùÅÅĞĞ	bbs_counter
+    '²Æ¸»ÅÅĞĞ	emoney
     Dim temp1
     temp1     = vbcrlf & "<table border=0 width='99%' cellspacing=2 cellpadding=0 align=center class=tf><tr height=0><td width='75%'></td><td width='25%'></td></tr>"
     sql       = "select top " & n_num & " username," & utt & " from user_data order by " & utt & " desc,id"
@@ -66,13 +66,13 @@ Sub main_down_pic(nnhead,dsql,nt,n_num,c_num)
     Select Case nt
         Case "hot"
             sql = sql & " order by counter desc,id desc"
-            If nhead = "" Then nhead = "çƒ­ç‚¹æ’è¡Œ"
+            If nhead = "" Then nhead = "ÈÈµãÅÅĞĞ"
         Case "good"
             sql = sql & " and types=5 order by id desc"
-            If nhead = "" Then nhead = "ç²¾å½©æ¨è"
+            If nhead = "" Then nhead = "¾«²ÊÍÆ¼ö"
         Case Else
             sql = sql & " order by id desc"
-            If nhead = "" Then nhead = "æœ€æ–°ä¸Šä¼ "
+            If nhead = "" Then nhead = "×îĞÂÉÏ´«"
     End Select
 
     Set rs    = conn.execute(sql)
@@ -102,13 +102,13 @@ Sub main_down(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
     Select Case nt
         Case "hot"
             sql = sql & " order by counter desc,id desc"
-            If nhead = "" Then nhead = "ä¸‹è½½æ’è¡Œ"
+            If nhead = "" Then nhead = "ÏÂÔØÅÅĞĞ"
         Case "good"
             sql = sql & " and types=5 order by id desc"
-            If nhead = "" Then nhead = "ç²¾å½©æ¨è"
+            If nhead = "" Then nhead = "¾«²ÊÍÆ¼ö"
         Case Else
             sql = sql & " order by id desc"
-            If nhead = "" Then nhead = "éŸ³ä¹æ›´æ–°"
+            If nhead = "" Then nhead = "ÒôÀÖ¸üĞÂ"
     End Select
 
     Set rs = conn.execute(sql)
@@ -116,8 +116,8 @@ Sub main_down(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
 
     Do While Not rs.eof
         name  = rs("name"):tim = rs("tim"):counter = rs("counter")
-        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='éŸ³ä¹åç§°ï¼š" & code_html(name,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>ä¸‹è½½äººæ¬¡ï¼š" & counter & "<br>æ•´ç†æ—¶é—´ï¼š" & time_type(tim,88) & "'>" & code_html(name,1,c_num) & "</a>"
-        If tt > 0 Then temp1 = temp1 & format_end(et,time_type(tim,tt) & "ï¼Œç‚¹å‡»ï¼š<font class=blue>" & counter & "</font>")
+        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='ÒôÀÖÃû³Æ£º" & code_html(name,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ÏÂÔØÈË´Î£º" & counter & "<br>ÕûÀíÊ±¼ä£º" & time_type(tim,88) & "'>" & code_html(name,1,c_num) & "</a>"
+        If tt > 0 Then temp1 = temp1 & format_end(et,time_type(tim,tt) & "£¬µã»÷£º<font class=blue>" & counter & "</font>")
         temp1 = temp1 & "</td></tr>"
         rs.movenext
     Loop
@@ -141,7 +141,7 @@ Sub main_news(n_jt,n_num,c_num,et,timt)
     Do While Not rs.eof
         topic = rs("topic")
         temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & n_jt & "<a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='" & code_html(topic,1,0) & "'>" & code_html(topic,1,c_num) & "</a>"
-        If et >  - 1 Then temp1 = temp1 & format_end(et,"<font class=gray>" & time_type(rs("tim"),timt) & "ï¼Œç‚¹å‡»ï¼š</font><font class=blue>" & rs("counter") & "</font>")
+        If et >  - 1 Then temp1 = temp1 & format_end(et,"<font class=gray>" & time_type(rs("tim"),timt) & "£¬µã»÷£º</font><font class=blue>" & rs("counter") & "</font>")
         temp1 = temp1 & "</td></tr>"
         rs.movenext
     Loop
@@ -159,7 +159,7 @@ Sub main_news(n_jt,n_num,c_num,et,timt)
     rs.Close
     temp1 = "<table width='100%'  border='0' cellspacing='0' cellpadding='0'><tr><td width='40%' align=center>" & pic & "</td><td width=1 bgcolor=" & web_var(web_color,3) & "></td><td>" & temp1 & "</table></td></tr></table>"
 
-    Response.Write format_barc("<a href='news.asp'><b><font class=end>æœ€è¿‘æ–°é—»</font></b></a>",temp1 & kong,3,0,7)
+    Response.Write format_barc("<a href='news.asp'><b><font class=end>×î½üĞÂÎÅ</font></b></a>",temp1 & kong,3,0,7)
 End Sub
 
 Sub main_article(n_jt,n_num,c_num,et,timt)
@@ -173,14 +173,14 @@ Sub main_article(n_jt,n_num,c_num,et,timt)
     Do While Not rs.eof
         topic = rs("topic")
         temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & n_jt & "<a href='article_view.asp?id=" & rs("id") & "'" & atb & " title='" & code_html(topic,1,0) & "'>" & code_html(topic,1,c_num) & "</a>"
-        If et >  - 1 Then temp1 = temp1 & format_end(et,"<font class=gray>" & time_type(rs("tim"),timt) & "ï¼Œç‚¹å‡»ï¼š</font><font class=blue>" & rs("counter") & "</font>")
+        If et >  - 1 Then temp1 = temp1 & format_end(et,"<font class=gray>" & time_type(rs("tim"),timt) & "£¬µã»÷£º</font><font class=blue>" & rs("counter") & "</font>")
         temp1 = temp1 & "</td></tr>"
         rs.movenext
     Loop
 
     rs.Close
     temp1 = temp1 & "</table>"
-    Response.Write format_barc("<a href='article.asp'><b><font class=end>æœ€æ–°èµ„æ–™</font></b></a>",temp1 & kong,3,0,2)
+    Response.Write format_barc("<a href='article.asp'><b><font class=end>×îĞÂ×ÊÁÏ</font></b></a>",temp1 & kong,3,0,2)
 End Sub
 
 Sub main_video(v_jt,v_num,vv_num,vet,vtimt)
@@ -194,14 +194,14 @@ Sub main_video(v_jt,v_num,vv_num,vet,vtimt)
     Do While Not rs.eof
         topic = rs("name")
         temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & v_jt & "<a href='gallery.asp?types=view&action=film&id=" & rs("id") & "'" & atb & " title='" & code_html(topic,1,0) & "'>" & code_html(topic,1,vv_num) & "</a>"
-        If vet >  - 1 Then temp1 = temp1 & format_end(vet,"<font class=gray>" & time_type(rs("tim"),vtimt) & "ï¼Œç‚¹å‡»ï¼š</font><font class=blue>" & rs("counter") & "</font>")
+        If vet >  - 1 Then temp1 = temp1 & format_end(vet,"<font class=gray>" & time_type(rs("tim"),vtimt) & "£¬µã»÷£º</font><font class=blue>" & rs("counter") & "</font>")
         temp1 = temp1 & "</td></tr>"
         rs.movenext
     Loop
 
     rs.Close
     temp1 = temp1 & "</table>"
-    Response.Write format_barc("<a href='vouch.asp'><b><font class=end>æœ€æ–°è§†é¢‘</font></b></a>",temp1 & kong,3,0,4)
+    Response.Write format_barc("<a href='vouch.asp'><b><font class=end>×îĞÂÊÓÆµ</font></b></a>",temp1 & kong,3,0,4)
 End Sub
 
 Sub main_forum(n_jt,n_num,c_num,et,timt)
@@ -214,13 +214,13 @@ Sub main_forum(n_jt,n_num,c_num,et,timt)
 
     Do While Not rs.eof
         topic = rs("topic")
-        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & n_jt & "<a href='forum_view.asp?forum_id=" & rs("forum_id") & "&view_id=" & rs("id") & "'" & atb & " title='" & code_html(topic,1,0) & "'>" & code_html(topic,1,c_num) & "</a>" & format_end(et,"<font class=gray>" & time_type(rs("tim"),timt) & "ï¼Œ</font><font class=blue>" & rs("re_counter") & "</font>|<font class=blue>" & rs("counter") & "</font>") & "</td></tr>"
+        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & n_jt & "<a href='forum_view.asp?forum_id=" & rs("forum_id") & "&view_id=" & rs("id") & "'" & atb & " title='" & code_html(topic,1,0) & "'>" & code_html(topic,1,c_num) & "</a>" & format_end(et,"<font class=gray>" & time_type(rs("tim"),timt) & "£¬</font><font class=blue>" & rs("re_counter") & "</font>|<font class=blue>" & rs("counter") & "</font>") & "</td></tr>"
         rs.movenext
     Loop
 
     rs.Close
     temp1 = temp1 & "</table>"
-    Response.Write format_barc("<a href='forum.asp'><b><font class=end>è®ºå›æ–°è´´</font></b></a>",temp1 & kong,3,0,3)
+    Response.Write format_barc("<a href='forum.asp'><b><font class=end>ÂÛÌ³ĞÂÌù</font></b></a>",temp1 & kong,3,0,3)
 End Sub
 
 Sub main_update_view()
@@ -238,7 +238,7 @@ Sub main_update_view()
 
     rs.Close
     temp1 = temp1 & "</table>"
-    Response.Write format_barc("<a href='update.asp'><b><font class=end>ç½‘ç«™æ›´æ–°</font></b></a>",temp1,2,0,1)
+    Response.Write format_barc("<a href='update.asp'><b><font class=end>ÍøÕ¾¸üĞÂ</font></b></a>",temp1,2,0,1)
 End Sub
 
 Sub main_update(n_jt,n_num,c_num,et,timt)
@@ -257,7 +257,7 @@ Sub main_update(n_jt,n_num,c_num,et,timt)
 
     rs.Close
     temp1 = temp1 & "</table>"
-    Response.Write kong & format_bar("<a href='update.asp'><b><font class=end>ç½‘ç«™æ›´æ–°</font></b></a>",temp1,sk_bar,0,0,"|" & web_var(web_color,1) & "|80","") & "</td>"
+    Response.Write kong & format_bar("<a href='update.asp'><b><font class=end>ÍøÕ¾¸üĞÂ</font></b></a>",temp1,sk_bar,0,0,"|" & web_var(web_color,1) & "|80","") & "</td>"
 End Sub
 
 Sub main_shop()
@@ -335,14 +335,14 @@ Sub links_maini(lt,nummer)
 
     rs.Close
     temp1 = temp1 & "</table>"
-    Response.Write format_barc("<a href=links.asp><font class=end><b>åˆä½œç«™ç‚¹</b></font></a>",temp1,1,1,4)
+    Response.Write format_barc("<a href=links.asp><font class=end><b>ºÏ×÷Õ¾µã</b></font></a>",temp1,1,1,4)
 End Sub
 
 Sub web_search(wt)
     Dim temp11
     If wt = 1 Then Response.Write ukong
-    temp11 = "<table border=0><form action='search.asp' method=get><tr><td>" & img_small("new") & "å…³é”®è¯ï¼š</td><td>&nbsp;<input type=text name=keyword value='' size=20 maxlength=20></td><td>&nbsp;&nbsp;<select name=sea_type><option value='down'>éŸ³ä¹</option><option value='forum'>è®ºå›</option><option value='news'>æ–°é—»</option><option value='article'>èµ„æ–™</option><option value='paste'>å£çº¸</option><option value='flash'>Flash</option><option value='website'>ç½‘ç«™</option></select>&nbsp;&nbsp;</td><td><input type=checkbox name=celerity value='yes' ></td><td>å¿«é€Ÿæœç´¢&nbsp;&nbsp;</td><td valign=top><input type=image src='images/small/web_sea.gif' border=0></td><td>&nbsp;&nbsp;<a href='search.asp?action=help' title='å¤šåŠŸèƒ½æœç´¢'>æœç´¢å¸®åŠ©</a></td></tr></form></table>"
-    Response.Write format_barc("<font class=end><b>ç«™å†…æœç´¢</b></font>",temp11,1,1,3)
+    temp11 = "<table border=0><form action='search.asp' method=get><tr><td>" & img_small("new") & "¹Ø¼ü´Ê£º</td><td>&nbsp;<input type=text name=keyword value='' size=20 maxlength=20></td><td>&nbsp;&nbsp;<select name=sea_type><option value='down'>ÒôÀÖ</option><option value='forum'>ÂÛÌ³</option><option value='news'>ĞÂÎÅ</option><option value='article'>×ÊÁÏ</option><option value='paste'>±ÚÖ½</option><option value='flash'>Flash</option><option value='website'>ÍøÕ¾</option></select>&nbsp;&nbsp;</td><td><input type=checkbox name=celerity value='yes' ></td><td>¿ìËÙËÑË÷&nbsp;&nbsp;</td><td valign=top><input type=image src='images/small/web_sea.gif' border=0></td><td>&nbsp;&nbsp;<a href='search.asp?action=help' title='¶à¹¦ÄÜËÑË÷'>ËÑË÷°ïÖú</a></td></tr></form></table>"
+    Response.Write format_barc("<font class=end><b>Õ¾ÄÚËÑË÷</b></font>",temp11,1,1,3)
 
 End Sub
 
@@ -384,7 +384,7 @@ Sub news_fpic(d_num,t_num,w_num,nft)
     "<td width='30%' align=center>" & pic & "</td>" & _
     "<td width='70%'><table border=0>" & temp1 & "</table></td>" & _
     "</tr></table>"
-    Response.Write kong & format_bar("<font class=" & sk_class & "><b>æœ€æ–°å›¾ç‰‡æ–°é—»</b></font>",temp1,sk_bar,0,0,"||","")
+    Response.Write kong & format_bar("<font class=" & sk_class & "><b>×îĞÂÍ¼Æ¬ĞÂÎÅ</b></font>",temp1,sk_bar,0,0,"||","")
 End Sub
 
 Sub main_best()
@@ -399,12 +399,12 @@ Sub main_best()
     temp1 = vbcrlf & "<table border=0 width='100%' cellspacing=0 cellpadding=0><tr valign=top>"
 
     sql       = "select top 1 id,name,counter,spic,tim,username,remark from gallery where hidden=1 and istop=1 and types='film' order by counter desc,id desc"
-    nhead     = "ç²¾å½©æ¨è"
+    nhead     = "¾«²ÊÍÆ¼ö"
     Set rs    = conn.execute(sql)
 
     Do While Not rs.eof
-        temp1 = temp1 & vbcrlf & "<td class=bw width='33%'>" & kong & "&nbsp;&nbsp;æ¨èè§†é¢‘ï¼š<br>&nbsp;&nbsp;<a href='gallery.asp?types=view&action=film&id=" & rs("id") & "' title=''  target='_blank'><img src='" & url_true("images/video",rs("spic")) & "' border='0' width=150 height=150></a>"
-        temp1 = temp1 & "<br>&nbsp;&nbsp;" & n_jt & "è§†é¢‘åç§°ï¼š" & code_html(rs("name"),1,0) & "<br>&nbsp;&nbsp;" & n_jt & "å‘ å¸ƒ äººï¼š" & rs("username") & "<br>&nbsp;&nbsp;" & n_jt & "ç‚¹å‡»æ¬¡æ•°ï¼š" & rs("counter") & "<br>&nbsp;&nbsp;" & img_small("jt12") & Left(code_jk(rs("remark")),12) & "â€¦â€¦"
+        temp1 = temp1 & vbcrlf & "<td class=bw width='33%'>" & kong & "&nbsp;&nbsp;ÍÆ¼öÊÓÆµ£º<br>&nbsp;&nbsp;<a href='gallery.asp?types=view&action=film&id=" & rs("id") & "' title=''  target='_blank'><img src='" & url_true("images/video",rs("spic")) & "' border='0' width=150 height=150></a>"
+        temp1 = temp1 & "<br>&nbsp;&nbsp;" & n_jt & "ÊÓÆµÃû³Æ£º" & code_html(rs("name"),1,0) & "<br>&nbsp;&nbsp;" & n_jt & "·¢ ²¼ ÈË£º" & rs("username") & "<br>&nbsp;&nbsp;" & n_jt & "µã»÷´ÎÊı£º" & rs("counter") & "<br>&nbsp;&nbsp;" & img_small("jt12") & Left(code_jk(rs("remark")),12) & "¡­¡­"
         temp1 = temp1 & "</td>"
         rs.movenext
     Loop
@@ -416,8 +416,8 @@ Sub main_best()
     Set rs    = conn.execute(sql)
 
     Do While Not rs.eof
-        temp1 = temp1 & "<td align=left class=bw  >" & kong & "&nbsp;&nbsp;æ¨èä¸“è¾‘ï¼š<br>&nbsp;&nbsp;<a href='down_list.asp?c_id=" & rs("c_id") & "&s_id=" & rs("s_id") & "' target='_blank'><img src=images/down/" & rs("pic") & ".jpg width=150 height=150 border=0></a>"
-        temp1 = temp1 & "<br>&nbsp;&nbsp;" & n_jt & rs("s_name") & "<table width=180 border=0  cellspacing=0 cellpadding=0><tr><td>&nbsp;&nbsp;</td><td>" & img_small("jt12") & Left(rs("intro"),45) & "â€¦â€¦</td></tr></table>"
+        temp1 = temp1 & "<td align=left class=bw  >" & kong & "&nbsp;&nbsp;ÍÆ¼ö×¨¼­£º<br>&nbsp;&nbsp;<a href='down_list.asp?c_id=" & rs("c_id") & "&s_id=" & rs("s_id") & "' target='_blank'><img src=images/down/" & rs("pic") & ".jpg width=150 height=150 border=0></a>"
+        temp1 = temp1 & "<br>&nbsp;&nbsp;" & n_jt & rs("s_name") & "<table width=180 border=0  cellspacing=0 cellpadding=0><tr><td>&nbsp;&nbsp;</td><td>" & img_small("jt12") & Left(rs("intro"),45) & "¡­¡­</td></tr></table>"
         temp1 = temp1 & "</td>"
         rs.movenext
     Loop
@@ -429,8 +429,8 @@ Sub main_best()
     Set rs    = conn.execute(sql)
 
     Do While Not rs.eof
-        temp1 = temp1 & "<td align=left class=bw  width='33%'>" & kong & "&nbsp;&nbsp;æ¨èéŸ³ä¹ï¼š<br>&nbsp;&nbsp;<a href='down_view.asp?id=" & rs("id") & "'  target='_blank'><img src=images/down/" & rs("pic") & " width=150 height=150 border=0></a>"
-        temp1 = temp1 & "<br>&nbsp;&nbsp;" & n_jt & "éŸ³ä¹åç§°ï¼š" & code_html(rs("name"),1,0) & "<br>&nbsp;&nbsp;" & n_jt & "å‘ å¸ƒ äººï¼š" & rs("username") & "<br>&nbsp;&nbsp;" & n_jt & "ç‚¹å‡»æ¬¡æ•°ï¼š" & rs("counter") & "<br>&nbsp;&nbsp;" & img_small("jt12") & Left(code_jk(rs("remark")),12) & "â€¦â€¦"
+        temp1 = temp1 & "<td align=left class=bw  width='33%'>" & kong & "&nbsp;&nbsp;ÍÆ¼öÒôÀÖ£º<br>&nbsp;&nbsp;<a href='down_view.asp?id=" & rs("id") & "'  target='_blank'><img src=images/down/" & rs("pic") & " width=150 height=150 border=0></a>"
+        temp1 = temp1 & "<br>&nbsp;&nbsp;" & n_jt & "ÒôÀÖÃû³Æ£º" & code_html(rs("name"),1,0) & "<br>&nbsp;&nbsp;" & n_jt & "·¢ ²¼ ÈË£º" & rs("username") & "<br>&nbsp;&nbsp;" & n_jt & "µã»÷´ÎÊı£º" & rs("counter") & "<br>&nbsp;&nbsp;" & img_small("jt12") & Left(code_jk(rs("remark")),12) & "¡­¡­"
         temp1 = temp1 & "</td>"
         rs.movenext
     Loop

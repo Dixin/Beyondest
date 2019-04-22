@@ -5,7 +5,7 @@
 <!-- #include file="include/conn.asp" -->
 <%
 ' ====================
-'                     Beyondest.Com V4.6 DemoÁâà
+'                     Beyondest.Com V4.6 Demo∞Ê
 ' 
 ' http://beyondest.com
 ' ====================
@@ -16,27 +16,27 @@ types  = Trim(Request.querystring("types"))
 n_sort = "gall"
 
 If action = "view" Then If Not(IsNumeric(id)) Then action = "paste"
-tit = "ÁΩëÁ´ôË¥¥Âõæ"
+tit = "Õ¯’æÃ˘Õº"
 
 Select Case action
     Case "logo"
-        tit  = "ÂÖ∂‰ªñ"
+        tit  = "∆‰À˚"
     Case "baner"
-        tit  = "Á≤æÂΩ©Áõ∏ÂÜå"
-        tit2 = "Áõ∏ÂÜå"
+        tit  = "æ´≤ œ‡≤·"
+        tit2 = "œ‡≤·"
     Case "film"
-        tit  = "Á≤æÂΩ©ËßÜÈ¢ë"
-        tit2 = "ËßÜÈ¢ë"
-        If types = "view" Then tit = "ÊµèËßàËßÜÈ¢ë"
+        tit  = "æ´≤  ”∆µ"
+        tit2 = " ”∆µ"
+        If types = "view" Then tit = "‰Ø¿¿ ”∆µ"
     Case "flash"
         tit  = "FLASH"
         tit2 = "Flash"
-        If types = "view" Then tit = "ÊµèËßàFLASH"
+        If types = "view" Then tit = "‰Ø¿¿FLASH"
     Case Else
         action = "paste"
-        tit    = "Ê°åÈù¢Â£ÅÁ∫∏"
-        tit2   = "Â£ÅÁ∫∏"
-        If types = "view" Then tit = "ÊµèËßàÂõæÁâá"
+        tit    = "◊¿√Ê±⁄÷Ω"
+        tit2   = "±⁄÷Ω"
+        If types = "view" Then tit = "‰Ø¿¿Õº∆¨"
 End Select
 
 n_sort = action
@@ -45,7 +45,7 @@ Call web_head(0,0,0,0,0)
 '------------------------------------left----------------------------------
 Call format_login()
 Call vouch_left("jt12","jt1")
-Call vouch_skin(tit2 & "ÂàÜÁ±ª","<table border=0 width='100%' align=center><tr><td>" & nsort_left(n_sort,cid,sid,"?action=" & action & "&",0) & "</td></tr></table>","",1)
+Call vouch_skin(tit2 & "∑÷¿‡","<table border=0 width='100%' align=center><tr><td>" & nsort_left(n_sort,cid,sid,"?action=" & action & "&",0) & "</td></tr></table>","",1)
 
 '----------------------------------left end--------------------------------
 Call web_center(0)

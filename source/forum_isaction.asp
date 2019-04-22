@@ -45,19 +45,19 @@ Sub is_action()
 
     Select Case action
         Case "isgood"
-            ist = "ç²¾å"
+            ist = "¾«»ª"
         Case "islock"
-            ist = "é”å®š"
+            ist = "Ëø¶¨"
         Case "istop"
-            ist = "å›ºé¡¶"
+            ist = "¹Ì¶¥"
         Case "istops"
-            ist = "æ€»å›ºé¡¶"
+            ist = "×Ü¹Ì¶¥"
     End Select
 
     If Trim(Request.querystring("cancel")) = "yes" Then
         If action = "istops" Then  action = "istop"
         upss  = 0
-        ismsg = "å·²æˆåŠŸçš„å¯¹ä¸»é¢˜ï¼ˆIDï¼š" & viewid & "ï¼‰å–æ¶ˆ " & ist & " ï¼"
+        ismsg = "ÒÑ³É¹¦µÄ¶ÔÖ÷Ìâ£¨ID£º" & viewid & "£©È¡Ïû " & ist & " £¡"
     Else
 
         If action = "istops" Then
@@ -67,14 +67,14 @@ Sub is_action()
             upss   = 1
         End If
 
-        ismsg      = "å·²æˆåŠŸçš„å°†ä¸»é¢˜ï¼ˆIDï¼š" & viewid & "ï¼‰è®¾ä¸º " & ist & " ï¼"
+        ismsg      = "ÒÑ³É¹¦µÄ½«Ö÷Ìâ£¨ID£º" & viewid & "£©ÉèÎª " & ist & " £¡"
     End If
 
     sql = "update bbs_topic set " & action & "=" & upss & " where id=" & viewid
     conn.execute(sql)
 
     Response.Write "<script language=javascript>" & _
-    vbcrlf & "alert(""" & ismsg & "\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+    vbcrlf & "alert(""" & ismsg & "\n\nµã»÷·µ»Ø¡£"");" & _
     vbcrlf & "location='forum_list.asp?forum_id=" & forumid & "'" & _
     vbcrlf & "</script>"
     'response.redirect "forum_list.asp?forum_id="&forumid
@@ -115,7 +115,7 @@ Sub is_del()
     conn.execute(sql)
 
     Response.Write "<script language=javascript>" & _
-    vbcrlf & "alert(""æˆåŠŸåˆ é™¤äº†ä¸€æ¡å›è´´ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+    vbcrlf & "alert(""³É¹¦É¾³ıÁËÒ»Ìõ»ØÌù£¡\n\nµã»÷·µ»Ø¡£"");" & _
     vbcrlf & "location='forum_list.asp?forum_id=" & forumid & "'" & _
     vbcrlf & "</script>"
 End Sub
@@ -153,7 +153,7 @@ Sub is_delete()
 
     Erase del_dim
     Response.Write "<script language=javascript>" & _
-    vbcrlf & "alert(""æˆåŠŸåˆ é™¤äº† " & iok & " æ¡è´´å­åŠå…¶å›è´´ï¼\nåˆ é™¤å¤±è´¥ " & ifail & " æ¡ï¼\n\nç‚¹å‡»è¿”å›ã€‚"");" & _
+    vbcrlf & "alert(""³É¹¦É¾³ıÁË " & iok & " ÌõÌù×Ó¼°Æä»ØÌù£¡\nÉ¾³ıÊ§°Ü " & ifail & " Ìõ£¡\n\nµã»÷·µ»Ø¡£"");" & _
     vbcrlf & "location='forum_list.asp?forum_id=" & forumid & "'" & _
     vbcrlf & "</script>"
 End Sub

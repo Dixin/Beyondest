@@ -37,7 +37,7 @@ Sub down_intro(introid,introsn)
 End Sub
 
 Sub down_class_sortt(t1,t2)
-    Response.Write format_barc("<font class=" & sk_class & "><b>ä¸“è¾‘åˆ—è¡¨</b></font>",class_sort(n_sort,index_url,t1,t2),3,0,6)
+    Response.Write format_barc("<font class=" & sk_class & "><b>×¨¼­ÁĞ±í</b></font>",class_sort(n_sort,index_url,t1,t2),3,0,6)
 End Sub
 
 Sub down_new_hot(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
@@ -55,13 +55,13 @@ Sub down_new_hot(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
     Select Case nt
         Case "hot"
             sql = sql & " order by counter desc,id desc"
-            If nhead = "" Then nhead = "ä¸‹è½½æ’è¡Œ"
+            If nhead = "" Then nhead = "ÏÂÔØÅÅĞĞ"
         Case "good"
             sql = sql & " and types=5 order by id desc"
-            If nhead = "" Then nhead = "ç²¾å½©æ¨è"
+            If nhead = "" Then nhead = "¾«²ÊÍÆ¼ö"
         Case Else
             sql = sql & " order by id desc"
-            If nhead = "" Then nhead = "è¿‘æœŸæ›´æ–°"
+            If nhead = "" Then nhead = "½üÆÚ¸üĞÂ"
     End Select
 
     Set rs = conn.execute(sql)
@@ -75,7 +75,7 @@ Sub down_new_hot(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
 
     Do While Not rs.eof
         name  = rs("name"):tim = rs("tim"):counter = rs("counter")
-        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='éŸ³ä¹åç§°ï¼š" & code_html(name,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>ä¸‹è½½äººæ¬¡ï¼š" & counter & "<br>æ•´ç†æ—¶é—´ï¼š" & time_type(tim,88) & "'>" & code_html(name,1,c_num) & "</a>"
+        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='ÒôÀÖÃû³Æ£º" & code_html(name,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ÏÂÔØÈË´Î£º" & counter & "<br>ÕûÀíÊ±¼ä£º" & time_type(tim,88) & "'>" & code_html(name,1,c_num) & "</a>"
         If tt > 0 Then temp1 = temp1 & format_end(et,time_type(tim,tt) & ",<font class=blue>" & counter & "</font>")
         temp1 = temp1 & "</td></tr>"
         rs.movenext
@@ -102,13 +102,13 @@ Sub down_new_hotr(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
     Select Case nt
         Case "hot"
             sql = sql & " order by counter desc,id desc"
-            If nhead = "" Then nhead = "ä¸‹è½½æ’è¡Œ"
+            If nhead = "" Then nhead = "ÏÂÔØÅÅĞĞ"
         Case "good"
             sql = sql & " and types=5 order by id desc"
-            If nhead = "" Then nhead = "ç²¾å½©æ¨è"
+            If nhead = "" Then nhead = "¾«²ÊÍÆ¼ö"
         Case Else
             sql = sql & " order by [order],id"
-            If nhead = "" Then nhead = "è¿‘æœŸæ›´æ–°"
+            If nhead = "" Then nhead = "½üÆÚ¸üĞÂ"
     End Select
 
     Set rs = conn.execute(sql)
@@ -122,7 +122,7 @@ Sub down_new_hotr(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
 
     Do While Not rs.eof
         name  = rs("name"):tim = rs("tim"):counter = rs("counter")
-        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='éŸ³ä¹åç§°ï¼š" & code_html(name,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>ä¸‹è½½äººæ¬¡ï¼š" & counter & "<br>æ•´ç†æ—¶é—´ï¼š" & time_type(tim,88) & "'>" & code_html(name,1,c_num) & "</a>"
+        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='ÒôÀÖÃû³Æ£º" & code_html(name,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ÏÂÔØÈË´Î£º" & counter & "<br>ÕûÀíÊ±¼ä£º" & time_type(tim,88) & "'>" & code_html(name,1,c_num) & "</a>"
         If tt > 0 Then temp1 = temp1 & format_end(et,time_type(tim,tt) & ",<font class=blue>" & counter & "</font>")
         temp1 = temp1 & "</td></tr>"
         rs.movenext
@@ -148,13 +148,13 @@ Sub down_new_hotrn(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
     Select Case nt
         Case "hot"
             sql = sql & " order by counter desc,id desc"
-            If nhead = "" Then nhead = "ä¸‹è½½æ’è¡Œ"
+            If nhead = "" Then nhead = "ÏÂÔØÅÅĞĞ"
         Case "good"
             sql = sql & " and types=5 order by id desc"
-            If nhead = "" Then nhead = "ç²¾å½©æ¨è"
+            If nhead = "" Then nhead = "¾«²ÊÍÆ¼ö"
         Case Else
             sql = sql & " order by id desc"
-            If nhead = "" Then nhead = "è¿‘æœŸæ›´æ–°"
+            If nhead = "" Then nhead = "½üÆÚ¸üĞÂ"
     End Select
 
     Set rs = conn.execute(sql)
@@ -168,7 +168,7 @@ Sub down_new_hotrn(n_jt,nnhead,nmore,nsql,nt,n_num,n_m,c_num,et,tt)
 
     Do While Not rs.eof
         name  = rs("name"):tim = rs("tim"):counter = rs("counter")
-        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='éŸ³ä¹åç§°ï¼š" & code_html(name,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>ä¸‹è½½äººæ¬¡ï¼š" & counter & "<br>æ•´ç†æ—¶é—´ï¼š" & time_type(tim,88) & "'>" & code_html(name,1,c_num) & "</a>"
+        temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='ÒôÀÖÃû³Æ£º" & code_html(name,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ÏÂÔØÈË´Î£º" & counter & "<br>ÕûÀíÊ±¼ä£º" & time_type(tim,88) & "'>" & code_html(name,1,c_num) & "</a>"
         If tt > 0 Then temp1 = temp1 & format_end(et,time_type(tim,tt) & ",<font class=blue>" & counter & "</font>")
         temp1 = temp1 & "</td></tr>"
         rs.movenext
@@ -190,13 +190,13 @@ Sub down_pic(nnhead,dsql,nt,n_num,c_num)
     Select Case nt
         Case "hot"
             sql = sql & " order by counter desc,id desc"
-            If nhead = "" Then nhead = "çƒ­ç‚¹æ’è¡Œ"
+            If nhead = "" Then nhead = "ÈÈµãÅÅĞĞ"
         Case "good"
             sql = sql & " and types=5 order by id desc"
-            If nhead = "" Then nhead = "ç²¾å“æ¨è"
+            If nhead = "" Then nhead = "¾«Æ·ÍÆ¼ö"
         Case Else
             sql = sql & " order by id desc"
-            If nhead = "" Then nhead = "æœ€æ–°éŸ³ä¹"
+            If nhead = "" Then nhead = "×îĞÂÒôÀÖ"
     End Select
 
     Set rs    = conn.execute(sql)
@@ -208,7 +208,7 @@ Sub down_pic(nnhead,dsql,nt,n_num,c_num)
         rs.movenext
     Loop
 
-    If temp1 = "<table border=0 width='100%' cellspacing=0 cellpadding=2><tr align=center valign=top>" Then temp1 = temp1 & "<td>æ— </td>"
+    If temp1 = "<table border=0 width='100%' cellspacing=0 cellpadding=2><tr align=center valign=top>" Then temp1 = temp1 & "<td>ÎŞ</td>"
     rs.Close:Set rs = Nothing
     temp1 = temp1 & "</tr></table>"
     Response.Write format_barc("<font class=" & sk_class & "><b>" & nhead & "</b></font>",temp1,3,0,5)
@@ -217,32 +217,32 @@ End Sub
 Sub down_remark(njt)
     Dim temp1
     temp1 = vbcrlf & "<table border=0 width='98%' align=center>" & _
-    vbcrlf & "<tr><td>" & img_small(njt) & "æœ¬ç«™æ¨èä½¿ç”¨ <a href='file/soft/flashget.rar'>ç½‘é™…å¿«è½¦</a> ä¸‹è½½éŸ³ä¹ï¼Œä¸€èˆ¬å‡å¯æ­£å¸¸ä¸‹è½½ã€‚</td></tr>" & _
-    vbcrlf & "<tr><td>" & img_small(njt) & "å¦‚æœæ‚¨å‘ç°æœ¬ç«™æœ‰ä»»ä½•æ­»é“¾æˆ–é”™é“¾é—®é¢˜ï¼Œè¯·<a href='gbook.asp?action=write'" & atb & ">ç•™è¨€é€šçŸ¥æˆ‘</a>ï¼Œè°¢è°¢ï¼</td></tr>" & _
-    vbcrlf & "<tr><td>" & img_small(njt) & "æœ¬ç«™å¤§å¤šæ•°æ–‡ä»¶é‡‡ç”¨ <a href='" & web_var(web_down,5) & "/soft/winrar.exe'>WinRAR</a> å‹ç¼©ï¼Œè¯·åœ¨æ­¤ä¸‹è½½æœ€æ–°ç‰ˆæœ¬ã€‚</td></tr>" & _
-    vbcrlf & "<tr><td class=red>" & img_small(njt) & "å¦‚æœæ‚¨é“¾æ¥æœ¬ç«™æ–‡ä»¶ï¼Œè¯·æ³¨æ˜æ¥è‡ªï¼š<a href='" & web_var(web_config,2) & "'" & atb & ">" & web_var(web_config,1) & "</a>ï¼Œè°¢è°¢æ‚¨çš„æ”¯æŒï¼</td></tr>" & _
-    vbcrlf & "<tr><td>" & img_small(njt) & "æœ¬ç«™æä¾›çš„éŸ³ä¹ä¸‹è½½ä»…ä¾›è¯•å¬ï¼Œå¦‚æœ‰ä¾µæƒï¼Œè¯·åŠæ—¶ <a href='gbook.asp?action=write'" & atb & ">é€šçŸ¥æˆ‘</a> ã€‚<font color='#ff0000'>å¸Œæœ›å¤§å®¶æ”¯æŒæ­£ç‰ˆã€‚</font></td></tr>" & _
-    vbcrlf & "<tr><td>" & img_small(njt) & "æ¬¢è¿å¤§å®¶åˆ°æœ¬ç«™ <a href='forum.asp'>è®ºå›</a> å‘è¡¨å’Œäº¤æµæ‚¨çš„è§è§£ã€‚å¤šè°¢æ‚¨çš„è®¿é—®ï¼</td></tr>" & _
+    vbcrlf & "<tr><td>" & img_small(njt) & "±¾Õ¾ÍÆ¼öÊ¹ÓÃ <a href='file/soft/flashget.rar'>Íø¼Ê¿ì³µ</a> ÏÂÔØÒôÀÖ£¬Ò»°ã¾ù¿ÉÕı³£ÏÂÔØ¡£</td></tr>" & _
+    vbcrlf & "<tr><td>" & img_small(njt) & "Èç¹ûÄú·¢ÏÖ±¾Õ¾ÓĞÈÎºÎËÀÁ´»ò´íÁ´ÎÊÌâ£¬Çë<a href='gbook.asp?action=write'" & atb & ">ÁôÑÔÍ¨ÖªÎÒ</a>£¬Ğ»Ğ»£¡</td></tr>" & _
+    vbcrlf & "<tr><td>" & img_small(njt) & "±¾Õ¾´ó¶àÊıÎÄ¼ş²ÉÓÃ <a href='" & web_var(web_down,5) & "/soft/winrar.exe'>WinRAR</a> Ñ¹Ëõ£¬ÇëÔÚ´ËÏÂÔØ×îĞÂ°æ±¾¡£</td></tr>" & _
+    vbcrlf & "<tr><td class=red>" & img_small(njt) & "Èç¹ûÄúÁ´½Ó±¾Õ¾ÎÄ¼ş£¬Çë×¢Ã÷À´×Ô£º<a href='" & web_var(web_config,2) & "'" & atb & ">" & web_var(web_config,1) & "</a>£¬Ğ»Ğ»ÄúµÄÖ§³Ö£¡</td></tr>" & _
+    vbcrlf & "<tr><td>" & img_small(njt) & "±¾Õ¾Ìá¹©µÄÒôÀÖÏÂÔØ½ö¹©ÊÔÌı£¬ÈçÓĞÇÖÈ¨£¬Çë¼°Ê± <a href='gbook.asp?action=write'" & atb & ">Í¨ÖªÎÒ</a> ¡£<font color='#ff0000'>Ï£Íû´ó¼ÒÖ§³ÖÕı°æ¡£</font></td></tr>" & _
+    vbcrlf & "<tr><td>" & img_small(njt) & "»¶Ó­´ó¼Òµ½±¾Õ¾ <a href='forum.asp'>ÂÛÌ³</a> ·¢±íºÍ½»Á÷ÄúµÄ¼û½â¡£¶àĞ»ÄúµÄ·ÃÎÊ£¡</td></tr>" & _
     vbcrlf & "</table>"
-    Response.Write format_barc("<font class=" & sk_class & "><b>éŸ³ä¹ä¸‹è½½è¯´æ˜</b></font>",temp1,4,1,"")
+    Response.Write format_barc("<font class=" & sk_class & "><b>ÒôÀÖÏÂÔØËµÃ÷</b></font>",temp1,4,1,"")
 End Sub
 
 Sub down_tool()
     Dim temp1
     temp1 = vbcrlf & "<table border=0 cellspacing=0 cellpadding=2><tr><td height=5></td></tr>" & _
     vbcrlf & "<tr><td><img src='images/down/tool_winrar.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/winrar.exe'>WinRAR</a></td></tr>" & _
-    vbcrlf & "<tr><td><img src='images/down/tool_qq.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/qq.rar'>QQ2004(å»å¹¿å‘Šæ˜¾IP)</a></td></tr>" & _
+    vbcrlf & "<tr><td><img src='images/down/tool_qq.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/qq.rar'>QQ2004(È¥¹ã¸æÏÔIP)</a></td></tr>" & _
     vbcrlf & "<tr><td><img src='images/down/tool_winamp.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/winamp.rar'>Winamp</a></td></tr>" & _
     vbcrlf & "<tr><td><img src='images/down/tool_realone.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/realoneplayer.rar'>RealOnePlayer</a></td></tr>" & _
     vbcrlf & "<tr><td><img src='images/down/tool_wmp.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/wmp2k.rar'>Windows Midia Player(2k&98)</a></td></tr>" & _
     vbcrlf & "<tr><td><img src='images/down/tool_wmp.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/wmpxp.rar'>Windows Midia Player(xp)</a></td></tr>" & _
     vbcrlf & "<tr><td><img src='images/down/tool_flashget.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/flashget.rar'>Flashget</a></td></tr>" & _
     vbcrlf & "<tr><td><img src='images/down/tool_cuteftp.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/flashfxp.rar'>FlashFXP</a></td></tr>" & _
-    vbcrlf & "<tr><td><img src='images/down/tool_wopti.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/wom.rar'>Windowsä¼˜åŒ–å¤§å¸ˆ</a></td></tr>" & _
+    vbcrlf & "<tr><td><img src='images/down/tool_wopti.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/wom.rar'>WindowsÓÅ»¯´óÊ¦</a></td></tr>" & _
     vbcrlf & "<tr><td><img src='images/down/tool_norton.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/norton.rar'>Norton Antivirus 2004</a></td></tr>" & _
-    vbcrlf & "<tr><td><img src='images/down/tool_norton.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/nortonsp.rar'>Nortonæœ€æ–°ç—…æ¯’åº“</a></td></tr>" & _
+    vbcrlf & "<tr><td><img src='images/down/tool_norton.gif' border=0 align=absmiddle>&nbsp;<a href='" & web_var(web_down,5) & "/soft/nortonsp.rar'>Norton×îĞÂ²¡¶¾¿â</a></td></tr>" & _
     vbcrlf & "</table>"
-    Response.Write format_barc("<font class=" & sk_class & "><b>å¸¸ç”¨å·¥å…·</b></font>",temp1,1,1,1)
+    Response.Write format_barc("<font class=" & sk_class & "><b>³£ÓÃ¹¤¾ß</b></font>",temp1,1,1,1)
 End Sub
 
 Sub down_atat()
@@ -266,14 +266,14 @@ Sub down_atat()
     num3   = rs(0)
     rs.Close:Set rs = Nothing
     temp1  = vbcrlf & "<table border=0 cellspacing=0 cellpadding=3><tr><td height=5></td></tr>" & _
-    vbcrlf & "<tr><td>ä»Šæ—¥æ›´æ–°ï¼š<font class=red>" & num1 & "</font>ä¸ªéŸ³ä¹</td></tr>" & _
-    vbcrlf & "<tr><td>éŸ³ä¹æ€»æ•°ï¼š<font class=red>" & num2 & "</font>ä¸ªéŸ³ä¹</td></tr>" & _
-    vbcrlf & "<tr><td>æ€»ä¸‹è½½ï¼š<font class=red>" & num3 & "</font>äººæ¬¡</td></tr>" & _
-    vbcrlf & "<tr><td>[ <a href='down_list.asp'>â†’ æµè§ˆéŸ³ä¹åˆ†ç±»</a> ]</td></tr>" & _
-    vbcrlf & "<tr><td>[ <a href='gbook.asp?action=write'>â†’ ä¸‹è½½é“¾æ¥æŠ¥é”™</a> ]</td></tr>" & _
+    vbcrlf & "<tr><td>½ñÈÕ¸üĞÂ£º<font class=red>" & num1 & "</font>¸öÒôÀÖ</td></tr>" & _
+    vbcrlf & "<tr><td>ÒôÀÖ×ÜÊı£º<font class=red>" & num2 & "</font>¸öÒôÀÖ</td></tr>" & _
+    vbcrlf & "<tr><td>×ÜÏÂÔØ£º<font class=red>" & num3 & "</font>ÈË´Î</td></tr>" & _
+    vbcrlf & "<tr><td>[ <a href='down_list.asp'>¡ú ä¯ÀÀÒôÀÖ·ÖÀà</a> ]</td></tr>" & _
+    vbcrlf & "<tr><td>[ <a href='gbook.asp?action=write'>¡ú ÏÂÔØÁ´½Ó±¨´í</a> ]</td></tr>" & _
     vbcrlf & "<tr><td>" & put_type("down") & "</td></tr>" & _
     vbcrlf & "</table>"
-    Response.Write format_barc("<font class=" & sk_class & "><b>æ ç›®ç»Ÿè®¡</b></font>",temp1,2,0,5)
+    Response.Write format_barc("<font class=" & sk_class & "><b>À¸Ä¿Í³¼Æ</b></font>",temp1,2,0,5)
 End Sub
 
 Sub down_main()
@@ -287,11 +287,11 @@ Sub down_main()
         Do While Not rs2.eof
             nid = rs2("c_id"):sqladd = " and c_id=" & nid %>
 <tr align=center valign=top>
-<td width='60%'><% Call down_new_hotr("jt0","<a href='down_list.asp?c_id=" & nid & "'><font class=" & sk_class & ">" & rs2("c_name") & "</font></a>","<a href='down_list.asp?c_id=" & nid & "&action=more'><font class=" & sk_class & ">æ›´å¤š...</font></a>",sqladd,"new",15,0,20,1,8) %></td>
+<td width='60%'><% Call down_new_hotr("jt0","<a href='down_list.asp?c_id=" & nid & "'><font class=" & sk_class & ">" & rs2("c_name") & "</font></a>","<a href='down_list.asp?c_id=" & nid & "&action=more'><font class=" & sk_class & ">¸ü¶à...</font></a>",sqladd,"new",15,0,20,1,8) %></td>
 <td width=1 bgcolor='<% = web_var(web_color,3) %>'></td>
 <td bgcolor='<% = web_var(web_color,1) %>'><%
-            Call down_new_hotr("","ä¸‹è½½æ’è¡Œ","",sqladd,"hot",5,0,11,1,0)
-            Call down_pic("ç«™é•¿æ¨è",sqladd,"good",1,10) %></td>
+            Call down_new_hotr("","ÏÂÔØÅÅĞĞ","",sqladd,"hot",5,0,11,1,0)
+            Call down_pic("Õ¾³¤ÍÆ¼ö",sqladd,"good",1,10) %></td>
 </tr>
 <%
             rs2.movenext
@@ -312,11 +312,11 @@ Sub down_main()
 <% Call down_intro(nid,rs2("s_name")) %>
 </td></tr>
 <tr align=center valign=top>
-<td width=400><% Call down_new_hotr("jt0","<a href='down_list.asp?c_id=" & cid & "&s_id=" & nid & "'><font class=" & sk_class & ">" & rs2("s_name") & "</font></a>","<a href='down_list.asp?c_id=" & cid & "&s_id=" & nid & "&action=more'><font class=" & sk_class & ">æ›´å¤š...</font></a>",sqladd,"new",40,0,20,1,8) %></td>
+<td width=400><% Call down_new_hotr("jt0","<a href='down_list.asp?c_id=" & cid & "&s_id=" & nid & "'><font class=" & sk_class & ">" & rs2("s_name") & "</font></a>","<a href='down_list.asp?c_id=" & cid & "&s_id=" & nid & "&action=more'><font class=" & sk_class & ">¸ü¶à...</font></a>",sqladd,"new",40,0,20,1,8) %></td>
 <td width=1 bgcolor="<% Response.Write web_var(web_color,3) %>"></td>
 <td><%
-                Call down_new_hotrn("jt0","ä¸‹è½½æ’è¡Œ","",sqladd,"hot",40,0,11,1,0)
-                'call down_pic("ç«™é•¿æ¨è",sqladd,"good",1,10) %></td>
+                Call down_new_hotrn("jt0","ÏÂÔØÅÅĞĞ","",sqladd,"hot",40,0,11,1,0)
+                'call down_pic("Õ¾³¤ÍÆ¼ö",sqladd,"good",1,10) %></td>
 </tr>
 <%
                 rs2.movenext
@@ -339,13 +339,13 @@ Sub down_main()
 <td colspan=3><% Call down_intro(sid,rs2("s_name")) %></td>
 </tr>
 <tr align=center>
-<td colspan=3><% Call down_pic("ç«™é•¿æ¨è",sqladd,"good",5,20) %></td>
+<td colspan=3><% Call down_pic("Õ¾³¤ÍÆ¼ö",sqladd,"good",5,20) %></td>
 </tr>
 <tr align=center valign=top>
-<td width=400><% Call down_new_hotr("jt0","<a href='down_list.asp?c_id=" & cid & "'><font class=" & sk_class & ">" & rs2("c_name") & "</font></a> â†’ <a href='down_list.asp?c_id=" & cid & "&s_id=" & sid & "'><font class=" & sk_class & ">" & rs2("s_name") & "</font></a>","<a href='down_list.asp?c_id=" & cid & "&s_id=" & sid & "&action=more'><font class=" & sk_class & ">æ›´å¤š...</font></a>",sqladd,"new",40,0,20,1,8) %></td>
+<td width=400><% Call down_new_hotr("jt0","<a href='down_list.asp?c_id=" & cid & "'><font class=" & sk_class & ">" & rs2("c_name") & "</font></a> ¡ú <a href='down_list.asp?c_id=" & cid & "&s_id=" & sid & "'><font class=" & sk_class & ">" & rs2("s_name") & "</font></a>","<a href='down_list.asp?c_id=" & cid & "&s_id=" & sid & "&action=more'><font class=" & sk_class & ">¸ü¶à...</font></a>",sqladd,"new",40,0,20,1,8) %></td>
 <td width=1 bgcolor="<% Response.Write web_var(web_color,3) %>"></td>
 <td><%
-                Call down_new_hotrn("jt0","ä¸‹è½½æ’è¡Œ","",sqladd,"hot",40,0,11,1,0) %></td>
+                Call down_new_hotrn("jt0","ÏÂÔØÅÅĞĞ","",sqladd,"hot",40,0,11,1,0) %></td>
 </tr>
 <%
                 rs2.Close:Set rs2 = Nothing
@@ -377,11 +377,11 @@ Sub down_main()
 
         temp1 = vbcrlf & "<table border=0 width='100%' cellspacing=0 cellpadding=4><tr><td colspan=5 height=5></td></tr>" & _
         vbcrlf & "<tr align=left height=20 valign=bottom>" & _
-        vbcrlf & "<td width='6%'>åºå·</td>" & _
-        vbcrlf & "<td width='44%'>éŸ³ä¹åç§°</td>" & _
-        vbcrlf & "<td width='28%'>æ•´ç†æ—¥æœŸ</td>" & _
-        vbcrlf & "<td width='12%'>æ¨èç­‰çº§</td>" & _
-        vbcrlf & "<td width='10%'>ä¸‹è½½æ¬¡æ•°</td>" & _
+        vbcrlf & "<td width='6%'>ĞòºÅ</td>" & _
+        vbcrlf & "<td width='44%'>ÒôÀÖÃû³Æ</td>" & _
+        vbcrlf & "<td width='28%'>ÕûÀíÈÕÆÚ</td>" & _
+        vbcrlf & "<td width='12%'>ÍÆ¼öµÈ¼¶</td>" & _
+        vbcrlf & "<td width='10%'>ÏÂÔØ´ÎÊı</td>" & _
         vbcrlf & "</tr>" & _
         vbcrlf & "<tr><td colspan=5 height=1 background='images/bg_dian.gif'></td></tr>"
         sql          = "select id,name,username,tim,counter,types from down where hidden=1 " & sqladd
@@ -408,11 +408,11 @@ Sub down_main()
                 If sid > 0 Then sname = code_html(rs("s_name"),1,0)
                 rs.Close
             Else
-                cname = "æœç´¢ç»“æœ"
+                cname = "ËÑË÷½á¹û"
             End If
 
             mhead     = "<a href='down_list.asp?c_id=" & cid & "'><b><font class=" & sk_class & ">" & cname & "</font></b></a>"
-            If cid > 0 And sid > 0 Then mhead = mhead & "&nbsp;<font class=" & sk_class & ">â†’</font>&nbsp;<a href='down_list.asp?c_id=" & cid & "&s_id=" & sid & "'><b><font class=" & sk_class & ">" & sname & "</font></b></a>"
+            If cid > 0 And sid > 0 Then mhead = mhead & "&nbsp;<font class=" & sk_class & ">¡ú</font>&nbsp;<a href='down_list.asp?c_id=" & cid & "&s_id=" & sid & "'><b><font class=" & sk_class & ">" & sname & "</font></b></a>"
 
             Set rs = Server.CreateObject("adodb.recordset")
             rs.open sql,conn,1,1
@@ -433,7 +433,7 @@ Sub down_main()
                 If rs.eof Then Exit For
                 name  = rs("name"):tim = rs("tim")
                 temp1 = temp1 & vbcrlf & "<tr onmouseover=""javascript:this.bgColor='" & c1 & "';"" onmouseout=""javascript:this.bgColor='';""><td>" & i + (viewpage - 1)*nummer & ".</td>" & _
-                vbcrlf & "<td><a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='éŸ³ä¹åç§°ï¼š" & code_html(name,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>æ•´ç†æ—¶é—´ï¼š" & tim & "'>" & code_html(name,1,c_num) & "</a></td>" & _
+                vbcrlf & "<td><a href='down_view.asp?id=" & rs("id") & "'" & atb & " title='ÒôÀÖÃû³Æ£º" & code_html(name,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ÕûÀíÊ±¼ä£º" & tim & "'>" & code_html(name,1,c_num) & "</a></td>" & _
                 vbcrlf & "<td>" & time_type(tim,tt) & "</td>" & _
                 vbcrlf & "<td><img src='images/down/star" & rs("types") & ".gif' border=0></td>" & _
                 vbcrlf & "<td align=center class=blue>" & rs("counter") & "</td></tr>" & _
@@ -443,9 +443,9 @@ Sub down_main()
 
             rs.Close:Set rs = Nothing
             temp1 = temp1 & vbcrlf & "<tr><td colspan=5 height=25 valign=bottom>" & _
-            vbcrlf & "å…±æœ‰&nbsp;<font class=red>" & rssum & "</font>&nbsp;ä¸ªæ–‡ä»¶&nbsp;" & _
-            vbcrlf & "é¡µæ¬¡ï¼š<font class=red>" & viewpage & "</font>/<font class=red>" & thepages & "</font>&nbsp;" & _
-            vbcrlf & "åˆ†é¡µï¼š" & jk_pagecute(nummer,thepages,viewpage,pageurl,8,"#ff0000") & _
+            vbcrlf & "¹²ÓĞ&nbsp;<font class=red>" & rssum & "</font>&nbsp;¸öÎÄ¼ş&nbsp;" & _
+            vbcrlf & "Ò³´Î£º<font class=red>" & viewpage & "</font>/<font class=red>" & thepages & "</font>&nbsp;" & _
+            vbcrlf & "·ÖÒ³£º" & jk_pagecute(nummer,thepages,viewpage,pageurl,8,"#ff0000") & _
             vbcrlf & "</td></tr></table>"
             Response.Write "<tr><td colspan=3 align=center>" & format_barc(mhead,temp1,3,0,11) & "</td></tr>"
         End Sub
@@ -462,9 +462,9 @@ Sub down_main()
             vbcrlf & "<script language=javascript><!--" & _
             vbcrlf & "function down_sea()" & _
             vbcrlf & "{" & _
-            vbcrlf & "  if (down_sea_frm.keyword.value==""è¯·è¾“å…¥å…³é”®å­—"")" & _
+            vbcrlf & "  if (down_sea_frm.keyword.value==""ÇëÊäÈë¹Ø¼ü×Ö"")" & _
             vbcrlf & "  {" & _
-            vbcrlf & "    alert(""è¯·åœ¨æœç´¢éŸ³ä¹å‰å…ˆè¾“å…¥è¦æŸ¥è¯¢çš„ å…³é”®å­— ï¼"");" & _
+            vbcrlf & "    alert(""ÇëÔÚËÑË÷ÒôÀÖÇ°ÏÈÊäÈëÒª²éÑ¯µÄ ¹Ø¼ü×Ö £¡"");" & _
             vbcrlf & "    down_sea_frm.keyword.focus();" & _
             vbcrlf & "    return false;" & _
             vbcrlf & "  }" & _
@@ -473,12 +473,12 @@ Sub down_main()
             vbcrlf & "<form name=down_sea_frm action='down_list.asp' method=get onsubmit=""return down_sea()"">" & _
             vbcrlf & "<input type=hidden name=action value='more'><tr><td height=3></td></tr>" & _
             vbcrlf & "<tr><td>" & _
-            vbcrlf & "  <table border=0><tr><td colspan=2><input type=text name=keyword value='è¯·è¾“å…¥å…³é”®å­—' onfocus=""if (value =='è¯·è¾“å…¥å…³é”®å­—'){value =''}"" onblur=""if (value ==''){value='è¯·è¾“å…¥å…³é”®å­—'}"" size=20 maxlength=20></td></tr>" & _
+            vbcrlf & "  <table border=0><tr><td colspan=2><input type=text name=keyword value='ÇëÊäÈë¹Ø¼ü×Ö' onfocus=""if (value =='ÇëÊäÈë¹Ø¼ü×Ö'){value =''}"" onblur=""if (value ==''){value='ÇëÊäÈë¹Ø¼ü×Ö'}"" size=20 maxlength=20></td></tr>" & _
 
             vbcrlf & "  </table>" & _
             vbcrlf & "</td></tr><tr><td>" & _
             vbcrlf & "  <table border=0><tr>" & _
-            vbcrlf & "  <td><select name=c_id sizs=1><option value=''>å…¨éƒ¨ç±»åˆ«</option>"
+            vbcrlf & "  <td><select name=c_id sizs=1><option value=''>È«²¿Àà±ğ</option>"
             sql           = "select c_id,c_name from jk_class where nsort='" & n_sort & "' order by c_order,c_id"
             Set rs        = conn.execute(sql)
 
@@ -494,7 +494,7 @@ Sub down_main()
                     nid2  = rs2(0)
                     temp1 = temp1 & vbcrlf & "<option value='" & nid & "&s_id=" & nid2 & "'"
                     If sid = nid2 Then temp1 = temp1 & " selected"
-                    temp1 = temp1 & ">ã€€" & rs2(1) & "</option>"
+                    temp1 = temp1 & ">¡¡" & rs2(1) & "</option>"
                     rs2.movenext
                 Loop
 
@@ -505,10 +505,10 @@ Sub down_main()
             rs.Close:Set rs = Nothing
             temp1 = temp1 & vbcrlf & "</select></td>" & _
             vbcrlf & "  <td></td></tr>" & _
-            vbcrlf & "  <tr height=25><td><select name=sea_type size=1><option value='name'>éŸ³ä¹åç§°</option><option value='username'>å‘å¸ƒäºº</option></select></td>" & _
+            vbcrlf & "  <tr height=25><td><select name=sea_type size=1><option value='name'>ÒôÀÖÃû³Æ</option><option value='username'>·¢²¼ÈË</option></select></td>" & _
             vbcrlf & "  <td align=left><input type=image src='images/small/search_go.gif' border=0 height=25 width=40></td>" & _
             vbcrlf & "  </tr></table>" & _
             vbcrlf & "</td></tr>" & _
             vbcrlf & "</form><tr><td height=1></td></tr></table>"
-            Response.Write kong & format_barc("<font class=" & sk_class & "><b>éŸ³ä¹æœç´¢</b></font>",temp1,2,0,4)
+            Response.Write kong & format_barc("<font class=" & sk_class & "><b>ÒôÀÖËÑË÷</b></font>",temp1,2,0,4)
         End Sub %>

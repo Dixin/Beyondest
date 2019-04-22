@@ -12,7 +12,7 @@ Dim unit_num
 Dim emoney_1
 Dim chk
 Dim errs
-tit = "è™šæ‹Ÿè´§å¸"
+tit = "ĞéÄâ»õ±Ò"
 
 Call web_head(2,0,0,0,0)
 '------------------------------------left----------------------------------
@@ -81,7 +81,7 @@ Sub emoney_main()
         If action = "converion" And Int(emoney_2) > 0 Then
             conn.execute("update user_data set integral=integral-" & emoney_2*unit_num & ",emoney=emoney+" & emoney_2 & " where username='" & login_username & "'")
             integral = integral - emoney_2*unit_num:login_emoney = login_emoney + emoney_2:emoney_1 = emoney_1 - emoney_2
-            Response.Write "<script language=javascript>alert(""æ‚¨å·²æˆåŠŸæ¢ç®—äº† " & emoney_2 & " " & m_unit & "ï¼\n\næ‚¨çš„ç§¯åˆ†æ¶ˆè€—äº†ï¼š" & emoney_2*unit_num & " åˆ†\n\nç›®å‰çš„ç§¯åˆ†æ¢ç®—ç‡ä¸ºï¼šæ¯ " & unit_num & " åˆ†å¯æ¢ç®— 1 " & m_unit & """);</script>"
+            Response.Write "<script language=javascript>alert(""ÄúÒÑ³É¹¦»»ËãÁË " & emoney_2 & " " & m_unit & "£¡\n\nÄúµÄ»ı·ÖÏûºÄÁË£º" & emoney_2*unit_num & " ·Ö\n\nÄ¿Ç°µÄ»ı·Ö»»ËãÂÊÎª£ºÃ¿ " & unit_num & " ·Ö¿É»»Ëã 1 " & m_unit & """);</script>"
         End If
 
         If action = "virement" And Int(emoney_2) > 0 Then
@@ -99,9 +99,9 @@ Sub emoney_main()
                 conn.execute("update user_data set emoney=emoney-" & emoney_2 & " where username='" & login_username & "'")
                 conn.execute("update user_data set emoney=emoney+" & emoney_2 & " where username='" & username2 & "'")
                 login_emoney = login_emoney - emoney_2
-                Response.Write "<script language=javascript>alert(""æ‚¨å·²æˆåŠŸçš„ç»™ " & username2 & " è½¬å¸äº† " & emoney_2 & " " & m_unit & "ï¼\n\næ‚¨çš„æ‹¥æœ‰çš„" & tit & "ä¹Ÿå‡å°‘äº†ï¼š" & emoney_2 & " " & m_unit & """);</script>"
+                Response.Write "<script language=javascript>alert(""ÄúÒÑ³É¹¦µÄ¸ø " & username2 & " ×ªÕÊÁË " & emoney_2 & " " & m_unit & "£¡\n\nÄúµÄÓµÓĞµÄ" & tit & "Ò²¼õÉÙÁË£º" & emoney_2 & " " & m_unit & """);</script>"
                 sql          = "insert into user_mail(send_u,accept_u,topic,word,tim,types,isread) " & _
-                "values('" & login_username & "','" & username2 & "','[ç³»ç»Ÿ]è´§å¸è½¬å¸ä¿¡æ¯æç¤º','" & login_username & " å·²æˆåŠŸçš„ç»™ æ‚¨ è½¬å¸äº† " & emoney_2 & " " & m_unit & "ï¼','" & now_time & "',1,0)"
+                "values('" & login_username & "','" & username2 & "','[ÏµÍ³]»õ±Ò×ªÕÊĞÅÏ¢ÌáÊ¾','" & login_username & " ÒÑ³É¹¦µÄ¸ø Äú ×ªÕÊÁË " & emoney_2 & " " & m_unit & "£¡','" & now_time & "',1,0)"
                 conn.execute(sql)
             End If
 
@@ -131,11 +131,11 @@ Sub emoney_main()
             Dim ok_msg:ok_msg = ""
             conn.execute("update cards set c_hidden=1 where c_id=" & c_id)
             sql          = "update user_data set emoney=emoney+" & c_emoney
-            If Int(userp) > 3 Then sql = sql & ",power='" & format_power2(3,1) & "'":ok_msg = "\n\næ‚¨ä¹ŸåŒæ—¶å‡çº§ä¸º VIP ä¼šå‘˜ï¼"
+            If Int(userp) > 3 Then sql = sql & ",power='" & format_power2(3,1) & "'":ok_msg = "\n\nÄúÒ²Í¬Ê±Éı¼¶Îª VIP »áÔ±£¡"
             sql          = sql & " where username='" & login_username & "'"
             conn.execute(sql)
             login_emoney = login_emoney + c_emoney
-            Response.Write "<script language=javascript>alert(""æ‚¨å·²æˆåŠŸçš„ç”¨ä¼šå‘˜å¡ï¼ˆå¡å·ï¼š" & c_name & "ï¼‰ç»™æ‚¨å……å€¼äº† " & c_emoney & " " & m_unit & "ï¼" & ok_msg & """);</script>"
+            Response.Write "<script language=javascript>alert(""ÄúÒÑ³É¹¦µÄÓÃ»áÔ±¿¨£¨¿¨ºÅ£º" & c_name & "£©¸øÄú³äÖµÁË " & c_emoney & " " & m_unit & "£¡" & ok_msg & """);</script>"
         End If
 
     End If
@@ -156,12 +156,12 @@ Sub emoney_main()
     End Select
 
     Response.Write ukong & table1 %>
-<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk00") %>&nbsp;<font class=end><b>ç›¸å…³è¯´æ˜</b></font></td></tr>
+<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk00") %>&nbsp;<font class=end><b>Ïà¹ØËµÃ÷</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
-  <tr><td height=25><font class=red>æ³¨æ„ï¼š</font></td><td>æ‚¨è¾“å…¥çš„æ¢ç®—çš„<% Response.Write m_unit %>æ•°å€¼ä¸èƒ½è¶…è¿‡æ‚¨ç›®å‰å¯ä»¥æ¢ç®—çš„æœ€å¤§å€¼ï¼ˆ<font class=red><% Response.Write emoney_1 & "</font>&nbsp;" & m_unit %>ï¼‰</td></tr>
-  <tr><td height=25></td><td>æ‚¨è¾“å…¥çš„è¦è½¬å¸çš„<% Response.Write m_unit %>æ•°å€¼ä¸èƒ½è¶…è¿‡æ‚¨ç›®å‰æ‹¥æœ‰çš„æœ€å¤§å€¼ï¼ˆ<font class=red><% Response.Write login_emoney & "</font>&nbsp;" & m_unit %>ï¼‰</td></tr>
-  <tr><td height=25></td><td>æ‚¨åœ¨è¿™é‡Œè¿›è¡Œçš„<font class=blue>ç§¯åˆ†æ¢ç®—</font>å’Œ<font class=blue>è´§å¸è½¬å¸</font>ä¸º<font class=red>ä¸å¯é€†æ“ä½œ</font>ï¼è¯·åœ¨æ“ä½œå‰æ³¨æ„ä¸€ä¸‹ã€‚</td></tr>
+  <tr><td height=25><font class=red>×¢Òâ£º</font></td><td>ÄúÊäÈëµÄ»»ËãµÄ<% Response.Write m_unit %>ÊıÖµ²»ÄÜ³¬¹ıÄúÄ¿Ç°¿ÉÒÔ»»ËãµÄ×î´óÖµ£¨<font class=red><% Response.Write emoney_1 & "</font>&nbsp;" & m_unit %>£©</td></tr>
+  <tr><td height=25></td><td>ÄúÊäÈëµÄÒª×ªÕÊµÄ<% Response.Write m_unit %>ÊıÖµ²»ÄÜ³¬¹ıÄúÄ¿Ç°ÓµÓĞµÄ×î´óÖµ£¨<font class=red><% Response.Write login_emoney & "</font>&nbsp;" & m_unit %>£©</td></tr>
+  <tr><td height=25></td><td>ÄúÔÚÕâÀï½øĞĞµÄ<font class=blue>»ı·Ö»»Ëã</font>ºÍ<font class=blue>»õ±Ò×ªÕÊ</font>Îª<font class=red>²»¿ÉÄæ²Ù×÷</font>£¡ÇëÔÚ²Ù×÷Ç°×¢ÒâÒ»ÏÂ¡£</td></tr>
   </table>
 </td></tr>
 </table><%
@@ -170,30 +170,30 @@ End Sub
 
 Sub emoney_converion()
     Response.Write ukong & table1 %>
-<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk00") %>&nbsp;<font class=end><b>ç§¯åˆ†æ¢ç®—</b></font></td></tr>
+<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk00") %>&nbsp;<font class=end><b>»ı·Ö»»Ëã</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
-  <tr><td height=25>æ‚¨ç›®å‰æ‹¥æœ‰çš„<% Response.Write tit %>ä¸ºï¼š<font class=red><% Response.Write login_emoney & "</font>&nbsp;" & m_unit %></td></tr>
+  <tr><td height=25>ÄúÄ¿Ç°ÓµÓĞµÄ<% Response.Write tit %>Îª£º<font class=red><% Response.Write login_emoney & "</font>&nbsp;" & m_unit %></td></tr>
   </table>
 </td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
-  <tr><td height=25>ç›®å‰çš„ç§¯åˆ†æ¢ç®—ç‡ä¸ºï¼šæ¯&nbsp;<font class=red_3><b><% Response.Write unit_num %></b></font>&nbsp;åˆ†å¯æ¢ç®—&nbsp;<font class=red><b>1</b></font>&nbsp;<% Response.Write m_unit %></td></tr>
-  <tr><td height=25>æ‚¨ç›®å‰çš„ç¤¾åŒºç§¯åˆ†ä¸ºï¼š<font class=red_3><% Response.Write integral %></font>&nbsp;åˆ†</td></tr>
-  <tr><td height=25>æ‚¨ç›®å‰å¯ä»¥æ¢ç®—ï¼š<font class=red><% Response.Write emoney_1 & "</font>&nbsp;" & m_unit %></td></tr>
+  <tr><td height=25>Ä¿Ç°µÄ»ı·Ö»»ËãÂÊÎª£ºÃ¿&nbsp;<font class=red_3><b><% Response.Write unit_num %></b></font>&nbsp;·Ö¿É»»Ëã&nbsp;<font class=red><b>1</b></font>&nbsp;<% Response.Write m_unit %></td></tr>
+  <tr><td height=25>ÄúÄ¿Ç°µÄÉçÇø»ı·ÖÎª£º<font class=red_3><% Response.Write integral %></font>&nbsp;·Ö</td></tr>
+  <tr><td height=25>ÄúÄ¿Ç°¿ÉÒÔ»»Ëã£º<font class=red><% Response.Write emoney_1 & "</font>&nbsp;" & m_unit %></td></tr>
   </table>
 </td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
 <% If action = "converion" And chk = "yes" And errs <> "" Then %>
-  <tr><td height=50><font class=red_2>æ¢ç®—å¤±è´¥ï¼š</font>è¯·è¾“å…¥ä¸€ä¸ªä¸å¤§äº <font class=red><% Response.Write emoney_1 %></font> çš„æ­£æ•´æ•°ï¼
+  <tr><td height=50><font class=red_2>»»ËãÊ§°Ü£º</font>ÇëÊäÈëÒ»¸ö²»´óÓÚ <font class=red><% Response.Write emoney_1 %></font> µÄÕıÕûÊı£¡
 &nbsp;&nbsp;&nbsp;&nbsp;<% Response.Write go_back %></td></tr>
 <% Else %>
   <form name=emoney_frm_1 action='?action=converion&chk=yes' method=post>
-  <tr><td height=50>è¯·è¾“å…¥æ‚¨è¦æ¢ç®—çš„<% Response.Write m_unit %>æ•°å€¼ï¼š&nbsp;
+  <tr><td height=50>ÇëÊäÈëÄúÒª»»ËãµÄ<% Response.Write m_unit %>ÊıÖµ£º&nbsp;
 <input type=text name=e_num size=12 maxlength=10 value=''>&nbsp;&nbsp;&nbsp;
-<input type=checkbox name=e_all value='yes'>&nbsp;å…¨éƒ¨æ¢ç®—&nbsp;&nbsp;&nbsp;
-<input type=submit value='è¿›è¡Œæ¢ç®—'></td></tr>
+<input type=checkbox name=e_all value='yes'>&nbsp;È«²¿»»Ëã&nbsp;&nbsp;&nbsp;
+<input type=submit value='½øĞĞ»»Ëã'></td></tr>
   </form>
 <% End If %>
   </table>
@@ -204,27 +204,27 @@ End Sub
 
 Sub emoney_virement()
 Response.Write ukong & table1 %>
-<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk00") %>&nbsp;<font class=end><b>è´§å¸è½¬å¸</b></font></td></tr>
+<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk00") %>&nbsp;<font class=end><b>»õ±Ò×ªÕÊ</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
-  <tr><td height=25>æ‚¨ç›®å‰æ‹¥æœ‰çš„<% Response.Write tit %>ä¸ºï¼š<font class=red><% Response.Write login_emoney & "</font>&nbsp;" & m_unit %></td></tr>
+  <tr><td height=25>ÄúÄ¿Ç°ÓµÓĞµÄ<% Response.Write tit %>Îª£º<font class=red><% Response.Write login_emoney & "</font>&nbsp;" & m_unit %></td></tr>
   </table>
 </td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
 <% If action = "virement" And chk = "yes" And errs <> "" Then %>
-  <tr><td height=50><font class=red_2>è½¬å¸å¤±è´¥ï¼š</font></td><td>è¯·è¾“å…¥ä¸€ä¸ªä¸å¤§äº <font class=red><% Response.Write emoney_1 %></font> çš„æ­£æ•´æ•°&nbsp;æˆ–&nbsp;æ‚¨è¦è½¬å…¥çš„æ³¨å†Œç”¨æˆ·ä¸å­˜åœ¨ï¼&nbsp;&nbsp;<% Response.Write go_back %></td></tr>
+  <tr><td height=50><font class=red_2>×ªÕÊÊ§°Ü£º</font></td><td>ÇëÊäÈëÒ»¸ö²»´óÓÚ <font class=red><% Response.Write emoney_1 %></font> µÄÕıÕûÊı&nbsp;»ò&nbsp;ÄúÒª×ªÈëµÄ×¢²áÓÃ»§²»´æÔÚ£¡&nbsp;&nbsp;<% Response.Write go_back %></td></tr>
 <% Else %>
   <form name=emoney_frm_2 action='?action=virement&chk=yes' method=post>
   <tr><td height=10></td></tr>
-  <tr><td height=30>è¯·è¾“å…¥æ‚¨è¦è½¬å¸çš„æ³¨å†Œç”¨æˆ·ï¼š&nbsp;
+  <tr><td height=30>ÇëÊäÈëÄúÒª×ªÕÊµÄ×¢²áÓÃ»§£º&nbsp;
 <input type=text name=username2 size=15 maxlength=20 value=''>&nbsp;&nbsp;&nbsp;
 <% Response.Write friend_select() %>
 </td></tr>
-  <tr><td height=30>è¯·è¾“å…¥æ‚¨è¦è½¬å¸çš„<% Response.Write m_unit %>æ•°å€¼ï¼š&nbsp;
+  <tr><td height=30>ÇëÊäÈëÄúÒª×ªÕÊµÄ<% Response.Write m_unit %>ÊıÖµ£º&nbsp;
 <input type=text name=e_num size=12 maxlength=10 value=''>&nbsp;&nbsp;&nbsp;
-<input type=checkbox name=eall value='yes'>&nbsp;å…¨éƒ¨è½¬å¸&nbsp;&nbsp;&nbsp;
-<input type=submit value='è¿›è¡Œè½¬å¸'></td></tr>
+<input type=checkbox name=eall value='yes'>&nbsp;È«²¿×ªÕÊ&nbsp;&nbsp;&nbsp;
+<input type=submit value='½øĞĞ×ªÕÊ'></td></tr>
   <tr><td height=10></td></tr>
   </form>
 <% End If %>
@@ -236,24 +236,24 @@ End Sub
 
 Sub emoney_card()
 Response.Write ukong & table1 %>
-<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk00") %>&nbsp;<font class=end><b>ä¼šå‘˜å¡å……å€¼</b></font></td></tr>
+<tr<% Response.Write table2 %>><td>&nbsp;<% Response.Write img_small("fk00") %>&nbsp;<font class=end><b>»áÔ±¿¨³äÖµ</b></font></td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
-  <tr><td height=25>æ‚¨ç›®å‰æ‹¥æœ‰çš„<% Response.Write tit %>ä¸ºï¼š<font class=red><% Response.Write login_emoney & "</font>&nbsp;" & m_unit %></td></tr>
+  <tr><td height=25>ÄúÄ¿Ç°ÓµÓĞµÄ<% Response.Write tit %>Îª£º<font class=red><% Response.Write login_emoney & "</font>&nbsp;" & m_unit %></td></tr>
   </table>
 </td></tr>
 <tr<% Response.Write table3 %>><td align=center>
   <table border=0 width='96%'>
 <% If action = "card" And chk = "yes" And errs <> "" Then %>
-  <tr><td height=50><font class=red_2>ä¼šå‘˜å¡å……å€¼å¤±è´¥ï¼š</font></td><td>æ‚¨è¾“å…¥çš„ä¼šå‘˜ <font class=red>å¡å·</font> æˆ– <font class=red>å¯†ç </font> æœ‰é”™è¯¯ï¼&nbsp;&nbsp;<% Response.Write go_back %></td></tr>
+  <tr><td height=50><font class=red_2>»áÔ±¿¨³äÖµÊ§°Ü£º</font></td><td>ÄúÊäÈëµÄ»áÔ± <font class=red>¿¨ºÅ</font> »ò <font class=red>ÃÜÂë</font> ÓĞ´íÎó£¡&nbsp;&nbsp;<% Response.Write go_back %></td></tr>
 <% Else %>
   <form name=emoney_frm_3 action='?action=card&chk=yes' method=post>
   <tr><td height=50>
     <table border=0>
     <tr>
-    <td>å¡å·ï¼š&nbsp;<input type=text name=c_name size=15 maxlength=20></td>
-    <td>&nbsp;&nbsp;å¯†ç ï¼š&nbsp;<input type=password name=c_pass size=15 maxlength=20></td>
-    <td>&nbsp;&nbsp;<input type=submit value='ä¼šå‘˜å¡å……å€¼'></td>
+    <td>¿¨ºÅ£º&nbsp;<input type=text name=c_name size=15 maxlength=20></td>
+    <td>&nbsp;&nbsp;ÃÜÂë£º&nbsp;<input type=password name=c_pass size=15 maxlength=20></td>
+    <td>&nbsp;&nbsp;<input type=submit value='»áÔ±¿¨³äÖµ'></td>
     </tr>
     </table>
   </td><tr>
@@ -288,7 +288,7 @@ vbcrlf & "  if (addaccept!=0) { document.emoney_frm_2.username2.value=addaccept;
 vbcrlf & "  return;" & _
 vbcrlf & "}</script>" & _
 vbcrlf & "<select name=friend_select size=1 onchange=Do_accept(this.options[this.selectedIndex].value)>" & _
-vbcrlf & "<option value='0'>é€‰æ‹©æˆ‘çš„å¥½å‹</option>"
+vbcrlf & "<option value='0'>Ñ¡ÔñÎÒµÄºÃÓÑ</option>"
 sql           = "select username2 from user_friend where username1='" & login_username & "' order by id"
 Set rs        = conn.execute(sql)
 

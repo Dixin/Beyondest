@@ -32,9 +32,9 @@ Dim pageurl
 Dim pic
 Dim ispic
 Dim csid
-website_menu = vbcrlf & "<a href='?'>ç½‘ç«™æ¨è</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='?action=add'>æ·»åŠ ç½‘ç«™</a>&nbsp;â”‹&nbsp;" & _
-vbcrlf & "<a href='admin_nsort.asp?nsort=web'>ç½‘ç«™åˆ†ç±»</a>"
+website_menu = vbcrlf & "<a href='?'>ÍøÕ¾ÍÆ¼ö</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='?action=add'>Ìí¼ÓÍøÕ¾</a>&nbsp;©¯&nbsp;" & _
+vbcrlf & "<a href='admin_nsort.asp?nsort=web'>ÍøÕ¾·ÖÀà</a>"
 Response.Write header(15,website_menu)
 pageurl = "?action=" & action & "&":nsort = "web":data_name = "website":sqladd = "":nummer = 15
 Call admin_cid_sid()
@@ -63,7 +63,7 @@ Function del_select(delid)
         Next
 
         Erase del_dim
-        del_select = vbcrlf & "<script language=javascript>alert(""å…±åˆ é™¤äº† " & del_num + 1 & " æ¡è®°å½•ï¼"");</script>"
+        del_select = vbcrlf & "<script language=javascript>alert(""¹²É¾³ıÁË " & del_num + 1 & " Ìõ¼ÇÂ¼£¡"");</script>"
     End If
 
 End Function
@@ -136,11 +136,11 @@ Sub news_edit()
         pic     = Trim(Request.form("pic"))
 
         If Len(csid) < 1 Then
-            Response.Write "<font class=red_2>è¯·é€‰æ‹©ç½‘ç«™ç±»å‹ï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÇëÑ¡ÔñÍøÕ¾ÀàĞÍ£¡</font><br><br>" & go_back
         ElseIf Len(name) < 1 Or Len(url) < 1 Then
-            Response.Write "<font class=red_2>ç½‘ç«™åç§°å’Œåœ°å€ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÍøÕ¾Ãû³ÆºÍµØÖ·²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back
         ElseIf Len(remark) > 250 Then
-            Response.Write "<font class=red_2>ç½‘ç«™è¯´æ˜ä¸èƒ½é•¿äº250ä¸ªå­—ç¬¦ï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÍøÕ¾ËµÃ÷²»ÄÜ³¤ÓÚ250¸ö×Ö·û£¡</font><br><br>" & go_back
         Else
             Call chk_cid_sid()
             rs("c_id")     = cid
@@ -174,16 +174,16 @@ Sub news_edit()
             rs.update
             rs.Close:Set rs = Nothing
             Call upload_note(data_name,id)
-            Response.Write "<font class=red>å·²æˆåŠŸä¿®æ”¹äº†ä¸€ä¸ªç½‘ç«™ï¼</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>ç‚¹å‡»è¿”å›</a><br><br>"
+            Response.Write "<font class=red>ÒÑ³É¹¦ĞŞ¸ÄÁËÒ»¸öÍøÕ¾£¡</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>µã»÷·µ»Ø</a><br><br>"
         End If
 
     Else %><table border=0 cellspacing=0 cellpadding=3>
 <form action='<% Response.Write pageurl %>c_id=<% Response.Write cid %>&s_id=<% Response.Write sid %>&id=<% Response.Write id %>&edit=chk' method=post>
 <input type=hidden name=upid value=''>
-  <tr><td width='12%'>ç½‘ç«™åç§°ï¼š</td><td width='88%'><input type=text size=70 name=name value='<% Response.Write rs("name") %>' maxlength=50><% = redx %></td></tr>
-  <tr><td>ç½‘ç«™ç±»å‹ï¼š</td><td><% Call chk_csid(cid,sid):Call chk_h_u() %></td></tr>
-  <tr><td>ç½‘ç«™åœ°å€ï¼š</td><td><input type=text size=70 name=url value='<% Response.Write rs("url") %>' maxlength=100><% = redx %></td></tr>
-  <tr><td>å›½å®¶åœ°åŒºï¼š</td><td><select name=country size=1>
+  <tr><td width='12%'>ÍøÕ¾Ãû³Æ£º</td><td width='88%'><input type=text size=70 name=name value='<% Response.Write rs("name") %>' maxlength=50><% = redx %></td></tr>
+  <tr><td>ÍøÕ¾ÀàĞÍ£º</td><td><% Call chk_csid(cid,sid):Call chk_h_u() %></td></tr>
+  <tr><td>ÍøÕ¾µØÖ·£º</td><td><input type=text size=70 name=url value='<% Response.Write rs("url") %>' maxlength=100><% = redx %></td></tr>
+  <tr><td>¹ú¼ÒµØÇø£º</td><td><select name=country size=1>
 <%
         pic       = rs("pic")
         If pic = "no_pic.gif" Then pic = ""
@@ -199,34 +199,34 @@ Sub news_edit()
 
         If Len(ispic) < 1 Then ispic = "n" & upload_time(now_time)
         tit = rs("country")
-        Response.Write select_type("ä¸­å›½",tit)
-        Response.Write select_type("é¦™æ¸¯",tit)
-        Response.Write select_type("å°æ¹¾",tit)
-        Response.Write select_type("ç¾å›½",tit)
-        Response.Write select_type("è‹±å›½",tit)
-        Response.Write select_type("æ—¥æœ¬",tit)
-        Response.Write select_type("éŸ©å›½",tit)
-        Response.Write select_type("åŠ æ‹¿å¤§",tit)
-        Response.Write select_type(">æ¾³å¤§åˆ©äºš",tit)
-        Response.Write select_type("æ–°è¥¿å…°",tit)
-        Response.Write select_type("ä¿„ç½—æ–¯",tit)
-        Response.Write select_type("æ„å¤§åˆ©",tit)
-        Response.Write select_type("æ³•å›½",tit)
-        Response.Write select_type("è¥¿ç­ç‰™",tit)
-        Response.Write select_type("å¾·å›½",tit)
-        Response.Write select_type("å…¶å®ƒå›½å®¶",tit) %>
-</select>&nbsp;&nbsp;&nbsp;&nbsp;ç«™ç‚¹è¯­è¨€ï¼š<select name=lang size=1>
+        Response.Write select_type("ÖĞ¹ú",tit)
+        Response.Write select_type("Ïã¸Û",tit)
+        Response.Write select_type("Ì¨Íå",tit)
+        Response.Write select_type("ÃÀ¹ú",tit)
+        Response.Write select_type("Ó¢¹ú",tit)
+        Response.Write select_type("ÈÕ±¾",tit)
+        Response.Write select_type("º«¹ú",tit)
+        Response.Write select_type("¼ÓÄÃ´ó",tit)
+        Response.Write select_type(">°Ä´óÀûÑÇ",tit)
+        Response.Write select_type("ĞÂÎ÷À¼",tit)
+        Response.Write select_type("¶íÂŞË¹",tit)
+        Response.Write select_type("Òâ´óÀû",tit)
+        Response.Write select_type("·¨¹ú",tit)
+        Response.Write select_type("Î÷°àÑÀ",tit)
+        Response.Write select_type("µÂ¹ú",tit)
+        Response.Write select_type("ÆäËü¹ú¼Ò",tit) %>
+</select>&nbsp;&nbsp;&nbsp;&nbsp;Õ¾µãÓïÑÔ£º<select name=lang size=1>
 <%
         tit = rs("lang")
-        Response.Write select_type("ç®€ä½“ä¸­æ–‡",tit)
-        Response.Write select_type("ç¹ä½“ä¸­æ–‡",tit)
+        Response.Write select_type("¼òÌåÖĞÎÄ",tit)
+        Response.Write select_type("·±ÌåÖĞÎÄ",tit)
         Response.Write select_type("English",tit)
-        Response.Write select_type("å…¶å®ƒè¯­è¨€",tit) %>
-</select>&nbsp;&nbsp;&nbsp;æ¨èï¼š<input type=checkbox name=isgood<% If rs("isgood") = True Then Response.Write " checked" %> value='yes'></td></tr>
-  <tr><td>å›¾ç‰‡åœ°å€ï¼š</td><td><input type=test name=pic value='<% Response.Write pic %>' size=70 maxlength=100></td></tr>
-  <tr><td>ä¸Šä¼ å›¾ç‰‡ï¼š</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=website&upname=<% Response.Write ispic %>&uptext=pic'></iframe></td></tr>
-  <tr><td valign=top class=htd><br>ç½‘ç«™å†…å®¹ï¼š<br><=250B</td><td><textarea name=remark rows=5 cols=70><% Response.Write rs("remark") %></textarea></td></tr>
-  <tr><td colspan=2 align=center height=25><input type=submit value=' ä¿® æ”¹ ç½‘ ç«™ '></td></tr>
+        Response.Write select_type("ÆäËüÓïÑÔ",tit) %>
+</select>&nbsp;&nbsp;&nbsp;ÍÆ¼ö£º<input type=checkbox name=isgood<% If rs("isgood") = True Then Response.Write " checked" %> value='yes'></td></tr>
+  <tr><td>Í¼Æ¬µØÖ·£º</td><td><input type=test name=pic value='<% Response.Write pic %>' size=70 maxlength=100></td></tr>
+  <tr><td>ÉÏ´«Í¼Æ¬£º</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=website&upname=<% Response.Write ispic %>&uptext=pic'></iframe></td></tr>
+  <tr><td valign=top class=htd><br>ÍøÕ¾ÄÚÈİ£º<br><=250B</td><td><textarea name=remark rows=5 cols=70><% Response.Write rs("remark") %></textarea></td></tr>
+  <tr><td colspan=2 align=center height=25><input type=submit value=' ĞŞ ¸Ä Íø Õ¾ '></td></tr>
 </form></table><%
     End If
 
@@ -251,11 +251,11 @@ Sub news_add()
         pic     = Trim(Request.form("picg"))
 
         If Len(csid) < 1 Then
-            Response.Write "<font class=red_2>è¯·é€‰æ‹©ç½‘ç«™ç±»å‹ï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÇëÑ¡ÔñÍøÕ¾ÀàĞÍ£¡</font><br><br>" & go_back
         ElseIf Len(name) < 1 Or Len(url) < 1 Then
-            Response.Write "<font class=red_2>ç½‘ç«™åç§°å’Œåœ°å€ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÍøÕ¾Ãû³ÆºÍµØÖ·²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back
         ElseIf Len(remark) > 250 Then
-            Response.Write "<font class=red_2>ç½‘ç«™è¯´æ˜ä¸èƒ½é•¿äº250ä¸ªå­—ç¬¦ï¼</font><br><br>" & go_back
+            Response.Write "<font class=red_2>ÍøÕ¾ËµÃ÷²»ÄÜ³¤ÓÚ250¸ö×Ö·û£¡</font><br><br>" & go_back
         Else
             Call chk_cid_sid()
             Set rs = Server.CreateObject("adodb.recordset")
@@ -291,43 +291,43 @@ Sub news_add()
             rs.update
             rs.Close:Set rs = Nothing
             Call upload_note(data_name,first_id(data_name))
-            Response.Write "<font class=red>å·²æˆåŠŸæ·»åŠ äº†ä¸€ä¸ªç½‘ç«™ï¼</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>ç‚¹å‡»è¿”å›</a><br><br>"
+            Response.Write "<font class=red>ÒÑ³É¹¦Ìí¼ÓÁËÒ»¸öÍøÕ¾£¡</font><br><br><a href='?c_id=" & cid & "&s_id=" & sid & "'>µã»÷·µ»Ø</a><br><br>"
         End If
 
     Else %><table border=0 cellspacing=0 cellpadding=3>
 <form action='<% Response.Write pageurl %>add=chk' method=post>
 <input type=hidden name=upid value=''>
-  <tr><td width='12%'>ç½‘ç«™åç§°ï¼š</td><td width='88%'><input type=text size=70 name=name maxlength=50><% = redx %></td></tr>
-  <tr><td>ç½‘ç«™ç±»å‹ï¼š</td><td><% Call chk_csid(cid,sid) %></td></tr>
-  <tr><td>ç½‘ç«™åœ°å€ï¼š</td><td><input type=text size=70 name=url value='http://' maxlength=100><% = redx %></td></tr>
-  <tr><td>å›½å®¶åœ°åŒºï¼š</td><td><select name=country size=1>
-<option>ä¸­å›½</option>
-<option>é¦™æ¸¯</option>
-<option>å°æ¹¾</option>
-<option>ç¾å›½</option>
-<option>è‹±å›½</option>
-<option>æ—¥æœ¬</option>
-<option>éŸ©å›½</option>
-<option>åŠ æ‹¿å¤§</option>
-<option>æ¾³å¤§åˆ©äºš</option>
-<option>æ–°è¥¿å…°</option>
-<option>ä¿„ç½—æ–¯</option>
-<option>æ„å¤§åˆ©</option>
-<option>æ³•å›½</option>
-<option>è¥¿ç­ç‰™</option>
-<option>å¾·å›½</option>
-<option>å…¶å®ƒå›½å®¶</option>
-</select>&nbsp;&nbsp;&nbsp;&nbsp;ç«™ç‚¹è¯­è¨€ï¼š<select name=lang size=1>
-<option>ç®€ä½“ä¸­æ–‡</option>
-<option>ç¹ä½“ä¸­æ–‡</option>
+  <tr><td width='12%'>ÍøÕ¾Ãû³Æ£º</td><td width='88%'><input type=text size=70 name=name maxlength=50><% = redx %></td></tr>
+  <tr><td>ÍøÕ¾ÀàĞÍ£º</td><td><% Call chk_csid(cid,sid) %></td></tr>
+  <tr><td>ÍøÕ¾µØÖ·£º</td><td><input type=text size=70 name=url value='http://' maxlength=100><% = redx %></td></tr>
+  <tr><td>¹ú¼ÒµØÇø£º</td><td><select name=country size=1>
+<option>ÖĞ¹ú</option>
+<option>Ïã¸Û</option>
+<option>Ì¨Íå</option>
+<option>ÃÀ¹ú</option>
+<option>Ó¢¹ú</option>
+<option>ÈÕ±¾</option>
+<option>º«¹ú</option>
+<option>¼ÓÄÃ´ó</option>
+<option>°Ä´óÀûÑÇ</option>
+<option>ĞÂÎ÷À¼</option>
+<option>¶íÂŞË¹</option>
+<option>Òâ´óÀû</option>
+<option>·¨¹ú</option>
+<option>Î÷°àÑÀ</option>
+<option>µÂ¹ú</option>
+<option>ÆäËü¹ú¼Ò</option>
+</select>&nbsp;&nbsp;&nbsp;&nbsp;Õ¾µãÓïÑÔ£º<select name=lang size=1>
+<option>¼òÌåÖĞÎÄ</option>
+<option>·±ÌåÖĞÎÄ</option>
 <option>English</option>
-<option>å…¶å®ƒè¯­è¨€</option>
-</select>&nbsp;&nbsp;&nbsp;æ¨èï¼š<input type=checkbox name=isgood value='yes'></td></tr>
+<option>ÆäËüÓïÑÔ</option>
+</select>&nbsp;&nbsp;&nbsp;ÍÆ¼ö£º<input type=checkbox name=isgood value='yes'></td></tr>
 <% ispic = "w" & upload_time(now_time) %>
-  <tr><td>å›¾ç‰‡åœ°å€ï¼š</td><td><input type=test name=pic size=70 maxlength=100></td></tr>
-  <tr><td>ä¸Šä¼ å›¾ç‰‡ï¼š</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=website&upname=<% Response.Write ispic %>&uptext=pic'></iframe></td></tr>
-  <tr><td valign=top class=htd><br>ç½‘ç«™å†…å®¹ï¼š<br><=250B</td><td><textarea name=remark rows=5 cols=70></textarea></td></tr>
-  <tr><td colspan=2 align=center height=25><input type=submit value=' æ·» åŠ  ç½‘ ç«™ '></td></tr>
+  <tr><td>Í¼Æ¬µØÖ·£º</td><td><input type=test name=pic size=70 maxlength=100></td></tr>
+  <tr><td>ÉÏ´«Í¼Æ¬£º</td><td><iframe frameborder=0 name=upload_frame width='100%' height=30 scrolling=no src='upload.asp?uppath=website&upname=<% Response.Write ispic %>&uptext=pic'></iframe></td></tr>
+  <tr><td valign=top class=htd><br>ÍøÕ¾ÄÚÈİ£º<br><=250B</td><td><textarea name=remark rows=5 cols=70></textarea></td></tr>
+  <tr><td colspan=2 align=center height=25><input type=submit value=' Ìí ¼Ó Íø Õ¾ '></td></tr>
 </form></table><%
     End If
 
@@ -362,8 +362,8 @@ Sub news_main() %>
         del_temp = rssum - nummer*(thepages - 1)
     End If %>
 <tr><td colspan=3 align=center height=25>
-ç°æœ‰<font class=red><% Response.Write rssum %></font>ä¸ªç½‘ç«™ã€€<% Response.Write "<a href='?action=add&c_id=" & cid & "&s_id=" & sid & "'>æ·»åŠ ç½‘ç«™</a>" %>
-ã€€<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> é€‰ä¸­æ‰€æœ‰ã€€<input type=submit value='åˆ é™¤æ‰€é€‰' onclick=""return suredel('<% Response.Write del_temp %>');"">
+ÏÖÓĞ<font class=red><% Response.Write rssum %></font>¸öÍøÕ¾¡¡<% Response.Write "<a href='?action=add&c_id=" & cid & "&s_id=" & sid & "'>Ìí¼ÓÍøÕ¾</a>" %>
+¡¡<input type=checkbox name=del_all value=1 onClick=selectall('<% Response.Write del_temp %>')> Ñ¡ÖĞËùÓĞ¡¡<input type=submit value='É¾³ıËùÑ¡' onclick=""return suredel('<% Response.Write del_temp %>');"">
 </td></tr>
 <tr><td colspan=3 height=1 bgcolor=#ededede></td></tr>
 <%
@@ -381,8 +381,8 @@ Sub news_main() %>
 
     rs.Close:Set rs = Nothing %></form>
 <tr><td colspan=3 height=1 bgcolor=#ededede></td></tr>
-<tr><td colspan=3 height=25>é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
+<tr><td colspan=3 height=25>Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
 </td></tr></table>
     </td>
   </tr>
@@ -392,21 +392,21 @@ End Sub
 
 Function website_center()
     website_center = VbCrLf & "<tr" & mtr & ">" & _
-    VbCrLf & "<td><a href='" & rs("url") & "' target=_blank title='æµè§ˆè¯¥ç½‘ç«™'>" & i + (viewpage - 1)*nummer & ".</a> </td><td>" & _
+    VbCrLf & "<td><a href='" & rs("url") & "' target=_blank title='ä¯ÀÀ¸ÃÍøÕ¾'>" & i + (viewpage - 1)*nummer & ".</a> </td><td>" & _
     VbCrLf & "<a href='?action=edit&c_id=" & ncid & "&s_id=" & nsid & "&id=" & now_id & "'>" & rs("name") & "</a></td><td align=right><a href='?action=hidden&c_id=" & cid & "&s_id=" & sid & "&id=" & now_id & "&page=" & viewpage & "'>"
 
     If rs("hidden") = True Then
-        website_center = website_center & "æ˜¾"
+        website_center = website_center & "ÏÔ"
     Else
-        website_center = website_center & "<font class=red_2>éš</font>"
+        website_center = website_center & "<font class=red_2>Òş</font>"
     End If
 
     website_center = website_center & "</a> <a href='?action=isgood&c_id=" & cid & "&s_id=" & sid & "&id=" & now_id & "&page=" & viewpage & "'>"
 
     If rs("isgood") = True Then
-        website_center = website_center & "<font class=red>æ˜¯</font>"
+        website_center = website_center & "<font class=red>ÊÇ</font>"
     Else
-        website_center = website_center & "å¦"
+        website_center = website_center & "·ñ"
     End If
 
     website_center = website_center & "</a><input type=checkbox name=del_id value='" & now_id & "'></td></tr>"

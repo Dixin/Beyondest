@@ -3,20 +3,20 @@
 ' Beyondest.Com v3.6.1
 ' http://beyondest.com
 ' ====================
-web_config = "ã€Beyondestxxxã€|http://beyondest.com/|ç¬¼æ°‘|/|main|data/yandixin.asp|bg2|é‡‘é’±|11111"
+web_config = "¡ºBeyondestxxx¡»|http://beyondest.com/|ÁıÃñ|/|main|data/yandixin.asp|bg2|½ğÇ®|11111"
 web_cookies = "beyondest"
 web_login = 1
 web_setup = "1111211"
 web_num = "20|10|10|10|3|12|150|120|430|350|99|18|60|10|2|20"
-web_menu = "main:é¦–é¡µ|news:æ–°é—»|article:èµ„æ–™|history:å†å²|koma:å®¶é©¹|down:ä¸‹è½½|vouch:è§†é¢‘|photo:ç›¸å†Œ|desktop:å£çº¸|flash:Flash|gbook:ç•™è¨€|forum:è®ºå›"
+web_menu = "main:Ê×Ò³|news:ĞÂÎÅ|article:×ÊÁÏ|history:ÀúÊ·|koma:¼Ò¾Ô|down:ÏÂÔØ|vouch:ÊÓÆµ|photo:Ïà²á|desktop:±ÚÖ½|flash:Flash|gbook:ÁôÑÔ|forum:ÂÛÌ³"
 web_color = "#F4FAED|#ABD48F|#247624|#84BA34|#F4FAED|#E3F1D1|#000000|#000066|#808080|#FF3300|#990000|#CC3300"
 web_upload = "upload/|gif,jpg,bmp,swf,rar,zip,txt,mp3,asf,rm,ram,rmvb,wma,wmv,wav,mid,midi,avi|20000"
-web_safety = "$%#*@&=<>'|abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789|admin:ADMIN:æ¸¸å®¢:ä¹¦è®°:é˜¿ä¹¦:éš†æ°‘:é»„å®¶é©¹:é»„å®¶å¼º:é»„è´¯ä¸­:å¶ä¸–è£|æ“ä½ :å¹²ä½ :æ—¥ä½ :æ“æ‚¨:å¹²æ‚¨:æ—¥æ‚¨:å¦ˆçš„:fuck:bitch:å‚»B:å±çœ¼:æ³•è½®:çŒª:åå…±:å›½æ°‘å…š:å…±åŒª:å°ç‹¬:å–æ·«:æµæ°“"
-web_error = "<font class=red>ç¦æ­¢ä»å¤–éƒ¨å‘æœ¬ç«™æäº¤æ•°æ®ï¼</font>|<font class=red_2>æ‚¨æ˜¯å¦è¿˜æ²¡æœ‰ <a href=register.asp>æ³¨å†Œ</a> æˆ–è¿˜æ²¡æœ‰ <a href=login.asp>ç™»é™†</a> æœ¬ç«™ï¼Ÿï¼</font>|Unicodeæ”¯æŒ<br>UBB æ”¯æŒ<br>HTMLä¸æ”¯æŒ|Copyright &copy; 1999ï½2004 <a href=http://beyondest.com/ target=_blank><b><font face=Arial color=#CC3300>Beyondest</font><font face=Arial>.Com</font></b></a> All Rights Reserved"
+web_safety = "$%#*@&=<>'|abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789|admin:ADMIN:ÓÎ¿Í:Êé¼Ç:°¢Êé:Â¡Ãñ:»Æ¼Ò¾Ô:»Æ¼ÒÇ¿:»Æ¹áÖĞ:Ò¶ÊÀÈÙ|²ÙÄã:¸ÉÄã:ÈÕÄã:²ÙÄú:¸ÉÄú:ÈÕÄú:ÂèµÄ:fuck:bitch:ÉµB:Æ¨ÑÛ:·¨ÂÖ:Öí:·´¹²:¹úÃñµ³:¹²·Ë:Ì¨¶À:ÂôÒù:Á÷Ã¥"
+web_error = "<font class=red>½ûÖ¹´ÓÍâ²¿Ïò±¾Õ¾Ìá½»Êı¾İ£¡</font>|<font class=red_2>ÄúÊÇ·ñ»¹Ã»ÓĞ <a href=register.asp>×¢²á</a> »ò»¹Ã»ÓĞ <a href=login.asp>µÇÂ½</a> ±¾Õ¾£¿£¡</font>|UnicodeÖ§³Ö<br>UBB Ö§³Ö<br>HTML²»Ö§³Ö|Copyright &copy; 1999¡«2004 <a href=http://beyondest.com/ target=_blank><b><font face=Arial color=#CC3300>Beyondest</font><font face=Arial>.Com</font></b></a> All Rights Reserved"
 web_news_art = "1|2|3|4|5|6|7|8|9|10"
-web_down = "200|200|WinMediaPlayer:Realone:Winamp|ç²¤è¯­ä¸“è¾‘:å›½è¯­ä¸“è¾‘:æ—¥è¯­ä¸“è¾‘:å•æ›²å”±ç‰‡:ç²¾é€‰ä¸“è¾‘:ç°åœºæ¼”å‡º:ä¸ªäººä¸“è¾‘:å…¶ä»–ä½œå“|file"
+web_down = "200|200|WinMediaPlayer:Realone:Winamp|ÔÁÓï×¨¼­:¹úÓï×¨¼­:ÈÕÓï×¨¼­:µ¥Çú³ªÆ¬:¾«Ñ¡×¨¼­:ÏÖ³¡Ñİ³ö:¸öÈË×¨¼­:ÆäËû×÷Æ·|file"
 web_shop = "1|1|1|1|1|1"
-web_stamp = "[èŠ‚èƒ½å‹]|[DEMOç‰ˆ]|[åŠŸèƒ½å‹]"
-user_power = "admin:ç«™é•¿|super:è®ºå›ç‰ˆä¸»|vip:VIP ç”¨æˆ·|puser:ç®¡ç†äººå‘˜|user:æ³¨å†Œç”¨æˆ·"
-user_grade = "0:æ–°æ‰‹ä¸Šè·¯|100:è®ºå›æ¸¸æ°‘|200:è®ºå›æ¸¸ä¾ |400:è®ºå›ä¾ å®¢|800:ä¾ ä¹‹å¤§è€…|1500:è™è ä¾ |3000:ç«ç®­ä¾ |5000:åŸå¸‚çŒäºº|8000:ä¾ åœ£"
-forum_type = "1.2.3.4.5.0:æ­£è§„è®ºå›|1.2.3.4:é«˜çº§è®ºå›|1.3:VIP è®ºå›|1.2:ç‰ˆä¸»è®ºå›" %>
+web_stamp = "[½ÚÄÜĞÍ]|[DEMO°æ]|[¹¦ÄÜĞÍ]"
+user_power = "admin:Õ¾³¤|super:ÂÛÌ³°æÖ÷|vip:VIP ÓÃ»§|puser:¹ÜÀíÈËÔ±|user:×¢²áÓÃ»§"
+user_grade = "0:ĞÂÊÖÉÏÂ·|100:ÂÛÌ³ÓÎÃñ|200:ÂÛÌ³ÓÎÏÀ|400:ÂÛÌ³ÏÀ¿Í|800:ÏÀÖ®´óÕß|1500:òùòğÏÀ|3000:»ğ¼ıÏÀ|5000:³ÇÊĞÁÔÈË|8000:ÏÀÊ¥"
+forum_type = "1.2.3.4.5.0:Õı¹æÂÛÌ³|1.2.3.4:¸ß¼¶ÂÛÌ³|1.3:VIP ÂÛÌ³|1.2:°æÖ÷ÂÛÌ³" %>

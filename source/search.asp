@@ -24,9 +24,9 @@ Dim sql2
 Dim linkurl
 Dim keywords
 Dim tims
-pageurl = "?":sqladd = "":topic = "":sql1 = "":sql2 = "":linkurl = "":keywords = "":sea_name = "æœç´¢"
+pageurl = "?":sqladd = "":topic = "":sql1 = "":sql2 = "":linkurl = "":keywords = "":sea_name = "ËÑË÷"
 nummer  = 20:viewpage = 1:thepages = 0
-tit     = "ç«™å†…æœç´¢"
+tit     = "Õ¾ÄÚËÑË÷"
 
 Call web_head(0,0,0,0,0)
 '------------------------------------left----------------------------------
@@ -55,13 +55,13 @@ Sub search_error() %>
 <table border=0 width='96%'>
 <tr><td height=300 align=center>
   <table border=0>
-  <tr><td colspan=2 height=30>æ‚¨å¯èƒ½æ²¡æœ‰å¡«å†™â€œæœç´¢å…³é”®å­—â€ï¼Œè¯·æŸ¥çœ‹ä»¥ä¸‹å¸®åŠ©è¯´æ˜ï¼š</td></tr>
-  <tr><td width=10></td><td><% Response.Write img_small("jt1") %>åœ¨æœç´¢æ—¶å¿…é¡»å¡«å†™â€œæœç´¢å…³é”®å­—â€ï¼›</td></tr>
-  <tr><td></td><td><% Response.Write img_small("jt12") %>å¦‚è¦æœç´¢å¤šä¸ªå…³é”®å­—è¯·ç”¨<font class=red>ç©ºæ ¼</font>å°†å¤šä¸ªå…³é”®å­—éš”å¼€ï¼Œå¦‚ï¼š<font class=blue>V6&nbsp;æ’ä»¶</font>ï¼›</td></tr>
-  <tr><td></td><td><% Response.Write img_small("jt0") %>â€œå…³é”®å­—â€ä¸­ä¸èƒ½å«æœ‰å•å¼•å·ï¼ˆ'ï¼‰ï¼›</td></tr>
-  <tr><td></td><td><% Response.Write img_small("jt0") %>â€œå…³é”®å­—â€ä¸­å«æœ‰çš„åŠ å·ï¼ˆ+ï¼‰å°†è¢«è§†ä¸ºç©ºæ ¼å¤„ç†ï¼›</td></tr>
-  <tr><td></td><td><% Response.Write img_small("jt13") %>â€œå¿«é€Ÿæœç´¢â€åªåœ¨ï¼šæ–°é—»ã€æ–‡æ ã€ä¸‹è½½é‡Œæœ‰æ•ˆï¼›</td></tr>
-  <tr><td></td><td><% Response.Write img_small("jt14") %>ç¥æ‚¨åœ¨ä½¿ç”¨æœ¬ç«™çš„â€œç«™å†…æœç´¢â€æ—¶è½»æ¾æ„‰å¿«ã€‚</td></tr>
+  <tr><td colspan=2 height=30>Äú¿ÉÄÜÃ»ÓĞÌîĞ´¡°ËÑË÷¹Ø¼ü×Ö¡±£¬Çë²é¿´ÒÔÏÂ°ïÖúËµÃ÷£º</td></tr>
+  <tr><td width=10></td><td><% Response.Write img_small("jt1") %>ÔÚËÑË÷Ê±±ØĞëÌîĞ´¡°ËÑË÷¹Ø¼ü×Ö¡±£»</td></tr>
+  <tr><td></td><td><% Response.Write img_small("jt12") %>ÈçÒªËÑË÷¶à¸ö¹Ø¼ü×ÖÇëÓÃ<font class=red>¿Õ¸ñ</font>½«¶à¸ö¹Ø¼ü×Ö¸ô¿ª£¬Èç£º<font class=blue>V6&nbsp;²å¼ş</font>£»</td></tr>
+  <tr><td></td><td><% Response.Write img_small("jt0") %>¡°¹Ø¼ü×Ö¡±ÖĞ²»ÄÜº¬ÓĞµ¥ÒıºÅ£¨'£©£»</td></tr>
+  <tr><td></td><td><% Response.Write img_small("jt0") %>¡°¹Ø¼ü×Ö¡±ÖĞº¬ÓĞµÄ¼ÓºÅ£¨+£©½«±»ÊÓÎª¿Õ¸ñ´¦Àí£»</td></tr>
+  <tr><td></td><td><% Response.Write img_small("jt13") %>¡°¿ìËÙËÑË÷¡±Ö»ÔÚ£ºĞÂÎÅ¡¢ÎÄÀ¸¡¢ÏÂÔØÀïÓĞĞ§£»</td></tr>
+  <tr><td></td><td><% Response.Write img_small("jt14") %>×£ÄúÔÚÊ¹ÓÃ±¾Õ¾µÄ¡°Õ¾ÄÚËÑË÷¡±Ê±ÇáËÉÓä¿ì¡£</td></tr>
   </table>
 </td></tr>
 </table>
@@ -84,8 +84,8 @@ Sub search_main()
   <table border=0 width='96%' cellspacing=0 cellpadding=2>
   <tr><td height=1 colspan=4 background='IMAGES/BG_DIAN.GIF'></td></tr>
   <tr align=center valign=bottom<% Response.Write table4 %>>
-  <td width='6%'>åºå·</td>
-  <td width='94%'>ç›¸å…³å†…å®¹ï¼ˆæ‚¨æŸ¥è¯¢çš„å…³é”®å­—æ˜¯ï¼š<% Response.Write keywords %>æ¯é¡µ <font class=red><% Response.Write nummer %></font> æ¡ <font class=blue><% Response.Write sea_name %></font> æŸ¥è¯¢ç»“æœï¼‰</td>
+  <td width='6%'>ĞòºÅ</td>
+  <td width='94%'>Ïà¹ØÄÚÈİ£¨Äú²éÑ¯µÄ¹Ø¼ü×ÖÊÇ£º<% Response.Write keywords %>Ã¿Ò³ <font class=red><% Response.Write nummer %></font> Ìõ <font class=blue><% Response.Write sea_name %></font> ²éÑ¯½á¹û£©</td>
   </tr>
   <tr><td height=1 colspan=2 background='IMAGES/BG_DIAN.GIF'></td></tr>
   <tr><td height=5></td></tr>
@@ -113,10 +113,10 @@ Sub search_main()
   <tr><td colspan=2<% Response.Write table4 %>>
     <table border=0 width='100%' cellspacing=0 cellpadding=0>
     <tr>
-    <td>å…±&nbsp;<font class=red><% Response.Write rssum %></font>&nbsp;æ¡ç»“æœ&nbsp;
-é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>&nbsp;
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,3,"#ff0000") %></td>
-    <td align=right><font size=2 class=gray>æŸ¥è¯¢ç”¨æ—¶ï¼š<font class=red_3><% Response.Write FormatNumber((timer() - tims)*1000,3) %></font> æ¯«ç§’</font></td>
+    <td>¹²&nbsp;<font class=red><% Response.Write rssum %></font>&nbsp;Ìõ½á¹û&nbsp;
+Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>&nbsp;
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,3,"#ff0000") %></td>
+    <td align=right><font size=2 class=gray>²éÑ¯ÓÃÊ±£º<font class=red_3><% Response.Write FormatNumber((timer() - tims)*1000,3) %></font> ºÁÃë</font></td>
     </tr>
     </table>
   </td></tr>
@@ -160,27 +160,27 @@ Sub sql_add()
                 topic = "topic":topic2 = topic
                 If celerity = "yes" Then topic2 = "keyes"
                 linkurl = sea_type & "_view.asp?id="
-                sea_name = "æ–°é—»"
-                If sea_type = "article" Then sea_name = "æ–‡æ "
+                sea_name = "ĞÂÎÅ"
+                If sea_type = "article" Then sea_name = "ÎÄÀ¸"
                 sql1 = "select id," & topic & ",username,tim from " & sea_type & " where hidden=1"
                 sql2 = " order by id desc"
             Case "down"
                 topic = "name":topic2 = topic
                 If celerity = "yes" Then topic2 = "keyes"
                 linkurl = sea_type & "_view.asp?id="
-                sea_name = "è½¯ä»¶"
+                sea_name = "Èí¼ş"
                 sql1 = "select id," & topic & ",username,tim from " & sea_type & " where hidden=1"
                 sql2 = " order by id desc"
             Case "website"
                 topic = "name":topic2 = topic
                 linkurl = sea_type & ".asp?action=view&id="
-                sea_name = "ç½‘ç«™"
+                sea_name = "ÍøÕ¾"
                 sql1 = "select id," & topic & ",username,tim from " & sea_type & " where hidden=1"
                 sql2 = " order by id desc"
             Case "paste","flash"
                 topic = "name":topic2 = topic
                 linkurl = "gallery.asp?action=" & sea_type & "&types=view&id="
-                sea_name = "å›¾ç‰‡"
+                sea_name = "Í¼Æ¬"
                 If sea_type = "flash" Then sea_name = "Flash"
                 sql1 = "select id," & topic & ",username,tim from gallery where hidden=1 and types='" & sea_type & "'"
                 sql2 = " order by id desc"
@@ -188,7 +188,7 @@ Sub sql_add()
                 sea_type = "forum"
                 topic = "topic":topic2 = topic
                 linkurl = "forum_view.asp?view_id="
-                sea_name = "è®ºå›"
+                sea_name = "ÂÛÌ³"
                 sql1 = "select id," & topic & ",username,tim,forum_id from bbs_topic where"
                 sql2 = " order by id desc"
         End Select

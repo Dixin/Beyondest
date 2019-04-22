@@ -7,7 +7,7 @@
 ' http://beyondest.com
 ' ====================
 
-tit     = tit_fir & "ï¼ˆ" & login_username & "ï¼‰"
+tit     = tit_fir & "£¨" & login_username & "£©"
 tit_fir = ""
 
 Call web_head(0,0,0,0,0)
@@ -47,93 +47,93 @@ Sub user_my()
     Set rs = conn.execute(sql)
     Response.Write ukong & vbcrlf & table1 %>
 <tr<% Response.Write table2 %>>
-<td colspan=3 background='images/<% = web_var(web_config,5) %>/bar_3_bg.gif'>&nbsp;<% Response.Write img_small(us) %>&nbsp;&nbsp;<font class=end><b>ç”¨æˆ·ä¸ªäººä¿¡æ¯</b></font></td>
+<td colspan=3 background='images/<% = web_var(web_config,5) %>/bar_3_bg.gif'>&nbsp;<% Response.Write img_small(us) %>&nbsp;&nbsp;<font class=end><b>ÓÃ»§¸öÈËĞÅÏ¢</b></font></td>
 </tr>
 <tr<% Response.Write table3 %> height=30>
-<td width='20%' bgcolor=<% = web_var(web_color,6) %> align=center>ç”¨æˆ·åç§°ï¼š</td>
+<td width='20%' bgcolor=<% = web_var(web_color,6) %> align=center>ÓÃ»§Ãû³Æ£º</td>
 <td width='40%'>&nbsp;<font class=blue><b><% Response.Write login_username %></b></font></td>
-<td bgcolor=<% = web_var(web_color,6) %>  width='40%' align=center>æ‚¨å·²ç™»é™† <font class=red><% Response.Write DateDiff("n",tim_login,Now()) %></font> åˆ†é’Ÿ</td>
+<td bgcolor=<% = web_var(web_color,6) %>  width='40%' align=center>ÄúÒÑµÇÂ½ <font class=red><% Response.Write DateDiff("n",tim_login,Now()) %></font> ·ÖÖÓ</td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %>  align=center>ç”¨æˆ·ç±»å‹ï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %>  align=center>ÓÃ»§ÀàĞÍ£º</td>
 <td>&nbsp;<font class=red_3><% Response.Write format_power(rs("power"),1) %></font></td>
 <td rowspan=8 align=center><img src='images/face/<% Response.Write rs("face") %>.gif' border=0></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %>  align=center>ç”¨æˆ·å¤´è¡”ï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %>  align=center>ÓÃ»§Í·ÏÎ£º</td>
 <td>&nbsp;<%
     tit = rs("nname")
 
     If var_null(tit) = "" Then
-        Response.Write "<font color=#c0c0c0>æ²¡æœ‰</font>"
+        Response.Write "<font color=#c0c0c0>Ã»ÓĞ</font>"
     Else
         Response.Write "" & code_html(tit,1,0)
     End If %></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %>  align=center>æ¥è‡ªï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %>  align=center>À´×Ô£º</td>
 <td>&nbsp;<% Response.Write code_html(rs("whe"),1,0) %></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %>  align=center>è®ºå›å‘è´´ï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %>  align=center>ÂÛÌ³·¢Ìù£º</td>
 <td>&nbsp;<font class=red><% Response.Write rs("bbs_counter") %></font></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %>  align=center>ç¤¾åŒºç§¯åˆ†ï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %>  align=center>ÉçÇø»ı·Ö£º</td>
 <td>&nbsp;<font class=red_3><% Response.Write rs("integral") %></font></td>
 </tr>
 
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %> align=center>ç”¨æˆ·æ€§åˆ«ï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %> align=center>ÓÃ»§ĞÔ±ğ£º</td>
 <td>&nbsp;<%
     tit = rs("sex")
 
     If tit = False Then
-        Response.Write "<img src='images/small/forum_girl.gif' align=absMiddle border=0>&nbsp;&nbsp;å¥³å­©"
+        Response.Write "<img src='images/small/forum_girl.gif' align=absMiddle border=0>&nbsp;&nbsp;Å®º¢"
     Else
-        Response.Write "<img src='images/small/forum_boy.gif' align=absMiddle border=0>&nbsp;&nbsp;ç”·å­©"
+        Response.Write "<img src='images/small/forum_boy.gif' align=absMiddle border=0>&nbsp;&nbsp;ÄĞº¢"
     End If %></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %> align=center>å‡ºç”Ÿå¹´æœˆï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %> align=center>³öÉúÄêÔÂ£º</td>
 <td>&nbsp;<% Response.Write rs("birthday") %></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td align=center bgcolor=<% = web_var(web_color,6) %>>ç”¨æˆ·QQï¼š</td>
+<td align=center bgcolor=<% = web_var(web_color,6) %>>ÓÃ»§QQ£º</td>
 <td>&nbsp;<%
     tit = rs("qq")
 
     If Not(IsNumeric(tit)) Or Len(tit) < 2 Then
-        Response.Write "<font class=gray>æ²¡æœ‰</font>"
+        Response.Write "<font class=gray>Ã»ÓĞ</font>"
     Else
         Response.Write "<img src='images/small/qq.gif' align=absMiddle border=0>&nbsp;<a href='http://search.tencent.com/cgi-bin/friend/user_show_info?ln=" & tit & "' target=_blank>" & tit & "</a>"
     End If %></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %> align=center>E - mailï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %> align=center>E - mail£º</td>
 <td>&nbsp;<%
     tit      = code_html(rs("email"),1,0)
     Response.Write "<img src='images/small/email.gif' align=absMiddle border=0>&nbsp;<a href='mailto:" & tit & "' title=''>" & tit & "</a>" %></td>
-<td bgcolor=<% = web_var(web_color,6) %> align=center><a href='forum_action.asp?action=my'>æŸ¥çœ‹æˆ‘æ‰€å‚ä¸è¿‡çš„ä¸»é¢˜</a></td>
+<td bgcolor=<% = web_var(web_color,6) %> align=center><a href='forum_action.asp?action=my'>²é¿´ÎÒËù²ÎÓë¹ıµÄÖ÷Ìâ</a></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %> align=center>ä¸ªäººä¸»é¡µï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %> align=center>¸öÈËÖ÷Ò³£º</td>
 <td colspan=2>&nbsp;<%
     tit      = code_html(rs("url"),1,0)
 
     If var_null(tit) = "" Then
-        Response.Write "<font color=#c0c0c0>æ²¡æœ‰</font>"
+        Response.Write "<font color=#c0c0c0>Ã»ÓĞ</font>"
     Else
         Response.Write "<img src='images/small/url.gif' align=absMiddle border=0>&nbsp;<a href='" & tit & "' target=_blank>" & tit & "</a>"
     End If %></td>
 </tr>
 <tr<% Response.Write table3 %> height=25>
-<td bgcolor=<% = web_var(web_color,6) %> align=center>ä¸ªäººä»‹ç»ï¼š</td>
+<td bgcolor=<% = web_var(web_color,6) %> align=center>¸öÈË½éÉÜ£º</td>
 <td colspan=2 align=center><table border=0 width='100%' class=tf><tr><td class=bw><% Response.Write code_jk2(rs("remark")) %></td></tr></table></td>
 </tr>
 <% rs.Close:Set rs = Nothing %>
 <tr<% Response.Write table2 %>>
-<td colspan=3 background='images/<% = web_var(web_config,5) %>/bar_3_bg.gif'>&nbsp;<% Response.Write img_small(us) %>&nbsp;&nbsp;<font class=end><b>è®ºå›æœ€æ–°å‘è´´</b></font></td>
+<td colspan=3 background='images/<% = web_var(web_config,5) %>/bar_3_bg.gif'>&nbsp;<% Response.Write img_small(us) %>&nbsp;&nbsp;<font class=end><b>ÂÛÌ³×îĞÂ·¢Ìù</b></font></td>
 </tr>
 <tr<% Response.Write table3 %>>
 <td colspan=3 align=center>

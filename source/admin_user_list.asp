@@ -10,15 +10,15 @@
 Dim admin_menu
 Dim udim
 Dim unum
-admin_menu     = "<a href='admin_user_list.asp'>ç”¨æˆ·ç®¡ç†</a>ã€€ã€€â”‹"
+admin_menu     = "<a href='admin_user_list.asp'>ÓÃ»§¹ÜÀí</a>¡¡¡¡©¯"
 udim           = Split(user_power,"|"):unum = UBound(udim) + 1
 
 For i = 0 To unum - 1
-    admin_menu = admin_menu & "<a href='admin_user_list.asp?power=" & Left(udim(i),InStr(udim(i),":") - 1) & "'>" & Right(udim(i),Len(udim(i)) - InStr(udim(i),":")) & "</a>â”‹"
+    admin_menu = admin_menu & "<a href='admin_user_list.asp?power=" & Left(udim(i),InStr(udim(i),":") - 1) & "'>" & Right(udim(i),Len(udim(i)) - InStr(udim(i),":")) & "</a>©¯"
 Next
 
-admin_menu     = admin_menu & "ã€€ã€€<a href='admin_user_list.asp?hidden=true'>æ­£å¸¸ç”¨æˆ·</a>â”‹" & _
-"<a href='admin_user_list.asp?hidden=false'>é”å®šç”¨æˆ·</a>"
+admin_menu     = admin_menu & "¡¡¡¡<a href='admin_user_list.asp?hidden=true'>Õı³£ÓÃ»§</a>©¯" & _
+"<a href='admin_user_list.asp?hidden=false'>Ëø¶¨ÓÃ»§</a>"
 
 Response.Write header(1,admin_menu) %>
 <script language=javascript src='STYLE/admin_del.js'></script>
@@ -60,11 +60,11 @@ hidden       = Trim(Request.querystring("hidden"))
 If hidden = "true" Then
     sqladd   = "where hidden=1 "
     pageurl  = pageurl & "hidden=true&"
-    user_tit = "æ­£å¸¸ç”¨æˆ·"
+    user_tit = "Õı³£ÓÃ»§"
 ElseIf hidden = "false" Then
     sqladd   = "where hidden=0 "
     pageurl  = pageurl & "hidden=false&"
-    user_tit = "é”å®šç”¨æˆ·"
+    user_tit = "Ëø¶¨ÓÃ»§"
 End If
 
 keyword = Trim(Request.querystring("keyword"))
@@ -127,9 +127,9 @@ Sub user_hidden()
             Next
 
             Erase del_dim
-            del_select = vbcrlf & "<script language=javascript>alert(""å…±åˆ é™¤äº† " & del_num + 1 & " æ¡è®°å½•ï¼"");</script>"
+            del_select = vbcrlf & "<script language=javascript>alert(""¹²É¾³ıÁË " & del_num + 1 & " Ìõ¼ÇÂ¼£¡"");</script>"
         Else
-            del_select = vbcrlf & "<script language=javascript>alert(""æ²¡æœ‰åˆ é™¤è®°å½•ï¼"");</script>"
+            del_select = vbcrlf & "<script language=javascript>alert(""Ã»ÓĞÉ¾³ı¼ÇÂ¼£¡"");</script>"
         End If
 
     End Function
@@ -139,7 +139,7 @@ Sub user_hidden()
     rs.open sql,conn,1,1
 
     If rs.eof And rs.bof Then
-        Response.Write "<br><br><br><br><br><br><br>è¿˜æ²¡æœ‰" & user_tit
+        Response.Write "<br><br><br><br><br><br><br>»¹Ã»ÓĞ" & user_tit
     Else
         rssum    = rs.recordcount
         nummer   = 15
@@ -148,16 +148,16 @@ Sub user_hidden()
 <table border=1 width='98%' cellspacing=0 cellpadding=0 align=center bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>
 <form name=del_form action='<% = pageurl %>del_ok=ok' method=post>
   <tr align=center height=30>
-  <td colspan=2>ç°åœ¨æœ‰ <font class=red><% = rssum %></font> ä½<% = user_tit %></td>
+  <td colspan=2>ÏÖÔÚÓĞ <font class=red><% = rssum %></font> Î»<% = user_tit %></td>
   <td colspan=4><% = jk_pagecute(nummer,thepages,viewpage,pageurl,8,"#ff0000") %></td>
   </tr>
   <tr align=center bgcolor=#ededed height=25>
-    <td width='6%'>åºå·</td>
-    <td width='30%'>ä¼šå‘˜åç§°</td>
-    <td width='28%'>æ³¨å†Œæ—¶é—´</td>
-    <td width='14%'>ç±»å‹</td>
-    <td width='12%'>çŠ¶æ€</td>
-    <td width='10%'>æ“ä½œ</td>
+    <td width='6%'>ĞòºÅ</td>
+    <td width='30%'>»áÔ±Ãû³Æ</td>
+    <td width='28%'>×¢²áÊ±¼ä</td>
+    <td width='14%'>ÀàĞÍ</td>
+    <td width='12%'>×´Ì¬</td>
+    <td width='10%'>²Ù×÷</td>
   </tr>
 <%
 
@@ -198,9 +198,9 @@ Sub user_hidden()
 
             Select Case now_hidden
                 Case True
-                    Response.Write "æ­£å¸¸"
+                    Response.Write "Õı³£"
                 Case Else
-                    Response.Write "<font class=red_2>é”å®š</font>"
+                    Response.Write "<font class=red_2>Ëø¶¨</font>"
             End Select %></a></td>
     <td><%
 
@@ -214,15 +214,15 @@ Sub user_hidden()
             rs.movenext
         Next %>
   <tr align=center height=30>
-  <td colspan=2><input type=submit value='åˆ é™¤æ‰€é€‰' onclick="return suredel('<% = del_temp %>');"> &nbsp;<input type=checkbox name=del_all value=1 onClick=selectall('<% = del_temp %>')>&nbsp;é€‰æ‹©æ‰€æœ‰</td>
+  <td colspan=2><input type=submit value='É¾³ıËùÑ¡' onclick="return suredel('<% = del_temp %>');"> &nbsp;<input type=checkbox name=del_all value=1 onClick=selectall('<% = del_temp %>')>&nbsp;Ñ¡ÔñËùÓĞ</td>
 </form>
   <td colspan=4>
 <table border=0>
 <form name=sea_frm action='<% = pageurl %>'>
 <tr>
-<td>å…³é”®å­—ï¼š</td>
+<td>¹Ø¼ü×Ö£º</td>
 <td><input type=text name=keyword value='<% = keyword %>' size=20 maxlength=20>&nbsp;</td>
-<td>&nbsp;<input type=submit value=' æœ ç´¢ '>&nbsp;</td>
+<td>&nbsp;<input type=submit value=' ËÑ Ë÷ '>&nbsp;</td>
 </tr>
 </form>
 </table>

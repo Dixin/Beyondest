@@ -8,7 +8,7 @@
 ' ====================
 
 Dim err_head
-tit      = "ä¿®æ”¹èµ„æ–™"
+tit      = "ĞŞ¸Ä×ÊÁÏ"
 err_head = img_small("jt0")
 
 Call web_head(2,0,0,0,0)
@@ -19,7 +19,7 @@ Call left_user()
 '----------------------------------left end--------------------------------
 Call web_center(0)
 '-----------------------------------center---------------------------------
-Response.Write ukong & table1 & vbcrlf & "<tr" & table2 & " height=25><td height=20 class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>ä¿®æ”¹æˆ‘çš„ä¸ªäººèµ„æ–™</b></td></tr><tr" & table3 & "><td height=150 align=center>"
+Response.Write ukong & table1 & vbcrlf & "<tr" & table2 & " height=25><td height=20 class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>ĞŞ¸ÄÎÒµÄ¸öÈË×ÊÁÏ</b></td></tr><tr" & table3 & "><td height=150 align=center>"
 
 sql    = "select * from user_data where username='" & login_username & "'"
 Set rs = Server.CreateObject("adodb.recordset")
@@ -41,7 +41,7 @@ End Select
 
 rs.Close
 
-Response.Write vbcrlf & "<tr" & table2 & " height=25><td height=20 class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif><a name='pass'></a>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>ä¿®æ”¹æˆ‘çš„ç™»é™†å¯†ç </b></td></tr><tr" & table3 & "><td height=150 align=center>"
+Response.Write vbcrlf & "<tr" & table2 & " height=25><td height=20 class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif><a name='pass'></a>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>ĞŞ¸ÄÎÒµÄµÇÂ½ÃÜÂë</b></td></tr><tr" & table3 & "><td height=150 align=center>"
 
 Select Case Trim(Request("user_pass"))
     Case "yes"
@@ -62,8 +62,8 @@ Function edit_main()
     Dim fff:fff = 0
     edit_main = edit_main & vbcrlf & "<table border=0 width='98%'>" & _
     vbcrlf & "<form name=user_edit_frm action='?' method=post><input type=hidden name=user_edit value='yes'>" & _
-    vbcrlf & "<tr><td width='100%' colspan=3 align=center height=30><font class=red><b>æ³¨æ„ï¼š</b></font>ä»¥ä¸‹æ˜Ÿå·ï¼ˆ" & redx & "ï¼‰æ ‡å‡ºçš„é¡¹ç›®å¿…éœ€å¡«å†™.</td></tr>" & _
-    vbcrlf & "<tr><td width='16%'>æ‚¨çš„å¤´è¡”ï¼š</td><td width='84%' colspan=2><input type=text name=nname value='" & code_form(rs("nname")) & "' size=28 maxlength=20></td></tr>"
+    vbcrlf & "<tr><td width='100%' colspan=3 align=center height=30><font class=red><b>×¢Òâ£º</b></font>ÒÔÏÂĞÇºÅ£¨" & redx & "£©±ê³öµÄÏîÄ¿±ØĞèÌîĞ´.</td></tr>" & _
+    vbcrlf & "<tr><td width='16%'>ÄúµÄÍ·ÏÎ£º</td><td width='84%' colspan=2><input type=text name=nname value='" & code_form(rs("nname")) & "' size=28 maxlength=20></td></tr>"
 
     If rs("sex") = False Then
         segirl = " checked":seboy = ""
@@ -72,8 +72,8 @@ Function edit_main()
     End If
 
     edit_main  = edit_main & vbcrlf & "<script language=javascript>function showimage(){ document.images.face_img.src=""images/face/""+document.user_edit_frm.face.options[document.user_edit_frm.face.selectedIndex].value+"".gif""; }</script>" & _
-    vbcrlf & "<tr><td width='16%'>ä½ çš„å§“åˆ«ï¼š</td><td width='45%'> <input type=radio value=true name=sex" & seboy & " class=bg_1>&nbsp;Boyã€€&nbsp;<input type=radio name=sex value=false" & segirl & " class=bg_1>&nbsp;Girl</td>" & _
-    vbcrlf & "<td width='39%' align=center><a href='user_face.asp' target=_blank>â†’æŸ¥çœ‹æ‰€æœ‰å¤´åƒ</a>&nbsp;&nbsp;" & _
+    vbcrlf & "<tr><td width='16%'>ÄãµÄĞÕ±ğ£º</td><td width='45%'> <input type=radio value=true name=sex" & seboy & " class=bg_1>&nbsp;Boy¡¡&nbsp;<input type=radio name=sex value=false" & segirl & " class=bg_1>&nbsp;Girl</td>" & _
+    vbcrlf & "<td width='39%' align=center><a href='user_face.asp' target=_blank>¡ú²é¿´ËùÓĞÍ·Ïñ</a>&nbsp;&nbsp;" & _
     vbcrlf & "<select size=1 name=face style='width: 50;' onChange=""showimage()"">"
     rsface        = rs("face")
 
@@ -85,7 +85,7 @@ Function edit_main()
 
     If fff = 0 Then edit_main = edit_main & vbcrlf & "<option value='" & rsface & "' selected>" & rsface & "</option>"
     edit_main = edit_main & vbcrlf & "</select></td></tr>" & _
-    vbcrlf & "<tr><td height=30>ä½ çš„ç”Ÿæ—¥ï¼š</td><td><select name=b_year>"
+    vbcrlf & "<tr><td height=30>ÄãµÄÉúÈÕ£º</td><td><select name=b_year>"
     Dim bires
     Dim birse:bires = rs("birthday")
     If Not(IsDate(bires)) Then bires = #1982/6/16#
@@ -96,7 +96,7 @@ Function edit_main()
         edit_main = edit_main & vbcrlf & "<option value='" & i & "'" & birse & ">" & i & "</option>"
     Next
 
-    edit_main     = edit_main & vbcrlf & "</select>å¹´ <select name=b_month>"
+    edit_main     = edit_main & vbcrlf & "</select>Äê <select name=b_month>"
 
     For i = 1 To 12
         birse     = ""
@@ -104,7 +104,7 @@ Function edit_main()
         edit_main = edit_main & vbcrlf & "<option value='" & i & "'" & birse & ">" & i & "</option>"
     Next
 
-    edit_main     = edit_main & vbcrlf & "</select>æœˆ <select name=b_day>"
+    edit_main     = edit_main & vbcrlf & "</select>ÔÂ <select name=b_day>"
 
     For i = 1 To 31
         birse     = ""
@@ -112,19 +112,19 @@ Function edit_main()
         edit_main = edit_main & vbcrlf & "<option value='" & i & "'" & birse & ">" & i & "</option>"
     Next
 
-    edit_main     = edit_main & vbcrlf & "</select>æ—¥</td><td rowspan=5 align=center><img border=0 src='images/face/" & rsface & ".gif' name=face_img></td></tr>" & _
-    vbcrlf & "<tr><td width='16%'>ç”µå­é‚®ä»¶ï¼š</td><td width='45%'><input type=text name=email value='" & rs("email") & "' size=28 maxlength=50>" & redx & "</td></tr>" & _
-    vbcrlf & "<tr><td>ä½ çš„QQï¼š</td><td><input type=text name=qq value='" & rs("qq") & "' size=28 maxlength=15></td></tr>" & _
-    vbcrlf & "<tr><td>ä½ çš„ä¸»é¡µï¼š</td><td><input type=text name=url value='" & code_form(rs("url")) & "' size=28 maxlength=100></td></tr>" & _
-    vbcrlf & "<tr><td>æ¥è‡ªå“ªé‡Œï¼š</td><td><input type=text name=whe value='" & code_form(rs("whe")) & "' size=28 maxlength=20></td></tr>" & _
-    vbcrlf & "<tr><td valign=top><br>ä¸ªäººä»‹ç»ï¼š</td><td colspan=2 valign=top>" & _
+    edit_main     = edit_main & vbcrlf & "</select>ÈÕ</td><td rowspan=5 align=center><img border=0 src='images/face/" & rsface & ".gif' name=face_img></td></tr>" & _
+    vbcrlf & "<tr><td width='16%'>µç×ÓÓÊ¼ş£º</td><td width='45%'><input type=text name=email value='" & rs("email") & "' size=28 maxlength=50>" & redx & "</td></tr>" & _
+    vbcrlf & "<tr><td>ÄãµÄQQ£º</td><td><input type=text name=qq value='" & rs("qq") & "' size=28 maxlength=15></td></tr>" & _
+    vbcrlf & "<tr><td>ÄãµÄÖ÷Ò³£º</td><td><input type=text name=url value='" & code_form(rs("url")) & "' size=28 maxlength=100></td></tr>" & _
+    vbcrlf & "<tr><td>À´×ÔÄÄÀï£º</td><td><input type=text name=whe value='" & code_form(rs("whe")) & "' size=28 maxlength=20></td></tr>" & _
+    vbcrlf & "<tr><td valign=top><br>¸öÈË½éÉÜ£º</td><td colspan=2 valign=top>" & _
     vbcrlf & "<table border=0 width='100%' cellspacing=0 cellpadding=0><tr><td width='69%'>" & _
     vbcrlf & "<textarea rows=7 name=remark cols=42>" & rs("remark") & "</textarea></td>" & _
-    vbcrlf & "<td width='31%' valign=top><br>" & redx & "æ³¨æ„ï¼š<br><br><br>" & web_var(web_error,3) & _
+    vbcrlf & "<td width='31%' valign=top><br>" & redx & "×¢Òâ£º<br><br><br>" & web_var(web_error,3) & _
     vbcrlf & "</td></tr></table>" & _
     vbcrlf & "</td></tr>" & _
     vbcrlf & "<tr><td></td><td colspan=2 height=50>" & _
-    vbcrlf & "<input type=submit value=' æ›´ æ–° èµ„ æ–™ '>ã€€ã€€ã€€<input type=reset value=' é‡ æ–° ä¿® æ”¹ '>" & _
+    vbcrlf & "<input type=submit value=' ¸ü ĞÂ ×Ê ÁÏ '>¡¡¡¡¡¡<input type=reset value=' ÖØ ĞÂ ĞŞ ¸Ä '>" & _
     vbcrlf & "</td></form></tr></table><br>"
 End Function
 
@@ -152,23 +152,23 @@ Function edit_chk()
     founderr     = ""
 
     If Not(IsDate(birthday)) Then
-        founderr = founderr & err_head & "æ‚¨é€‰æ‹©çš„ <font class=red_3>ç”Ÿæ—¥</font> ä¸æ˜¯ä¸€ä¸ªæœ‰æ•ˆçš„æ—¥æœŸæ ¼å¼ï¼<br>"
+        founderr = founderr & err_head & "ÄúÑ¡ÔñµÄ <font class=red_3>ÉúÈÕ</font> ²»ÊÇÒ»¸öÓĞĞ§µÄÈÕÆÚ¸ñÊ½£¡<br>"
     End If
 
     If email_ok(email) <> "yes" Or Len(email) > 50 Then
-        founderr = founderr & err_head & "æ‚¨è¾“å…¥çš„ <font class=red_3>E-mail</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆé‚®ä»¶è§„åˆ™ï¼<br>"
+        founderr = founderr & err_head & "ÄúÊäÈëµÄ <font class=red_3>E-mail</font> Îª¿Õ»ò²»·ûºÏÓÊ¼ş¹æÔò£¡<br>"
     End If
 
     If qq <> "" And Not IsNull(qq) Then
 
         If Not(IsNumeric(qq)) Or Len(qq) > 15 Then
-            founderr = founderr & err_head & "æ‚¨è¾“å…¥çš„ <font class=red_3>QQ</font> ä¸æ˜¯æ•°å­—æˆ–é•¿åº¦è¶…è¿‡15ä½ï¼<br>"
+            founderr = founderr & err_head & "ÄúÊäÈëµÄ <font class=red_3>QQ</font> ²»ÊÇÊı×Ö»ò³¤¶È³¬¹ı15Î»£¡<br>"
         End If
 
     End If
 
     If Len(remark) > 250 Then
-        founderr = founderr & err_head & "æ‚¨è¾“å…¥çš„ <font class=red_3>ä¸ªäººä»‹ç»</font> å¤ªå¤šäº†ï¼ä¸èƒ½è¶…è¿‡250ä¸ªå­—ç¬¦ã€‚<br>"
+        founderr = founderr & err_head & "ÄúÊäÈëµÄ <font class=red_3>¸öÈË½éÉÜ</font> Ì«¶àÁË£¡²»ÄÜ³¬¹ı250¸ö×Ö·û¡£<br>"
     End If
 
     If founderr = "" Then
@@ -187,7 +187,7 @@ Function edit_chk()
         rs("remark")     = remark
         rs.update
 
-        edit_chk = "<font class=red>æ‚¨å·²æˆåŠŸä¿®æ”¹äº†æ‚¨çš„åŸºæœ¬èµ„æ–™ï¼</font>" & VbCrLf & "<br><br><a href='user_main.asp'>è¿”å›" & tit_fir & "</a>" & vbcrLf & "<br><br>ï¼ˆç³»ç»Ÿå°†åœ¨ " & web_var(web_num,5) & " ç§’é’Ÿåè‡ªåŠ¨è¿”å›ï¼‰" & _
+        edit_chk = "<font class=red>ÄúÒÑ³É¹¦ĞŞ¸ÄÁËÄúµÄ»ù±¾×ÊÁÏ£¡</font>" & VbCrLf & "<br><br><a href='user_main.asp'>·µ»Ø" & tit_fir & "</a>" & vbcrLf & "<br><br>£¨ÏµÍ³½«ÔÚ " & web_var(web_num,5) & " ÃëÖÓºó×Ô¶¯·µ»Ø£©" & _
         VbCrLf & "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=user_main.asp'>"
         Exit Function
     Else
@@ -202,18 +202,18 @@ Function pass_main() %>
 <input type=hidden name=user_pass value='yes'>
 <tr height=10><td colspan=2></td></tr>
 <tr align=center>
-<td width='30%'>ç™»é™†å¯†ç ï¼š</td>
+<td width='30%'>µÇÂ½ÃÜÂë£º</td>
 <td width='70%'><input type=password name=password size=25 maxlength=20></td>
 </tr>
 <tr align=center>
-<td>é‡å¤å¯†ç ï¼š</td>
+<td>ÖØ¸´ÃÜÂë£º</td>
 <td><input type=password name=password2 size=25 maxlength=20></td>
 </tr>
 <tr align=center>
-<td>å¯†ç é’¥åŒ™ï¼š</td>
+<td>ÃÜÂëÔ¿³×£º</td>
 <td><input type=text name=passwd size=25 maxlength=20></td>
 </tr>
-<tr height=30><td colspan=2 align=center><input type=submit value=' æ äº¤ æ›´ æ”¹ '></td></tr>
+<tr height=30><td colspan=2 align=center><input type=submit value=' Ìá ½» ¸ü ¸Ä '></td></tr>
 </form>
 </table>
 <%
@@ -233,17 +233,17 @@ Function pass_chk()
     founderr     = ""
 
     If symbol_ok(password) <> "yes" Then
-        founderr = founderr & err_head & "æ‚¨è¾“å…¥çš„ <font class=red_3>ç™»é™†å¯†ç </font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br>"
+        founderr = founderr & err_head & "ÄúÊäÈëµÄ <font class=red_3>µÇÂ½ÃÜÂë</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br>"
     Else
 
         If password <> password2 Then
-            founderr = founderr & err_head & "æ‚¨è¾“å…¥çš„ <font class=red_3>ç™»é™†å¯†ç </font> å’Œ <font class=founderr>ç¡®è®¤å¯†ç </font> ä¸ä¸€è‡´ï¼<br>"
+            founderr = founderr & err_head & "ÄúÊäÈëµÄ <font class=red_3>µÇÂ½ÃÜÂë</font> ºÍ <font class=founderr>È·ÈÏÃÜÂë</font> ²»Ò»ÖÂ£¡<br>"
         End If
 
     End If
 
     If symbol_name(passwd) <> "yes" Then
-        founderr = founderr & err_head & "æ‚¨è¾“å…¥çš„ <font class=red_3>å¯†ç é’¥åŒ™</font> ä¸ºç©ºæˆ–ä¸ç¬¦åˆç›¸å…³è§„åˆ™ï¼<br>"
+        founderr = founderr & err_head & "ÄúÊäÈëµÄ <font class=red_3>ÃÜÂëÔ¿³×</font> Îª¿Õ»ò²»·ûºÏÏà¹Ø¹æÔò£¡<br>"
     End If
 
     If founderr = "" Then
@@ -252,7 +252,7 @@ Function pass_chk()
         rs.open sql,conn,1,3
 
         If rs.eof And rs.bof Then
-            pass_chk = "<font class=red_2>åœ¨ä¿®æ”¹è¿‡ç¨‹ä¸­å‡ºç°åœ¨äº†ç™»é™†ä¿¡æ¯æœ‰è¯¯çš„æ„å¤–ï¼</font><br><br>è¯·æŸ¥é˜… <a href='help.asp?action=register' class=red_3>ä¼šå‘˜æ³¨å†Œæ³¨æ„äº‹é¡¹</a> æŸ¥çœ‹æœ‰å…³äº‹é¡¹<br><br>è¯· <a href='login.asp?action=logout'>é‡æ–°è¯´é”¹?/a> å¹¶å†æ¬¡è¿›è¡Œä¿®æ”¹<br><br>ï¼ˆç³»ç»Ÿå°†åœ¨ " & web_var(web_num,5) & " ç§’é’Ÿåè‡ªåŠ¨é‡ç™»é™†ï¼‰" & _
+            pass_chk = "<font class=red_2>ÔÚĞŞ¸Ä¹ı³ÌÖĞ³öÏÖÔÚÁËµÇÂ½ĞÅÏ¢ÓĞÎóµÄÒâÍâ£¡</font><br><br>Çë²éÔÄ <a href='help.asp?action=register' class=red_3>»áÔ±×¢²á×¢ÒâÊÂÏî</a> ²é¿´ÓĞ¹ØÊÂÏî<br><br>Çë <a href='login.asp?action=logout'>ÖØĞÂËµÇÂ?/a> ²¢ÔÙ´Î½øĞĞĞŞ¸Ä<br><br>£¨ÏµÍ³½«ÔÚ " & web_var(web_num,5) & " ÃëÖÓºó×Ô¶¯ÖØµÇÂ½£©" & _
             VbCrLf & "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=logout.asp'>"
             rs.Close:Set rs = Nothing:Exit Function
         Else
@@ -266,14 +266,14 @@ Function pass_chk()
                 Response.cookies("beyondest_online").expires = Date + 365
             End If
 
-            pass_chk                                 = "<font class=red>æ‚¨å·²æˆåŠŸä¿®æ”¹äº†æ‚¨çš„ ç™»é™†å¯†ç  å’Œ å¯†ç é’¥åŒ™ï¼</font>" & VbCrLf & "<br><br><a href='user_main.asp'>è¿”å›ç”¨æˆ·ä¸­å¿ƒ</a>" & VbCrLf & "<br><br>ï¼ˆç³»ç»Ÿå°†åœ¨ " & web_var(web_num,5) & " ç§’é’Ÿåè‡ªåŠ¨è¿”å›ï¼‰" & _
+            pass_chk                                 = "<font class=red>ÄúÒÑ³É¹¦ĞŞ¸ÄÁËÄúµÄ µÇÂ½ÃÜÂë ºÍ ÃÜÂëÔ¿³×£¡</font>" & VbCrLf & "<br><br><a href='user_main.asp'>·µ»ØÓÃ»§ÖĞĞÄ</a>" & VbCrLf & "<br><br>£¨ÏµÍ³½«ÔÚ " & web_var(web_num,5) & " ÃëÖÓºó×Ô¶¯·µ»Ø£©" & _
             VbCrLf & "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=user_main.asp'>"
             rs.Close:Set rs = Nothing:Exit Function
         End If
 
         rs.Close:Set rs = Nothing
     Else
-        founderr = founderr & err_head & "è¯·æŸ¥é˜…æœ‰å…³ <a href='help.asp?action=register' class=red_3>ä¼šå‘˜æ³¨å†Œæ³¨æ„äº‹é¡¹</a> å¹¶é‡æ–°å¡«å†™ã€‚"
+        founderr = founderr & err_head & "Çë²éÔÄÓĞ¹Ø <a href='help.asp?action=register' class=red_3>»áÔ±×¢²á×¢ÒâÊÂÏî</a> ²¢ÖØĞÂÌîĞ´¡£"
         pass_chk = found_error(founderr,280):Exit Function
     End If
 

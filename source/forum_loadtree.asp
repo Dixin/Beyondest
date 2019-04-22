@@ -15,7 +15,7 @@ forumid       = Trim(Request.querystring("forum_id"))
 viewid        = Trim(Request.querystring("view_id"))
 
 If Not(IsNumeric(forumid)) Or Not(IsNumeric(viewid)) Then
-    html_temp = "<tr><td><font class=red_2>æ‚¨çš„æ“ä½œæœ‰è¯¯ï¼šID å‡ºéŒ¯ï¼ˆ1ï¼‰ï¼</font></td></tr>"
+    html_temp = "<tr><td><font class=red_2>ÄúµÄ²Ù×÷ÓĞÎó£ºID ³öåe£¨1£©£¡</font></td></tr>"
 End If
 
 If var_null(login_username) = "" Or var_null(login_password) = "" Then
@@ -25,7 +25,7 @@ Else
     Set rs        = conn.execute(sql)
 
     If rs.eof And rs.eof Then
-        html_temp = html_temp & "<tr><td><font class=red_2>ForumID å‡ºéŒ¯ï¼</font></td></tr>"
+        html_temp = html_temp & "<tr><td><font class=red_2>ForumID ³öåe£¡</font></td></tr>"
     End If
 
     rs.Close:Set rs = Nothing
@@ -35,7 +35,7 @@ Else
         Set rs        = conn.execute(sql)
 
         If rs.eof And rs.bof Then
-            html_temp = html_temp & "<tr><td><font class=red_2>æ‚¨çš„æ“ä½œæœ‰è¯¯ï¼šID å‡ºéŒ¯ï¼ˆ2ï¼‰ï¼</font></td></tr>"
+            html_temp = html_temp & "<tr><td><font class=red_2>ÄúµÄ²Ù×÷ÓĞÎó£ºID ³öåe£¨2£©£¡</font></td></tr>"
         Else
 
             Do While Not rs.eof

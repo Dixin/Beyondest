@@ -50,13 +50,13 @@ Sub left_user()
     temp1 = vbcrlf & "<table border=0 width='100%' cellspacing=0 cellpadding=4 align=center>" & _
     vbcrlf & "<tr><td height=5 width='50%'></td><td width='50%'></td></tr>" & _
     vbcrlf & "<tr><td height=80 colspan=2 align=center><img src='images/face/" & uface & ".gif' border=0></td></tr>" & _
-    vbcrlf & "<tr><td height=25 colspan=2 align=center><font class=red>" & format_power(login_mode,1) & "</font>ï¼š<b><font class=blue>" & login_username & "</font></b></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='user_mail.asp'>ç«™å†…çŸ­ä¿¡</a></td><td>" & jtn & "<a href='user_put.asp?action=website'>æ¨èç½‘ç«™</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='user_bookmark.asp'>ç½‘ç»œä¹¦ç­¾</a></td><td>" & jtn & "<a href='user_friend.asp'>æˆ‘çš„å¥½å‹</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='user_edit.asp'>ä¿®æ”¹èµ„æ–™</a></td><td>" & jtn & "<a href='user_edit.asp#pass'>ä¿®æ”¹å¯†ç </a></td></tr>" & _
-    vbcrlf & "<tr><td colspan=2>" & jtn & "<a href='user_putview.asp'>æŸ¥çœ‹æˆ‘æ‰€å‘è¡¨çš„ç›¸å…³ä¿¡æ¯</a></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='user_put.asp?action=news'>å‘å¸ƒæ–°é—»</a></td><td>" & jtn & "<a href='user_put.asp?action=article'>å‘è¡¨æ–‡ç« </a></td></tr>" & _
-    vbcrlf & "<tr><td>" & jtn & "<a href='user_put.asp?action=down'>ä¸Šä¼ éŸ³ä¹</a></td><td>" & jtn & "<a href='user_put.asp?action=gallery'>ä¸Šä¼ æ–‡ä»¶</a></td></tr>" & _
+    vbcrlf & "<tr><td height=25 colspan=2 align=center><font class=red>" & format_power(login_mode,1) & "</font>£º<b><font class=blue>" & login_username & "</font></b></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='user_mail.asp'>Õ¾ÄÚ¶ÌĞÅ</a></td><td>" & jtn & "<a href='user_put.asp?action=website'>ÍÆ¼öÍøÕ¾</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='user_bookmark.asp'>ÍøÂçÊéÇ©</a></td><td>" & jtn & "<a href='user_friend.asp'>ÎÒµÄºÃÓÑ</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='user_edit.asp'>ĞŞ¸Ä×ÊÁÏ</a></td><td>" & jtn & "<a href='user_edit.asp#pass'>ĞŞ¸ÄÃÜÂë</a></td></tr>" & _
+    vbcrlf & "<tr><td colspan=2>" & jtn & "<a href='user_putview.asp'>²é¿´ÎÒËù·¢±íµÄÏà¹ØĞÅÏ¢</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='user_put.asp?action=news'>·¢²¼ĞÂÎÅ</a></td><td>" & jtn & "<a href='user_put.asp?action=article'>·¢±íÎÄÕÂ</a></td></tr>" & _
+    vbcrlf & "<tr><td>" & jtn & "<a href='user_put.asp?action=down'>ÉÏ´«ÒôÀÖ</a></td><td>" & jtn & "<a href='user_put.asp?action=gallery'>ÉÏ´«ÎÄ¼ş</a></td></tr>" & _
     vbcrlf & "<tr><td></td><td></td></tr>" & _
     vbcrlf & "</table>"
     Response.Write vbcrlf & "<table border=0 width='96%' cellspacing=0 cellpadding=0 align=center><tr><td align=center>" & _

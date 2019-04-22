@@ -9,11 +9,11 @@ If web_login <> 1 And web_login <> 2 Then
     Response.End
 End If
 
-'---------------------数据库类型及路径定义---------------------
+'---------------------���ݿ����ͼ�·������---------------------
 Dim conn
 Dim connstr
-'connstr="DBQ="&server.mappath(web_var(web_config,6))&";DRIVER={Microsoft Access Driver (*.mdb)};"
-connstr  = "DSN=Beyondest"
+connstr="DBQ="&server.mappath(web_var(web_config,6))&";DRIVER={Microsoft Access Driver (*.mdb)};"
+'connstr  = "DSN=Beyondest"
 Set conn = Server.CreateObject("ADODB.CONNECTION")
 conn.open connstr
 

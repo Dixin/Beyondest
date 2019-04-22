@@ -31,7 +31,7 @@ pageurl     = "?":nummer = web_var(web_num,4)
 index_url   = "gbook"
 
 If action = "write" Then
-    tit     = "ç­¾å†™ç•™è¨€"
+    tit     = "Ç©Ğ´ÁôÑÔ"
     tit_fir = format_menu(index_url)
 Else
     tit     = format_menu(index_url)
@@ -66,10 +66,10 @@ Sub gbook_left()
     Dim temp1
     temp1 = vbcrlf & "<table border=0 width='100%' cellspacing=0 cellpadding=2 align=center>" & _
     vbcrlf & "<tr><td height=5></td></tr>" & _
-    vbcrlf & "<tr><td height=30 align=center><a href='gbook.asp?action=write'>ç­¾å†™æˆ‘çš„ç•™è¨€</a></td></tr>" & _
+    vbcrlf & "<tr><td height=30 align=center><a href='gbook.asp?action=write'>Ç©Ğ´ÎÒµÄÁôÑÔ</a></td></tr>" & _
 
-    vbcrlf & "<tr><td align=left>ä»»ä½•äººéƒ½å¯ä»¥åœ¨è¿™é‡Œç•™è¨€<br>åªæœ‰æ³¨å†Œå¹¶ç™»é™†åæ‰å¯ä»¥çœ‹åˆ°å…¶å®ƒç•™è¨€è€…çš„ç³»ç»Ÿä¿¡æ¯</td></tr>" & _
-    vbcrlf & "<tr><td align=left>ç³»ç»Ÿæ”¯æŒï¼š" & Replace(web_var(web_error,3),"<br>","ï¼Œ") & "</td></tr>" & _
+    vbcrlf & "<tr><td align=left>ÈÎºÎÈË¶¼¿ÉÒÔÔÚÕâÀïÁôÑÔ<br>Ö»ÓĞ×¢²á²¢µÇÂ½ºó²Å¿ÉÒÔ¿´µ½ÆäËüÁôÑÔÕßµÄÏµÍ³ĞÅÏ¢</td></tr>" & _
+    vbcrlf & "<tr><td align=left>ÏµÍ³Ö§³Ö£º" & Replace(web_var(web_error,3),"<br>","£¬") & "</td></tr>" & _
     vbcrlf & "</table>"
     Response.Write "<table border=0 width='100%' cellspacing=0 cellpadding=0 align=center><tr><td align=center>" & kong & format_barc("<img src='images/" & web_var(web_config,5) & "/left_gbook.gif' border=0>",temp1,2,0,5) & "</td></tr></table>"
     Response.Write left_action("jt13",4)
@@ -92,8 +92,8 @@ Sub gbook_main()
 
     Response.Write table1 %>
 <tr<% Response.Write table4 %>><td height=25 align=center>
-å…±æœ‰<font class=red><% Response.Write rssum %></font>æ¡ç•™è¨€ï¼Œæ¯é¡µ<font class=red><% Response.Write nummer %></font>æ¡ï¼Œé¡µæ¬¡<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>&nbsp;
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
+¹²ÓĞ<font class=red><% Response.Write rssum %></font>ÌõÁôÑÔ£¬Ã¿Ò³<font class=red><% Response.Write nummer %></font>Ìõ£¬Ò³´Î<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>&nbsp;
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %>
 </td></tr>
 </table>
 <%
@@ -118,9 +118,9 @@ Function gbook_view()
     sex     = rs("sex")
 
     If sex = "girl" Then
-        sex = "å¥³å­©"
+        sex = "Å®º¢"
     Else
-        sex = "ç”·å­©"
+        sex = "ÄĞº¢"
     End If
 
     qq      = rs("qq")
@@ -132,7 +132,7 @@ Function gbook_view()
     re_word = code_jk(rs("re_word"))
     hidden  = rs("hidden")
     Response.Write table1 %>
-<tr<% Response.Write table2 %>><td valign=bottom background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<b><font class=end>No.<% Response.Write rssum - (i + (viewpage - 1)*nummer) + 1 %>&nbsp;ä¸»é¢˜ï¼š</font><font class=end title='<% Response.Write code_html(topic,1,0) %>'><% Response.Write code_html(topic,1,36) %></font></b></td></tr>
+<tr<% Response.Write table2 %>><td valign=bottom background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<b><font class=end>No.<% Response.Write rssum - (i + (viewpage - 1)*nummer) + 1 %>&nbsp;Ö÷Ìâ£º</font><font class=end title='<% Response.Write code_html(topic,1,0) %>'><% Response.Write code_html(topic,1,36) %></font></b></td></tr>
 <tr<% Response.Write table3 %>><td>
 <table border=0 width='100%' cellspacing=0 cellpadding=0>
   <tr>
@@ -142,8 +142,8 @@ Function gbook_view()
           <td width=120>
             <table border=0 width='100%'>
               <tr><td align=center><% = nname %></td></tr>
-              <tr><td align=center><img src='images/face/<% = rs("face") %>.gif' title='<% = nname & " æ˜¯ " & sex %>' border=0></td></tr>
-              <tr><td align=center><% If whe <> "nuller" Then Response.Write "æ¥è‡ªï¼š" & code_html(whe,1,0) %></td></tr>
+              <tr><td align=center><img src='images/face/<% = rs("face") %>.gif' title='<% = nname & " ÊÇ " & sex %>' border=0></td></tr>
+              <tr><td align=center><% If whe <> "nuller" Then Response.Write "À´×Ô£º" & code_html(whe,1,0) %></td></tr>
             </table>
           </td>
           <td width=1 bgcolor='<% = web_var(web_color,3) %>'></td>
@@ -154,12 +154,12 @@ Function gbook_view()
 <%
 
     If hidden = True And login_mode <> format_power2(1,1) Then
-        Response.Write "<br><br><center><font class=red_3>^-^ æ­¤æ¡ç•™è¨€åªæœ‰ç«™é•¿æ‰å¯ä»¥çœ‹å“¦ ^-^</font></center><br><br>"
+        Response.Write "<br><br><center><font class=red_3>^-^ ´ËÌõÁôÑÔÖ»ÓĞÕ¾³¤²Å¿ÉÒÔ¿´Å¶ ^-^</font></center><br><br>"
     Else
         Response.Write "<img src='images/icon/" & rs("icon") & ".gif' border=0>&nbsp;"
 
         If hidden = True Then
-            Response.Write "<font class=red_3>[éšè—]</font>&nbsp;"
+            Response.Write "<font class=red_3>[Òş²Ø]</font>&nbsp;"
         End If
 
         Response.Write code_jk(rs("word"))
@@ -169,19 +169,19 @@ Function gbook_view()
 <tr><td height=5></td></tr>
 <tr><td height=1 colspan=2 bgcolor=<% Response.Write web_var(web_color,2) %>></td></tr>
 <tr height=20>
-<td width='60%'>&nbsp;<img src='IMAGES/SMALL/TIM.GIF' align=absmiddle title='ç­¾å†™æ—¶é—´' border=0>ã€€<% Response.Write rs("tim") %></td>
+<td width='60%'>&nbsp;<img src='IMAGES/SMALL/TIM.GIF' align=absmiddle title='Ç©Ğ´Ê±¼ä' border=0>¡¡<% Response.Write rs("tim") %></td>
 <td width='40%' align=right><%
 
     If qq <> "nuller" Then
-        Response.Write "<a href='http://search.tencent.com/cgi-bin/friend/user_show_info?ln=" & qq & "' target=_blank><img src='images/small/qq.gif' title='" & nname & " çš„QQæ˜¯ï¼š" & qq & "' border=0></a>&nbsp;"
+        Response.Write "<a href='http://search.tencent.com/cgi-bin/friend/user_show_info?ln=" & qq & "' target=_blank><img src='images/small/qq.gif' title='" & nname & " µÄQQÊÇ£º" & qq & "' border=0></a>&nbsp;"
     End If
 
     If var_null(url) <> "" And url <> "nuller" And url <> "http://" Then
-        Response.Write "<a href='" & url & "' target=_blank><img src='images/small/url.gif' title='è®¿é—® " & nname & " çš„ä¸»é¡µ' border=0></a>&nbsp;"
+        Response.Write "<a href='" & url & "' target=_blank><img src='images/small/url.gif' title='·ÃÎÊ " & nname & " µÄÖ÷Ò³' border=0></a>&nbsp;"
     End If
 
     If email <> "nuller" Then
-        Response.Write "<a href='mailto:" & email & "'><img src='images/small/email.gif' title='ç»™ " & nname & " å‘ç”µå­é‚®ä»¶' border=0></a>&nbsp;"
+        Response.Write "<a href='mailto:" & email & "'><img src='images/small/email.gif' title='¸ø " & nname & " ·¢µç×ÓÓÊ¼ş' border=0></a>&nbsp;"
     End If
 
     If login_username <> "" And login_password <> "" And login_mode <> "" Then
@@ -189,8 +189,8 @@ Function gbook_view()
         "<img src='images/small/sys.gif' align=absMiddle title='" & view_sys(rs("sys")) & "' border=0>"
 
         If login_mode = "admin" Then
-            Response.Write "&nbsp;<a href='gbook_action.asp?action=reply&id=" & rs("id") & "&page=" & viewpage & "'><img src='images/small/reply.gif' alt='å›å¤è¿™æ¡ç•™è¨€' border=0></a>&nbsp;" & _
-            "<a href='gbook_action.asp?action=delete&id=" & rs("id") & "&page=" & viewpage & "'><img src='images/small/del.gif' alt='åˆ é™¤è¿™æ¡ç•™è¨€' border=0></a>"
+            Response.Write "&nbsp;<a href='gbook_action.asp?action=reply&id=" & rs("id") & "&page=" & viewpage & "'><img src='images/small/reply.gif' alt='»Ø¸´ÕâÌõÁôÑÔ' border=0></a>&nbsp;" & _
+            "<a href='gbook_action.asp?action=delete&id=" & rs("id") & "&page=" & viewpage & "'><img src='images/small/del.gif' alt='É¾³ıÕâÌõÁôÑÔ' border=0></a>"
         End If
 
     End If %></td>
@@ -199,7 +199,7 @@ Function gbook_view()
 
     If Len(re_word) > 0 Then
         Response.Write vbcrlf & "<tr><td colspan=2>" & table1 & "<tr" & table4 & "><td class=bw bgcolor=" & web_var(web_color,6) & ">" & _
-        vbcrlf & "<font class=red>ç«™é•¿å›å¤ï¼š</font>&nbsp;&nbsp;&nbsp;&nbsp;ï¼ˆæ—¶é—´ï¼š" & rs("re_tim") & "ï¼‰<br>" & _
+        vbcrlf & "<font class=red>Õ¾³¤»Ø¸´£º</font>&nbsp;&nbsp;&nbsp;&nbsp;£¨Ê±¼ä£º" & rs("re_tim") & "£©<br>" & _
         vbcrlf & "<img src='images/icon/" & rs("re_icon") & ".gif' border=0>&nbsp;" & re_word & _
         vbcrlf & "</td></tr></table></td></tr>"
     End If %>
@@ -220,7 +220,7 @@ Sub gbook_write()
     Response.Write vbcrlf & "<table border=0 width='100%'><tr><td align=center height=300>"
 
     If post_chk() = "no" Then
-        Response.Write web_var(web_error,1) & "<br><br><br>" & "<a href='gbook.asp?action=write'>ç‚¹å‡»æ­¤å¤„è¿”å›ç•™è¨€å¤„</a>"
+        Response.Write web_var(web_error,1) & "<br><br><br>" & "<a href='gbook.asp?action=write'>µã»÷´Ë´¦·µ»ØÁôÑÔ´¦</a>"
     ElseIf Request.form("gb_write") = "ok" Then
         Response.Write write_chk()
     Else
@@ -235,12 +235,12 @@ Function write_type()
     vbcrlf & "<table border=0 cellpadding=0 cellspacing=0 width=500>" & _
     vbcrlf & "<tr><form name=write_frm method=POST action='gbook.asp?action=write' onsubmit=""frm_submitonce(this);"">" & _
     vbcrlf & "<input type=hidden name=gb_write value='ok'>" & _
-    vbcrlf & "<td align=center height=50 colspan=4><font class=red><b>æ³¨æ„ï¼š</b></font>ä»¥ä¸‹æ˜Ÿå·ï¼ˆ" & redx & "ï¼‰æ ‡å‡ºçš„é¡¹ç›®å¿…éœ€å¡«å†™</td>" & _
-    vbcrlf & "</tr><tr><td align=center width=80 height=25>ä½ çš„åå­—ï¼š</td>" & _
+    vbcrlf & "<td align=center height=50 colspan=4><font class=red><b>×¢Òâ£º</b></font>ÒÔÏÂĞÇºÅ£¨" & redx & "£©±ê³öµÄÏîÄ¿±ØĞèÌîĞ´</td>" & _
+    vbcrlf & "</tr><tr><td align=center width=80 height=25>ÄãµÄÃû×Ö£º</td>" & _
     vbcrlf & "<td width=224><input type=text name=wrname value='" & login_username & "' size=27 maxlength=9>" & redx & "</td>" & _
-    vbcrlf & "<td width=100 align=center>&nbsp;<a title='æŸ¥çœ‹æ‰€æœ‰å¤´åƒ' href='user_face.asp' target=_blank>â†’æŸ¥çœ‹æ‰€æœ‰å¤´åƒ</a></td>" & _
+    vbcrlf & "<td width=100 align=center>&nbsp;<a title='²é¿´ËùÓĞÍ·Ïñ' href='user_face.asp' target=_blank>¡ú²é¿´ËùÓĞÍ·Ïñ</a></td>" & _
     vbcrlf & "<td width=71 align=center>" & _
-    vbcrlf & "<select size=1 name=wrface style=""widthï¼š 50; borderï¼š 1px solid #C0C0C0"" onChange=""showimage()"">" & _
+    vbcrlf & "<select size=1 name=wrface style=""width£º 50; border£º 1px solid #C0C0C0"" onChange=""showimage()"">" & _
     vbcrlf & "<option value=0 selected>0</option>"
 
     For i = 1 To web_var(web_num,11)
@@ -248,31 +248,31 @@ Function write_type()
     Next
 
     write_type     = write_type & vbcrlf & "</select></td></tr>" & _
-    vbcrlf & "<tr><td align=center width=80 height=25>å§“åˆ«ï¼š</td>" & _
+    vbcrlf & "<tr><td align=center width=80 height=25>ĞÕ±ğ£º</td>" & _
     vbcrlf & "<td width=224>&nbsp;Boy <input type=radio value='boy' name=wrsex checked class=bg_1>&nbsp;&nbsp; Girl <input type=radio name=wrsex value='girl' class=bg_1></td>" & _
     vbcrlf & "<td width=196 rowspan=5 align=center colspan=2><img border=0 src='images/face/0.gif' name=wrimg></td></tr>" & _
-    vbcrlf & "<tr><td align=center height=25>QQï¼š</td>" & _
+    vbcrlf & "<tr><td align=center height=25>QQ£º</td>" & _
     vbcrlf & "<td width=224><input type=text name=wrqq size=28 maxlength=15></td></tr>" & _
-    vbcrlf & "<tr><td align=center height=25>ç”µå­é‚®ä»¶ï¼š</td>" & _
+    vbcrlf & "<tr><td align=center height=25>µç×ÓÓÊ¼ş£º</td>" & _
     vbcrlf & "<td width=224><input type=text name=wremail size=28 maxlength=50></td></tr>" & _
-    vbcrlf & "<tr><td align=center height=25>ä½ çš„ä¸»é¡µï¼š </td>" & _
+    vbcrlf & "<tr><td align=center height=25>ÄãµÄÖ÷Ò³£º </td>" & _
     vbcrlf & "<td width=224><input type=text name=wrurl size=28 value='http://' maxlength=50></td></tr>" & _
-    vbcrlf & "<tr><td align=center height=25>æ¥è‡ªï¼š</td>" & _
+    vbcrlf & "<tr><td align=center height=25>À´×Ô£º</td>" & _
     vbcrlf & "<td width=224><input type=text name=wrwhe size=28 maxlength=20></td></tr>" & _
-    vbcrlf & "<tr><td align=center height=25>ç•™è¨€ä¸»é¢˜ï¼š</td>" & _
+    vbcrlf & "<tr><td align=center height=25>ÁôÑÔÖ÷Ìâ£º</td>" & _
     vbcrlf & "<td width=420 colspan=3><input type=text name=wrtopic size=38 maxlength=50>" & redx & "</td></tr>" & _
-    vbcrlf & "<tr><td align=center height=25>è¡¨æƒ…å›¾æ ‡ï¼š </td>" & _
+    vbcrlf & "<tr><td align=center height=25>±íÇéÍ¼±ê£º </td>" & _
     vbcrlf & "<td align=left width=420 colspan=3>" & icon_type(7,1) & "</td></tr>" & _
-    vbcrlf & "<tr><td align=center width=80 valign=top><br>ä½ çš„ç•™è¨€ï¼š<br><br></td>" & _
+    vbcrlf & "<tr><td align=center width=80 valign=top><br>ÄãµÄÁôÑÔ£º<br><br></td>" & _
     vbcrlf & "<td width=420 colspan=3>" & _
     vbcrlf & "<table border=0 cellpadding=0 cellspacing=0 width='100%'>" & _
-    vbcrlf & "<tr><td width='69%'><textarea rows=7 name=wrword cols=60 maxlength=1000 title='æŒ‰ Ctrl+Enter å¯ç›´æ¥å‘é€' onkeydown=""javascript:frm_quicksubmit();""></textarea></td></tr></table>" & _
+    vbcrlf & "<tr><td width='69%'><textarea rows=7 name=wrword cols=60 maxlength=1000 title='°´ Ctrl+Enter ¿ÉÖ±½Ó·¢ËÍ' onkeydown=""javascript:frm_quicksubmit();""></textarea></td></tr></table>" & _
     vbcrlf & "</td></tr><tr>" & _
-    vbcrlf & "<td align=center width=80 height=25>æ˜¯å¦éšè—ï¼š</td>" & _
-    vbcrlf & "<td width=420 colspan=3><input type=radio name=wrhidden value='no' checked class=bg_1>æ­£å¸¸<input type=radio name=wrhidden value='yes' class=bg_1>éšè—" & redx & "é€‰æ‹©éšè—åï¼Œæ­¤ç•™è¨€åªæœ‰ç«™é•¿æ‰å¯ä»¥çœ‹åˆ°ã€‚</td></tr>" & _
+    vbcrlf & "<td align=center width=80 height=25>ÊÇ·ñÒş²Ø£º</td>" & _
+    vbcrlf & "<td width=420 colspan=3><input type=radio name=wrhidden value='no' checked class=bg_1>Õı³£<input type=radio name=wrhidden value='yes' class=bg_1>Òş²Ø" & redx & "Ñ¡ÔñÒş²Øºó£¬´ËÁôÑÔÖ»ÓĞÕ¾³¤²Å¿ÉÒÔ¿´µ½¡£</td></tr>" & _
     vbcrlf & "<tr height=50><td></td><td colspan=3>" & _
-    vbcrlf & "<input type=submit name=wsubmit value=' å¯ ä»¥ å‘ é€ å•¦ ' onclick=""return check(write_frm)"">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" & _
-    vbcrlf & "<input type=reset value=' é‡ æ–° å† æ¥ ' onclick=""return reset()"">" & _
+    vbcrlf & "<input type=submit name=wsubmit value=' ¿É ÒÔ ·¢ ËÍ À² ' onclick=""return check(write_frm)"">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" & _
+    vbcrlf & "<input type=reset value=' ÖØ ĞÂ ÔÙ À´ ' onclick=""return reset()"">" & _
     vbcrlf & "</td></form></tr></table><br>"
 End Function
 
@@ -314,13 +314,13 @@ Function write_chk()
     founderr     = ""
 
     If symbol_name(drname) = "no" Then
-        founderr = founderr & "<br><li>è¯·è¾“å…¥æ‚¨çš„ <font class=founderr>ç”¨æˆ·å</font>ï¼ˆé•¿åº¦ä¸èƒ½å¤§äº20ï¼‰ï¼"
+        founderr = founderr & "<br><li>ÇëÊäÈëÄúµÄ <font class=founderr>ÓÃ»§Ãû</font>£¨³¤¶È²»ÄÜ´óÓÚ20£©£¡"
     End If
 
     If drqq <> "nuller" Then
 
         If Not(IsNumeric(drqq)) Then
-            founderr = founderr & "<br><li>æ‚¨çš„ <font class=founderr>QQ</font>> åªèƒ½ä¸ºæ•°å­—ï¼"
+            founderr = founderr & "<br><li>ÄúµÄ <font class=founderr>QQ</font>> Ö»ÄÜÎªÊı×Ö£¡"
         End If
 
     End If
@@ -328,17 +328,17 @@ Function write_chk()
     If dremail <> "nuller" Then
 
         If email_ok(dremail) = False Then
-            founderr = founderr & "<br><li>æ‚¨è¾“å…¥çš„ <font class=founderr>Email</font> æ ¼å¼æœ‰é”™è¯¯ï¼"
+            founderr = founderr & "<br><li>ÄúÊäÈëµÄ <font class=founderr>Email</font> ¸ñÊ½ÓĞ´íÎó£¡"
         End If
 
     End If
 
     If drtopic = "" Or IsNull(drtopic) Then
-        founderr = founderr & "<br><li><font class=founderr>ä¸»é¢˜</font> æ˜¯å¿…éœ€è¦çš„ï¼è¯·è¾“å…¥ã€‚"
+        founderr = founderr & "<br><li><font class=founderr>Ö÷Ìâ</font> ÊÇ±ØĞèÒªµÄ£¡ÇëÊäÈë¡£"
     End If
 
     If drword = "" Or IsNull(drword) Then
-        founderr = founderr & "<br><li><font class=founderr>ç•™è¨€å†…å®¹</font> æ˜¯å¿…éœ€è¦çš„ï¼è¯·è¾“å…¥ã€‚"
+        founderr = founderr & "<br><li><font class=founderr>ÁôÑÔÄÚÈİ</font> ÊÇ±ØĞèÒªµÄ£¡ÇëÊäÈë¡£"
     End If
 
     If founderr = "" Then
@@ -372,7 +372,7 @@ Function write_chk()
         rs.update
         rs.Close:Set rs = Nothing
         Call time_load(0,0,1)
-        Response.Write VbCrLf & "<br>ï¼ï¼ï¼<font class=red>è°¢è°¢ä½ çš„ç•™è¨€</font>ï¼ï¼ï¼" & VbCrLf & "<br><br><a href='gbook.asp'>è¿”å›ç•™è¨€</a>" & VbCrLf & "<br><br>ï¼ˆç³»ç»Ÿå°†åœ¨ " & web_var(web_num,5) & " ç§’é’Ÿåè‡ªåŠ¨è¿”å›ï¼‰" & _
+        Response.Write VbCrLf & "<br>£¡£¡£¡<font class=red>Ğ»Ğ»ÄãµÄÁôÑÔ</font>£¡£¡£¡" & VbCrLf & "<br><br><a href='gbook.asp'>·µ»ØÁôÑÔ</a>" & VbCrLf & "<br><br>£¨ÏµÍ³½«ÔÚ " & web_var(web_num,5) & " ÃëÖÓºó×Ô¶¯·µ»Ø£©" & _
         VbCrLf & "<meta http-equiv='refresh' content='" & web_var(web_num,5) & "; url=gbook.asp'>"
     Else
         Response.Write found_error(founderr,"250")

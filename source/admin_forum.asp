@@ -7,9 +7,9 @@
 ' ====================
 
 Dim admin_menu
-admin_menu = "<a href='admin_forum.asp'>è®ºå›ç®¡ç†</a> â”‹ " & _
-"<a href='admin_forum.asp?action=mod'>åˆå¹¶è®ºå›</a> â”‹ " & _
-"<a href='admin_forum.asp?action=order'>é‡æ–°æ’åº</a>"
+admin_menu = "<a href='admin_forum.asp'>ÂÛÌ³¹ÜÀí</a> ©¯ " & _
+"<a href='admin_forum.asp?action=mod'>ºÏ²¢ÂÛÌ³</a> ©¯ " & _
+"<a href='admin_forum.asp?action=order'>ÖØĞÂÅÅĞò</a>"
 Response.Write header(11,admin_menu)
 
 Select Case action
@@ -86,18 +86,18 @@ Sub class_edit()
 
     Set rs = Server.CreateObject("adodb.recordset")
     strsql = "Select * from bbs_class where class_id=" & classid
-    rs.open strsql,conn,1,3 %><font class=red>ä¿®æ”¹è®ºå›åˆ†ç±»</font><br><br><br>
+    rs.open strsql,conn,1,3 %><font class=red>ĞŞ¸ÄÂÛÌ³·ÖÀà</font><br><br><br>
 <table border=0 width=300><%
 
     If Trim(Request("edit")) = "ok" Then
         class_name = code_form(Request.form("class_name"))
 
         If class_name = "" Then
-            Response.Write( VbCrLf & "<tr><td height=80 align=center><font class=red_2>è®ºå›åˆ†ç±»åç§°ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back & "</td></tr>")
+            Response.Write( VbCrLf & "<tr><td height=80 align=center><font class=red_2>ÂÛÌ³·ÖÀàÃû³Æ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back & "</td></tr>")
         Else
             rs("class_name") = class_name
             rs.update
-            Response.Write( VbCrLf & "<tr><td height=80 align=center>æˆåŠŸçš„ä¿®æ”¹äº†è®ºå›åˆ†ç±»ï¼š<font class=red>" & class_name & "</font></td></tr>")
+            Response.Write( VbCrLf & "<tr><td height=80 align=center>³É¹¦µÄĞŞ¸ÄÁËÂÛÌ³·ÖÀà£º<font class=red>" & class_name & "</font></td></tr>")
         End If
 
     Else %>
@@ -106,11 +106,11 @@ Sub class_edit()
 <td width='40%' align=center></td><td width='60%'></td>
 </tr>
 <tr height=30>
-<td align=center>è®ºå›åˆ†ç±»åç§°ï¼š</td> 
+<td align=center>ÂÛÌ³·ÖÀàÃû³Æ£º</td> 
 <td><input type=text name=class_name value='<% = rs("class_name") %>' size=20 maxlength=20></td> 
 </tr>
 <tr height=30> 
-<td colspan=2 align=center height=30><input type=submit value=' æ äº¤ ä¿® æ”¹ '></td>
+<td colspan=2 align=center height=30><input type=submit value=' Ìá ½» ĞŞ ¸Ä '></td>
 </form>
 </tr><%
     End If
@@ -118,7 +118,7 @@ Sub class_edit()
     rs.Close:Set rs = Nothing %></table><%
 End Sub
 
-Sub class_add() %><font class=red>æ·»åŠ è®ºå›åˆ†ç±»</font><br><br><br>
+Sub class_add() %><font class=red>Ìí¼ÓÂÛÌ³·ÖÀà</font><br><br><br>
 <table border=0 width=300>
 <%
 
@@ -130,7 +130,7 @@ Sub class_add() %><font class=red>æ·»åŠ è®ºå›åˆ†ç±»</font><br><br><br>
         class_name = code_form(Request.form("class_name"))
 
         If class_name = "" Then
-            Response.Write( VbCrLf & "<tr><td height=80 align=center><font class=red_2>è®ºå›åˆ†ç±»åç§°ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back & "</td></tr>")
+            Response.Write( VbCrLf & "<tr><td height=80 align=center><font class=red_2>ÂÛÌ³·ÖÀàÃû³Æ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back & "</td></tr>")
         Else
             Set rs = Server.CreateObject("adodb.recordset")
             strsql = "Select top 1 * from bbs_class order by class_order desc"
@@ -150,7 +150,7 @@ Sub class_add() %><font class=red>æ·»åŠ è®ºå›åˆ†ç±»</font><br><br><br>
             rs("class_order") = class_order
             rs("class_name") = class_name
             rs.update
-            Response.Write( VbCrLf & "<tr><td height=80 align=center>æˆåŠŸçš„æ·»åŠ äº†è®ºå›åˆ†ç±»ï¼š<font class=red>" & class_name & "</font></td></tr>")
+            Response.Write( VbCrLf & "<tr><td height=80 align=center>³É¹¦µÄÌí¼ÓÁËÂÛÌ³·ÖÀà£º<font class=red>" & class_name & "</font></td></tr>")
             rs.Close:Set rs = Nothing
         End If
 
@@ -160,11 +160,11 @@ Sub class_add() %><font class=red>æ·»åŠ è®ºå›åˆ†ç±»</font><br><br><br>
 <td width='40%' align=center></td><td width='60%'></td>
 </tr>
 <tr height=30>
-<td align=center>è®ºå›åˆ†ç±»åç§°ï¼š</td> 
+<td align=center>ÂÛÌ³·ÖÀàÃû³Æ£º</td> 
 <td><input type=text name=class_name size=20 maxlength=20></td> 
 </tr>
 <tr height=30> 
-<td colspan=2 align=center height=30><input type=submit value=' æ äº¤ æ·» åŠ  '></td>
+<td colspan=2 align=center height=30><input type=submit value=' Ìá ½» Ìí ¼Ó '></td>
 </form>
 </tr><%
     End If %></table><%
@@ -195,7 +195,7 @@ Sub forum_edit()
             End If
 
             classname = rs("class_name")
-            rs.Close:Set rs = Nothing %><font class=red>ä¿®æ”¹è®ºå›</font>ï¼ˆ<font class=blue_1><% = classname %></font>ï¼‰<br><br><br>
+            rs.Close:Set rs = Nothing %><font class=red>ĞŞ¸ÄÂÛÌ³</font>£¨<font class=blue_1><% = classname %></font>£©<br><br><br>
 <table border=0 width=400><%
             Set rs    = Server.CreateObject("adodb.recordset")
             strsql    = "Select * from bbs_forum where forum_id=" & forumid
@@ -205,7 +205,7 @@ Sub forum_edit()
                 forum_name = code_form(Request.form("forum_name"))
 
                 If forum_name = "" Then
-                    Response.Write( VbCrLf & "<tr><td height=80 align=center><font class=red_2>è®ºå›åç§°ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back & "</td></tr>")
+                    Response.Write( VbCrLf & "<tr><td height=80 align=center><font class=red_2>ÂÛÌ³Ãû³Æ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back & "</td></tr>")
                 Else
                     rs("class_id")     = classid
                     rs("forum_name")     = forum_name
@@ -221,17 +221,17 @@ Sub forum_edit()
                     rs("forum_remark")     = Request.form("forum_remark")
                     rs("forum_power")     = code_form(Request.form("forum_power"))
                     rs.update
-                    Response.Write( VbCrLf & "<tr><td height=80 align=center>æˆåŠŸçš„ä¿®æ”¹äº†è®ºå›ï¼š<font class=red>" & forum_name & "</font></td></tr>")
+                    Response.Write( VbCrLf & "<tr><td height=80 align=center>³É¹¦µÄĞŞ¸ÄÁËÂÛÌ³£º<font class=red>" & forum_name & "</font></td></tr>")
                 End If
 
             Else %><form method=post action='admin_forum.asp?action=forum_edit&forum_id=<% = forumid %>&edit=ok'>
 <tr><td width='20%' align=center></td><td width='80%'></td></tr>
 <tr height=30>
-<td align=center>è®ºå›åç§°ï¼š</td> 
+<td align=center>ÂÛÌ³Ãû³Æ£º</td> 
 <td><input type=text name=forum_name value='<% = rs("forum_name") %>' size=30 maxlength=20></td> 
 </tr>
 <tr height=30>
-<td align=center>æ‰€å±åˆ†ç±»ï¼š</td> 
+<td align=center>ËùÊô·ÖÀà£º</td> 
 <td><select name=class_id size=1>
 <%
                 Dim crs
@@ -257,15 +257,15 @@ Sub forum_edit()
 </select></td> 
 </tr>
 <tr>
-<td align=center>è®ºå›è¯´æ˜ï¼š</td> 
+<td align=center>ÂÛÌ³ËµÃ÷£º</td> 
 <td><textarea name=forum_remark rows=5 cols=50><% = rs("forum_remark") %></textarea></td> 
 </tr>
 <tr>
-<td align=center>è®ºå›å›¾ç‰‡ï¼š</td> 
+<td align=center>ÂÛÌ³Í¼Æ¬£º</td> 
 <td><input type=text name=forum_pic value='<% = rs("forum_pic") %>' size=30 maxlength=50></td> 
 </tr>
 <tr>
-<td align=center>è®ºå›ç±»å‹ï¼š</td> 
+<td align=center>ÂÛÌ³ÀàĞÍ£º</td> 
 <td><select name=forum_type size=1>
 <%
                 Dim tdim
@@ -279,13 +279,13 @@ Sub forum_edit()
                 Next
 
                 Erase tdim %>
-</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;æ˜¯å¦å¼€æ”¾ï¼š<input type=checkbox name=forum_hidden value='no'<% If rs("forum_hidden") = False Then Response.Write " checked" %>>&nbsp;ï¼ˆé€‰ä¸Šä¸ºå¼€æ”¾ï¼‰</td> 
+</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ÊÇ·ñ¿ª·Å£º<input type=checkbox name=forum_hidden value='no'<% If rs("forum_hidden") = False Then Response.Write " checked" %>>&nbsp;£¨Ñ¡ÉÏÎª¿ª·Å£©</td> 
 </tr>
 <tr height=50>
-<td align=center>è®ºå›ç‰ˆä¸»ï¼š<br><br></td> 
-<td><input type=text name=forum_power value='<% = rs("forum_power") %>' size=50 maxlength=50><br>å¤šä¸ªè¯·ç”¨â€œ|â€åˆ†å¼€ï¼Œå¦‚ï¼šâ€œç¬¼æ°‘|apple|5271â€</td> 
+<td align=center>ÂÛÌ³°æÖ÷£º<br><br></td> 
+<td><input type=text name=forum_power value='<% = rs("forum_power") %>' size=50 maxlength=50><br>¶à¸öÇëÓÃ¡°|¡±·Ö¿ª£¬Èç£º¡°ÁıÃñ|apple|5271¡±</td> 
 </tr>
-<tr height=30><td colspan=2 align=center height=30><input type=submit value=' æ äº¤ ä¿® æ”¹ '></td></tr>
+<tr height=30><td colspan=2 align=center height=30><input type=submit value=' Ìá ½» ĞŞ ¸Ä '></td></tr>
 </form><%
             End If %></table><%
         End Sub
@@ -314,7 +314,7 @@ Sub forum_edit()
                     End If
 
                     classname      = rs("class_name")
-                    rs.Close:Set rs = Nothing %><font class=red>æ·»åŠ è®ºå›</font>ï¼ˆ<font class=blue_1><% = classname %></font>ï¼‰<br><br><br>
+                    rs.Close:Set rs = Nothing %><font class=red>Ìí¼ÓÂÛÌ³</font>£¨<font class=blue_1><% = classname %></font>£©<br><br><br>
 <table border=0 width=400>
 <%
 
@@ -322,7 +322,7 @@ Sub forum_edit()
                         forum_name = code_form(Request.form("forum_name"))
 
                         If forum_name = "" Then
-                            Response.Write( VbCrLf & "<tr><td height=80 align=center><font class=red_2>è®ºå›åç§°ä¸èƒ½ä¸ºç©ºï¼</font><br><br>" & go_back & "</td></tr>")
+                            Response.Write( VbCrLf & "<tr><td height=80 align=center><font class=red_2>ÂÛÌ³Ãû³Æ²»ÄÜÎª¿Õ£¡</font><br><br>" & go_back & "</td></tr>")
                         Else
                             Set rs = Server.CreateObject("adodb.recordset")
                             strsql = "Select top 1 * from bbs_forum where class_id=" & classid & " order by forum_order desc"
@@ -350,7 +350,7 @@ Sub forum_edit()
                             rs("forum_data_num") = 0
                             rs("forum_new_info") = "|||"
                             rs.update
-                            Response.Write( VbCrLf & "<tr><td height=80 align=center>æˆåŠŸçš„æ·»åŠ äº†è®ºå›ï¼š<font class=red>" & forum_name & "</font></td></tr>")
+                            Response.Write( VbCrLf & "<tr><td height=80 align=center>³É¹¦µÄÌí¼ÓÁËÂÛÌ³£º<font class=red>" & forum_name & "</font></td></tr>")
                             rs.Close:Set rs = Nothing
                         End If
 
@@ -358,18 +358,18 @@ Sub forum_edit()
 <form method=post action='admin_forum.asp?action=forum_add&add=ok&class_id=<% = classid %>'>
 <tr><td width='20%' align=center></td><td width='80%'></td></tr>
 <tr height=30>
-<td align=center>è®ºå›åç§°ï¼š</td> 
+<td align=center>ÂÛÌ³Ãû³Æ£º</td> 
 <td><input type=text name=forum_name size=30 maxlength=20></td> 
 </tr>
 <tr>
-<td align=center>è®ºå›è¯´æ˜ï¼š</td> 
+<td align=center>ÂÛÌ³ËµÃ÷£º</td> 
 <td><textarea name=forum_remark rows=5 cols=50></textarea></td> 
 </tr>
 <tr height=50>
-<td align=center>è®ºå›ç‰ˆä¸»ï¼š<br><br></td> 
-<td><input type=text name=forum_power size=50 maxlength=50><br>å¤šä¸ªè¯·ç”¨â€œ|â€åˆ†å¼€ï¼Œå¦‚ï¼šâ€œç¬¼æ°‘|apple|5271â€</td> 
+<td align=center>ÂÛÌ³°æÖ÷£º<br><br></td> 
+<td><input type=text name=forum_power size=50 maxlength=50><br>¶à¸öÇëÓÃ¡°|¡±·Ö¿ª£¬Èç£º¡°ÁıÃñ|apple|5271¡±</td> 
 </tr>
-<tr height=30><td colspan=2 align=center height=30><input type=submit value=' æ äº¤ æ·» åŠ  '></td></tr>
+<tr height=30><td colspan=2 align=center height=30><input type=submit value=' Ìá ½» Ìí ¼Ó '></td></tr>
 </form><%
                     End If
 
@@ -380,7 +380,7 @@ Sub forum_edit()
 <table border=0>
 <form action='admin_forum.asp?action=mod' method=post>
 <input type=hidden name=modok value='ok'>
-<tr><td align=center height=50 colspan=4><font class=red>åˆå¹¶è®ºå›</font></td></tr>
+<tr><td align=center height=50 colspan=4><font class=red>ºÏ²¢ÂÛÌ³</font></td></tr>
 <%
 
                     If Trim(Request.form("modok")) = "ok" Then
@@ -393,24 +393,24 @@ Sub forum_edit()
                         sel2 = Trim(Request.form("sel_2"))
 
                         If Not(IsNumeric(sel1)) Or Not(IsNumeric(sel2)) Then
-                            Response.Write "<font class=red_2>æ‚¨æ²¡æœ‰é€‰æ‹©è¦åˆå¹¶çš„è®ºå›ï¼</font>"
+                            Response.Write "<font class=red_2>ÄúÃ»ÓĞÑ¡ÔñÒªºÏ²¢µÄÂÛÌ³£¡</font>"
                         Else
                             sql = "update bbs_topic set forum_id=" & Int(sel2) & " where forum_id=" & Int(sel1)
                             conn.execute(sql)
                             sql = "update bbs_data set forum_id=" & Int(sel2) & " where forum_id=" & Int(sel1)
                             conn.execute(sql)
-                            Response.Write "<font class=red_3>è®ºå›åˆå¹¶æˆåŠŸï¼</font>"
+                            Response.Write "<font class=red_3>ÂÛÌ³ºÏ²¢³É¹¦£¡</font>"
                         End If
 
                         Response.Write "</td></tr>"
                     End If %>
 <tr height=50>
-<td>ä»</td>
+<td>´Ó</td>
 <td><select name=sel_1><% Call forum_list() %></select></td>
-<td>åˆå¹¶åˆ°</td>
+<td>ºÏ²¢µ½</td>
 <td><select name=sel_2><% Call forum_list() %></select></td>
 </tr>
-<tr><td align=center height=50 colspan=4><input type=submit value='å¼€å§‹åˆå¹¶'></td></tr>
+<tr><td align=center height=50 colspan=4><input type=submit value='¿ªÊ¼ºÏ²¢'></td></tr>
 </form>
 </table>
 <%
@@ -427,16 +427,16 @@ Sub forum_edit()
                     If Not(rsclass.bof And rsclass.eof) Then
 
                         Do While Not rsclass.eof
-                            Response.Write vbcrlf & "<option class=bg_2>â•‹ " & rsclass("class_name") & "</option>"
+                            Response.Write vbcrlf & "<option class=bg_2>©ï " & rsclass("class_name") & "</option>"
                             strsqlboard = "select forum_id,forum_name from bbs_forum where class_id=" & rsclass("class_id") & " order by forum_order"
                             Set rsboard = conn.execute(strsqlboard)
 
                             If rsboard.eof And rsboard.bof Then
-                                Response.Write vbcrlf & "<option>æ²¡æœ‰è®ºå›</option>"
+                                Response.Write vbcrlf & "<option>Ã»ÓĞÂÛÌ³</option>"
                             Else
 
                                 Do While Not rsboard.eof
-                                    Response.Write vbcrlf & "<option value='" & rsboard("forum_id") & "'>ã€€â”œ" & rsboard("forum_name") & "</option>"
+                                    Response.Write vbcrlf & "<option value='" & rsboard("forum_id") & "'>¡¡©À" & rsboard("forum_name") & "</option>"
                                     rsboard.movenext
                                 Loop
 
@@ -463,24 +463,24 @@ Sub forum_edit()
                     Set rsclass = conn.execute(strsqlclass)
 
                     If rsclass.bof And rsclass.eof Then
-                        Response.Write vbcrlf & "<tr><td align=center height=200><font class=red_2>ç°åœ¨å¥½åƒè¿˜æ²¡æœ‰è®ºå›åˆ†ç±»ï¼</font></td></tr>"
+                        Response.Write vbcrlf & "<tr><td align=center height=200><font class=red_2>ÏÖÔÚºÃÏñ»¹Ã»ÓĞÂÛÌ³·ÖÀà£¡</font></td></tr>"
                     Else
 
                         Do While Not rsclass.eof
                             classid     = rsclass("class_id")
-                            Response.Write vbcrlf & "<tr height=20 bgcolor=#ffffff align=center><td align=left>" & img_small("fk2") & vbcrlf & "<font class=red_3><b>" & rsclass("class_name") & "</b></font></td><td><a href='admin_forum.asp?action=forum_add&class_id=" & classid & "'>æ·»åŠ è®ºå›</a></td><td><a href='admin_forum.asp?action=class_edit&class_id=" & classid & "'>ä¿®æ”¹</a></td><td><a href=""javascript:Do_del_class('" & classid & "');"">åˆ é™¤</a></td><td>æ’åºï¼š<a href='admin_class_order.asp?class_id=" & classid & "&action=up'>å‘ä¸Š</a> <a href='admin_class_order.asp?class_id=" & classid & "&action=down'>å‘ä¸‹</a></td></tr>"
+                            Response.Write vbcrlf & "<tr height=20 bgcolor=#ffffff align=center><td align=left>" & img_small("fk2") & vbcrlf & "<font class=red_3><b>" & rsclass("class_name") & "</b></font></td><td><a href='admin_forum.asp?action=forum_add&class_id=" & classid & "'>Ìí¼ÓÂÛÌ³</a></td><td><a href='admin_forum.asp?action=class_edit&class_id=" & classid & "'>ĞŞ¸Ä</a></td><td><a href=""javascript:Do_del_class('" & classid & "');"">É¾³ı</a></td><td>ÅÅĞò£º<a href='admin_class_order.asp?class_id=" & classid & "&action=up'>ÏòÉÏ</a> <a href='admin_class_order.asp?class_id=" & classid & "&action=down'>ÏòÏÂ</a></td></tr>"
                             strsqlboard = "select forum_id,forum_name,forum_power,forum_hidden from bbs_forum where class_id=" & classid & " order by forum_order"
                             Set rsboard = conn.execute(strsqlboard)
 
                             If rsboard.eof And rsboard.bof Then
-                                Response.Write vbcrlf & "<tr><td colspan=5><font class=gray>ã€€ã€€æœ¬åˆ†ç±»è¿˜æ²¡æœ‰è®ºå›</font></td></tr>"
+                                Response.Write vbcrlf & "<tr><td colspan=5><font class=gray>¡¡¡¡±¾·ÖÀà»¹Ã»ÓĞÂÛÌ³</font></td></tr>"
                             Else
 
                                 Do While Not rsboard.eof
                                     forumid = rsboard("forum_id"):forumname = rsboard("forum_name")
-                                    Response.Write vbcrlf & "<tr align=center><td align=left>ã€€ã€€<font class=blue><b>" & forumname & "</b></font>"
-                                    If rsboard("forum_hidden") = True Then Response.Write " <font class=gray>éšè—</font>"
-                                    Response.Write "</td><td align=left>ï¼ˆç‰ˆä¸»ï¼š" & rsboard("forum_power") & "ï¼‰</td><td><a href='admin_forum.asp?action=forum_edit&class_id=" & classid & "&forum_id=" & forumid & "'>ç¼–è¾‘</a></td><td><a href=""javascript:Do_del_forum(" & forumid & ");"">åˆ é™¤</a></td><td>æ’åºï¼š<a href='admin_forum_order.asp?forum_id=" & forumid & "&class_id=" & classid & "&action=up'>å‘ä¸Š</a> <a href='admin_forum_order.asp?forum_id=" & forumid & "&class_id=" & classid & "&action=down'>å‘ä¸‹</a></td></tr>"
+                                    Response.Write vbcrlf & "<tr align=center><td align=left>¡¡¡¡<font class=blue><b>" & forumname & "</b></font>"
+                                    If rsboard("forum_hidden") = True Then Response.Write " <font class=gray>Òş²Ø</font>"
+                                    Response.Write "</td><td align=left>£¨°æÖ÷£º" & rsboard("forum_power") & "£©</td><td><a href='admin_forum.asp?action=forum_edit&class_id=" & classid & "&forum_id=" & forumid & "'>±à¼­</a></td><td><a href=""javascript:Do_del_forum(" & forumid & ");"">É¾³ı</a></td><td>ÅÅĞò£º<a href='admin_forum_order.asp?forum_id=" & forumid & "&class_id=" & classid & "&action=up'>ÏòÉÏ</a> <a href='admin_forum_order.asp?forum_id=" & forumid & "&class_id=" & classid & "&action=down'>ÏòÏÂ</a></td></tr>"
                                     rsboard.movenext
                                 Loop
 
@@ -492,19 +492,19 @@ Sub forum_edit()
                     End If
 
                     Set rsclass = Nothing:Set rsboard = Nothing %>
-<tr><td align=center height=30 colspan=5><a href='admin_forum.asp?action=class_add'>æ·»åŠ è®ºå›åˆ†ç±»</a></td></tr>
+<tr><td align=center height=30 colspan=5><a href='admin_forum.asp?action=class_add'>Ìí¼ÓÂÛÌ³·ÖÀà</a></td></tr>
 </table>
 <script language=JavaScript>
 <!--
 function Do_del_class(data1)
 {
-if (confirm("æ­¤æ“ä½œå°†åˆ é™¤idä¸º "+data1+" çš„è®ºå›åˆ†ç±»ï¼\n\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\n\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+if (confirm("´Ë²Ù×÷½«É¾³ıidÎª "+data1+" µÄÂÛÌ³·ÖÀà£¡\n\nÕæµÄÒªÉ¾³ıÂğ£¿\n\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
   window.location="admin_forum.asp?action=del_class&class_id="+data1
 }
 
 function Do_del_forum(data1)
 {
-if (confirm("æ­¤æ“ä½œå°†åˆ é™¤idä¸º "+data1+" çš„è®ºå›ï¼\n\nçœŸçš„è¦åˆ é™¤å—ï¼Ÿ\n\nåˆ é™¤åå°†æ— æ³•æ¢å¤ï¼"))
+if (confirm("´Ë²Ù×÷½«É¾³ıidÎª "+data1+" µÄÂÛÌ³£¡\n\nÕæµÄÒªÉ¾³ıÂğ£¿\n\nÉ¾³ıºó½«ÎŞ·¨»Ö¸´£¡"))
   window.location="admin_forum.asp?action=del_forum&forum_id="+data1
 }
 //-->
@@ -539,7 +539,7 @@ if (confirm("æ­¤æ“ä½œå°†åˆ é™¤idä¸º "+data1+" çš„è®ºå›ï¼\n\nçœŸçš„è¦åˆ é™¤å
 
                         sql = "delete from bbs_forum where class_id=" & classid
                         conn.execute(sql)
-                        Response.Write "<script language=javascript>alert(""å·²æˆåŠŸèƒ½åˆ é™¤äº†ä¸€ä¸ªè®ºå›åˆ†ç±»ï¼\n\nï¼ˆåŒ…æ‹¬å…¶æ‰€å±çš„è®ºå›çš„è´´å­ï¼‰"");</script>"
+                        Response.Write "<script language=javascript>alert(""ÒÑ³É¹¦ÄÜÉ¾³ıÁËÒ»¸öÂÛÌ³·ÖÀà£¡\n\n£¨°üÀ¨ÆäËùÊôµÄÂÛÌ³µÄÌù×Ó£©"");</script>"
                         Call forum_main()
                     End Sub
 
@@ -560,6 +560,6 @@ if (confirm("æ­¤æ“ä½œå°†åˆ é™¤idä¸º "+data1+" çš„è®ºå›ï¼\n\nçœŸçš„è¦åˆ é™¤å
                             conn.execute(sql)
                             sql = "delete from bbs_data where forum_id=" & forumid
                             conn.execute(sql)
-                            Response.Write "<script language=javascript>alert(""å·²æˆåŠŸèƒ½åˆ é™¤äº†ä¸€ä¸ªè®ºå›ï¼\n\nï¼ˆåŒ…æ‹¬å…¶æ‰€å±çš„è´´å­ï¼‰"");</script>"
+                            Response.Write "<script language=javascript>alert(""ÒÑ³É¹¦ÄÜÉ¾³ıÁËÒ»¸öÂÛÌ³£¡\n\n£¨°üÀ¨ÆäËùÊôµÄÌù×Ó£©"");</script>"
                             Call forum_main()
                         End Sub %>

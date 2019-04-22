@@ -16,7 +16,7 @@ Dim pageurl
 Dim keyword
 Dim sea_type
 Dim sqladd2
-tit    = "鏂伴椈鍒嗙被娴忚"
+tit    = "新闻分类浏览"
 Call cid_sid()
 nummer = Int(web_var(web_num,2))
 

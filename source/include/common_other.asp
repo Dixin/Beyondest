@@ -1,5 +1,5 @@
 <%
 Dim web_font_family
 Dim web_font_size
-web_font_family = "Verdana, Arial, Helvetica, sans-serif, å®‹ä½“"
+web_font_family = "Verdana, Arial, Helvetica, sans-serif, ËÎÌå"
 web_font_size = "9pt" %>

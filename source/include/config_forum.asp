@@ -34,7 +34,7 @@ index_url    = "forum"
 tit_fir      = format_menu(index_url)
 ptnums       = web_var_num(web_setup,6,1)
 
-'-------------------------------------åˆå§‹åŒ– 1--------------------------------------
+'-------------------------------------³õÊ¼»¯ 1--------------------------------------
 Sub forum_first()
     sql    = "select forum_name,forum_power,forum_topic_num,forum_data_num,forum_type " & _
     "from bbs_forum where forum_id=" & forumid & " and forum_hidden=0"
@@ -52,30 +52,30 @@ Sub forum_first()
     page_power    = format_forum_type(forumtype,0)
 End Sub
 
-'-------------------------------------è®ºå›æ ‡å¤´--------------------------------------
+'-------------------------------------ÂÛÌ³±êÍ·--------------------------------------
 Function forum_top(ft)
     forum_top = vbcrlf & ukong & forum_table1 & _
     vbcrlf & "<tr " & forum_table2 & ">" & _
     vbcrlf & "<td width='70%'>&nbsp;&nbsp;" & _
-    vbcrlf & "è®¨è®ºåŒºï¼š<a href='forum_list.asp?forum_id=" & forumid & "'>" & forumname & "</a> &nbsp;- &nbsp;" & ft & "<font class=gray>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ã€<a href='forum_list.asp?forum_id=" & forumid & "&action=isgood'>æœ¬ç‰ˆç²¾å</a>ã€‘&nbsp;ã€<a href='forum_list.asp?forum_id=" & forumid & "&action=manage'>ç‰ˆé¢ç®¡ç†</a>ã€‘</font></td>" & _
-    vbcrlf & "<td align=right>ç‰ˆä¸»ï¼š" & forum_power(forumpower,ptnums) & "&nbsp;" & _
+    vbcrlf & "ÌÖÂÛÇø£º<a href='forum_list.asp?forum_id=" & forumid & "'>" & forumname & "</a> &nbsp;- &nbsp;" & ft & "<font class=gray>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¡¾<a href='forum_list.asp?forum_id=" & forumid & "&action=isgood'>±¾°æ¾«»ª</a>¡¿&nbsp;¡¾<a href='forum_list.asp?forum_id=" & forumid & "&action=manage'>°æÃæ¹ÜÀí</a>¡¿</font></td>" & _
+    vbcrlf & "<td align=right>°æÖ÷£º" & forum_power(forumpower,ptnums) & "&nbsp;" & _
     vbcrlf & "</td>" & _
     vbcrlf & "</tr></table>" & _
     vbcrlf & "" & ukong
 End Function
 
-'-------------------------------------æ•°æ®ç”Ÿæˆ--------------------------------------
+'-------------------------------------Êı¾İÉú³É--------------------------------------
 Sub forum_word()
     word_size   = web_var(web_num,6)
-    word_remark = web_var(web_error,3) & "<br>é•¿åº¦<=" & word_size & "KB"
+    word_remark = web_var(web_error,3) & "<br>³¤¶È<=" & word_size & "KB"
 End Sub
 
-'-------------------------------------è®ºå›ç‰ˆä¸»--------------------------------------
+'-------------------------------------ÂÛÌ³°æÖ÷--------------------------------------
 Function forum_power(forum_admin,ft)
     Dim forumadmin
     Dim k
-    forum_power = "<img src='images/small/forum_power.gif' title='è®ºå›ç‰ˆä¸»' align=absmiddle border=0>&nbsp;"
-    If ft = 0 Then forum_power = forum_power & "<select onchange=""if(this.options[this.selectedIndex].value!=''){location=this.options[this.selectedIndex].value;}""><option>æœ¬ç‰ˆç‰ˆä¸»</option><option>--------</option>"
+    forum_power = "<img src='images/small/forum_power.gif' title='ÂÛÌ³°æÖ÷' align=absmiddle border=0>&nbsp;"
+    If ft = 0 Then forum_power = forum_power & "<select onchange=""if(this.options[this.selectedIndex].value!=''){location=this.options[this.selectedIndex].value;}""><option>±¾°æ°æÖ÷</option><option>--------</option>"
 
     If forum_admin <> "" And Not IsNull(forum_admin) Then
         forumadmin = Split(forum_admin, "|")
@@ -85,7 +85,7 @@ Function forum_power(forum_admin,ft)
             If ft = 0 Then
                 forum_power = forum_power & "<option value='user_view.asp?username=" & Server.urlencode(forumadmin(k)) & "'>" & forumadmin(k) & "</option>"
             Else
-                forum_power = forum_power & "<a href='user_view.asp?username=" & Server.urlencode(forumadmin(k)) & "' title='æŸ¥çœ‹ï¼ˆç‰ˆä¸»ï¼‰" & forumadmin(k) & " çš„è¯¦ç»†èµ„æ–™' target=_blank>" & forumadmin(k) & "</a>&nbsp;"
+                forum_power = forum_power & "<a href='user_view.asp?username=" & Server.urlencode(forumadmin(k)) & "' title='²é¿´£¨°æÖ÷£©" & forumadmin(k) & " µÄÏêÏ¸×ÊÁÏ' target=_blank>" & forumadmin(k) & "</a>&nbsp;"
             End If
 
         Next
@@ -94,9 +94,9 @@ Function forum_power(forum_admin,ft)
     Else
 
         If ft = 0 Then
-            forum_power = forum_power & "<option>è¿˜æ²¡å‘¢</option>"
+            forum_power = forum_power & "<option>»¹Ã»ÄØ</option>"
         Else
-            forum_power = forum_power & "<font class=gray>è¿˜æ²¡å‘¢&nbsp;</font>"
+            forum_power = forum_power & "<font class=gray>»¹Ã»ÄØ&nbsp;</font>"
         End If
 
     End If
@@ -104,7 +104,7 @@ Function forum_power(forum_admin,ft)
     If ft = 0 Then forum_power = forum_power & "</select>"
 End Function
 
-'-------------------------------------è®ºå›ç­‰çº§--------------------------------------
+'-------------------------------------ÂÛÌ³µÈ¼¶--------------------------------------
 Function format_forum_type(fvars,ft)
     Dim fdim
     Dim fvar:fvar = fvars - 1:format_forum_type = ""
@@ -123,10 +123,10 @@ Function format_forum_type(fvars,ft)
     Erase fdim
 End Function
 
-'-----------------------------------ä¸»é¢˜è½¬ç§»æ“ä½œ------------------------------------
+'-----------------------------------Ö÷Ìâ×ªÒÆ²Ù×÷------------------------------------
 Sub forum_moved(fid,vid)
 
-    If Not(IsNumeric(fid)) Or Not(IsNumeric(vid)) Or login_mode <> format_power2(1,1) Then Response.Write "<script language=javascript>alert(""è½¬ç§»ä¸»é¢˜å¤±è´¥ï¼š\n\nå¯èƒ½æ˜¯æ‚¨è¿›è¡Œäº†ä¸é€‚åˆçš„æ“ä½œï¼"");</script>":Exit Sub
+    If Not(IsNumeric(fid)) Or Not(IsNumeric(vid)) Or login_mode <> format_power2(1,1) Then Response.Write "<script language=javascript>alert(""×ªÒÆÖ÷ÌâÊ§°Ü£º\n\n¿ÉÄÜÊÇÄú½øĞĞÁË²»ÊÊºÏµÄ²Ù×÷£¡"");</script>":Exit Sub
         Dim frs
         Dim fsql
         fsql    = "select forum_id from bbs_topic where id=" & vid
@@ -143,10 +143,10 @@ Sub forum_moved(fid,vid)
             conn.execute(fsql)
             fsql = "update bbs_data set forum_id=" & fid & " where reply_id=" & vid
             conn.execute(fsql)
-            Response.Write "<script language=javascript>alert(""è½¬ç§»ä¸»é¢˜æˆåŠŸï¼"");</script>"
+            Response.Write "<script language=javascript>alert(""×ªÒÆÖ÷Ìâ³É¹¦£¡"");</script>"
         End Sub
 
-        '-------------------------------------ä¸»é¢˜è½¬ç§»--------------------------------------
+        '-------------------------------------Ö÷Ìâ×ªÒÆ--------------------------------------
 
         Function forum_move(fmfid,fmid)
             Dim rsclass
@@ -155,26 +155,26 @@ Sub forum_moved(fid,vid)
             Dim strsqlboard
             Dim fid
             forum_move  = vbcrlf & "<select onchange=""if(this.options[this.selectedIndex].value!=''){location=this.options[this.selectedIndex].value;}"">" & _
-            vbcrlf & "<option selected>å°†æ­¤ä¸»é¢˜è½¬ç§»è‡³...</option>"
+            vbcrlf & "<option selected>½«´ËÖ÷Ìâ×ªÒÆÖÁ...</option>"
             strsqlclass = "select class_id,class_name from bbs_class order by class_order"
             Set rsclass = conn.execute(strsqlclass)
 
             If Not(rsclass.bof And rsclass.eof) Then
 
                 Do While Not rsclass.eof
-                    forum_move     = forum_move & vbcrlf & "<option class=bg_2>â•‹ " & rsclass("class_name") & "</option>"
+                    forum_move     = forum_move & vbcrlf & "<option class=bg_2>©ï " & rsclass("class_name") & "</option>"
                     strsqlboard    = "select forum_id,forum_name from bbs_forum where class_id=" & rsclass("class_id") & " and forum_hidden=0 order by forum_order"
                     Set rsboard    = conn.execute(strsqlboard)
 
                     If rsboard.eof And rsboard.bof Then
-                        forum_move = forum_move & vbcrlf & "<option>æ²¡æœ‰è®ºå›</option>"
+                        forum_move = forum_move & vbcrlf & "<option>Ã»ÓĞÂÛÌ³</option>"
                     Else
 
                         Do While Not rsboard.eof
                             fid        = rsboard("forum_id")
                             forum_move = forum_move & vbcrlf & "<option"
                             If Int(fid) <> Int(fmfid) Then  forum_move = forum_move & " value='forum_list.asp?action=move&view_id=" & fmid & "&forum_id=" & fid & "'"
-                            forum_move = forum_move & ">ã€€â”œ" & rsboard("forum_name") & "</option>"
+                            forum_move = forum_move & ">¡¡©À" & rsboard("forum_name") & "</option>"
                             rsboard.movenext
                         Loop
 
@@ -189,7 +189,7 @@ Sub forum_moved(fid,vid)
             forum_move  = forum_move & vbcrlf & "</select>"
         End Function
 
-        '-------------------------------------è®ºå›è·³è½¬--------------------------------------
+        '-------------------------------------ÂÛÌ³Ìø×ª--------------------------------------
 
         Function forum_go()
             Dim rsclass
@@ -197,23 +197,23 @@ Sub forum_moved(fid,vid)
             Dim rsboard
             Dim strsqlboard
             forum_go    = vbcrlf & "<select onchange=""if(this.options[this.selectedIndex].value!=''){location=this.options[this.selectedIndex].value;}"">" & _
-            vbcrlf & "<option selected>å¿«é€Ÿè·³è½¬è®ºå›è‡³...</option>"
+            vbcrlf & "<option selected>¿ìËÙÌø×ªÂÛÌ³ÖÁ...</option>"
             strsqlclass = "select class_id,class_name from bbs_class order by class_order"
             Set rsclass = conn.execute(strsqlclass)
 
             If Not(rsclass.bof And rsclass.eof) Then
 
                 Do While Not rsclass.eof
-                    forum_go     = forum_go & vbcrlf & "<option class=bg_2>â•‹ " & rsclass("class_name") & "</option>"
+                    forum_go     = forum_go & vbcrlf & "<option class=bg_2>©ï " & rsclass("class_name") & "</option>"
                     strsqlboard  = "select forum_id,forum_name from bbs_forum where class_id=" & rsclass("class_id") & " and forum_hidden=0 order by forum_order"
                     Set rsboard  = conn.execute(strsqlboard)
 
                     If rsboard.eof And rsboard.bof Then
-                        forum_go = forum_go & vbcrlf & "<option>æ²¡æœ‰è®ºå›</option>"
+                        forum_go = forum_go & vbcrlf & "<option>Ã»ÓĞÂÛÌ³</option>"
                     Else
 
                         Do While Not rsboard.eof
-                            forum_go = forum_go & vbcrlf & "<option value='forum_list.asp?forum_id=" & rsboard("forum_id") & "'>ã€€â”œ" & rsboard("forum_name") & "</option>"
+                            forum_go = forum_go & vbcrlf & "<option value='forum_list.asp?forum_id=" & rsboard("forum_id") & "'>¡¡©À" & rsboard("forum_name") & "</option>"
                             rsboard.movenext
                         Loop
 
@@ -225,17 +225,17 @@ Sub forum_moved(fid,vid)
             End If
 
             Set rsclass = Nothing:Set rsboard = Nothing
-            forum_go    = forum_go & vbcrlf & "<option class=bg_2>â€”â€”â€”â€”â€”â€”â€”â€”</option>" & _
-            vbcrlf & "<option value='forum.asp' class=bg_1>" & tit_fir & "é¦–é¡µ</option>" & _
-            vbcrlf & "<option class=bg_2>â€”â€”â€”â€”â€”â€”â€”â€”</option>" & _
-            vbcrlf & "<option value='forum_action.asp?action=new'>ã€€â™€ è®ºå›æ–°è´´</option>" & _
-            vbcrlf & "<option value='forum_action.asp?action=tim'>ã€€â™€ å›å¤æ–°è´´</option>" & _
-            vbcrlf & "<option value='user_action.asp?action=list'>ã€€â™€ ç”¨æˆ·åˆ—è¡¨</option>" & _
-            vbcrlf & "<option value='help.asp?action=forum'>ã€€â™€ è®ºå›å¸®åŠ©</option>" & _
+            forum_go    = forum_go & vbcrlf & "<option class=bg_2>¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª</option>" & _
+            vbcrlf & "<option value='forum.asp' class=bg_1>" & tit_fir & "Ê×Ò³</option>" & _
+            vbcrlf & "<option class=bg_2>¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª</option>" & _
+            vbcrlf & "<option value='forum_action.asp?action=new'>¡¡¡â ÂÛÌ³ĞÂÌù</option>" & _
+            vbcrlf & "<option value='forum_action.asp?action=tim'>¡¡¡â »Ø¸´ĞÂÌù</option>" & _
+            vbcrlf & "<option value='user_action.asp?action=list'>¡¡¡â ÓÃ»§ÁĞ±í</option>" & _
+            vbcrlf & "<option value='help.asp?action=forum'>¡¡¡â ÂÛÌ³°ïÖú</option>" & _
             vbcrlf & "</select>"
         End Function
 
-        '-------------------------------------ä¸»é¢˜åˆ†é¡µ--------------------------------------
+        '-------------------------------------Ö÷Ìâ·ÖÒ³--------------------------------------
 
         Function index_pagecute(viewurl,replynum,pagecutenum,pagecutecolor)
             Dim pagecutepage
@@ -252,22 +252,22 @@ Sub forum_moved(fid,vid)
 
                 For pagecutei = 2 To 3
                     If pagecutei > pagecutepage Then Exit For
-                    index_pagecute = index_pagecute & vbcrlf & "<a href='" & viewurl & "&page=" & pagecutei & "'><font color='" & pagecutecolor & "' title='ç¬¬ " & pagecutei & " é¡µ'>[" & pagecutei & "]</font></a>"
+                    index_pagecute = index_pagecute & vbcrlf & "<a href='" & viewurl & "&page=" & pagecutei & "'><font color='" & pagecutecolor & "' title='µÚ " & pagecutei & " Ò³'>[" & pagecutei & "]</font></a>"
                 Next
 
                 If pagecutepage > 3 Then
 
                     If pagecutepage = 4 Then
-                        index_pagecute = index_pagecute & vbcrlf & "<a href='" & viewurl & "&page=4'><font color='" & pagecutecolor & "' title='ç¬¬ 4 é¡µ'>[4]</font></a>"
+                        index_pagecute = index_pagecute & vbcrlf & "<a href='" & viewurl & "&page=4'><font color='" & pagecutecolor & "' title='µÚ 4 Ò³'>[4]</font></a>"
                     Else
-                        index_pagecute = index_pagecute & vbcrlf & "<font color='" & pagecutecolor & "'>â€¦ </font>" & "<a href='" & viewurl & "&page=" & pagecutepage & "'><font color='" & pagecutecolor & "' title='ç¬¬ " & pagecutepage & " é¡µ'>[" & pagecutepage & "]</font></a>"
+                        index_pagecute = index_pagecute & vbcrlf & "<font color='" & pagecutecolor & "'>¡­ </font>" & "<a href='" & viewurl & "&page=" & pagecutepage & "'><font color='" & pagecutecolor & "' title='µÚ " & pagecutepage & " Ò³'>[" & pagecutepage & "]</font></a>"
                     End If
 
                 End If
 
             End If
 
-            If Len(index_pagecute) > 1 Then index_pagecute = "<img src='images/small/page_head.gif' align=absMiddle alt='å¿«é€Ÿåˆ†é¡µ' border=0>" & index_pagecute
+            If Len(index_pagecute) > 1 Then index_pagecute = "<img src='images/small/page_head.gif' align=absMiddle alt='¿ìËÙ·ÖÒ³' border=0>" & index_pagecute
         End Function
 
         '---------------------------------------main----------------------------------------
@@ -288,23 +288,23 @@ Sub forum_moved(fid,vid)
             If online = "open" Or dt = 1 Then dts = 1
             If online = "close" Then dts = 0
             Response.Write forum_table1 %>
-<tr<% Response.Write forum_table2 %> height=25><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk4") %>&nbsp;<font class=end><b>è®ºå›å›¾ä¾‹</b></font></td></tr>
+<tr<% Response.Write forum_table2 %> height=25><td background=images/<% = web_var(web_config,5) %>/bar_3_bg.gif>&nbsp;<% Response.Write img_small("fk4") %>&nbsp;<font class=end><b>ÂÛÌ³Í¼Àı</b></font></td></tr>
 <tr<% Response.Write forum_table4 %>><td align=left height=30>&nbsp;&nbsp;<% Response.Write ip_sys(0,0) %></td></tr>
 <tr<% Response.Write forum_table4 %>><td align=left height=30>&nbsp;&nbsp;<% Response.Write user_power_type(0) %></td></tr>
 <tr<% Response.Write forum_table4 %>><td align=left>
   <table border=0 width='100%'>
-  <tr><td colspan=5>&nbsp;ç½‘ç«™å½“å‰ç”¨æˆ·åœ¨çº¿ï¼š<font class=red><%
+  <tr><td colspan=5>&nbsp;ÍøÕ¾µ±Ç°ÓÃ»§ÔÚÏß£º<font class=red><%
             sql    = "select count(l_id) from user_login where l_type=0"
             Set rs = conn.execute(sql)
             Response.Write rs(0)
             rs.Close
-            Response.Write "</font> äºº  [ <a href='?mode=" & forum_mode & "&online="
+            Response.Write "</font> ÈË  [ <a href='?mode=" & forum_mode & "&online="
 
             If dts = 0 Then
-                Response.Write "open'>æ‰“å¼€"
+                Response.Write "open'>´ò¿ª"
             Else
-                Response.Write "close'>å…³é—­"
-            End If %>åœ¨çº¿åˆ—è¡¨</a> ] </td></tr>
+                Response.Write "close'>¹Ø±Õ"
+            End If %>ÔÚÏßÁĞ±í</a> ] </td></tr>
 <% If dts <> 0 Then %>
   <tr><td width='20%'></td><td width='20%'></td><td width='20%'></td><td width='20%'></td><td width='20%'></td></tr>
 <%
@@ -317,7 +317,7 @@ Sub forum_moved(fid,vid)
                     For ui = 1 To 5
                         If rs.eof Then Exit For
                         l_username = rs("l_username")
-                        Response.Write "<td>&nbsp;" & img_small("icon_" & rs("power")) & "<a href='user_view.asp?username=" & Server.urlencode(l_username) & "' title='ç›®å‰ä½ç½®ï¼š" & rs("l_where") & "<br>æ¥è®¿æ—¶é—´ï¼š" & rs("l_tim_login") & "<br>æ´»åŠ¨æ—¶é—´ï¼š" & rs("l_tim_end") & "<br>" & ip_types(rs("l_ip"),l_username,0) & "<br>" & view_sys(rs("l_sys")) & "' target=_blank>" & l_username & "</a></td>"
+                        Response.Write "<td>&nbsp;" & img_small("icon_" & rs("power")) & "<a href='user_view.asp?username=" & Server.urlencode(l_username) & "' title='Ä¿Ç°Î»ÖÃ£º" & rs("l_where") & "<br>À´·ÃÊ±¼ä£º" & rs("l_tim_login") & "<br>»î¶¯Ê±¼ä£º" & rs("l_tim_end") & "<br>" & ip_types(rs("l_ip"),l_username,0) & "<br>" & view_sys(rs("l_sys")) & "' target=_blank>" & l_username & "</a></td>"
                         rs.movenext
                     Next
 
@@ -359,12 +359,12 @@ Sub forum_moved(fid,vid)
 
             Do While Not rs.eof
                 topic = rs("topic")
-                temp1 = temp1 & "<tr><td class=bw height=" & space_mod & ">" & njj & "<a href='update.asp?action=forum&id=" & rs("id") & "' target=_blank title='å…¬å‘Šæ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>ç®¡ ç† å‘˜ï¼š" & rs("username") & "<br>å‘å¸ƒæ—¶é—´ï¼š" & time_type(rs("tim"),88) & "'>" & code_html(topic,1,c_num) & "</a></td></tr>"
+                temp1 = temp1 & "<tr><td class=bw height=" & space_mod & ">" & njj & "<a href='update.asp?action=forum&id=" & rs("id") & "' target=_blank title='¹«¸æ±êÌâ£º" & code_html(topic,1,0) & "<br>¹Ü Àí Ô±£º" & rs("username") & "<br>·¢²¼Ê±¼ä£º" & time_type(rs("tim"),88) & "'>" & code_html(topic,1,c_num) & "</a></td></tr>"
                 rs.movenext
             Loop
 
             temp1 = temp1 & "</table>"
-            Response.Write format_barc("<font class=end><b>è®ºå›å…¬å‘Š</b></font>",temp1,2,0,7)
+            Response.Write format_barc("<font class=end><b>ÂÛÌ³¹«¸æ</b></font>",temp1,2,0,7)
         End Sub
 
         Sub forum_new(nh,nj,fid,n_num,c_num,tb)
@@ -382,12 +382,12 @@ Sub forum_moved(fid,vid)
 
             Do While Not rs.eof
                 topic = rs("topic")
-                temp1 = temp1 & "<tr><td class=bw height=" & space_mod & ">" & njj & "<a href='forum_view.asp?forum_id=" & rs("forum_id") & "&view_id=" & rs("id") & "'" & tbb & " title='è´´å­ä¸»é¢˜ï¼š" & code_html(topic,1,c_num) & "<br>å‘ è´´ äººï¼š" & rs("username") & "<br>å‘è´´æ—¶é—´ï¼š" & time_type(rs("tim"),88) & "<br>æœ€åå›å¤ï¼š" & rs("re_username") & "'>" & code_html(topic,1,c_num) & "</a></td></tr>"
+                temp1 = temp1 & "<tr><td class=bw height=" & space_mod & ">" & njj & "<a href='forum_view.asp?forum_id=" & rs("forum_id") & "&view_id=" & rs("id") & "'" & tbb & " title='Ìù×ÓÖ÷Ìâ£º" & code_html(topic,1,c_num) & "<br>·¢ Ìù ÈË£º" & rs("username") & "<br>·¢ÌùÊ±¼ä£º" & time_type(rs("tim"),88) & "<br>×îºó»Ø¸´£º" & rs("re_username") & "'>" & code_html(topic,1,c_num) & "</a></td></tr>"
                 rs.movenext
             Loop
 
             temp1 = temp1 & "</table>"
-            Response.Write format_barc("<font class=end><b>è®ºå›æ–°è´´</b></font>",temp1,2,0,8)
+            Response.Write format_barc("<font class=end><b>ÂÛÌ³ĞÂÌù</b></font>",temp1,2,0,8)
         End Sub
 
         Function forum_main(mh)
@@ -443,16 +443,16 @@ Sub forum_moved(fid,vid)
                     End If
 
                     Response.Write vbcrlf & "<tr" & format_table(3,1) & "><td width='10%' rowspan=2 align=center><img src='images/small/label_" & forum_type & ".gif' border=0></td>" & _
-                    vbcrlf & "<td width='24%' align=center height=20 " & forum_table2 & "><a href='forum_list.asp?forum_id=" & forumid & "'>ã€ " & forumname & " ã€</a></td>" & _
+                    vbcrlf & "<td width='24%' align=center height=20 " & forum_table2 & "><a href='forum_list.asp?forum_id=" & forumid & "'>¡º " & forumname & " ¡»</a></td>" & _
                     vbcrlf & "<td width='38%'" & forum_table2 & ">" & _
                     vbcrlf & "  <table border=0 width='100%'><tr align=center>" & _
-                    vbcrlf & "  <td width='45%'>è®ºå›ä¸»é¢˜æ•°&nbsp;&nbsp;<font class=red_3>" & rsforum("forum_topic_num") & "</font></td>" & _
-                    vbcrlf & "  <td width='45%'>è®ºå›è´´å­æ•°&nbsp;&nbsp;<font class=red_3>" & rsforum("forum_data_num") & "</font></td>" & _
-                    vbcrlf & "  <td width='10%'></td><td width='16%'><a href='forum_write.asp?forum_id=" & forumid & "'><img src='images/small/mini_write.gif' align=absmiddle title='å‘è¡¨ä¸»é¢˜' border=0></a></td></tr></table>" & _
+                    vbcrlf & "  <td width='45%'>ÂÛÌ³Ö÷ÌâÊı&nbsp;&nbsp;<font class=red_3>" & rsforum("forum_topic_num") & "</font></td>" & _
+                    vbcrlf & "  <td width='45%'>ÂÛÌ³Ìù×ÓÊı&nbsp;&nbsp;<font class=red_3>" & rsforum("forum_data_num") & "</font></td>" & _
+                    vbcrlf & "  <td width='10%'></td><td width='16%'><a href='forum_write.asp?forum_id=" & forumid & "'><img src='images/small/mini_write.gif' align=absmiddle title='·¢±íÖ÷Ìâ' border=0></a></td></tr></table>" & _
                     vbcrlf & "</td>" & _
-                    vbcrlf & "<td width='30%'" & forum_table2 & ">ç‰ˆä¸»ï¼š" & forum_power(rsforum("forum_power"),ptnums) & "</td></tr>" & _
+                    vbcrlf & "<td width='30%'" & forum_table2 & ">°æÖ÷£º" & forum_power(rsforum("forum_power"),ptnums) & "</td></tr>" & _
                     vbcrlf & "<tr" & format_table(3,1) & "><td colspan=2 align=center><table border=0 width='99%'><tr><td class=htd>" & code_html(rsforum("forum_remark"),2,0) & "</td>" & forum_pic & "</tr></table></td>" & _
-                    vbcrlf & "<td align=left valign=top class=htd>æ–°è´´ï¼š" & new_info_dim(3) & "<br>ä½œè€…ï¼š" & new_info_dim(0) & "<br>æ—¶é—´ï¼š" & new_info_dim(1) & "</td></tr>"
+                    vbcrlf & "<td align=left valign=top class=htd>ĞÂÌù£º" & new_info_dim(3) & "<br>×÷Õß£º" & new_info_dim(0) & "<br>Ê±¼ä£º" & new_info_dim(1) & "</td></tr>"
                     Erase new_info_dim
 
                     rsforum.movenext
@@ -493,7 +493,7 @@ Sub forum_moved(fid,vid)
             view_url       = "forum_view.asp?forum_id=" & forumnid & "&view_id=" & id
 
             If Int(re_counter) > 0 Then
-                topic_head = "<img loaded=no src='images/small/fk_plus.gif' border=0 id=followImg" & id & " style=""cursor:hand;"" onclick=""load_tree(" & forumnid & "," & id & ")"" title='å±•å¼€è´´å­åˆ—è¡¨'>"
+                topic_head = "<img loaded=no src='images/small/fk_plus.gif' border=0 id=followImg" & id & " style=""cursor:hand;"" onclick=""load_tree(" & forumnid & "," & id & ")"" title='Õ¹¿ªÌù×ÓÁĞ±í'>"
             Else
                 topic_head = "<img src='images/small/fk_minus.gif' border=0 id=followImg" & id & ">"
             End If
@@ -509,13 +509,13 @@ Sub forum_moved(fid,vid)
             End If
 
             Response.Write "</td>" & _
-            vbcrlf & "<td align=left>" & topic_head & "<a href='" & view_url & "' title='ä¸»é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘è´´æ—¶é—´ï¼š" & tim & "<br>æœ€åå›å¤ï¼š" & re_username & "<br>å›å¤æ—¶é—´ï¼š" & re_tim & "'>" & code_html(topic,0,22) & "</a>&nbsp;" & index_pagecute(view_url,re_counter + 1,web_var(web_num,3),"#cc3300") & "</td>" & _
+            vbcrlf & "<td align=left>" & topic_head & "<a href='" & view_url & "' title='Ö÷Ìâ£º" & code_html(topic,1,0) & "<br>·¢ÌùÊ±¼ä£º" & tim & "<br>×îºó»Ø¸´£º" & re_username & "<br>»Ø¸´Ê±¼ä£º" & re_tim & "'>" & code_html(topic,0,22) & "</a>&nbsp;" & index_pagecute(view_url,re_counter + 1,web_var(web_num,3),"#cc3300") & "</td>" & _
             vbcrlf & "<td bgcolor=" & web_var(web_color,6) & ">" & format_user_view(username,1,"") & "</td>" & _
-            vbcrlf & "<td><a href='" & view_url & "' target=_blank><img src='images/small/new_win.gif' alt='æ‰“å¼€æ–°çª—å£æµè§ˆæ­¤è´´' border=0 width=13 height=11></a></td>" & _
+            vbcrlf & "<td><a href='" & view_url & "' target=_blank><img src='images/small/new_win.gif' alt='´ò¿ªĞÂ´°¿Úä¯ÀÀ´ËÌù' border=0 width=13 height=11></a></td>" & _
             vbcrlf & "<td bgcolor=" & web_var(web_color,6) & ">" & re_counter & "<font class=gray>/</font>" & counter & "</td>" & _
-            vbcrlf & "<td align=left><font class=timtd>" & time_type(re_tim,6) & "</font><font class=red>â”‚</font>" & format_user_view(re_username,1,"") & "</td>" & _
+            vbcrlf & "<td align=left><font class=timtd>" & time_type(re_tim,6) & "</font><font class=red>©¦</font>" & format_user_view(re_username,1,"") & "</td>" & _
             vbcrlf & "</tr>" & _
-            vbcrlf & "<tr" & format_table(3,1) & " style=""display:none"" id=follow" & id & " height=30><td colspan=2>&nbsp;</td><td colspan=6 id=followTd" & id & " style=""padding:0px""><div style=""width:240px;margin-left:18px;border:1px solid black;background-color:" & web_var(web_color,5) & ";color:" & web_var(web_color,7) & ";padding:2px"" onclick=""load_tree(" & forumnid & "," & id & ")"">æ­£åœ¨è¯»å–å…³äºæœ¬ä¸»é¢˜çš„è·Ÿè´´ï¼Œè¯·ç¨ä¾¯â€¦â€¦</div></td></tr>"
+            vbcrlf & "<tr" & format_table(3,1) & " style=""display:none"" id=follow" & id & " height=30><td colspan=2>&nbsp;</td><td colspan=6 id=followTd" & id & " style=""padding:0px""><div style=""width:240px;margin-left:18px;border:1px solid black;background-color:" & web_var(web_color,5) & ";color:" & web_var(web_color,7) & ";padding:2px"" onclick=""load_tree(" & forumnid & "," & id & ")"">ÕıÔÚ¶ÁÈ¡¹ØÓÚ±¾Ö÷ÌâµÄ¸úÌù£¬ÇëÉÔºî¡­¡­</div></td></tr>"
             del_temp = del_temp + 1
         End Sub
 
@@ -528,33 +528,33 @@ Sub forum_moved(fid,vid)
             If ii Mod 2 = 0 Then table_bg = forum_table3
 
             If var_null(u_whe) <> "" Then
-                u_whe = "æ¥è‡ªï¼š" & u_whe & "<br>"
+                u_whe = "À´×Ô£º" & u_whe & "<br>"
             End If
 
             If var_null(u_nname) <> "" Then
-                u_nname = "å¤´è¡”ï¼š" & u_nname & "<br>"
+                u_nname = "Í·ÏÎ£º" & u_nname & "<br>"
             End If
 
             view_type = vbcrlf & "<tr align=center valign=top" & table_bg & "><td width='20%' bgcolor='" & web_var(web_color,6) & "'>" & _
             vbcrlf & "<table border=0 width='94%'><tr><td align=center height=30><table border=0><tr><td><font class=blue><b>" & u_username & "</b></font></td><td>&nbsp;" & user_view_sex(u_sex) & "</td></tr></table></td></tr>" & _
             vbcrlf & "<tr><td align=center height=96><img src='images/face/" & rs("u_face") & ".gif' border=0></td></tr>" & _
             vbcrlf & "<tr><td height=15><img src='images/star/star_" & user_star(u_integral,u_power,1) & ".gif' border=0></td></tr>" & _
-            vbcrlf & "<tr><td>ç­‰çº§ï¼š" & user_view_power(u_power,0) & user_star(u_integral,u_power,2) & "<br>" & u_nname & "å‘è´´ï¼š" & u_bbs_counter & "<br>ç§¯åˆ†ï¼š" & u_integral & "<br>" & u_whe & "æ³¨å†Œï¼š" & FormatDateTime(rs("u_tim"),2) & "</td></tr>" & _
+            vbcrlf & "<tr><td>µÈ¼¶£º" & user_view_power(u_power,0) & user_star(u_integral,u_power,2) & "<br>" & u_nname & "·¢Ìù£º" & u_bbs_counter & "<br>»ı·Ö£º" & u_integral & "<br>" & u_whe & "×¢²á£º" & FormatDateTime(rs("u_tim"),2) & "</td></tr>" & _
             vbcrlf & "</table></td><td width='80%' height='100%'>" & _
             vbcrlf & "<table border=0 width='99%' cellspacing=2 cellpadding=0 height='100%'><tr height=25><td width='85%'>" & _
-            vbcrlf & "<a target=_blank href='user_view.asp?username=" & Server.urlencode(u_username) & "'><img src='images/small/forum_profile.gif' title='æŸ¥çœ‹ " & u_username & " çš„è¯¦ç»†ä¿¡æ¯' border=0></a>&nbsp;" & _
-            vbcrlf & "<a target=_blank href='user_friend.asp?action=add&add_username=" & Server.urlencode(u_username) & "'><img src='images/small/forum_friend.gif' title='å°† " & u_username & " åŠ ä¸ºæˆ‘çš„å¥½å‹' border=0></a>&nbsp;" & _
-            vbcrlf & "<a target=_blank href='user_message.asp?action=write&accept_uaername=" & Server.urlencode(u_username) & "'><img src='images/small/forum_message.gif' title='ç»™ " & u_username & " å‘çŸ­ä¿¡' border=0></a>&nbsp;" & _
-            vbcrlf & "<a href='forum_edit.asp?forum_id=" & forumid & "&edit_id=" & qid & "'><img src='images/small/forum_edit.gif' title='ç¼–è¾‘è¿™ä¸ªè´´å­' border=0></a>&nbsp;"
+            vbcrlf & "<a target=_blank href='user_view.asp?username=" & Server.urlencode(u_username) & "'><img src='images/small/forum_profile.gif' title='²é¿´ " & u_username & " µÄÏêÏ¸ĞÅÏ¢' border=0></a>&nbsp;" & _
+            vbcrlf & "<a target=_blank href='user_friend.asp?action=add&add_username=" & Server.urlencode(u_username) & "'><img src='images/small/forum_friend.gif' title='½« " & u_username & " ¼ÓÎªÎÒµÄºÃÓÑ' border=0></a>&nbsp;" & _
+            vbcrlf & "<a target=_blank href='user_message.asp?action=write&accept_uaername=" & Server.urlencode(u_username) & "'><img src='images/small/forum_message.gif' title='¸ø " & u_username & " ·¢¶ÌĞÅ' border=0></a>&nbsp;" & _
+            vbcrlf & "<a href='forum_edit.asp?forum_id=" & forumid & "&edit_id=" & qid & "'><img src='images/small/forum_edit.gif' title='±à¼­Õâ¸öÌù×Ó' border=0></a>&nbsp;"
 
             If Int(fir_islock) <> 1 Then
-                view_type = view_type & vbcrlf & "<a href='forum_reply.asp?forum_id=" & forumid & "&quote=yes&view_id=" & qid & "'><img src='images/small/forum_quote.gif' title='å¼•ç”¨å¹¶å›å¤è¿™ä¸ªè´´å­' border=0></a>&nbsp;" & _
-                vbcrlf & "<a href='forum_reply.asp?forum_id=" & forumid & "&view_id=" & qid & "'><img src='images/small/forum_reply.gif' title='å›å¤è¿™ä¸ªè´´å­' border=0></a>"
+                view_type = view_type & vbcrlf & "<a href='forum_reply.asp?forum_id=" & forumid & "&quote=yes&view_id=" & qid & "'><img src='images/small/forum_quote.gif' title='ÒıÓÃ²¢»Ø¸´Õâ¸öÌù×Ó' border=0></a>&nbsp;" & _
+                vbcrlf & "<a href='forum_reply.asp?forum_id=" & forumid & "&view_id=" & qid & "'><img src='images/small/forum_reply.gif' title='»Ø¸´Õâ¸öÌù×Ó' border=0></a>"
             Else
-                view_type = view_type & vbcrlf & "<img src='images/small/forum_reply.gif' title='è¿™ä¸ªè´´å­å·²è¢«é”å®š' border=0>"
+                view_type = view_type & vbcrlf & "<img src='images/small/forum_reply.gif' title='Õâ¸öÌù×ÓÒÑ±»Ëø¶¨' border=0>"
             End If
 
-            view_type     = view_type & vbcrlf & "</td><td width='15%' align=center>ç¬¬ <font class=red_3><b>" & ii + (viewpage - 1)*nummer & "</b></font> æ¥¼</td></tr>" & _
+            view_type     = view_type & vbcrlf & "</td><td width='15%' align=center>µÚ <font class=red_3><b>" & ii + (viewpage - 1)*nummer & "</b></font> Â¥</td></tr>" & _
             vbcrlf & "<tr><td colspan=2 height=1 bgcolor=" & web_var(web_color,3) & "></td></tr>"
 
             If up = 0 Then
@@ -566,19 +566,19 @@ Sub forum_moved(fid,vid)
                 vbcrlf & "<tr><td colspan=2 height=20 align=right>" & img_small("signature") & "</td></tr>" & _
                 vbcrlf & "<tr><td colspan=2 height=30 align=center valign=top><table border=0 width='96%' class=tf><tr><td class=bw><font class=htd>" & u_remark & "</font></a></td></tr></table></td></tr>"
             Else
-                view_type = view_type & vbcrlf & "<tr><td colspan=2 valign=top><br><table border=0><tr><td class=htd><font class=red_2>========================<br>&nbsp;&nbsp;è¯¥ç”¨æˆ·çš„è®ºå›å‘è¨€å·²æš‚æ—¶è¢«ç®¡ç†å±è”½ï¼<br>========================</font></td></tr></table></td></tr>"
+                view_type = view_type & vbcrlf & "<tr><td colspan=2 valign=top><br><table border=0><tr><td class=htd><font class=red_2>========================<br>&nbsp;&nbsp;¸ÃÓÃ»§µÄÂÛÌ³·¢ÑÔÒÑÔİÊ±±»¹ÜÀíÆÁ±Î£¡<br>========================</font></td></tr></table></td></tr>"
             End If
 
-            view_type     = view_type & vbcrlf & "<tr><td height=25 colspan=2><table border=0 width='100%'><tr><td>" & img_small("forum_tim") & "<font class=gray>æœ¬è´´å‘è¡¨æ—¶é—´ï¼š" & rs("tim") & "</font></td><td align=right>" & ip_types(rs("ip"),u_username,1) & "ã€€<img src='images/small/sys.gif' align=absMiddle title='" & view_sys(rs("sys")) & "' border=0>ã€€<a href=""javascript:" & del_type & "('" & forumid & "','" & iid & "');""><img src='images/small/forum_del.gif' align=absMiddle border=0></a></td></tr></table></td></tr>" & _
+            view_type     = view_type & vbcrlf & "<tr><td height=25 colspan=2><table border=0 width='100%'><tr><td>" & img_small("forum_tim") & "<font class=gray>±¾Ìù·¢±íÊ±¼ä£º" & rs("tim") & "</font></td><td align=right>" & ip_types(rs("ip"),u_username,1) & "¡¡<img src='images/small/sys.gif' align=absMiddle title='" & view_sys(rs("sys")) & "' border=0>¡¡<a href=""javascript:" & del_type & "('" & forumid & "','" & iid & "');""><img src='images/small/forum_del.gif' align=absMiddle border=0></a></td></tr></table></td></tr>" & _
             vbcrlf & "</table>"
         End Function
 
         Function user_view_sex(us)
 
             If us = False Then
-                user_view_sex = "<img src='images/small/forum_girl.gif' align=absmiddle title='é’æ˜¥å¥³å­©' border=0>":Exit Function
+                user_view_sex = "<img src='images/small/forum_girl.gif' align=absmiddle title='Çà´ºÅ®º¢' border=0>":Exit Function
             Else
-                user_view_sex = "<img src='images/small/forum_boy.gif' align=absmiddle title='é˜³å…‰ç”·å­©' border=0>":Exit Function
+                user_view_sex = "<img src='images/small/forum_boy.gif' align=absmiddle title='Ñô¹âÄĞº¢' border=0>":Exit Function
             End If
 
         End Function

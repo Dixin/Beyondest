@@ -51,14 +51,14 @@ If Int(format_power(u_power,2)) = 1 Then
 End If
 
 popedom_true = "yes"
-If cancel = "yes" Then fname = "è§£é™¤"
+If cancel = "yes" Then fname = "½â³ı"
 
 Select Case action
     Case "shield"
-        aname = "å±è”½"
+        aname = "ÆÁ±Î"
         Call useres_popedom(42)
     Case "locked"
-        aname = "é”å®š"
+        aname = "Ëø¶¨"
         Call useres_popedom(41)
 End Select
 
@@ -90,9 +90,9 @@ Sub useres_popedom(pn)
     Sub useres_msg()
 
         If popedom_true = "yes" Then
-            Response.Write "<script language=javascript>alert(""å·²æˆå¯¹ç”¨æˆ·ï¼ˆ" & username & "ï¼‰è¿›è¡Œäº†å¦‚ä¸‹æ“ä½œï¼š\n\n" & fname & " " & aname & "\n\nç‚¹å‡»è¿”å›ï¼"");location.href='" & old_url & "';</script>"
+            Response.Write "<script language=javascript>alert(""ÒÑ³É¶ÔÓÃ»§£¨" & username & "£©½øĞĞÁËÈçÏÂ²Ù×÷£º\n\n" & fname & " " & aname & "\n\nµã»÷·µ»Ø£¡"");location.href='" & old_url & "';</script>"
         Else
-            Response.Write "<script language=javascript>alert(""åœ¨å¯¹ç”¨æˆ·ï¼ˆ" & username & "ï¼‰è¿›è¡Œæ“ä½œæ—¶å‡ºç°äº†ä¸¥é‡é”™è¯¯ï¼\n\nè¯·ä¸ç«™é•¿è”ç³»ï¼\n\nç‚¹å‡»è¿”å›ï¼"");location.href='" & old_url & "';</script>"
+            Response.Write "<script language=javascript>alert(""ÔÚ¶ÔÓÃ»§£¨" & username & "£©½øĞĞ²Ù×÷Ê±³öÏÖÁËÑÏÖØ´íÎó£¡\n\nÇëÓëÕ¾³¤ÁªÏµ£¡\n\nµã»÷·µ»Ø£¡"");location.href='" & old_url & "';</script>"
         End If
 
     End Sub %>

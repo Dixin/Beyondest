@@ -12,24 +12,24 @@ Function pagecute_fun(viewpage,thepages,pagecuteurl)
     Dim pf4
     Dim pf5
     re_color         = "#c0c0c0"
-    pf0              = "å·²æ˜¯ç¬¬ä¸€é¡µ"
-    pf1              = "ç¬¬ä¸€é¡µ"
-    pf2              = "ä¸Šä¸€é¡µ"
-    pf3              = "ä¸‹ä¸€é¡µ"
-    pf4              = "æœ€åä¸€é¡µ"
-    pf5              = "å·²æ˜¯æœ€åä¸€é¡µ"
+    pf0              = "ÒÑÊÇµÚÒ»Ò³"
+    pf1              = "µÚÒ»Ò³"
+    pf2              = "ÉÏÒ»Ò³"
+    pf3              = "ÏÂÒ»Ò³"
+    pf4              = "×îºóÒ»Ò³"
+    pf5              = "ÒÑÊÇ×îºóÒ»Ò³"
     pagecute_fun     = VbCrLf & "<table border=0 cellspacing=0 cellpadding=0><tr><form action='" & pagecuteurl & "' method=post><td>"
 
     If CInt(viewpage) = 1 Then
         pagecute_fun = pagecute_fun & VbCrLf & "<font color=" & re_color & ">" & pf0 & "</font>&nbsp;"
     Else
-        pagecute_fun = pagecute_fun & VbCrLf & "<a href='" & pagecuteurl & "page=1' alt='" & pf1 & "'>" & pf1 & "</a>â”‹<a href='" & pagecuteurl & "page=" & CInt(viewpage) - 1 & "' alt='" & pf2 & "'>" & pf2 & "</a>&nbsp;"
+        pagecute_fun = pagecute_fun & VbCrLf & "<a href='" & pagecuteurl & "page=1' alt='" & pf1 & "'>" & pf1 & "</a>©¯<a href='" & pagecuteurl & "page=" & CInt(viewpage) - 1 & "' alt='" & pf2 & "'>" & pf2 & "</a>&nbsp;"
     End If
 
     If CInt(viewpage) = CInt(thepages) Then
         pagecute_fun = pagecute_fun & VbCrLf & "<font color=" & re_color & " alt='" & pf5 & "'>" & pf5 & "</font>"
     Else
-        pagecute_fun = pagecute_fun & VbCrLf & "<a href='" & pagecuteurl & "page=" & CInt(viewpage) + 1 & "' alt='" & pf3 & "'>" & pf3 & "</a>â”‹<a href='" & pagecuteurl & "page=" & CInt(thepages) & "' alt='" & pf4 & "'>" & pf4 & "</a>"
+        pagecute_fun = pagecute_fun & VbCrLf & "<a href='" & pagecuteurl & "page=" & CInt(viewpage) + 1 & "' alt='" & pf3 & "'>" & pf3 & "</a>©¯<a href='" & pagecuteurl & "page=" & CInt(thepages) & "' alt='" & pf4 & "'>" & pf4 & "</a>"
     End If
 
     If CInt(thepages) <> 1 Then

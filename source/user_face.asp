@@ -14,7 +14,7 @@ Dim thepages
 Dim viewpage
 Dim pageurl
 thepages = 0:viewpage = 1:pageurl = "?"
-tit      = "浏览头像"
+tit      = "���ͷ��"
 
 Call web_head(0,0,3,0,0)
 '------------------------------------left----------------------------------
@@ -48,11 +48,11 @@ Sub user_face()
     End If %>
 <table border=0 cellpadding=0 cellspacing=4 align=center>
 <tr align=center>
-<td>本站共有 <font class=red><% Response.Write rssum %></font> 个头像</td>
+<td>��վ���� <font class=red><% Response.Write rssum %></font> ��ͷ��</td>
 <td width=10></td>
-<td>页次：<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font></td>
+<td>ҳ�Σ�<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font></td>
 <td width=10></td>
-<td>分页：<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td>
+<td>��ҳ��<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td>
 </tr>
 </table>
 <table border=0 width='98%' cellpadding=0 cellspacing=8 align=center>

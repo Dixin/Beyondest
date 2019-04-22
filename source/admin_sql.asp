@@ -6,7 +6,7 @@
 ' http://beyondest.com
 ' ====================
 
-tit = "<a href='?'>æ‰§è¡ŒSQL</a>"
+tit = "<a href='?'>Ö´ĞĞSQL</a>"
 Response.Write header(2,tit)
 
 If Trim(Request.form("sql_run")) = "yes" Then
@@ -19,7 +19,7 @@ close_conn
 Response.Write ender()
 
 Function sql_type()
-    sql_type = "<table border=0><form action='admin_sql.asp' method=post><input type=hidden name=sql_run value='yes'><tr><td>è¯·è¾“å…¥SQLè¯­å¥ï¼šï¼ˆ<font class=red>è¯·æ³¨æ„SQLè¯­æ³•ï¼Œä»¥å‡å°‘é”™è¯¯ï¼</font>ï¼‰&nbsp;<input type=checkbox name=is_ok value='yes'>&nbsp;æ˜¯å¦ç¡®å®š</td></tr><tr><td height=50><input type=text name=sql_var size=60></td></tr><tr><td align=center><input type=submit value=' æ‰§ è¡Œ '><font class=red_3>&nbsp;&nbsp;æ‰§è¡ŒæŸé¡¹æ“ä½œåå°†ä¸èƒ½å†æ¢å¤ï¼<br><br>åœ¨æ‰§è¡ŒSQLè¯­æ³•å‰è¯·å…ˆç¡®å®šæ˜¯å¦ä¸€å®šè¦æ‰§è¡Œï¼</font></td></tr></form></table>"
+    sql_type = "<table border=0><form action='admin_sql.asp' method=post><input type=hidden name=sql_run value='yes'><tr><td>ÇëÊäÈëSQLÓï¾ä£º£¨<font class=red>Çë×¢ÒâSQLÓï·¨£¬ÒÔ¼õÉÙ´íÎó£¡</font>£©&nbsp;<input type=checkbox name=is_ok value='yes'>&nbsp;ÊÇ·ñÈ·¶¨</td></tr><tr><td height=50><input type=text name=sql_var size=60></td></tr><tr><td align=center><input type=submit value=' Ö´ ĞĞ '><font class=red_3>&nbsp;&nbsp;Ö´ĞĞÄ³Ïî²Ù×÷ºó½«²»ÄÜÔÙ»Ö¸´£¡<br><br>ÔÚÖ´ĞĞSQLÓï·¨Ç°ÇëÏÈÈ·¶¨ÊÇ·ñÒ»¶¨ÒªÖ´ĞĞ£¡</font></td></tr></form></table>"
 End Function
 
 Function sql_chk()
@@ -30,12 +30,12 @@ Function sql_chk()
     sql_var     = var_null(Trim(Request.form("sql_var")))
 
     If is_ok <> "yes" Or sql_var = "" Then
-        sql_chk = "<font class=red_2>æ‚¨è¿˜æ²¡æœ‰å¯¹æ‰§è¡Œæœ¬æ¬¡SQLè¯­å¥è¿›è¡Œç¡®å®šæˆ–æ²¡æœ‰è¾“å…¥SQLè¯­å¥</font><br><br>" & go_back:Exit Function
+        sql_chk = "<font class=red_2>Äú»¹Ã»ÓĞ¶ÔÖ´ĞĞ±¾´ÎSQLÓï¾ä½øĞĞÈ·¶¨»òÃ»ÓĞÊäÈëSQLÓï¾ä</font><br><br>" & go_back:Exit Function
     End If
 
     If Err Then
         Err.Clear
-        sql_chk = "<font class=red_2>æ‚¨åˆšæ‰çš„æ“ä½œåœ¨æ‰§è¡ŒSQLè¯­å¥å‰å‡ºç°äº†æ„å¤–çš„é”™è¯¯ï¼<br><br>" & sql_var & "<br><br>è¯·è¿”å›æ£€æŸ¥ã€‚</font><br><br>" & go_back:Exit Function
+        sql_chk = "<font class=red_2>Äú¸Õ²ÅµÄ²Ù×÷ÔÚÖ´ĞĞSQLÓï¾äÇ°³öÏÖÁËÒâÍâµÄ´íÎó£¡<br><br>" & sql_var & "<br><br>Çë·µ»Ø¼ì²é¡£</font><br><br>" & go_back:Exit Function
     End If
 
     Err.Clear
@@ -43,8 +43,8 @@ Function sql_chk()
 
     If Err Then
         Err.Clear
-        sql_chk = "<font class=red_2>ç³»ç»Ÿåœ¨æ‰§è¡ŒSQLè¯­å¥æ—¶å‡ºç°äº†ç³»ç»Ÿæˆ–æ„å¤–çš„é”™è¯¯ï¼<br><br>" & sql_var & "<br><br>å¯èƒ½æ˜¯æ‚¨è¾“å…¥çš„SQLè¯­å¥æœ‰é”™è¯¯å­˜åœ¨ï¼è¯·è¿”å›æ£€æŸ¥ã€‚</font><br><br>" & go_back:Exit Function
+        sql_chk = "<font class=red_2>ÏµÍ³ÔÚÖ´ĞĞSQLÓï¾äÊ±³öÏÖÁËÏµÍ³»òÒâÍâµÄ´íÎó£¡<br><br>" & sql_var & "<br><br>¿ÉÄÜÊÇÄúÊäÈëµÄSQLÓï¾äÓĞ´íÎó´æÔÚ£¡Çë·µ»Ø¼ì²é¡£</font><br><br>" & go_back:Exit Function
     End If
 
-    sql_chk = "<font class=red_4>ç³»ç»ŸæˆåŠŸçš„æ‰§è¡ŒSQLè¯­å¥ï¼</font><br><br><font class=red>" & sql_var & "</font>"
+    sql_chk = "<font class=red_4>ÏµÍ³³É¹¦µÄÖ´ĞĞSQLÓï¾ä£¡</font><br><br><font class=red>" & sql_var & "</font>"
 End Function %>

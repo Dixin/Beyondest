@@ -18,7 +18,7 @@ index_url = "news":n_sort = "news"
 tit_fir   = format_menu(index_url)
 
 Sub news_class_sort(t1,t2)
-    Response.Write format_barc("<font class=" & sk_class & "><b>æ–°é—»åˆ†ç±»</b></font>",class_sort(n_sort,index_url,t1,t2),1,1,8)
+    Response.Write format_barc("<font class=" & sk_class & "><b>ĞÂÎÅ·ÖÀà</b></font>",class_sort(n_sort,index_url,t1,t2),1,1,8)
 End Sub
 
 Sub news_fpic(fsql,t_num,w_num,tt)
@@ -39,14 +39,14 @@ Sub news_fpic(fsql,t_num,w_num,tt)
         vbcrlf & "  </table>" & _
         vbcrlf & "</td><td width='68%'>" & _
         vbcrlf & "  <table border=0 width='100%'>" & _
-        vbcrlf & "  <tr><td vlign=middle height=150>" & Left(code_jk(rs("word")),w_num) & "â€¦â€¦</td></tr>" & _
-        vbcrlf & "  <tr><td height=25 class=gray align=right>ï¼ˆ" & time_type(rs("tim"),tt) & "&nbsp;ï¼‰&nbsp;</td></tr>" & _
+        vbcrlf & "  <tr><td vlign=middle height=150>" & Left(code_jk(rs("word")),w_num) & "¡­¡­</td></tr>" & _
+        vbcrlf & "  <tr><td height=25 class=gray align=right>£¨" & time_type(rs("tim"),tt) & "&nbsp;£©&nbsp;</td></tr>" & _
         vbcrlf & "  </table>" & _
         vbcrlf & "</td></tr></table>"
     End If
 
     rs.Close
-    Response.Write format_barc("<font class=" & sk_class & "><b>æœ€æ–°å›¾ç‰‡æ–°é—»</b></font>",temp1,1,1,1)
+    Response.Write format_barc("<font class=" & sk_class & "><b>×îĞÂÍ¼Æ¬ĞÂÎÅ</b></font>",temp1,1,1,1)
 End Sub
 
 Sub news_sea()
@@ -61,9 +61,9 @@ Sub news_sea()
     vbcrlf & "<script language=javascript><!--" & _
     vbcrlf & "function news_sea()" & _
     vbcrlf & "{" & _
-    vbcrlf & "  if (news_sea_frm.keyword.value==""è¯·è¾“å…¥å…³é”®å­—"")" & _
+    vbcrlf & "  if (news_sea_frm.keyword.value==""ÇëÊäÈë¹Ø¼ü×Ö"")" & _
     vbcrlf & "  {" & _
-    vbcrlf & "    alert(""è¯·åœ¨æœç´¢æ–°é—»å‰å…ˆè¾“å…¥è¦æŸ¥è¯¢çš„ å…³é”®å­— ï¼"");" & _
+    vbcrlf & "    alert(""ÇëÔÚËÑË÷ĞÂÎÅÇ°ÏÈÊäÈëÒª²éÑ¯µÄ ¹Ø¼ü×Ö £¡"");" & _
     vbcrlf & "    news_sea_frm.keyword.focus();" & _
     vbcrlf & "    return false;" & _
     vbcrlf & "  }" & _
@@ -72,13 +72,13 @@ Sub news_sea()
     vbcrlf & "<form name=news_sea_frm action='news_list.asp' method=get onsubmit=""return news_sea()"">" & _
     vbcrlf & "<input type=hidden name=action value='more'><tr><td height=3></td></tr>" & _
     vbcrlf & "<tr><td>" & _
-    vbcrlf & "  <table border=0><tr><td colspan=2><input type=text name=keyword value='è¯·è¾“å…¥å…³é”®å­—' onfocus=""if (value =='è¯·è¾“å…¥å…³é”®å­—'){value =''}"" onblur=""if (value ==''){value='è¯·è¾“å…¥å…³é”®å­—'}"" size=20 maxlength=20></td></tr><tr>" & _
-    vbcrlf & "  <td><select name=sea_type sizs=1><option value='topic'>æ–°é—»æ ‡é¢˜</option><option value='username'>å‘å¸ƒäºº</option></seelct></td>" & _
+    vbcrlf & "  <table border=0><tr><td colspan=2><input type=text name=keyword value='ÇëÊäÈë¹Ø¼ü×Ö' onfocus=""if (value =='ÇëÊäÈë¹Ø¼ü×Ö'){value =''}"" onblur=""if (value ==''){value='ÇëÊäÈë¹Ø¼ü×Ö'}"" size=20 maxlength=20></td></tr><tr>" & _
+    vbcrlf & "  <td><select name=sea_type sizs=1><option value='topic'>ĞÂÎÅ±êÌâ</option><option value='username'>·¢²¼ÈË</option></seelct></td>" & _
     vbcrlf & "  <td></td>" & _
     vbcrlf & "  </tr></table>" & _
     vbcrlf & "</td></tr><tr><td>" & _
     vbcrlf & "  <table border=0><tr>" & _
-    vbcrlf & "  <td><select name=c_id sizs=1><option value=''>è¯·é€‰æ‹©æ–°é—»ç±»åˆ«</option>"
+    vbcrlf & "  <td><select name=c_id sizs=1><option value=''>ÇëÑ¡ÔñĞÂÎÅÀà±ğ</option>"
     sql           = "select c_id,c_name from jk_class where nsort='" & n_sort & "' order by c_order,c_id"
     Set rs        = conn.execute(sql)
 
@@ -94,7 +94,7 @@ Sub news_sea()
             nid2  = rs2(0)
             temp1 = temp1 & vbcrlf & "<option value='" & nid & "&s_id=" & nid2 & "'"
             If sid = nid2 Then temp1 = temp1 & " selected"
-            temp1 = temp1 & ">ã€€" & rs2(1) & "</option>"
+            temp1 = temp1 & ">¡¡" & rs2(1) & "</option>"
             rs2.movenext
         Loop
 
@@ -108,7 +108,7 @@ Sub news_sea()
     vbcrlf & "  </tr></table>" & _
     vbcrlf & "</td></tr>" & _
     vbcrlf & "</form><tr><td height=1></td></tr></table>"
-    Response.Write format_barc("<font class=" & sk_class & "><b>æ–°é—»æœç´¢</b></font>",temp1,2,0,9)
+    Response.Write format_barc("<font class=" & sk_class & "><b>ĞÂÎÅËÑË÷</b></font>",temp1,2,0,9)
 End Sub
 
 Sub news_scroll(sh,nsql,s_num,c_num,sbg)
@@ -155,9 +155,9 @@ Sub news_new_hot(n_jt,nsql,nt,n_num,c_num,et,ct,tt)
 
     If nt = "hot" Then
         sql   = sql & "counter desc,"
-        nhead = "çƒ­é—¨æ–°é—»"
+        nhead = "ÈÈÃÅĞÂÎÅ"
     Else
-        nhead = "è¿‘æœŸæ›´æ–°"
+        nhead = "½üÆÚ¸üĞÂ"
     End If
 
     sql       = sql & "id desc"
@@ -166,7 +166,7 @@ Sub news_new_hot(n_jt,nsql,nt,n_num,c_num,et,ct,tt)
     Do While Not rs.eof
         cnum  = c_num:ispic = "":topic = rs("topic"):tim = rs("tim")
         If rs("ispic") = True Then cnum = cnum - 2:ispic = sk_img
-        htemp = htemp & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='æ–°é—»æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>æµè§ˆäººæ¬¡ï¼š" & rs("counter") & "<br>æ•´ç†æ—¶é—´ï¼š" & tim & "'>" & code_html(topic,1,cnum) & "</a>" & ispic
+        htemp = htemp & vbcrlf & "<tr><td height=" & space_mod & " class=bw>" & n_jt & "<a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='ĞÂÎÅ±êÌâ£º" & code_html(topic,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ä¯ÀÀÈË´Î£º" & rs("counter") & "<br>ÕûÀíÊ±¼ä£º" & tim & "'>" & code_html(topic,1,cnum) & "</a>" & ispic
         If tt > 0 Then htemp = htemp & format_end(et,time_type(tim,tt))
         htemp = htemp & "</td></tr>"
         rs.movenext
@@ -191,7 +191,7 @@ Sub news_pic(nsql,n_num,c_num,pc)
     Loop
 
     temp1 = ukong & temp1 & "</table>"
-    Response.Write format_barc("<font class=" & sk_class & "><b>å›¾ç‰‡æ–°é—»</b></font>",temp1,1,1,10)
+    Response.Write format_barc("<font class=" & sk_class & "><b>Í¼Æ¬ĞÂÎÅ</b></font>",temp1,1,1,10)
 End Sub
 
 Sub news_picr(nsql,n_num,c_num,pc)
@@ -208,7 +208,7 @@ Sub news_picr(nsql,n_num,c_num,pc)
     Loop
 
     temp1 = ukong & temp1 & "</table>"
-    Response.Write format_barc("<font class=" & sk_class & "><b>å›¾ç‰‡æ–°é—»</b></font>",temp1,2,0,10)
+    Response.Write format_barc("<font class=" & sk_class & "><b>Í¼Æ¬ĞÂÎÅ</b></font>",temp1,2,0,10)
 End Sub
 
 Sub news_main(n_jt,n_num,c_num,et,ct,tt,pn,pl,pc)
@@ -235,7 +235,7 @@ Sub news_main(n_jt,n_num,c_num,et,ct,tt,pn,pl,pc)
         Do While Not rs.eof
             cnum  = c_num:ispic = "":topic = rs("topic"):tim = rs("tim")
             If rs("ispic") = True Then cnum = cnum - 2:ispic = sk_img
-            temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & img_small(n_jt) & "<a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='æ–°é—»æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>æµè§ˆäººæ¬¡ï¼š" & rs("counter") & "<br>æ•´ç†æ—¶é—´ï¼š" & tim & "'>" & code_html(topic,1,cnum) & "</a>" & ispic & "</td><td>" & format_end(et,time_type(tim,tt)) & "</td></tr>"
+            temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & img_small(n_jt) & "<a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='ĞÂÎÅ±êÌâ£º" & code_html(topic,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ä¯ÀÀÈË´Î£º" & rs("counter") & "<br>ÕûÀíÊ±¼ä£º" & tim & "'>" & code_html(topic,1,cnum) & "</a>" & ispic & "</td><td>" & format_end(et,time_type(tim,tt)) & "</td></tr>"
             rs.movenext
         Loop
 
@@ -296,7 +296,7 @@ Sub news_more(n_jt,c_num,et,ct,tt,pn,pl,pc)
 
     sql        = sql & " order by id desc"
 
-    cname      = "æœç´¢ç»“æœ":sname = ""
+    cname      = "ËÑË÷½á¹û":sname = ""
 
     If Len(sql2) > 1 Then
         Set rs = conn.execute(sql2)
@@ -314,7 +314,7 @@ Sub news_more(n_jt,c_num,et,ct,tt,pn,pl,pc)
         End If
 
         mhead  = "<a href='news_list.asp?c_id=" & cid & "'><b><font class=" & sk_class & ">" & cname & "</font></b></a>"
-        If sid > 0 And sname <> "" Then mhead = mhead & "&nbsp;<font class=" & sk_class & ">â†’</font>&nbsp;<a href='news_list.asp?c_id=" & cid & "&s_id=" & sid & "'><b><font class=" & sk_class & ">" & sname & "</font></b></a>"
+        If sid > 0 And sname <> "" Then mhead = mhead & "&nbsp;<font class=" & sk_class & ">¡ú</font>&nbsp;<a href='news_list.asp?c_id=" & cid & "&s_id=" & sid & "'><b><font class=" & sk_class & ">" & sname & "</font></b></a>"
         Set rs = Server.CreateObject("adodb.recordset")
         rs.open sql,conn,1,1
 
@@ -334,7 +334,7 @@ Sub news_more(n_jt,c_num,et,ct,tt,pn,pl,pc)
             If rs.eof Then Exit For
             cnum  = c_num:ispic = "":topic = rs("topic"):tim = rs("tim")
             If rs("ispic") = True Then cnum = cnum - 2:ispic = sk_img
-            temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & i + (viewpage - 1)*nummer & ".</td><td><a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='æ–°é—»æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>æµè§ˆäººæ¬¡ï¼š" & rs("counter") & "<br>æ•´ç†æ—¶é—´ï¼š" & tim & "'>" & code_html(topic,1,cnum) & "</a>" & ispic & "</td><td>" & format_end(et,time_type(tim,tt)) & "</td></tr>"
+            temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & i + (viewpage - 1)*nummer & ".</td><td><a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='ĞÂÎÅ±êÌâ£º" & code_html(topic,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ä¯ÀÀÈË´Î£º" & rs("counter") & "<br>ÕûÀíÊ±¼ä£º" & tim & "'>" & code_html(topic,1,cnum) & "</a>" & ispic & "</td><td>" & format_end(et,time_type(tim,tt)) & "</td></tr>"
             rs.movenext
         Next
 
@@ -344,9 +344,9 @@ Sub news_more(n_jt,c_num,et,ct,tt,pn,pl,pc)
 <table border=0 width='100%' align=center>
 <tr><td align=center><table border=0 width='100%'><tr><td height=1 background='images/bg_dian.gif'></td></tr></table></td></tr>
 <tr><td>&nbsp;
-æœ¬æ å…±æœ‰&nbsp;<font class=red><% Response.Write rssum %></font>&nbsp;æ¡æ–°é—»&nbsp;
-é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>&nbsp;
-åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,8,"#ff0000") %>
+±¾À¸¹²ÓĞ&nbsp;<font class=red><% Response.Write rssum %></font>&nbsp;ÌõĞÂÎÅ&nbsp;
+Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>&nbsp;
+·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,8,"#ff0000") %>
 </td></tr>
 </table>
 <%
@@ -378,7 +378,7 @@ Sub news_more(n_jt,c_num,et,ct,tt,pn,pl,pc)
             Do While Not rs.eof
                 cnum  = c_num:ispic = "":topic = rs("topic"):tim = rs("tim")
                 If rs("ispic") = True Then cnum = cnum - 2:ispic = sk_img
-                temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & img_small(n_jt) & "<a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='æ–°é—»æ ‡é¢˜ï¼š" & code_html(topic,1,0) & "<br>å‘ å¸ƒ äººï¼š" & rs("username") & "<br>æµè§ˆäººæ¬¡ï¼š" & rs("counter") & "<br>æ•´ç†æ—¶é—´ï¼š" & tim & "'>" & code_html(topic,1,cnum) & "</a>" & ispic & "</td><td>" & format_end(et,time_type(tim,tt)) & "</td></tr>"
+                temp1 = temp1 & vbcrlf & "<tr><td height=" & space_mod & ">" & img_small(n_jt) & "<a href='news_view.asp?id=" & rs("id") & "'" & atb & " title='ĞÂÎÅ±êÌâ£º" & code_html(topic,1,0) & "<br>·¢ ²¼ ÈË£º" & rs("username") & "<br>ä¯ÀÀÈË´Î£º" & rs("counter") & "<br>ÕûÀíÊ±¼ä£º" & tim & "'>" & code_html(topic,1,cnum) & "</a>" & ispic & "</td><td>" & format_end(et,time_type(tim,tt)) & "</td></tr>"
                 rs.movenext
             Loop
 

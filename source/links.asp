@@ -7,7 +7,7 @@
 ' ====================
 
 Dim nummer:nummer = 5
-tit = "å‹æƒ…é“¾æ¥"
+tit = "ÓÑÇéÁ´½Ó"
 
 Call web_head(0,0,0,0,0)
 '------------------------------------left----------------------------------
@@ -18,30 +18,30 @@ Call links_left()
 Call web_center(0)
 '-----------------------------------center---------------------------------
 Response.Write ukong & table1
-Response.Write vbcrlf & "<tr" & table2 & "><td class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>åˆä½œç«™ç‚¹</b></td></tr><tr" & table3 & "><td align=center>" %>
+Response.Write vbcrlf & "<tr" & table2 & "><td class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>ºÏ×÷Õ¾µã</b></td></tr><tr" & table3 & "><td align=center>" %>
   <table border=0 width='100%' cellspacing=0 cellpadding=0>
   <tr><td align=center><% Call links_main("fir",nummer) %></td></tr>
   </table>
 <%
 Response.Write vbcrlf & "</td></tr>"
-Response.Write vbcrlf & "<tr" & table2 & "><td class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>å‹æƒ…é“¾æ¥</b></td></tr><tr" & table3 & "><td align=center>" %>
+Response.Write vbcrlf & "<tr" & table2 & "><td class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>ÓÑÇéÁ´½Ó</b></td></tr><tr" & table3 & "><td align=center>" %>
   <table border=0 width='100%' cellspacing=0 cellpadding=0>
   <tr><td align=center><% Call links_main("sec",nummer) %></td></tr>
   </table>
 <%
 Response.Write vbcrlf & "</td></tr>"
-Response.Write vbcrlf & "<tr" & table2 & "><td class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>æ–‡å­—é“¾æ¥</b></td></tr><tr" & table3 & "><td align=center>" %>
+Response.Write vbcrlf & "<tr" & table2 & "><td class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>ÎÄ×ÖÁ´½Ó</b></td></tr><tr" & table3 & "><td align=center>" %>
   <table border=0 width='100%' cellspacing=0 cellpadding=0>
   <tr><td align=center><% Call links_main("txt",nummer) %></td></tr>
   </table>
 <%
 Response.Write vbcrlf & "</td></tr>"
-Response.Write vbcrlf & "<tr" & table2 & "><td class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>é“¾æ¥è¯´æ˜</b></td></tr><tr" & table3 & "><td align=center>" %>
+Response.Write vbcrlf & "<tr" & table2 & "><td class=end background=images/" & web_var(web_config,5) & "/bar_3_bg.gif>&nbsp;" & img_small(us) & "&nbsp;&nbsp;<b>Á´½ÓËµÃ÷</b></td></tr><tr" & table3 & "><td align=center>" %>
 <table border=0 width=450>
 <tr><td>
-<table border=0><tr><td class=htd>1ã€ç«™ç‚¹å¿…é¡»å†…å®¹è¯¦å®ï¼Œåˆ¶ä½œé©¬è™æˆ–åä¸å‰¯å®è€…æ•ä¸é“¾æ¥ã€‚<br>
-2ã€å«æœ‰ä¿®æ”¹æµè§ˆè€…é»˜è®¤é¡µæˆ–æ³¨å†Œè¡¨çš„ç½‘é¡µä¸äºˆé“¾æ¥ã€‚<br>
-3ã€å«æœ‰ä»»ä½•ååŠ¨å†…å®¹æˆ–è‰²æƒ…å†…å®¹çš„ä¸äºˆé“¾æ¥ã€‚</td></tr></table>
+<table border=0><tr><td class=htd>1¡¢Õ¾µã±ØĞëÄÚÈİÏêÊµ£¬ÖÆ×÷Âí»¢»òÃû²»¸±ÊµÕßË¡²»Á´½Ó¡£<br>
+2¡¢º¬ÓĞĞŞ¸Ää¯ÀÀÕßÄ¬ÈÏÒ³»ò×¢²á±íµÄÍøÒ³²»ÓèÁ´½Ó¡£<br>
+3¡¢º¬ÓĞÈÎºÎ·´¶¯ÄÚÈİ»òÉ«ÇéÄÚÈİµÄ²»ÓèÁ´½Ó¡£</td></tr></table>
 </td></tr>
 </table>
 <%

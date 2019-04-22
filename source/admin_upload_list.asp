@@ -18,9 +18,9 @@ Dim del_temp
 Dim url
 Dim types
 Dim nname
-tit = "<a href='?'>ç®¡ç†ä¸Šä¼ æ–‡ä»¶</a> â”‹ " & _
-"<a href='?types=1'>æœ‰æ•ˆä¸Šä¼ </a> â”‹ " & _
-"<a href='?types=0'>æ— æ•ˆä¸Šä¼ </a>"
+tit = "<a href='?'>¹ÜÀíÉÏ´«ÎÄ¼ş</a> ©¯ " & _
+"<a href='?types=1'>ÓĞĞ§ÉÏ´«</a> ©¯ " & _
+"<a href='?types=0'>ÎŞĞ§ÉÏ´«</a>"
 Response.Write header(9,tit)
 nummer = 15:rssum = 0:thepages = 0:viewpage = 1
 types  = Trim(Request.querystring("types"))
@@ -28,14 +28,14 @@ If Not(IsNumeric(types)) Then types =  - 1
 
 Select Case Int(types)
     Case 0
-        nname   = "æ— æ•ˆä¸Šä¼ "
+        nname   = "ÎŞĞ§ÉÏ´«"
         pageurl = "?types=0&"
     Case 1
-        nname   = "æœ‰æ•ˆä¸Šä¼ "
+        nname   = "ÓĞĞ§ÉÏ´«"
         pageurl = "?types=1&"
     Case Else
         types   =  - 1
-        nname   = "æ‰€æœ‰"
+        nname   = "ËùÓĞ"
         pageurl = "?"
 End Select
 
@@ -72,7 +72,7 @@ Sub del_select(delid)
         Next
 
         Erase del_dim
-        Response.Write "<script language=javascript>alert(""å…±åˆ é™¤äº† " & del_num + 1 & " ä¸ªæ–‡ä»¶ï¼"");</script>"
+        Response.Write "<script language=javascript>alert(""¹²É¾³ıÁË " & del_num + 1 & " ¸öÎÄ¼ş£¡"");</script>"
     End If
 
 End Sub
@@ -97,17 +97,17 @@ Sub upload_main()
     If rssum = 0 Then del_temp = 0
     If Int(page) = Int(thepages) Then del_temp = rssum - nummer*(thepages - 1) %>
 <tr bgcolor=<% Response.Write color1 %>><td colspan=8 align=center height=30>
-ç°æœ‰ <font class=red><% Response.Write rssum %></font> ä¸ª <font class=red_3><% Response.Write nname %></font> æ–‡ä»¶ â”‹ é¡µæ¬¡ï¼š<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
-ã€€<input type=checkbox name=del_all value=1 onClick="javascript:selectall('<% Response.Write del_temp %>');"> é€‰ä¸­æ‰€æœ‰ã€€<input type=submit value='åˆ é™¤æ‰€é€‰' onclick="return suredel('<% Response.Write del_temp %>');"></td></tr>
+ÏÖÓĞ <font class=red><% Response.Write rssum %></font> ¸ö <font class=red_3><% Response.Write nname %></font> ÎÄ¼ş ©¯ Ò³´Î£º<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font>
+¡¡<input type=checkbox name=del_all value=1 onClick="javascript:selectall('<% Response.Write del_temp %>');"> Ñ¡ÖĞËùÓĞ¡¡<input type=submit value='É¾³ıËùÑ¡' onclick="return suredel('<% Response.Write del_temp %>');"></td></tr>
 <tr align=center height=18 bgcolor=<% Response.Write color3 %>>
-<td width='5%'>åºå·</td>
-<td width='31%'>æ–‡ä»¶å</td>
-<td width='5%'>ç±»å‹</td>
-<td width='10%'>å¤§å°(B)</td>
-<td width='12%'>æ ç›®ã€ID</td>
-<td width='14%'>ä½œè€…</td>
-<td width='18%'>æ—¶é—´</td>
-<td width='5%'>æ“ä½œ</td>
+<td width='5%'>ĞòºÅ</td>
+<td width='31%'>ÎÄ¼şÃû</td>
+<td width='5%'>ÀàĞÍ</td>
+<td width='10%'>´óĞ¡(B)</td>
+<td width='12%'>À¸Ä¿¡¢ID</td>
+<td width='14%'>×÷Õß</td>
+<td width='18%'>Ê±¼ä</td>
+<td width='5%'>²Ù×÷</td>
 </tr>
 <%
     If Int(viewpage) > 1 Then rs.move (viewpage - 1)*nummer
@@ -125,9 +125,9 @@ Sub upload_main()
         If Int(ntypes) <> 0 Then
             nsortn = format_menu(nnsort)
             If Len(nsortn) < 1 Then nsortn = nnsort
-            Response.Write "<font alt='IDï¼š" & rs("iid") & "'>" & nsortn & "</font>"
+            Response.Write "<font alt='ID£º" & rs("iid") & "'>" & nsortn & "</font>"
         Else
-            Response.Write "<font class=red_2>æ— æ•ˆ</font>"
+            Response.Write "<font class=red_2>ÎŞĞ§</font>"
         End If %></td>
 <td><% Response.Write format_user_view(rs("username"),1,"") %></td>
 <td><% Response.Write time_type(rs("tim"),7) %></td>
@@ -139,7 +139,7 @@ Sub upload_main()
 
     rs.Close:Set rs = Nothing %></form>
 <tr>
-<td colspan=8>åˆ†é¡µï¼š<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,6,"#ff0000") %></td>
+<td colspan=8>·ÖÒ³£º<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,6,"#ff0000") %></td>
 </tr>
 </table>
 <%

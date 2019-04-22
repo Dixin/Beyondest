@@ -55,15 +55,15 @@ Sub config_mouse_on_title()
     "// http://beyondest.com" & vbcrlf & _
     "//" & vbcrlf & _
     "// ====================" & vbcrlf & _
-    vbcrlf & "// ====================é»˜è®¤è®¾ç½®å®šä¹‰.*********************" & _
-    vbcrlf & "tPopWait=50;		//åœç•™tWaitè±ªç§’åæ˜¾ç¤ºæç¤ºã€‚" & _
-    vbcrlf & "tPopShow=6000;		//æ˜¾ç¤ºtShowè±ªç§’åå…³é—­æç¤º" & _
+    vbcrlf & "// ====================Ä¬ÈÏÉèÖÃ¶¨Òå.*********************" & _
+    vbcrlf & "tPopWait=50;		//Í£ÁôtWaitºÀÃëºóÏÔÊ¾ÌáÊ¾¡£" & _
+    vbcrlf & "tPopShow=6000;		//ÏÔÊ¾tShowºÀÃëºó¹Ø±ÕÌáÊ¾" & _
     vbcrlf & "showPopStep=20;" & _
     vbcrlf & "popOpacity=95;" & _
     vbcrlf & "fontcolor=""" & code_config(Request.form("web_color_7"),2) & """;" & _
     vbcrlf & "bgcolor=""" & code_config(Request.form("web_color_5"),2) & """;" & _
     vbcrlf & "bordercolor=""" & code_config(Request.form("web_color_2"),2) & """;" & _
-    vbcrlf & vbcrlf & "// ====================å†…éƒ¨å˜é‡å®šä¹‰*****************" & _
+    vbcrlf & vbcrlf & "// ====================ÄÚ²¿±äÁ¿¶¨Òå*****************" & _
     vbcrlf & "sPop=null;curShow=null;tFadeOut=null;tFadeIn=null;tFadeWaiting=null;" & _
     vbcrlf & vbcrlf & "document.write(""<style type='text/css'id='defaultPopStyle'>"");" & _
     vbcrlf & "document.write("".cPopText {  background-color: "" + bgcolor + "";color:"" + fontcolor + ""; border: 1px "" + bordercolor + "" solid;font-color: font-size: 12px; padding-right: 4px; padding-left: 4px; height: 20px; padding-top: 2px; padding-bottom: 2px; filter: Alpha(Opacity=0)}"");" & _
@@ -161,7 +161,7 @@ Sub config_css()
     vbcrlf & ".bg_1 { background-color: " & code_config(Request.form("web_color_1"),2) & " }" & _
     vbcrlf & ".bg_2 { background-color: " & code_config(Request.form("web_color_6"),4) & " }" & _
     vbcrlf & ".bg_3 { background-color: " & code_config(Request.form("web_color_5"),5) & " }" & _
-    vbcrlf & ".timtd { font-family: Arial, å®‹ä½“, Verdana, Helvetica, sans-serif }" & _
+    vbcrlf & ".timtd { font-family: Arial, ËÎÌå, Verdana, Helvetica, sans-serif }" & _
     vbcrlf & ".htd { line-height:150% }" & _
     vbcrlf & ".btd { font-weight:bold }" & _
     vbcrlf & ".bw { WORD-WRAP: break-word }" & _

@@ -19,8 +19,8 @@ Sub format_login() %>
     If login_username <> "" And login_mode <> "" Then %>
   <table border=0 cellspacing=0 cellpadding=0>
   <tr height=20><td></td></tr>
-  <tr height=30><td align=center>ä½ å¥½ï¼Œ<b><font class=blue><% Response.Write login_username %></font></b></td></tr>
-  <tr><td align=center>ä½ ç°åœ¨å·²ç™»é™† <font class=red><% Response.Write format_power(login_mode,1) %></font> æ¨¡å¼</td></tr>
+  <tr height=30><td align=center>ÄãºÃ£¬<b><font class=blue><% Response.Write login_username %></font></b></td></tr>
+  <tr><td align=center>ÄãÏÖÔÚÒÑµÇÂ½ <font class=red><% Response.Write format_power(login_mode,1) %></font> Ä£Ê½</td></tr>
   <tr height=30><td align=center><%
         Dim mess_dim
 
@@ -31,8 +31,8 @@ Sub format_login() %>
             login_message = 0:mess_dim = "gray"
         End If
 
-        Response.Write "<a href='user_mail.asp'><img src='images/mail/new.gif' align=absmiddle border=0>&nbsp;æˆ‘çš„çŸ­ä¿¡ç®±ï¼ˆ<font class=" & mess_dim & ">" & login_message & "&nbsp;æ–°</font>ï¼‰</a>" %></td></tr>
-  <tr><td align=center><a href='login.asp?action=logout'>é€€å‡ºç™»é™†</a>&nbsp;â”‹&nbsp;<a href='user_main.asp'>ç”¨æˆ·ä¸­å¿ƒ</a></td></tr>
+        Response.Write "<a href='user_mail.asp'><img src='images/mail/new.gif' align=absmiddle border=0>&nbsp;ÎÒµÄ¶ÌĞÅÏä£¨<font class=" & mess_dim & ">" & login_message & "&nbsp;ĞÂ</font>£©</a>" %></td></tr>
+  <tr><td align=center><a href='login.asp?action=logout'>ÍË³öµÇÂ½</a>&nbsp;©¯&nbsp;<a href='user_main.asp'>ÓÃ»§ÖĞĞÄ</a></td></tr>
   </table>
 <%
     Else %>
@@ -41,13 +41,13 @@ Sub format_login() %>
   <form name=login_frm method=post action='login.asp?action=login_chk' onsubmit="return login_true()">
   <input type=hidden name=re_log value='yes'>
   <tr height=16><td colspan=2></td></tr>
-  <tr height=30><td>ç”¨æˆ·åç§°ï¼š</td><td><input type=text name=username size=14 maxlength=20></td></tr>
-  <tr height=26><td>ç™»é™†å¯†ç ï¼š</td><td><input type=password name=password size=14 maxlength=20></td></tr>
+  <tr height=30><td>ÓÃ»§Ãû³Æ£º</td><td><input type=text name=username size=14 maxlength=20></td></tr>
+  <tr height=26><td>µÇÂ½ÃÜÂë£º</td><td><input type=password name=password size=14 maxlength=20></td></tr>
   <tr height=26><td colspan=2 align=center>
     <table border=0 cellspacing=0 cellpadding=0><tr align=center valign=bottom>
-    <td><a href='login.asp?action=register'>å…è´¹æ³¨å†Œ</a></td>
-    <td width=60><a href='login.asp?action=nopass'>å¿˜è®°å¯†ç </a></td>
-    <td><input type=submit value='ç™» å½•'></td>
+    <td><a href='login.asp?action=register'>Ãâ·Ñ×¢²á</a></td>
+    <td width=60><a href='login.asp?action=nopass'>Íü¼ÇÃÜÂë</a></td>
+    <td><input type=submit value='µÇ Â¼'></td>
     </tr></table>
   </td></tr></form></table>
 <% End If %>
@@ -90,7 +90,7 @@ Sub web_head(var1,var2,var3,var4,var5)
             Set rs                                        = conn.execute("select l_id from user_login where l_username='" & ttt & "'")
 
             If rs.eof And rs.bof Then
-                ntt                                       = "æ¸¸å®¢" & Session.SessionID
+                ntt                                       = "ÓÎ¿Í" & Session.SessionID
                 conn.execute("insert into user_login(l_username,l_type,l_where,l_tim_login,l_tim_end,l_ip,l_sys) values('" & ntt & "',1,'" & tit & "','" & now_time & "','" & now_time & "','" & user_ip & "','" & user_sys & "')")
                 Response.cookies(web_cookies)("guest_name") = ntt
             Else
@@ -151,8 +151,8 @@ Sub web_head(var1,var2,var3,var4,var5)
 <head>
 <title><% Response.Write web_var(web_config,1) & " - " & tit %></title>
 <meta name="Description"  content="Beyondest">
-<meta name="keywords" content="æœ€å…¨çš„Beyondèµ„æ–™,æœ€å¥½çš„Beyondç½‘ç«™,asp,Beyondest,ç¬¼æ°‘,ä¹¦è®°">
-<meta name="author" content="ç¬¼æ°‘">
+<meta name="keywords" content="×îÈ«µÄBeyond×ÊÁÏ,×îºÃµÄBeyondÍøÕ¾,asp,Beyondest,ÁıÃñ,Êé¼Ç">
+<meta name="author" content="ÁıÃñ">
 <meta http-equiv=Content-Type content=text/html; charset=gb2312>
 <link rel=stylesheet href='include/beyondest.css' type=text/css>
 <script language=javascript src='style/open_win.js'></script>
@@ -182,9 +182,9 @@ Sub web_head(var1,var2,var3,var4,var5)
   </object></td>
 <td align=right width='7%'>
     <table border=0 cellspacing=0 cellpadding=1 align=center>
-    <tr height=20><td><a class=top href="javascript:window.external.AddFavorite('<% Response.Write web_var(web_config,2) %>','<% Response.Write web_var(web_config,1) %>')" style='target: ' _self?>åŠ å…¥æ”¶è—</a></td></tr>
-    <tr height=20><td><a class=top href='help.asp'>å¸®åŠ©ä¸­å¿ƒ</a></td></tr>
-    <tr height=20><td><a class=top href='mailto:plinq@live.com'>è”ç³»æˆ‘ä»¬</a></td></tr>
+    <tr height=20><td><a class=top href="javascript:window.external.AddFavorite('<% Response.Write web_var(web_config,2) %>','<% Response.Write web_var(web_config,1) %>')" style='target: ' _self?>¼ÓÈëÊÕ²Ø</a></td></tr>
+    <tr height=20><td><a class=top href='help.asp'>°ïÖúÖĞĞÄ</a></td></tr>
+    <tr height=20><td><a class=top href='mailto:plinq@live.com'>ÁªÏµÎÒÃÇ</a></td></tr>
     
     </table>
   </td>  
@@ -210,20 +210,20 @@ Sub web_head(var1,var2,var3,var4,var5)
 </table>
 <table border=0 cellpadding=0 cellspacing=0 width='100%' align=center>
 <tr><td align=left height=25 width=620>&nbsp;&nbsp;
-ä»Šå¤©æ˜¯ï¼š<% Response.Write FormatDateTime(now_time,1) & "&nbsp;" & WeekdayName(Weekday(now_time)) %>
-&nbsp;&nbsp;æ‚¨ç°åœ¨ä½äºï¼š&nbsp;<a href='./'><% Response.Write web_var(web_config,1) %></a>&nbsp;â†’&nbsp;
+½ñÌìÊÇ£º<% Response.Write FormatDateTime(now_time,1) & "&nbsp;" & WeekdayName(Weekday(now_time)) %>
+&nbsp;&nbsp;ÄúÏÖÔÚÎ»ÓÚ£º&nbsp;<a href='./'><% Response.Write web_var(web_config,1) %></a>&nbsp;¡ú&nbsp;
 <%
 
             If tit_fir = "" Then
                 Response.Write tit
             Else
-                Response.Write "<a href='" & index_url & ".asp'>" & tit_fir & "</a>&nbsp;â†’&nbsp;" & tit
+                Response.Write "<a href='" & index_url & ".asp'>" & tit_fir & "</a>&nbsp;¡ú&nbsp;" & tit
             End If
 
             Response.Write "</td><td width=1 background='images/" & web_var(web_config,5) & "/bg_dian2.gif'></td><td width=154 align=right bgcolor=" & web_var(web_color,1) & ">"
 
             If login_message > 0 Then
-                Response.Write "<a href='user_mail.asp'><img src='images/mail/new.gif' align=absmiddle border=0>&nbsp;æˆ‘çš„çŸ­ä¿¡ç®±ï¼ˆ<font class=red>" & login_message & "&nbsp;æ–°</font>ï¼‰</a>"
+                Response.Write "<a href='user_mail.asp'><img src='images/mail/new.gif' align=absmiddle border=0>&nbsp;ÎÒµÄ¶ÌĞÅÏä£¨<font class=red>" & login_message & "&nbsp;ĞÂ</font>£©</a>"
             Else %>
 <marquee scrolldelay=120 scrollamount=4 onMouseOut="if (document.all!=null){this.start()}" onMouseOver="if (document.all!=null){this.stop()}"><script src='style/head_scroll.js'></script></marquee>
 <%
@@ -283,17 +283,17 @@ Sub web_head(var1,var2,var3,var4,var5)
 <table border=0 width='100%' cellspacing=0 cellpadding=0>
 <tr><td height=1 bgcolor=<% Response.Write web_var(web_color,3) %>></td></tr>
 <tr><td class=end align=center height=20 bgcolor=<% Response.Write web_var(web_color,2) %>>
-<a class=menu href='help.asp?action=about'>å…³äºæˆ‘ä»¬</a>&nbsp;â”‹
-<a class=menu href='gbook.asp'>ç½‘ç«™ç•™è¨€</a>&nbsp;â”‹
-<a href='links.asp' class=menu>å‹æƒ…é“¾æ¥</a>&nbsp;â”‹
-<a class=menu href='online.asp'>ä¸æˆ‘åœ¨çº¿</a>&nbsp;â”‹
-ç‰ˆæœ¬ï¼š<a href='help.asp' target=_blank class=menu><% Response.Write web_edition %></a>&nbsp;â”‹
-<a class=menu href='admin_login.asp' target=_blank>ç®¡ç†</a>&nbsp;â”‹
+<a class=menu href='help.asp?action=about'>¹ØÓÚÎÒÃÇ</a>&nbsp;©¯
+<a class=menu href='gbook.asp'>ÍøÕ¾ÁôÑÔ</a>&nbsp;©¯
+<a href='links.asp' class=menu>ÓÑÇéÁ´½Ó</a>&nbsp;©¯
+<a class=menu href='online.asp'>ÓëÎÒÔÚÏß</a>&nbsp;©¯
+°æ±¾£º<a href='help.asp' target=_blank class=menu><% Response.Write web_edition %></a>&nbsp;©¯
+<a class=menu href='admin_login.asp' target=_blank>¹ÜÀí</a>&nbsp;©¯
 <a href='#top' class=menu>TOP</a>
 </td></tr>
 <tr><td height=1 bgcolor=<% Response.Write web_var(web_color,3) %>></td></tr>
 <tr><td align=center height=20><% Response.Write counter_s %></td></tr>
-<tr><td align=center><% Response.Write web_var(web_config,1) & "&nbsp;<font class=gray>" & web_var(web_stamp,Int(Mid(web_setup,3,1)) + 1) & "</font>" %>&nbsp;â”‹é¡µé¢æ‰§è¡Œæ—¶é—´ï¼š<font class=red_3><% Response.Write FormatNumber((timer() - timer_start)*1000,3) %></font> æ¯«ç§’</td></tr>
+<tr><td align=center><% Response.Write web_var(web_config,1) & "&nbsp;<font class=gray>" & web_var(web_stamp,Int(Mid(web_setup,3,1)) + 1) & "</font>" %>&nbsp;©¯Ò³ÃæÖ´ĞĞÊ±¼ä£º<font class=red_3><% Response.Write FormatNumber((timer() - timer_start)*1000,3) %></font> ºÁÃë</td></tr>
 <tr><td align=center height=20><% Response.Write web_var(web_error,4) %></td></tr>
 <tr><td height=2 bgcolor=<% Response.Write web_var(web_color,4) %>></td></tr>
 <tr><td height=5 bgcolor=<% Response.Write web_var(web_color,3) %>></td></tr>

@@ -4,7 +4,7 @@
 ' http://beyondest.com
 ' ====================
 
-'---------------------鏁版嵁搴撶被鍨嬪強璺緞瀹氫箟---------------------
+'---------------------数据库类型及路径定义---------------------
 Dim conn
 Dim connstr
 connstr  = "DBQ=" + Server.mappath("data/ip_address.mdb") + ";DRIVER={Microsoft Access Driver (*.mdb)};"

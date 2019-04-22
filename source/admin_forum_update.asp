@@ -7,10 +7,10 @@
 ' ====================
 
 Dim admin_menu
-admin_menu = "<a href='admin_forum.asp'>è®ºå›ç®¡ç†</a> â”‹ " & _
-"<a href='admin_forum_update.asp'>æ›´æ–°è®ºå›æ•°æ®</a> â”‹ " & _
-"<a href='admin_forum.asp?action=mod'>åˆå¹¶è®ºå›</a> â”‹ " & _
-"<a href='admin_forum.asp?action=order'>é‡æ–°æ’åº</a>"
+admin_menu = "<a href='admin_forum.asp'>ÂÛÌ³¹ÜÀí</a> ©¯ " & _
+"<a href='admin_forum_update.asp'>¸üĞÂÂÛÌ³Êı¾İ</a> ©¯ " & _
+"<a href='admin_forum.asp?action=mod'>ºÏ²¢ÂÛÌ³</a> ©¯ " & _
+"<a href='admin_forum.asp?action=order'>ÖØĞÂÅÅĞò</a>"
 Response.Write header(11,admin_menu)
 
 Select Case action
@@ -70,7 +70,7 @@ Sub update_config()
     sql = "update configs set num_topic=" & num_topic & ",num_data=" & num_data & ",num_reg=" & num_reg & ",new_username='" & new_username & "',num_news=" & num_news & ",num_article=" & num_article & ",num_down=" & num_down & " where id=1"
     conn.execute(sql)
 
-    Response.Write "<script language=javascript>alert(""æˆåŠŸæ›´æ–°äº†ç½‘ç«™ç»Ÿè®¡æ•°æ®ï¼"");</script>"
+    Response.Write "<script language=javascript>alert(""³É¹¦¸üĞÂÁËÍøÕ¾Í³¼ÆÊı¾İ£¡"");</script>"
 End Sub
 
 Sub update_forum()
@@ -117,22 +117,22 @@ Sub update_forum()
 
     rsf.Close:Set rsf = Nothing
 
-    Response.Write "<script language=javascript>alert(""æˆåŠŸæ›´æ–°äº†åˆ†è®ºå›æ•°æ®ï¼"");</script>"
+    Response.Write "<script language=javascript>alert(""³É¹¦¸üĞÂÁË·ÖÂÛÌ³Êı¾İ£¡"");</script>"
 End Sub %>
 <table border=1 cellspacing=0 cellpadding=2 width=500 bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>
 <tr height=50 align=center>
-<td width='20%'><font class=red_2>æ³¨æ„äº‹é¡¹</font></td>
-<td width='80%'>ä¸‹é¢æœ‰çš„æ“ä½œå¯èƒ½å°†éå¸¸æ¶ˆè€—æœåŠ¡å™¨èµ„æºï¼Œè€Œä¸”æ›´æ–°æ—¶é—´å¾ˆé•¿ï¼Œè¯·ä»”ç»†ç¡®è®¤æ¯ä¸€æ­¥æ“ä½œåæ‰§è¡Œï¼</td>
+<td width='20%'><font class=red_2>×¢ÒâÊÂÏî</font></td>
+<td width='80%'>ÏÂÃæÓĞµÄ²Ù×÷¿ÉÄÜ½«·Ç³£ÏûºÄ·şÎñÆ÷×ÊÔ´£¬¶øÇÒ¸üĞÂÊ±¼äºÜ³¤£¬Çë×ĞÏ¸È·ÈÏÃ¿Ò»²½²Ù×÷ºóÖ´ĞĞ£¡</td>
 </tr>
 <tr align=center height=80>
-<td><font class=red_3>æ›´æ–°è®ºå›æ€»æ•°æ®</font></td>
-<td class=htd>ç‚¹å‡»ä¸‹é¢çš„æŒ‰é’®å°†é‡æ–°è®¡ç®—æ•´ä¸ªè®ºå›çš„å¸–å­ä¸»é¢˜ã€å›å¤æ•°é‡ã€æœ€æ–°åŠ å…¥ç”¨æˆ·ç­‰ä¿¡æ¯ï¼Œå»ºè®®æ¯éš”ä¸€æ®µæ—¶é—´è¿è¡Œä¸€æ¬¡ã€‚<br>
-<input type=button value='ç«‹å³æ›´æ–°ç½‘ç«™ç»Ÿè®¡æ•°æ®' onclick=update_config() class=red></td>
+<td><font class=red_3>¸üĞÂÂÛÌ³×ÜÊı¾İ</font></td>
+<td class=htd>µã»÷ÏÂÃæµÄ°´Å¥½«ÖØĞÂ¼ÆËãÕû¸öÂÛÌ³µÄÌû×ÓÖ÷Ìâ¡¢»Ø¸´ÊıÁ¿¡¢×îĞÂ¼ÓÈëÓÃ»§µÈĞÅÏ¢£¬½¨ÒéÃ¿¸ôÒ»¶ÎÊ±¼äÔËĞĞÒ»´Î¡£<br>
+<input type=button value='Á¢¼´¸üĞÂÍøÕ¾Í³¼ÆÊı¾İ' onclick=update_config() class=red></td>
 </tr>
 <tr align=center height=80>
-<td><font class=red_3>æ›´æ–°åˆ†è®ºå›æ•°æ®</font></td>
-<td class=htd>ç‚¹å‡»ä¸‹é¢çš„æŒ‰é’®å°†é‡æ–°è®¡ç®—æ¯ä¸ªè®ºå›çš„å¸–å­ä¸»é¢˜ã€å›å¤æ•°é‡ï¼Œæœ€æ–°ä¸»é¢˜ã€å›å¤ã€æ—¶é—´ç­‰ä¿¡æ¯ï¼Œå»ºè®®æ¯éš”ä¸€æ®µæ—¶é—´è¿è¡Œä¸€æ¬¡ã€‚<br>
-<input type=button value='ç«‹å³æ›´æ–°åˆ†è®ºå›æ•°æ®' onclick=update_forum() class=red></td>
+<td><font class=red_3>¸üĞÂ·ÖÂÛÌ³Êı¾İ</font></td>
+<td class=htd>µã»÷ÏÂÃæµÄ°´Å¥½«ÖØĞÂ¼ÆËãÃ¿¸öÂÛÌ³µÄÌû×ÓÖ÷Ìâ¡¢»Ø¸´ÊıÁ¿£¬×îĞÂÖ÷Ìâ¡¢»Ø¸´¡¢Ê±¼äµÈĞÅÏ¢£¬½¨ÒéÃ¿¸ôÒ»¶ÎÊ±¼äÔËĞĞÒ»´Î¡£<br>
+<input type=button value='Á¢¼´¸üĞÂ·ÖÂÛÌ³Êı¾İ' onclick=update_forum() class=red></td>
 </tr>
 <tr align=center>
 <td></td>
@@ -143,13 +143,13 @@ End Sub %>
 <!--
 function update_config()
 {
-if (confirm("æ­¤æ“ä½œå°† æ›´æ–°åˆ†è®ºå›æ•°æ®ï¼\n\nçœŸçš„è¦è¿›è¡Œå—ï¼Ÿ\n\næ›´æ–°åå°†æ— æ³•æ¢å¤ï¼"))
+if (confirm("´Ë²Ù×÷½« ¸üĞÂ·ÖÂÛÌ³Êı¾İ£¡\n\nÕæµÄÒª½øĞĞÂğ£¿\n\n¸üĞÂºó½«ÎŞ·¨»Ö¸´£¡"))
   window.location="admin_forum_update.asp?action=update_config"
 }
 
 function update_forum()
 {
-if (confirm("æ­¤æ“ä½œå°† æ›´æ–°ç½‘ç«™ç»Ÿè®¡æ•°æ®ï¼\n\nçœŸçš„è¦è¿›è¡Œå—ï¼Ÿ\n\næ›´æ–°åå°†æ— æ³•æ¢å¤ï¼"))
+if (confirm("´Ë²Ù×÷½« ¸üĞÂÍøÕ¾Í³¼ÆÊı¾İ£¡\n\nÕæµÄÒª½øĞĞÂğ£¿\n\n¸üĞÂºó½«ÎŞ·¨»Ö¸´£¡"))
   window.location="admin_forum_update.asp?action=update_forum"
 }
 //-->

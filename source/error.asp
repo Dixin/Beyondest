@@ -9,7 +9,7 @@ Dim old_url
 Dim web_skin:web_skin = web_var(web_config
 Dim 5)
 index_url   = "error"
-tit         = "出错信息提示"
+tit         = "������Ϣ��ʾ"
 tit_fir     = ""
 
 action      = Trim(Request.cookies("beyondest_online")("error_action"))
@@ -28,39 +28,39 @@ Call web_center(0)
 
 Select Case action
     Case "loading"
-        tit = "<font class=red>对不起，本站正在维护或更新中……<br><br>您暂时不能注册或登陆本站！<br><br>请稍等片刻……<br><br>给您带来的不便，还请见谅！！！</font>"
+        tit = "<font class=red>�Բ��𣬱�վ����ά��������С���<br><br>����ʱ����ע����½��վ��<br><br>���Ե�Ƭ�̡���<br><br>���������Ĳ��㣬������£�����</font>"
     Case "username"
-        tit = "<font class=red>您所查看详细的用户信息的用户名不符合有关规则或不存在！</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>�����鿴��ϸ���û���Ϣ���û����������йع���򲻴��ڣ�</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "login"
-        tit = "<font class=red>您可能没有注册和登陆本站或登陆信息有误！</font><br><br><font class=red_3>为支持本站的发展，正视本站成员的劳动成果！<br>本站的大部分资源（论坛、文栏、下载、短信等功能服务）<br>需要注册并正确登陆才能进行。"
+        tit = "<font class=red>������û��ע��͵�½��վ���½��Ϣ����</font><br><br><font class=red_3>Ϊ֧�ֱ�վ�ķ�չ�����ӱ�վ��Ա���Ͷ��ɹ���<br>��վ�Ĵ󲿷���Դ����̳�����������ء����ŵȹ��ܷ���<br>��Ҫע�Ტ��ȷ��½���ܽ��С�"
     Case "power"
-        tit = "<font class=red>您的权限太低！系统不充许您进行刚才的操作！<br>可能是您要查看的软件、文章以及论坛主题等所需级别较高。</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>����Ȩ��̫�ͣ�ϵͳ�����������иղŵĲ�����<br>��������Ҫ�鿴�������������Լ���̳��������輶��ϸߡ�</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "locked"
-        tit = "<font class=red>您的目前已被网站管理员锁定，只能进行登陆和浏览等操作！<br>原因可能是您之前进行了不友好的操作。如要解除锁定，请与网站管理员联系。</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>����Ŀǰ�ѱ���վ����Ա������ֻ�ܽ��е�½������Ȳ�����<br>ԭ���������֮ǰ�����˲��ѺõĲ�������Ҫ���������������վ����Ա��ϵ��</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "post"
-        tit = post_error & "<br><br>请勿乱给本站的程序提交非法参数。"
+        tit = post_error & "<br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "effect_id"
-        tit = "<font class=red>您所查看的特效ID不符合有关规则或不存在！</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>�����鿴����ЧID�������йع���򲻴��ڣ�</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "islock"
-        tit = "<font class=red>您所回复的贴子已被锁定！</font><br><br>您不可以再对该贴进行回复操作。"
+        tit = "<font class=red>�����ظ��������ѱ�������</font><br><br>���������ٶԸ������лظ�������"
     Case "mail_id"
-        tit = "<font class=red>您所查看、回复、转发或删除的短信ID不符合有关规则或不存在！</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>�����鿴���ظ���ת����ɾ���Ķ���ID�������йع���򲻴��ڣ�</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "edit_id"
-        tit = "<font class=red>您所编辑的贴子ID不符合有关规则或不存在！</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>�����༭������ID�������йع���򲻴��ڣ�</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "del_id"
-        tit = "<font class=red>您所删除的贴子ID不符合有关规则或不存在！</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>����ɾ��������ID�������йع���򲻴��ڣ�</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "forum_id"
-        tit = "<font class=red>您所查看或发表贴子的论坛ID不符合有关规则或不存在！<br>可能该贴已经被删除或该论坛已经被暂时关闭！</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>�����鿴�򷢱����ӵ���̳ID�������йع���򲻴��ڣ�<br>���ܸ����Ѿ���ɾ�������̳�Ѿ�����ʱ�رգ�</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "time_load"
-        tit = "<font class=red>本站已开启防刷新机制，请勿在 " & web_var(web_num,16) & " 秒钟内重复发表！</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>��վ�ѿ�����ˢ�»��ƣ������� " & web_var(web_num,16) & " �������ظ�������</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case "view_id"
-        tit = "<font class=red>您所查看或发表回贴的主题贴子ID不符合有关规则或不存在！</font><br><br>请勿乱给本站的程序提交非法参数。"
+        tit = "<font class=red>�����鿴�򷢱���������������ID�������йع���򲻴��ڣ�</font><br><br>�����Ҹ���վ�ĳ����ύ�Ƿ�������"
     Case Else
-        tit = "<font class=red>出现未知错误！</font>请与管理员联系！<br>您尚未 <a href=login.asp?action=register>注册</a> 或者 <a href=login.asp>登陆</a>，或者不具备使用当前功能的权限。<br><br><a href='gbook.asp?action=write'>〖 告诉我们 〗</a>"
+        tit = "<font class=red>����δ֪����</font>�������Ա��ϵ��<br>����δ <a href=login.asp?action=register>ע��</a> ���� <a href=login.asp>��½</a>�����߲��߱�ʹ�õ�ǰ���ܵ�Ȩ�ޡ�<br><br><a href='gbook.asp?action=write'>�� �������� ��</a>"
 End Select
 
 If action <> "loading" Then
-    tit = tit & "<br><br><br><a href='" & old_url & "'>点击此处可返回出错页的前一页</a>"
+    tit = tit & "<br><br><br><a href='" & old_url & "'>����˴��ɷ��س���ҳ��ǰһҳ</a>"
 End If
 
 'response.cookies("beyondest_online")("error_action")="" %>

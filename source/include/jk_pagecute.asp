@@ -26,8 +26,8 @@ Function jk_pagecute(maxpage,thepages,viewpage,pageurl,pp,font_color)
     End If
 
     If pl > 1 Then
-        jk_pagecute = jk_pagecute & " <a href='" & pageurl & "' title='第一页'>[|<]</a> " & _
-        " <a href='" & pageurl & "page=" & pl - 1 & "' title='上一页'>[<]</a> "
+        jk_pagecute = jk_pagecute & " <a href='" & pageurl & "' title='��һҳ'>[|<]</a> " & _
+        " <a href='" & pageurl & "page=" & pl - 1 & "' title='��һҳ'>[<]</a> "
     End If
 
     For pi = pl To pr
@@ -35,14 +35,14 @@ Function jk_pagecute(maxpage,thepages,viewpage,pageurl,pp,font_color)
         If CInt(viewpage) = CInt(pi) Then
             jk_pagecute = jk_pagecute & " <font color=" & font_color & ">[" & pi & "]</font> "
         Else
-            jk_pagecute = jk_pagecute & " <a href='" & pageurl & "page=" & pi & "' title='第 " & pi & " 页'>[" & pi & "]</a> "
+            jk_pagecute = jk_pagecute & " <a href='" & pageurl & "page=" & pi & "' title='�� " & pi & " ҳ'>[" & pi & "]</a> "
         End If
 
     Next
 
     If pr < thepages Then
-        jk_pagecute = jk_pagecute & " <a href='" & pageurl & "page=" & pi & "' title='后一页'>[>]</a> " & _
-        " <a href='" & pageurl & "page=" & thepages & "' title='最后一页'>[>|]</a> "
+        jk_pagecute = jk_pagecute & " <a href='" & pageurl & "page=" & pi & "' title='��һҳ'>[>]</a> " & _
+        " <a href='" & pageurl & "page=" & thepages & "' title='���һҳ'>[>|]</a> "
     End If
 
 End Function %>
