@@ -4,20 +4,20 @@
 ' http://beyondest.com
 ' ====================
 
-If web_login <> 1 And web_login <> 2 Then
-    Call cookies_type("loading")
-    Response.End
-End If
+if web_login<>1 and web_login<>2 then
+  call cookies_type("loading")
+  response.end
+end if
 
-'---------------------ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Í¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½---------------------
-Dim conn
-Dim connstr
+'---------------------Êý¾Ý¿âÀàÐÍ¼°Â·¾¶¶¨Òå---------------------
+dim conn,connstr
 connstr="DBQ="&server.mappath(web_var(web_config,6))&";DRIVER={Microsoft Access Driver (*.mdb)};"
-'connstr  = "DSN=Beyondest"
-Set conn = Server.CreateObject("ADODB.CONNECTION")
+'connstr="DSN=Beyondest"
+set conn=server.createobject("ADODB.CONNECTION")
 conn.open connstr
 
-Sub close_conn()
-    conn.Close
-    Set conn = Nothing
-End Sub %>
+sub close_conn()
+  conn.close
+  set conn=nothing
+end sub
+%>

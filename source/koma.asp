@@ -1,2 +1,3 @@
 <%
-Response.redirect "article_view.asp?id=32" %>
+response.redirect "article_view.asp?id=32"
+%>

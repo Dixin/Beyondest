@@ -1,17 +1,18 @@
 <!-- #INCLUDE file="include/onlogin.asp" -->
 <!-- #INCLUDE file="include/fso_file.asp" -->
-<!-- #INCLUDE file="include/common_other.asp" -->
+<!-- #INCLUDE file="INCLUDE/common_other.asp" -->
 <%
 ' ====================
 ' Beyondest.Com v3.6.1
 ' http://beyondest.com
 ' ====================
 
-Dim tit_menu
-tit_menu = "<a href='?'>ÅäÖÃĞŞ¸Ä</a>&nbsp;©¯&nbsp;" & _
-"<a href='javascript:Do_b_data();'>±¸·İÅäÖÃ</a>&nbsp;©¯&nbsp;" & _
-"<a href='javascript:Do_h_data();'>»¹Ô­ÅäÖÃ</a>"
-Response.Write header(3,tit_menu) %>
+dim tit_menu
+tit_menu="<a href='?'>ÅäÖÃĞŞ¸Ä</a>&nbsp;©¯&nbsp;"&_
+	 "<a href='javascript:Do_b_data();'>±¸·İÅäÖÃ</a>&nbsp;©¯&nbsp;"&_
+	 "<a href='javascript:Do_h_data();'>»¹Ô­ÅäÖÃ</a>"
+response.write header(3,tit_menu)
+%>
 <script language=JavaScript><!--
 function Do_b_data()
 {
@@ -25,333 +26,333 @@ if (confirm("´Ë²Ù×÷½« »¹Ô­ ÏÖÓĞµÄÍøÕ¾ÅäÖÃ£¡\n\nÕæµÄÒª½øĞĞÂğ£¿\n»¹Ô­ºó½«ÎŞ·¨»Ö¸´£
 }
 //--></script>
 <%
-If action = "b" Or action = "h" Then Call config_bh(action)
+if action="b" or action="h" then call config_bh(action)
 
-Select Case Trim(Request.querystring("edit"))
-    Case "chk"
-        Call config_chk()
-    Case Else
-        Call config_main()
-End Select
+select case trim(request.querystring("edit"))
+case "chk"
+  call config_chk()
+case else
+  call config_main()
+end select
 
-Response.Write ender()
+response.write ender()
 
-Sub config_main()
-    Dim t1
-    Dim t2
-    Dim j
-    Dim tdim
-    Dim udim
-    Dim tt:tt = 0 %>
-<table border=1 width='92%' cellspacing=0 cellpadding=2<% Response.Write table1 %>>
+sub config_main()
+  dim t1,t2,j,tdim,udim,tt:tt=0
+%>
+<table border=1 width='92%' cellspacing=0 cellpadding=2<%response.write table1%>>
 <tr><td colspan=3 align=center>
   <table border=0 cellspacing=0 cellpadding=3>
   <tr>
-  <td><% Response.Write img_small("jt1") %><a href='?action=config'>»ù±¾ĞÅÏ¢ÉèÖÃ</a></td>
-  <td><% Response.Write img_small("jt1") %><a href='?action=config2'>»ù±¾¹¦ÄÜÉèÖÃ</a></td>
-  <td><% Response.Write img_small("jt1") %><a href='?action=num'>Ò³ÏÔÊ¾ÊıÁ¿µÈ</a></td>
-  <td><% Response.Write img_small("jt12") %><a href='?action=info'>¹ıÂËÌáÊ¾ÉèÖÃ</a></td>
-  <td><% Response.Write img_small("jt1") %><a href='?action=down_up'>ÏÂÔØÉÏ´«ÉèÖÃ</a></td>
+  <td><%response.write img_small("jt1")%><a href='?action=config'>»ù±¾ĞÅÏ¢ÉèÖÃ</a></td>
+  <td><%response.write img_small("jt1")%><a href='?action=config2'>»ù±¾¹¦ÄÜÉèÖÃ</a></td>
+  <td><%response.write img_small("jt1")%><a href='?action=num'>Ò³ÏÔÊ¾ÊıÁ¿µÈ</a></td>
+  <td><%response.write img_small("jt12")%><a href='?action=info'>¹ıÂËÌáÊ¾ÉèÖÃ</a></td>
+  <td><%response.write img_small("jt1")%><a href='?action=down_up'>ÏÂÔØÉÏ´«ÉèÖÃ</a></td>
   </tr>
   <tr>
-  <td><% Response.Write img_small("jt1") %><a href='?action=menu'>À¸Ä¿²Ëµ¥ÉèÖÃ</a></td>
-  <td><% Response.Write img_small("jt1") %><a href='?action=color'>ÍøÕ¾ÑÕÉ«ÉèÖÃ</a></td>
-  <td><% Response.Write img_small("jt12") %><a href='?action=user'>ÓÃ »§ ×é¹ÜÀí</a></td>
-  <td><% Response.Write img_small("jt12") %><a href='?action=grade'>ÓÃ»§µÈ¼¶¹ÜÀí</a></td>
-  <td><% Response.Write img_small("jt12") %><a href='?action=forum'>ÂÛÌ³·ÖÀà¹ÜÀí</a></td>
+  <td><%response.write img_small("jt1")%><a href='?action=menu'>À¸Ä¿²Ëµ¥ÉèÖÃ</a></td>
+  <td><%response.write img_small("jt1")%><a href='?action=color'>ÍøÕ¾ÑÕÉ«ÉèÖÃ</a></td>
+  <td><%response.write img_small("jt12")%><a href='?action=user'>ÓÃ »§ ×é¹ÜÀí</a></td>
+  <td><%response.write img_small("jt12")%><a href='?action=grade'>ÓÃ»§µÈ¼¶¹ÜÀí</a></td>
+  <td><%response.write img_small("jt12")%><a href='?action=forum'>ÂÛÌ³·ÖÀà¹ÜÀí</a></td>
   </tr>
   </table>
 </td></tr>
-<tr align=center bgcolor=<% Response.Write color2 %>>
+<tr align=center bgcolor=<%response.write color2%>>
 <td width='16%'>ÉèÖÃÃû³Æ</td>
 <td width='50%'>²ÎÊı</td>
 <td width='34%'>Ïà¹ØËµÃ÷</td>
 </tr>
-<form action='?action=<% Response.Write action %>&edit=chk' method=post>
-<input type=hidden name=web_news_art value='<% Response.Write web_news_art %>'>
-<input type=hidden name=web_shop value='<% Response.Write web_shop %>'>
+<form action='?action=<%response.write action%>&edit=chk' method=post>
+<input type=hidden name=web_news_art value='<%response.write web_news_art%>'>
+<input type=hidden name=web_shop value='<%response.write web_shop%>'>
 <%
-
-    If action = "config" Then
-        tt = 1 %>
+if action="config" then
+  tt=1
+%>
 <tr>
 <td>ÍøÕ¾Ãû³Æ£º</td>
-<td><input type=text name=web_config_1 value='<% Response.Write web_var(web_config,1) %>' size=38 maxlength=20></td>
+<td><input type=text name=web_config_1 value='<%response.write web_var(web_config,1)%>' size=38 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>ÍøÕ¾µØÖ·£º</td>
-<td><input type=text name=web_config_2 value='<% Response.Write web_var(web_config,2) %>' size=38 maxlength=50></td>
+<td><input type=text name=web_config_2 value='<%response.write web_var(web_config,2)%>' size=38 maxlength=50></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>³¬¼¶¹ÜÀíÔ±£º</td>
-<td><input type=text name=web_config_3 value='<% Response.Write web_var(web_config,3) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_config_3 value='<%response.write web_var(web_config,3)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>ËùÔÚÄ¿Â¼£º</td>
-<td><input type=text name=web_config_4 value='<% Response.Write web_var(web_config,4) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_config_4 value='<%response.write web_var(web_config,4)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>ÍøÕ¾SKIN£º</td>
-<td><input type=text name=web_config_5 value='<% Response.Write web_var(web_config,5) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_config_5 value='<%response.write web_var(web_config,5)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>CookiesÃû³Æ£º</td>
-<td><input type=text name=web_cookies value='<% Response.Write web_cookies %>' size=20 maxlength=20></td>
+<td><input type=text name=web_cookies value='<%response.write web_cookies%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>Êı¾İ¿âÃû³Æ£º</td>
-<td><input type=text name=web_config_6 value='<% Response.Write web_var(web_config,6) %>' size=38 maxlength=50></td>
+<td><input type=text name=web_config_6 value='<%response.write web_var(web_config,6)%>' size=38 maxlength=50></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>ÍøÕ¾±³¾°£º</td>
-<td><input type=text name=web_config_7 value='<% Response.Write web_var(web_config,7) %>' size=20 maxlength=20></td>
-<td background='images/<% Response.Write web_var(web_config,7) %>.gif'>&nbsp;</td>
+<td><input type=text name=web_config_7 value='<%response.write web_var(web_config,7)%>' size=20 maxlength=20></td>
+<td background='images/<%response.write web_var(web_config,7)%>.gif'>&nbsp;</td>
 </tr>
 <tr>
 <td>ĞéÄâ»õ±Ò£º</td>
-<td><input type=text name=web_config_8 value='<% Response.Write web_var(web_config,8) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_config_8 value='<%response.write web_var(web_config,8)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;¾¡Á¿¼õ¶ÌÆäÃû³Æ</td>
 </tr>
-<% Else %>
-<input type=hidden name=web_config_1 value='<% Response.Write web_var(web_config,1) %>'>
-<input type=hidden name=web_config_2 value='<% Response.Write web_var(web_config,2) %>'>
-<input type=hidden name=web_config_3 value='<% Response.Write web_var(web_config,3) %>'>
-<input type=hidden name=web_config_4 value='<% Response.Write web_var(web_config,4) %>'>
-<input type=hidden name=web_config_5 value='<% Response.Write web_var(web_config,5) %>'>
-<input type=hidden name=web_cookies value='<% Response.Write web_cookies %>'>
-<input type=hidden name=web_config_6 value='<% Response.Write web_var(web_config,6) %>'>
-<input type=hidden name=web_config_7 value='<% Response.Write web_var(web_config,7) %>'>
-<input type=hidden name=web_config_8 value='<% Response.Write web_var(web_config,8) %>'>
+<% else %>
+<input type=hidden name=web_config_1 value='<%response.write web_var(web_config,1)%>'>
+<input type=hidden name=web_config_2 value='<%response.write web_var(web_config,2)%>'>
+<input type=hidden name=web_config_3 value='<%response.write web_var(web_config,3)%>'>
+<input type=hidden name=web_config_4 value='<%response.write web_var(web_config,4)%>'>
+<input type=hidden name=web_config_5 value='<%response.write web_var(web_config,5)%>'>
+<input type=hidden name=web_cookies value='<%response.write web_cookies%>'>
+<input type=hidden name=web_config_6 value='<%response.write web_var(web_config,6)%>'>
+<input type=hidden name=web_config_7 value='<%response.write web_var(web_config,7)%>'>
+<input type=hidden name=web_config_8 value='<%response.write web_var(web_config,8)%>'>
 <%
-    End If
+end if
 
-    If action = "config2" Then
-        tt = 1 %>
+if action="config2" then
+  tt=1
+%>
 <tr>
 <td>ÍøÕ¾×´Ì¬£º</td>
-<td><input type=radio name=web_login value='1'<% If Int(web_login) = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_login value='0'<% If Int(web_login) <> 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
+<td><input type=radio name=web_login value='1'<% if int(web_login)=1 then response.write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_login value='0'<% if int(web_login)<>1 then response.write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
 <td class=gray>&nbsp;ÊÇ·ñ¿ª·ÅÍøÕ¾</td>
 </tr>
-<% t1 = web_var_num(web_setup,1,1) %>
+<% t1=web_var_num(web_setup,1,1) %>
 <tr>
 <td>µÇÂ½ä¯ÀÀ£º</td>
-<td colspan=2><input type=radio name=web_setup_1 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;ÊÇ&nbsp;&nbsp;&nbsp;<input type=radio name=web_setup_1 value='0'<% If t1 <> 1 Then Response.Write " checked" %> class=bg_1>&nbsp;·ñ&nbsp;&nbsp;&nbsp;&nbsp;<font class=gray>ÊÇ·ñÒªµÇÂ½²Å¿Éä¯ÀÀÎÄÕÂ»òÏÂÔØÈí¼şµÈ</font></td>
+<td colspan=2><input type=radio name=web_setup_1 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;ÊÇ&nbsp;&nbsp;&nbsp;<input type=radio name=web_setup_1 value='0'<% if t1<>1 then response.write " checked" %> class=bg_1>&nbsp;·ñ&nbsp;&nbsp;&nbsp;&nbsp;<font class=gray>ÊÇ·ñÒªµÇÂ½²Å¿Éä¯ÀÀÎÄÕÂ»òÏÂÔØÈí¼şµÈ</font></td>
 </tr>
-<% t1 = web_var_num(web_setup,2,1) %>
+<% t1=web_var_num(web_setup,2,1) %>
 <tr>
 <td>×¢²áÉóºË£º</td>
-<td><input type=radio name=web_setup_2 value='0'<% If t1 <> 1 Then Response.Write " checked" %> class=bg_1>&nbsp;ÊÇ&nbsp;&nbsp;&nbsp;<input type=radio name=web_setup_2 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;·ñ</td>
+<td><input type=radio name=web_setup_2 value='0'<% if t1<>1 then response.write " checked" %> class=bg_1>&nbsp;ÊÇ&nbsp;&nbsp;&nbsp;<input type=radio name=web_setup_2 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;·ñ</td>
 <td class=gray>&nbsp;ÊÇ·ñ¶ÔĞÂ×¢²á½øĞĞÉóºË</td>
 </tr>
 <%
-        t1 = web_var_num(web_setup,3,1)
-        If t1 <> 1 And t1 <> 2 Then t1 = 0 %>
+t1=web_var_num(web_setup,3,1)
+if t1<>1 and t1<>2 then t1=0
+%>
 <tr>
 <td>ÍøÕ¾Ä£Ê½£º</td>
-<td colspan=2 class=gray><input type=radio name=web_setup_3 value='0'<% If t1 = 0 Then Response.Write " checked" %> class=bg_1>&nbsp;<input type=text name=web_stamp_1 value='<% Response.Write web_var(web_stamp,1) %>' size=10 maxlength=10>&nbsp;&nbsp;&nbsp;±¾Õ¾µÄ×¢²áÓÃ»§¿ÉÒÔµÇÂ½£¬²»¼ÇÂ¼ÔÚÏßÁĞ±í</td>
+<td colspan=2 class=gray><input type=radio name=web_setup_3 value='0'<% if t1=0 then response.write " checked" %> class=bg_1>&nbsp;<input type=text name=web_stamp_1 value='<%response.write web_var(web_stamp,1)%>' size=10 maxlength=10>&nbsp;&nbsp;&nbsp;±¾Õ¾µÄ×¢²áÓÃ»§¿ÉÒÔµÇÂ½£¬²»¼ÇÂ¼ÔÚÏßÁĞ±í</td>
 <tr>
 <td>&nbsp;</td>
-<td colspan=2 class=gray><input type=radio name=web_setup_3 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;<input type=text name=web_stamp_2 value='<% Response.Write web_var(web_stamp,2) %>' size=10 maxlength=10>&nbsp;&nbsp;&nbsp;ËùÓĞµÇÂ½ºÍä¯ÀÀ±¾Õ¾µÄÈË±»²¢¼ÇÂ¼ÔÚÏßÁĞ±í</td>
+<td colspan=2 class=gray><input type=radio name=web_setup_3 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;<input type=text name=web_stamp_2 value='<%response.write web_var(web_stamp,2)%>' size=10 maxlength=10>&nbsp;&nbsp;&nbsp;ËùÓĞµÇÂ½ºÍä¯ÀÀ±¾Õ¾µÄÈË±»²¢¼ÇÂ¼ÔÚÏßÁĞ±í</td>
 <tr>
 <td>&nbsp;</td>
-<td colspan=2 class=gray><input type=radio name=web_setup_3 value='2'<% If t1 = 2 Then Response.Write " checked" %> class=bg_1>&nbsp;<input type=text name=web_stamp_3 value='<% Response.Write web_var(web_stamp,3) %>' size=10 maxlength=10>&nbsp;&nbsp;&nbsp;±¾Õ¾µÄ×¢²áÓÃ»§¿ÉÒÔµÇÂ½£¬²¢¼ÇÂ¼ÓÃ»§ÔÚÏßÁĞ±í</td>
+<td colspan=2 class=gray><input type=radio name=web_setup_3 value='2'<% if t1=2 then response.write " checked" %> class=bg_1>&nbsp;<input type=text name=web_stamp_3 value='<%response.write web_var(web_stamp,3)%>' size=10 maxlength=10>&nbsp;&nbsp;&nbsp;±¾Õ¾µÄ×¢²áÓÃ»§¿ÉÒÔµÇÂ½£¬²¢¼ÇÂ¼ÓÃ»§ÔÚÏßÁĞ±í</td>
 </tr>
-<% t1 = web_var_num(web_setup,4,1) %>
+<% t1=web_var_num(web_setup,4,1) %>
 <tr>
 <td>ĞÅÏ¢¹ıÂË£º</td>
-<td><input type=radio name=web_setup_4 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;ÊÇ&nbsp;&nbsp;&nbsp;<input type=radio name=web_setup_4 value='0'<% If t1 <> 1 Then Response.Write " checked" %> class=bg_1>&nbsp;·ñ</td>
+<td><input type=radio name=web_setup_4 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;ÊÇ&nbsp;&nbsp;&nbsp;<input type=radio name=web_setup_4 value='0'<% if t1<>1 then response.write " checked" %> class=bg_1>&nbsp;·ñ</td>
 <td class=gray>&nbsp;ÊÇ·ñ¶ÔÂÛÌ³µÈ½øĞĞ×Ö·û¹ıÂË</td>
 </tr>
 <%
-        t1 = web_var_num(web_setup,5,1)
-        If t1 <> 0 And t1 <> 1 Then t1 = 2 %>
+t1=web_var_num(web_setup,5,1)
+if t1<>0 and t1<>1 then t1=2
+%>
 <tr>
 <td>ÏÔÊ¾ IP£º</td>
-<td><input type=radio name=web_setup_5 value='0'<% If t1 = 0 Then Response.Write " checked" %> class=bg_1> ÍêÈ«±£ÃÜ
-<input type=radio name=web_setup_5 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1> ÏÔÊ¾²¿·Ö
-<input type=radio name=web_setup_5 value='2'<% If t1 = 2 Then Response.Write " checked" %> class=bg_1> ÍêÈ«¿ª·Å</td>
+<td><input type=radio name=web_setup_5 value='0'<% if t1=0 then response.write " checked" %> class=bg_1> ÍêÈ«±£ÃÜ
+<input type=radio name=web_setup_5 value='1'<% if t1=1 then response.write " checked" %> class=bg_1> ÏÔÊ¾²¿·Ö
+<input type=radio name=web_setup_5 value='2'<% if t1=2 then response.write " checked" %> class=bg_1> ÍêÈ«¿ª·Å</td>
 <td class=gray>&nbsp;¶Ô¹ÜÀíÔ±×ÜÊÇÍêÈ«¿ª·Å</td>
 </tr>
-<% t1 = web_var_num(web_setup,6,1) %>
+<% t1=web_var_num(web_setup,6,1) %>
 <tr>
 <td>°æÖ÷ÏÔÊ¾£º</td>
-<td><input type=radio name=web_setup_6 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;ÎÄ×ÖÁ´½Ó&nbsp;<input type=radio name=web_setup_6 value='0'<% If t1 <> 1 Then Response.Write " checked" %> class=bg_1>&nbsp;ÏÂÀ­²Ëµ¥¿ò</td>
+<td><input type=radio name=web_setup_6 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;ÎÄ×ÖÁ´½Ó&nbsp;<input type=radio name=web_setup_6 value='0'<% if t1<>1 then response.write " checked" %> class=bg_1>&nbsp;ÏÂÀ­²Ëµ¥¿ò</td>
 <td class=gray>&nbsp;ÂÛÌ³°æÖ÷ÏÔÊ¾Ä£Ê½</td>
 </tr>
-<% t1 = web_var_num(web_setup,7,1) %>
+<% t1=web_var_num(web_setup,7,1) %>
 <tr>
 <td>¼ÆÊı·½Ê½£º</td>
-<td><input type=radio name=web_setup_7 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¼ÇÂ¼¶à´Î&nbsp;<input type=radio name=web_setup_7 value='0'<% If t1 <> 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¼ÇÂ¼Ò»´Î</td>
+<td><input type=radio name=web_setup_7 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;¼ÇÂ¼¶à´Î&nbsp;<input type=radio name=web_setup_7 value='0'<% if t1<>1 then response.write " checked" %> class=bg_1>&nbsp;¼ÇÂ¼Ò»´Î</td>
 <td class=gray>&nbsp;ÍøÕ¾¼ÆÊıµÄ·½Ê½</td>
 </tr>
-<% t1 = web_var_num(web_var(web_config,9),1,1) %><tr>
+<% t1=web_var_num(web_var(web_config,9),1,1) %><tr>
 <td>·¢²¼ĞÂÎÅ£º</td>
-<td><input type=radio name=web_config_9_1 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_1 value='0'<% If t1 = 0 Then Response.Write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
+<td><input type=radio name=web_config_9_1 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_1 value='0'<% if t1=0 then response.write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
 <td class=gray>&nbsp;</td>
-</tr><% t1 = web_var_num(web_var(web_config,9),2,1) %>
+</tr><% t1=web_var_num(web_var(web_config,9),2,1) %>
 <tr>
 <td>·¢±íÎÄÕÂ£º</td>
-<td><input type=radio name=web_config_9_2 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_2 value='0'<% If t1 = 0 Then Response.Write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
+<td><input type=radio name=web_config_9_2 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_2 value='0'<% if t1=0 then response.write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
 <td class=gray>&nbsp;</td>
-</tr><% t1 = web_var_num(web_var(web_config,9),3,1) %>
+</tr><% t1=web_var_num(web_var(web_config,9),3,1) %>
 <tr>
 <td>Ìí¼ÓÒôÀÖ£º</td>
-<td><input type=radio name=web_config_9_3 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_3 value='0'<% If t1 = 0 Then Response.Write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
+<td><input type=radio name=web_config_9_3 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_3 value='0'<% if t1=0 then response.write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
 <td class=gray>&nbsp;</td>
-</tr><% t1 = web_var_num(web_var(web_config,9),4,1) %>
+</tr><% t1=web_var_num(web_var(web_config,9),4,1) %>
 <tr>
 <td>ÉÏ´«ÌùÍ¼£º</td>
-<td><input type=radio name=web_config_9_4 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_4 value='0'<% If t1 = 0 Then Response.Write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
+<td><input type=radio name=web_config_9_4 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_4 value='0'<% if t1=0 then response.write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
 <td class=gray>&nbsp;</td>
-</tr><% t1 = web_var_num(web_var(web_config,9),5,1) %>
+</tr><% t1=web_var_num(web_var(web_config,9),5,1) %>
 <tr>
 <td>ÍÆ¼öÍøÕ¾£º</td>
-<td><input type=radio name=web_config_9_5 value='1'<% If t1 = 1 Then Response.Write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_5 value='0'<% If t1 = 0 Then Response.Write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
+<td><input type=radio name=web_config_9_5 value='1'<% if t1=1 then response.write " checked" %> class=bg_1>&nbsp;¿ª·Å&nbsp;<input type=radio name=web_config_9_5 value='0'<% if t1=0 then response.write " checked" %> class=bg_1>&nbsp;¹Ø±Õ</td>
 <td class=gray>&nbsp;</td>
 </tr>
-<% Else %>
-<input type=hidden name=web_login value='<% Response.Write web_login %>'>
-<input type=hidden name=web_stamp_1 value='<% Response.Write web_var(web_stamp,1) %>'>
-<input type=hidden name=web_stamp_2 value='<% Response.Write web_var(web_stamp,2) %>'>
-<input type=hidden name=web_stamp_3 value='<% Response.Write web_var(web_stamp,3) %>'>
-<input type=hidden name=web_setup_1 value='<% Response.Write web_var_num(web_setup,1,1) %>'>
-<input type=hidden name=web_setup_2 value='<% Response.Write web_var_num(web_setup,2,1) %>'>
-<input type=hidden name=web_setup_3 value='<% Response.Write web_var_num(web_setup,3,1) %>'>
-<input type=hidden name=web_setup_4 value='<% Response.Write web_var_num(web_setup,4,1) %>'>
-<input type=hidden name=web_setup_5 value='<% Response.Write web_var_num(web_setup,5,1) %>'>
-<input type=hidden name=web_setup_6 value='<% Response.Write web_var_num(web_setup,6,1) %>'>
-<input type=hidden name=web_setup_7 value='<% Response.Write web_var_num(web_setup,7,1) %>'>
-<input type=hidden name=web_config_9_1 value='<% Response.Write web_var_num(web_var(web_config,9),1,1) %>'>
-<input type=hidden name=web_config_9_2 value='<% Response.Write web_var_num(web_var(web_config,9),2,1) %>'>
-<input type=hidden name=web_config_9_3 value='<% Response.Write web_var_num(web_var(web_config,9),3,1) %>'>
-<input type=hidden name=web_config_9_4 value='<% Response.Write web_var_num(web_var(web_config,9),4,1) %>'>
-<input type=hidden name=web_config_9_5 value='<% Response.Write web_var_num(web_var(web_config,9),5,1) %>'>
+<% else %>
+<input type=hidden name=web_login value='<%response.write web_login%>'>
+<input type=hidden name=web_stamp_1 value='<%response.write web_var(web_stamp,1)%>'>
+<input type=hidden name=web_stamp_2 value='<%response.write web_var(web_stamp,2)%>'>
+<input type=hidden name=web_stamp_3 value='<%response.write web_var(web_stamp,3)%>'>
+<input type=hidden name=web_setup_1 value='<%response.write web_var_num(web_setup,1,1)%>'>
+<input type=hidden name=web_setup_2 value='<%response.write web_var_num(web_setup,2,1)%>'>
+<input type=hidden name=web_setup_3 value='<%response.write web_var_num(web_setup,3,1)%>'>
+<input type=hidden name=web_setup_4 value='<%response.write web_var_num(web_setup,4,1)%>'>
+<input type=hidden name=web_setup_5 value='<%response.write web_var_num(web_setup,5,1)%>'>
+<input type=hidden name=web_setup_6 value='<%response.write web_var_num(web_setup,6,1)%>'>
+<input type=hidden name=web_setup_7 value='<%response.write web_var_num(web_setup,7,1)%>'>
+<input type=hidden name=web_config_9_1 value='<%response.write web_var_num(web_var(web_config,9),1,1)%>'>
+<input type=hidden name=web_config_9_2 value='<%response.write web_var_num(web_var(web_config,9),2,1)%>'>
+<input type=hidden name=web_config_9_3 value='<%response.write web_var_num(web_var(web_config,9),3,1)%>'>
+<input type=hidden name=web_config_9_4 value='<%response.write web_var_num(web_var(web_config,9),4,1)%>'>
+<input type=hidden name=web_config_9_5 value='<%response.write web_var_num(web_var(web_config,9),5,1)%>'>
 <%
-    End If
+end if
 
-    If action = "num" Then
-        tt = 1 %>
+if action="num" then
+  tt=1
+%>
 <tr>
 <td>ÓÃ»§Ãû³¤¶È£º</td>
-<td><input type=text name=web_num_1 value='<% Response.Write web_var(web_num,1) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_1 value='<%response.write web_var(web_num,1)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>Ã¿Ò³Ö÷ÌâÊı£º</td>
-<td><input type=text name=web_num_2 value='<% Response.Write web_var(web_num,2) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_2 value='<%response.write web_var(web_num,2)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;ÂÛÌ³¡¢»áÔ±Ã¿Ò³ÏÔÊ¾µÈ</td>
 </tr>
 <tr>
 <td>Ã¿Ò³ÏÔÊ¾Êı£º</td>
-<td><input type=text name=web_num_3 value='<% Response.Write web_var(web_num,3) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_3 value='<%response.write web_var(web_num,3)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;²é¿´Ìù×ÓÄÚÈİµÈ</td>
 </tr>
 <tr>
 <td>Ã¿Ò³ÁôÑÔÊı£º</td>
-<td><input type=text name=web_num_4 value='<% Response.Write web_var(web_num,4) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_4 value='<%response.write web_var(web_num,4)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;Ã¿Ò³ÁôÑÔÊıÄ¿µÈ</td>
 </tr>
 <tr>
 <td>×Ô¶¯·µ»Ø£º</td>
-<td><input type=text name=web_num_5 value='<% Response.Write web_var(web_num,5) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_5 value='<%response.write web_var(web_num,5)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;×Ô¶¯·µ»ØÊ±¼ä£¬µ¥Î»ÎªÃë</td>
 </tr>
 <tr>
 <td>Ö÷Ìâ³¤¶È£º</td>
-<td><input type=text name=web_num_6 value='<% Response.Write web_var(web_num,6) %>' size=20 maxlength=20>&nbsp;KB</td>
+<td><input type=text name=web_num_6 value='<%response.write web_var(web_num,6)%>' size=20 maxlength=20>&nbsp;KB</td>
 <td class=gray>&nbsp;ÂÛÌ³·¢ÌùÖ÷ÌâµÈ³¤¶È</td>
 </tr>
 <tr>
 <td>Í¼Æ¬¿í¶È£º</td>
-<td><input type=text name=web_num_7 value='<% Response.Write web_var(web_num,7) %>' size=20 maxlength=20>&nbsp;ÏñËØ</td>
+<td><input type=text name=web_num_7 value='<% response.write web_var(web_num,7) %>' size=20 maxlength=20>&nbsp;ÏñËØ</td>
 <td class=gray>&nbsp;ÏÂÔØ¡¢Í¼¿âµÈÍ¼Æ¬ÏÔÊ¾¿í¶È</td>
 </tr>
 <tr>
 <td>Í¼Æ¬¸ß¶È£º</td>
-<td><input type=text name=web_num_8 value='<% Response.Write web_var(web_num,8) %>' size=20 maxlength=20>&nbsp;ÏñËØ</td>
+<td><input type=text name=web_num_8 value='<% response.write web_var(web_num,8) %>' size=20 maxlength=20>&nbsp;ÏñËØ</td>
 <td class=gray>&nbsp;ÏÂÔØ¡¢Í¼¿âµÈÍ¼Æ¬ÏÔÊ¾¸ß¶È</td>
 </tr>
 <tr>
 <td>×î´ó¿í¶È£º</td>
-<td><input type=text name=web_num_9 value='<% Response.Write web_var(web_num,9) %>' size=20 maxlength=20>&nbsp;ÏñËØ</td>
+<td><input type=text name=web_num_9 value='<% response.write web_var(web_num,9) %>' size=20 maxlength=20>&nbsp;ÏñËØ</td>
 <td class=gray>&nbsp;ÌùÍ¼¡¢FLASHµÈ×î´ó¿í¶È</td>
 </tr>
 <tr>
 <td>×î´ó¸ß¶È£º</td>
-<td><input type=text name=web_num_10 value='<% Response.Write web_var(web_num,10) %>' size=20 maxlength=20>&nbsp;ÏñËØ</td>
+<td><input type=text name=web_num_10 value='<% response.write web_var(web_num,10) %>' size=20 maxlength=20>&nbsp;ÏñËØ</td>
 <td class=gray>&nbsp;ÌùÍ¼¡¢FLASHµÈ×î´ó¸ß¶È</td>
 </tr>
 <tr>
 <td>ÓÃ»§Í·ÏñÊı£º</td>
-<td><input type=text name=web_num_11 value='<% Response.Write web_var(web_num,11) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_11 value='<% response.write web_var(web_num,11) %>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;ÓÃ»§Í·ÏñµÄ×ÜÊı</td>
 </tr>
 <tr>
 <td>¼ä¾àÏµÊı£º</td>
-<td><input type=text name=web_num_12 value='<% Response.Write web_var(web_num,12) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_12 value='<% response.write web_var(web_num,12) %>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;±í¸ñĞĞµÄ¼ä¾à</td>
 </tr>
 <tr>
 <td>µÇÂ½³¬Ê±£º</td>
-<td><input type=text name=web_num_13 value='<% Response.Write web_var(web_num,13) %>' size=20 maxlength=20>&nbsp;·ÖÖÓ</td>
+<td><input type=text name=web_num_13 value='<% response.write web_var(web_num,13) %>' size=20 maxlength=20>&nbsp;·ÖÖÓ</td>
 <td class=gray>&nbsp;ÓÃ»§µÇÂ½³¬Ê±µÄÊ±¼ä</td>
 </tr>
 <tr>
 <td>»ı·Ö»»Ëã£º</td>
-<td><input type=text name=web_num_14 value='<% Response.Write web_var(web_num,14) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_14 value='<% response.write web_var(web_num,14) %>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;»ı·Ö»»Ëã±ÈÂÊ</td>
 </tr>
 <tr>
 <td>·¢²¼¼Ó·Ö£º</td>
-<td><input type=text name=web_num_15 value='<% Response.Write web_var(web_num,15) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_15 value='<% response.write web_var(web_num,15) %>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;Ç°Ì¨·¢²¼ĞÅÏ¢¼Ó·ÖÖµ</td>
 </tr>
 <tr>
 <td>·ÀË¢Ê±¼ä£º</td>
-<td><input type=text name=web_num_16 value='<% Response.Write web_var(web_num,16) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_num_16 value='<% response.write web_var(web_num,16) %>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;µ¥Î»Îª£ºÃë</td>
 </tr>
-<% Else %>
-<input type=hidden name=web_num_1 value='<% Response.Write web_var(web_num,1) %>'>
-<input type=hidden name=web_num_2 value='<% Response.Write web_var(web_num,2) %>'>
-<input type=hidden name=web_num_3 value='<% Response.Write web_var(web_num,3) %>'>
-<input type=hidden name=web_num_4 value='<% Response.Write web_var(web_num,4) %>'>
-<input type=hidden name=web_num_5 value='<% Response.Write web_var(web_num,5) %>'>
-<input type=hidden name=web_num_6 value='<% Response.Write web_var(web_num,6) %>'>
-<input type=hidden name=web_num_7 value='<% Response.Write web_var(web_num,7) %>'>
-<input type=hidden name=web_num_8 value='<% Response.Write web_var(web_num,8) %>'>
-<input type=hidden name=web_num_9 value='<% Response.Write web_var(web_num,9) %>'>
-<input type=hidden name=web_num_10 value='<% Response.Write web_var(web_num,10) %>'>
-<input type=hidden name=web_num_11 value='<% Response.Write web_var(web_num,11) %>'>
-<input type=hidden name=web_num_12 value='<% Response.Write web_var(web_num,12) %>'>
-<input type=hidden name=web_num_13 value='<% Response.Write web_var(web_num,13) %>'>
-<input type=hidden name=web_num_14 value='<% Response.Write web_var(web_num,14) %>'>
-<input type=hidden name=web_num_15 value='<% Response.Write web_var(web_num,15) %>'>
-<input type=hidden name=web_num_16 value='<% Response.Write web_var(web_num,16) %>'>
+<% else %>
+<input type=hidden name=web_num_1 value='<%response.write web_var(web_num,1)%>'>
+<input type=hidden name=web_num_2 value='<%response.write web_var(web_num,2)%>'>
+<input type=hidden name=web_num_3 value='<%response.write web_var(web_num,3)%>'>
+<input type=hidden name=web_num_4 value='<%response.write web_var(web_num,4)%>'>
+<input type=hidden name=web_num_5 value='<%response.write web_var(web_num,5)%>'>
+<input type=hidden name=web_num_6 value='<%response.write web_var(web_num,6)%>'>
+<input type=hidden name=web_num_7 value='<%response.write web_var(web_num,7)%>'>
+<input type=hidden name=web_num_8 value='<%response.write web_var(web_num,8)%>'>
+<input type=hidden name=web_num_9 value='<%response.write web_var(web_num,9)%>'>
+<input type=hidden name=web_num_10 value='<%response.write web_var(web_num,10)%>'>
+<input type=hidden name=web_num_11 value='<%response.write web_var(web_num,11)%>'>
+<input type=hidden name=web_num_12 value='<%response.write web_var(web_num,12)%>'>
+<input type=hidden name=web_num_13 value='<%response.write web_var(web_num,13)%>'>
+<input type=hidden name=web_num_14 value='<%response.write web_var(web_num,14)%>'>
+<input type=hidden name=web_num_15 value='<%response.write web_var(web_num,15)%>'>
+<input type=hidden name=web_num_16 value='<%response.write web_var(web_num,16)%>'>
 <%
-    End If
+end if
 
-    If action = "menu" Then
-        tt   = 1
-        tdim = Split(web_menu,"|")
-
-        For i = 0 To UBound(tdim) %>
+if action="menu" then
+  tt=1
+  tdim=split(web_menu,"|")
+  for i=0 to ubound(tdim)
+%>
 <tr>
-<td>ÍøÕ¾²Ëµ¥ <% Response.Write i + 1 %>£º</td>
-<td colspan=2><input type=text name=web_menu_<% Response.Write i + 1 %> value='<% Response.Write tdim(i) %>' size=40 maxlength=20></td>
+<td>ÍøÕ¾²Ëµ¥ <%response.write i+1%>£º</td>
+<td colspan=2><input type=text name=web_menu_<%response.write i+1%> value='<%response.write tdim(i)%>' size=40 maxlength=20></td>
 </tr>
 <%
-        Next
-
-        Erase tdim %>
-<input type=hidden name=web_menu_num value='<% Response.Write i %>'>
+  next
+  erase tdim
+%>
+<input type=hidden name=web_menu_num value='<%response.write i%>'>
 <tr>
 <td>Ôö¼ÓĞÂ²Ëµ¥£º</td>
 <td colspan=2><input type=text name=web_menu_new value='' size=40 maxlength=20>&nbsp;Àı£ºabc:ÎÄÕÂÑ§Ï°</td>
@@ -362,234 +363,237 @@ Sub config_main()
 <font class=red_3>ĞŞ¸Ä²Ëµ¥</font>¿ÉĞŞ¸ÄËùÓĞµÄ£¬ÈçÒªÅÅĞò£¬Ö»Òª½«ÆäÄÚÈİ»¥»»¼´¿É£¬µ«À¸Ä¿ÃûºÍ²Ëµ¥ÃûÒªÍ¬Ê±»¥»»£»<br>
 <font class=red_3>É¾³ı²Ëµ¥</font>¿ÉÒ»´ÎÉ¾³ıÒ»¸ö»ò¶à¸ö£¬·½·¨Îª½«ÒªÉ¾³ıµÄÀ¸Ä¿²Ëµ¥¿òÀïµÄÄÚÈİÇå¿Õ£¬ÔÙ½«À¸Ä¿Êı½Ï´óµÄÏò½ÏĞ¡µÄÀï×ªÒÆ¡£</td>
 </tr>
-<% Else %>
-<input type=hidden name=web_menu value='<% Response.Write web_menu %>'>
+<% else %>
+<input type=hidden name=web_menu value='<%response.write web_menu%>'>
 <%
-    End If
+end if
 
-    If action = "color" Then
-        tt = 1 %>
+if action="color" then
+  tt=1
+%>
 <tr>
 <td>ÍøÕ¾±³¾°£º</td>
-<td><input type=text name=web_color_1 value='<% Response.Write web_var(web_color,1) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,1) %>>&nbsp;</td>
+<td><input type=text name=web_color_1 value='<%response.write web_var(web_color,1)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,1)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>±í¸ñÉ«Ò»£º</td>
-<td><input type=text name=web_color_2 value='<% Response.Write web_var(web_color,2) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,2) %>>&nbsp;</td>
+<td><input type=text name=web_color_2 value='<%response.write web_var(web_color,2)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,2)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>±í¸ñÉ«¶ş£º</td>
-<td><input type=text name=web_color_3 value='<% Response.Write web_var(web_color,3) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,3) %>>&nbsp;</td>
+<td><input type=text name=web_color_3 value='<%response.write web_var(web_color,3)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,3)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>±í¸ñÉ«Èı£º</td>
-<td><input type=text name=web_color_4 value='<% Response.Write web_var(web_color,4) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,4) %>>&nbsp;</td>
+<td><input type=text name=web_color_4 value='<%response.write web_var(web_color,4)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,4)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>±í¸ñÉ«ËÄ£º</td>
-<td><input type=text name=web_color_5 value='<% Response.Write web_var(web_color,5) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,5) %>>&nbsp;</td>
+<td><input type=text name=web_color_5 value='<%response.write web_var(web_color,5)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,5)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>×ó±ß±³¾°£º</td>
-<td><input type=text name=web_color_6 value='<% Response.Write web_var(web_color,6) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,6) %>>&nbsp;</td>
+<td><input type=text name=web_color_6 value='<%response.write web_var(web_color,6)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,6)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>Ö÷×ÖÌåÉ«£º</td>
-<td><input type=text name=web_color_7 value='<% Response.Write web_var(web_color,7) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,7) %>>&nbsp;</td>
+<td><input type=text name=web_color_7 value='<%response.write web_var(web_color,7)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,7)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>Í»³ö×ÖÌåÒ»£º</td>
-<td><input type=text name=web_color_8 value='<% Response.Write web_var(web_color,8) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,8) %>>&nbsp;</td>
+<td><input type=text name=web_color_8 value='<%response.write web_var(web_color,8)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,8)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>µ­É«×ÖÌå£º</td>
-<td><input type=text name=web_color_9 value='<% Response.Write web_var(web_color,9) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,9) %>>&nbsp;</td>
+<td><input type=text name=web_color_9 value='<%response.write web_var(web_color,9)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,9)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>ºìÉ«×ÖÌåÒ»£º</td>
-<td><input type=text name=web_color_10 value='<% Response.Write web_var(web_color,10) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,10) %>>&nbsp;</td>
+<td><input type=text name=web_color_10 value='<%response.write web_var(web_color,10)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,10)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>ºìÉ«×ÖÌå¶ş£º</td>
-<td><input type=text name=web_color_11 value='<% Response.Write web_var(web_color,11) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,11) %>>&nbsp;</td>
+<td><input type=text name=web_color_11 value='<%response.write web_var(web_color,11)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,11)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>ºìÉ«×ÖÌåÈı£º</td>
-<td><input type=text name=web_color_12 value='<% Response.Write web_var(web_color,12) %>' size=20 maxlength=7></td>
-<td bgcolor=<% Response.Write web_var(web_color,12) %>>&nbsp;</td>
+<td><input type=text name=web_color_12 value='<%response.write web_var(web_color,12)%>' size=20 maxlength=7></td>
+<td bgcolor=<%response.write web_var(web_color,12)%>>&nbsp;</td>
 </tr>
 <tr>
 <td>ÍøÕ¾×ÖÌå£º</td>
-<td colspan=2><input type=text name=web_font_family value='<% Response.Write web_font_family %>' size=60 maxlength=100></td>
+<td colspan=2><input type=text name=web_font_family value='<%response.write web_font_family%>' size=60 maxlength=100></td>
 </tr>
 <tr>
 <td>×ÖÌå´óĞ¡£º</td>
-<td colspan=2><input type=text name=web_font_size value='<% Response.Write web_font_size %>' size=20 maxlength=10></td>
+<td colspan=2><input type=text name=web_font_size value='<%response.write web_font_size%>' size=20 maxlength=10></td>
 </tr>
-<% Else %>
-<input type=hidden name=web_color_1 value='<% Response.Write web_var(web_color,1) %>'>
-<input type=hidden name=web_color_2 value='<% Response.Write web_var(web_color,2) %>'>
-<input type=hidden name=web_color_3 value='<% Response.Write web_var(web_color,3) %>'>
-<input type=hidden name=web_color_4 value='<% Response.Write web_var(web_color,4) %>'>
-<input type=hidden name=web_color_5 value='<% Response.Write web_var(web_color,5) %>'>
-<input type=hidden name=web_color_6 value='<% Response.Write web_var(web_color,6) %>'>
-<input type=hidden name=web_color_7 value='<% Response.Write web_var(web_color,7) %>'>
-<input type=hidden name=web_color_8 value='<% Response.Write web_var(web_color,8) %>'>
-<input type=hidden name=web_color_9 value='<% Response.Write web_var(web_color,9) %>'>
-<input type=hidden name=web_color_10 value='<% Response.Write web_var(web_color,10) %>'>
-<input type=hidden name=web_color_11 value='<% Response.Write web_var(web_color,11) %>'>
-<input type=hidden name=web_color_12 value='<% Response.Write web_var(web_color,12) %>'>
-<input type=hidden name=web_font_family value='<% Response.Write web_font_family %>'>
-<input type=hidden name=web_font_size value='<% Response.Write web_font_size %>'>
+<% else %>
+<input type=hidden name=web_color_1 value='<%response.write web_var(web_color,1)%>'>
+<input type=hidden name=web_color_2 value='<%response.write web_var(web_color,2)%>'>
+<input type=hidden name=web_color_3 value='<%response.write web_var(web_color,3)%>'>
+<input type=hidden name=web_color_4 value='<%response.write web_var(web_color,4)%>'>
+<input type=hidden name=web_color_5 value='<%response.write web_var(web_color,5)%>'>
+<input type=hidden name=web_color_6 value='<%response.write web_var(web_color,6)%>'>
+<input type=hidden name=web_color_7 value='<%response.write web_var(web_color,7)%>'>
+<input type=hidden name=web_color_8 value='<%response.write web_var(web_color,8)%>'>
+<input type=hidden name=web_color_9 value='<%response.write web_var(web_color,9)%>'>
+<input type=hidden name=web_color_10 value='<%response.write web_var(web_color,10)%>'>
+<input type=hidden name=web_color_11 value='<%response.write web_var(web_color,11)%>'>
+<input type=hidden name=web_color_12 value='<%response.write web_var(web_color,12)%>'>
+<input type=hidden name=web_font_family value='<%response.write web_font_family%>'>
+<input type=hidden name=web_font_size value='<%response.write web_font_size%>'>
 <%
-    End If
+end if
 
-    If action = "down_up" Then
-        tt = 1 %>
+if action="down_up" then
+  tt=1
+%>
 <tr>
 <td>Èí¼şÍ¼Æ¬¿í£º</td>
-<td><input type=text name=web_down_1 value='<% Response.Write web_var(web_down,1) %>' size=20 maxlength=10>&nbsp;ÏñËØ</td>
+<td><input type=text name=web_down_1 value='<%response.write web_var(web_down,1)%>' size=20 maxlength=10>&nbsp;ÏñËØ</td>
 <td class=gray>&nbsp;Èí¼şÍ¼Æ¬µÄ¿í¶È</td>
 </tr>
 <tr>
 <td>Èí¼şÍ¼Æ¬¸ß£º</td>
-<td><input type=text name=web_down_2 value='<% Response.Write web_var(web_down,2) %>' size=20 maxlength=10>&nbsp;ÏñËØ</td>
+<td><input type=text name=web_down_2 value='<%response.write web_var(web_down,2)%>' size=20 maxlength=10>&nbsp;ÏñËØ</td>
 <td class=gray>&nbsp;Èí¼şÍ¼Æ¬µÄ¸ß¶È</td>
 </tr>
 <tr>
 <td>Èí¼şÄ¿Â¼£º</td>
-<td><input type=text name=web_down_5 value='<% Response.Write web_var(web_down,5) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_down_5 value='<%response.write web_var(web_down,5)%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr>
 <td>ÔËĞĞ»·¾³£º</td>
-<td colspan=2><input type=text name=web_down_3 value='<% Response.Write web_var(web_down,3) %>' size=66 maxlength=100></td>
+<td colspan=2><input type=text name=web_down_3 value='<%response.write web_var(web_down,3)%>' size=66 maxlength=100></td>
 </tr>
 <tr>
 <td>ÊÚÈ¨ÀàĞÍ£º</td>
-<td colspan=2><input type=text name=web_down_4 value='<% Response.Write web_var(web_down,4) %>' size=66 maxlength=100></td>
+<td colspan=2><input type=text name=web_down_4 value='<%response.write web_var(web_down,4)%>' size=66 maxlength=100></td>
 </tr>
 <tr>
 <td>ÉÏ´«Â·¾¶£º</td>
-<td><input type=text name=web_upload_1 value='<% Response.Write web_var(web_upload,1) %>' size=20 maxlength=20></td>
+<td><input type=text name=web_upload_1 value='<% response.write web_var(web_upload,1) %>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;Îª·ÀÓĞ´í£¬¾¡Á¿²»ÒªĞŞ¸Ä´ËÏî</td>
 </tr>
 <tr>
 <td>ÎÄ¼şÀàĞÍ£º</td>
-<td><input type=text name=web_upload_2 value='<% Response.Write web_var(web_upload,2) %>' size=35 maxlength=50></td>
+<td><input type=text name=web_upload_2 value='<% response.write web_var(web_upload,2) %>' size=35 maxlength=50></td>
 <td class=gray>&nbsp;¶à¸öÀàĞÍÓÃ¡°,¡±·Ö¿ª</td>
 </tr>
 <tr>
 <td>ÎÄ¼ş´óĞ¡£º</td>
-<td><input type=text name=web_upload_3 value='<% Response.Write web_var(web_upload,3) %>' size=20 maxlength=10></td>
+<td><input type=text name=web_upload_3 value='<% response.write web_var(web_upload,3) %>' size=20 maxlength=10></td>
 <td class=gray>&nbsp;µ¥Î»ÎªKB£¬×îºÃĞ¡ÓÚ500</td>
 </tr>
 <td>ÏÂÔØÄ¿Â¼£º</td>
-<td><input type=text name=web_upload_3 value='<% Response.Write web_var(web_lct,1) %>' size=20 maxlength=10></td>
+<td><input type=text name=web_upload_3 value='<% response.write web_var(web_lct,1) %>' size=20 maxlength=10></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <td>Èí¼şÄ¿Â¼£º</td>
-<td><input type=text name=web_upload_3 value='<% Response.Write web_var(web_lct,2) %>' size=20 maxlength=10></td>
+<td><input type=text name=web_upload_3 value='<% response.write web_var(web_lct,2) %>' size=20 maxlength=10></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <td>ÊÓÆµÄ¿Â¼£º</td>
-<td><input type=text name=web_upload_3 value='<% Response.Write web_var(web_lct,3) %>' size=20 maxlength=10></td>
+<td><input type=text name=web_upload_3 value='<% response.write web_var(web_lct,3) %>' size=20 maxlength=10></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <td>FlashÄ¿Â¼£º</td>
-<td><input type=text name=web_upload_3 value='<% Response.Write web_var(web_lct,4) %>' size=20 maxlength=10></td>
+<td><input type=text name=web_upload_3 value='<% response.write web_var(web_lct,4) %>' size=20 maxlength=10></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <td>±ÚÖ½Ä¿Â¼£º</td>
-<td><input type=text name=web_upload_3 value='<% Response.Write web_var(web_lct,5) %>' size=20 maxlength=10></td>
+<td><input type=text name=web_upload_3 value='<% response.write web_var(web_lct,5) %>' size=20 maxlength=10></td>
 <td class=gray>&nbsp;</td>
 </tr>
-<% Else %>
-<input type=hidden name=web_down_1 value='<% Response.Write web_var(web_down,1) %>'>
-<input type=hidden name=web_down_2 value='<% Response.Write web_var(web_down,2) %>'>
-<input type=hidden name=web_down_5 value='<% Response.Write web_var(web_down,5) %>'>
-<input type=hidden name=web_down_3 value='<% Response.Write web_var(web_down,3) %>'>
-<input type=hidden name=web_down_4 value='<% Response.Write web_var(web_down,4) %>'>
-<input type=hidden name=web_upload_1 value='<% Response.Write web_var(web_upload,1) %>'>
-<input type=hidden name=web_upload_2 value='<% Response.Write web_var(web_upload,2) %>'>
-<input type=hidden name=web_upload_3 value='<% Response.Write web_var(web_upload,3) %>'>
+<% else %>
+<input type=hidden name=web_down_1 value='<%response.write web_var(web_down,1)%>'>
+<input type=hidden name=web_down_2 value='<%response.write web_var(web_down,2)%>'>
+<input type=hidden name=web_down_5 value='<%response.write web_var(web_down,5)%>'>
+<input type=hidden name=web_down_3 value='<%response.write web_var(web_down,3)%>'>
+<input type=hidden name=web_down_4 value='<%response.write web_var(web_down,4)%>'>
+<input type=hidden name=web_upload_1 value='<% response.write web_var(web_upload,1) %>'>
+<input type=hidden name=web_upload_2 value='<% response.write web_var(web_upload,2) %>'>
+<input type=hidden name=web_upload_3 value='<% response.write web_var(web_upload,3) %>'>
 <%
-    End If
+end if
 
-    If action = "info" Then
-        tt = 1 %>
+if action="info" then
+  tt=1
+%>
 <tr><td colspan=3 class=red_3>&nbsp;¹ıÂË×Ö·ûÉèÖÃ</td></tr>
 <tr>
 <td>·Ç·¨×Ö·û£º</td>
-<td colspan=2><input type=text name=web_safety_1 value='<% Response.Write Replace(web_var(web_safety,1),"'","") %>' size=30 maxlength=100>&nbsp;&nbsp;µ¥ÒıºÅ(')ºÍË«ÒıºÅ(")ÒÑ±»ÏµÍ³¹ıÂË</td>
+<td colspan=2><input type=text name=web_safety_1 value='<%response.write replace(web_var(web_safety,1),"'","")%>' size=30 maxlength=100>&nbsp;&nbsp;µ¥ÒıºÅ(')ºÍË«ÒıºÅ(")ÒÑ±»ÏµÍ³¹ıÂË</td>
 </tr>
 <tr>
 <td>ÃÜÂëÔÊĞí£º</td>
-<td colspan=2><input type=text name=web_safety_2 value='<% Response.Write web_var(web_safety,2) %>' size=66 maxlength=200></td>
+<td colspan=2><input type=text name=web_safety_2 value='<%response.write web_var(web_safety,2)%>' size=66 maxlength=200></td>
 </tr>
 <tr>
 <td>×¢²á½ûÓÃ£º</td>
-<td colspan=2><input type=text name=web_safety_3 value='<% Response.Write web_var(web_safety,3) %>' size=66 maxlength=200></td>
+<td colspan=2><input type=text name=web_safety_3 value='<%response.write web_var(web_safety,3)%>' size=66 maxlength=200></td>
 </tr>
 <tr>
 <td>²»½¡¿µ×Ö·û£º</td>
-<td colspan=2><input type=text name=web_safety_4 value='<% Response.Write web_var(web_safety,4) %>' size=66 maxlength=200></td>
+<td colspan=2><input type=text name=web_safety_4 value='<%response.write web_var(web_safety,4)%>' size=66 maxlength=200></td>
 </tr>
 <tr><td colspan=3 class=red_3>&nbsp;ĞÅÏ¢ÌáÊ¾ÉèÖÃ</td></tr>
 <tr>
 <td>Íâ²¿Ìá½»£º</td>
-<td colspan=2><input type=text name=web_error_1 value='<% Response.Write web_var(web_error,1) %>' size=66 maxlength=200></td>
+<td colspan=2><input type=text name=web_error_1 value='<%response.write web_var(web_error,1)%>' size=66 maxlength=200></td>
 </tr>
 <tr>
 <td>Î´×¢²áµÇÂ½£º</td>
-<td colspan=2><input type=text name=web_error_2 value='<% Response.Write web_var(web_error,2) %>' size=66 maxlength=200></td>
+<td colspan=2><input type=text name=web_error_2 value='<%response.write web_var(web_error,2)%>' size=66 maxlength=200></td>
 </tr>
 <tr>
 <td>Ö§³ÖĞÅÏ¢£º</td>
-<td colspan=2><input type=text name=web_error_3 value='<% Response.Write web_var(web_error,3) %>' size=66 maxlength=200></td>
+<td colspan=2><input type=text name=web_error_3 value='<%response.write web_var(web_error,3)%>' size=66 maxlength=200></td>
 </tr>
 <tr>
 <td>ÍøÕ¾µ×²¿£º</td>
-<td colspan=2><input type=text name=web_error_4 value='<% Response.Write web_var(web_error,4) %>' size=66 maxlength=200></td>
+<td colspan=2><input type=text name=web_error_4 value='<%response.write web_var(web_error,4)%>' size=66 maxlength=200></td>
 </tr>
-<% Else %>
-<input type=hidden name=web_safety_1 value='<% Response.Write Replace(web_var(web_safety,1),"'","") %>'>
-<input type=hidden name=web_safety_2 value='<% Response.Write web_var(web_safety,2) %>'>
-<input type=hidden name=web_safety_3 value='<% Response.Write web_var(web_safety,3) %>'>
-<input type=hidden name=web_safety_4 value='<% Response.Write web_var(web_safety,4) %>'>
-<input type=hidden name=web_error_1 value='<% Response.Write web_var(web_error,1) %>'>
-<input type=hidden name=web_error_2 value='<% Response.Write web_var(web_error,2) %>'>
-<input type=hidden name=web_error_3 value='<% Response.Write web_var(web_error,3) %>'>
-<input type=hidden name=web_error_4 value='<% Response.Write web_var(web_error,4) %>'>
+<% else %>
+<input type=hidden name=web_safety_1 value='<%response.write replace(web_var(web_safety,1),"'","")%>'>
+<input type=hidden name=web_safety_2 value='<%response.write web_var(web_safety,2)%>'>
+<input type=hidden name=web_safety_3 value='<%response.write web_var(web_safety,3)%>'>
+<input type=hidden name=web_safety_4 value='<%response.write web_var(web_safety,4)%>'>
+<input type=hidden name=web_error_1 value='<%response.write web_var(web_error,1)%>'>
+<input type=hidden name=web_error_2 value='<%response.write web_var(web_error,2)%>'>
+<input type=hidden name=web_error_3 value='<%response.write web_var(web_error,3)%>'>
+<input type=hidden name=web_error_4 value='<%response.write web_var(web_error,4)%>'>
 <%
-    End If
+end if
 
-    If action = "user" Then
-        tt   = 1
-        tdim = Split(user_power,"|")
-
-        For i = 0 To UBound(tdim) %>
+if action="user" then
+  tt=1
+  tdim=split(user_power,"|")
+  for i=0 to ubound(tdim)
+%>
 <tr>
-<td>ÓÃ»§×é <% Response.Write i + 1 %>£º</td>
-<td><input type=text name=user_power_<% Response.Write i + 1 %> value='<% Response.Write tdim(i) %>' size=30 maxlength=20></td>
+<td>ÓÃ»§×é <%response.write i+1%>£º</td>
+<td><input type=text name=user_power_<%response.write i+1%> value='<%response.write tdim(i)%>' size=30 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <%
-        Next
-
-        Erase tdim %>
-<input type=hidden name=user_power_num value='<% Response.Write i %>'>
+  next
+  erase tdim
+%>
+<input type=hidden name=user_power_num value='<%response.write i%>'>
 <tr>
 <td>ĞÂÓÃ»§×é£º</td>
 <td><input type=text name=user_power_new value='' size=30 maxlength=20></td>
@@ -602,26 +606,26 @@ Sub config_main()
 <font class=red_3>ĞŞ¸ÄÓÃ»§×é</font>¿ÉĞŞ¸ÄËùÓĞµÄ£¬ÈçÒªÅÅĞò£¬Ö»Òª½«ÆäÄÚÈİ»¥»»¼´¿É£¬µ«ÓÃ»§×é±ğºÍÓÃ»§×éÃûÒªÍ¬Ê±»¥»»£»<br>
 <font class=red_3>É¾³ıÓÃ»§×é</font>¿ÉÒ»´ÎÉ¾³ıÒ»¸ö»ò¶à¸ö£¬·½·¨Îª½«ÒªÉ¾³ıµÄÓÃ»§×é¿òÀïµÄÄÚÈİÇå¿Õ£¬ÔÙ½«À¸Ä¿Êı½Ï´óµÄÏò½ÏĞ¡µÄÀï×ªÒÆ¡£</td>
 </tr>
-<% Else %>
-<input type=hidden name=user_power value='<% Response.Write user_power %>'>
+<% else %>
+<input type=hidden name=user_power value='<%response.write user_power%>'>
 <%
-    End If
+end if
 
-    If action = "grade" Then
-        tt   = 1
-        tdim = Split(user_grade,"|")
-
-        For i = 0 To UBound(tdim) %>
+if action="grade" then
+  tt=1
+  tdim=split(user_grade,"|")
+  for i=0 to ubound(tdim)
+%>
 <tr>
-<td>ÓÃ»§µÈ¼¶ <% Response.Write i %>£º</td>
-<td><input type=text name=user_grade_<% Response.Write i + 1 %> value='<% Response.Write tdim(i) %>' size=30 maxlength=20></td>
-<td class=gray>&nbsp;<img src='images/star/star_<% Response.Write i %>.gif' border=0></td>
+<td>ÓÃ»§µÈ¼¶ <%response.write i%>£º</td>
+<td><input type=text name=user_grade_<%response.write i+1%> value='<%response.write tdim(i)%>' size=30 maxlength=20></td>
+<td class=gray>&nbsp;<img src='images/star/star_<%response.write i%>.gif' border=0></td>
 </tr>
 <%
-        Next
-
-        Erase tdim %>
-<input type=hidden name=user_grade_num value='<% Response.Write i %>'>
+  next
+  erase tdim
+%>
+<input type=hidden name=user_grade_num value='<%response.write i%>'>
 <tr>
 <td>ĞÂÓÃ»§µÈ¼¶£º</td>
 <td><input type=text name=user_grade_new value='' size=30 maxlength=20></td>
@@ -633,44 +637,44 @@ Sub config_main()
 <font class=red_3>ĞŞ¸ÄÓÃ»§µÈ¼¶</font>¿ÉĞŞ¸ÄËùÓĞµÄ£¬ÈçÒªÅÅĞò£¬Ö»Òª½«ÆäÄÚÈİ»¥»»¼´¿É£¬µ«ËùĞè»ı·ÖºÍµÈ¼¶Ãû³ÆÒªÍ¬Ê±»¥»»£»<br>
 <font class=red_3>É¾³ıÓÃ»§µÈ¼¶</font>¿ÉÒ»´ÎÉ¾³ıÒ»¸ö»ò¶à¸ö£¬·½·¨Îª½«ÒªÉ¾³ıµÄÓÃ»§µÈ¼¶¿òÀïµÄÄÚÈİÇå¿Õ£¬ÔÙ½«À¸Ä¿Êı½Ï´óµÄÏò½ÏĞ¡µÄÀï×ªÒÆ¡£</td>
 </tr>
-<% Else %>
-<input type=hidden name=user_grade value='<% Response.Write user_grade %>'>
+<% else %>
+<input type=hidden name=user_grade value='<%response.write user_grade%>'>
 <%
-    End If
+end if
 
-    If action = "forum" Then
-        tt     = 1
-        udim   = Split(user_power,"|")
-        tdim   = Split(forum_type,"|")
-
-        For i = 0 To UBound(tdim)
-            t2 = Left(tdim(i),InStr(tdim(i),":") - 1) %>
+if action="forum" then
+  tt=1
+  udim=split(user_power,"|")
+  tdim=split(forum_type,"|")
+  for i=0 to ubound(tdim)
+    t2=left(tdim(i),instr(tdim(i),":")-1)
+%>
 <tr>
-<td>ÂÛÌ³·ÖÀà <% Response.Write i + 1 %>£º</td>
-<td><input type=text name=forum_type_<% Response.Write i + 1 %>_2 value='<% Response.Write Right(tdim(i),Len(tdim(i)) - InStr(tdim(i),":")) %>' size=20 maxlength=20></td>
+<td>ÂÛÌ³·ÖÀà <%response.write i+1%>£º</td>
+<td><input type=text name=forum_type_<%response.write i+1%>_2 value='<%response.write right(tdim(i),len(tdim(i))-instr(tdim(i),":"))%>' size=20 maxlength=20></td>
 <td class=gray>&nbsp;</td>
 </tr>
 <tr><td class=gray>ÂÛÌ³È¨ÏŞ</td><td colspan=2><%
-
-            For j = 0 To UBound(udim)
-                Response.Write vbcrlf & "<input type=checkbox name=forum_type_" & i + 1 & "_1 value='" & j + 1 & "' class=bg_1"
-                If InStr(1,"." & t2 & ".","." & j + 1 & ".") > 0 Then Response.Write " checked"
-                Response.Write ">" & Right(udim(j),Len(udim(j)) - InStr(udim(j),":"))
-            Next %><input type=checkbox name=forum_type_<% Response.Write i + 1 %>_1 value='0' class=bg_1<% If InStr(1,"." & t2 & ".",".0.") > 0 Then Response.Write " checked" %>>ÓÎ¿Í</td></tr><%
-        Next
-
-        Erase tdim %>
-<input type=hidden name=forum_type_num value='<% Response.Write i %>'>
+for j=0 to ubound(udim)
+  response.write vbcrlf&"<input type=checkbox name=forum_type_"&i+1&"_1 value='"&j+1&"' class=bg_1"
+  if instr(1,"."&t2&".","."&j+1&".")>0 then response.write " checked"
+  response.write ">"&right(udim(j),len(udim(j))-instr(udim(j),":"))
+next
+%><input type=checkbox name=forum_type_<%response.write i+1%>_1 value='0' class=bg_1<%if instr(1,"."&t2&".",".0.")>0 then response.write " checked"%>>ÓÎ¿Í</td></tr><%
+  next
+  erase tdim
+%>
+<input type=hidden name=forum_type_num value='<%response.write i%>'>
 <tr>
 <td>ĞÂÂÛÌ³·ÖÀà£º</td>
 <td><input type=text name=forum_type_new_2 value='' size=30 maxlength=20></td>
 <td class=gray>&nbsp;Àı£º¾«»ªÂÛÌ³</td>
 </tr>
 <tr><td class=gray>ÂÛÌ³È¨ÏŞ</td><td colspan=2><%
-
-        For j = 0 To UBound(udim)
-            Response.Write vbcrlf & "<input type=checkbox name=forum_type_new_1 value='" & j + 1 & "' class=bg_1>" & Right(udim(j),Len(udim(j)) - InStr(udim(j),":"))
-        Next %><input type=checkbox name=forum_type_new_1 value='0' class=bg_1>ÓÎ¿Í</td></tr>
+for j=0 to ubound(udim)
+  response.write vbcrlf&"<input type=checkbox name=forum_type_new_1 value='"&j+1&"' class=bg_1>"&right(udim(j),len(udim(j))-instr(udim(j),":"))
+next
+%><input type=checkbox name=forum_type_new_1 value='0' class=bg_1>ÓÎ¿Í</td></tr>
 <tr>
 <td colspan=3 class=htd><font class=red>ÂÛÌ³·ÖÀàĞŞ¸ÄËµÃ÷£º</font>Äã¿ÉÒÔÌí¼Ó¡¢ĞŞ¸Ä¡¢É¾³ıÂÛÌ³·ÖÀà£¬µ«ÎÄ±¾¿òÖĞÖ»ÄÜÊÇÒÔ¡°ÎÄÕÂÑ§Ï°¡±µÄĞÎÊ½£¨ÂÛÌ³·ÖÀàÃû³Æ£©´æÔÚ£¬·ñÔò½«³ö´í£¡£¡£¡
 <font class=red>ÈçÓÃ»§×éÓĞÉ¾³ı»òĞŞ¸ÄÆäÈ¨ÏŞºó£¬ÇëÖØĞÂ·ÖÅäÂÛÌ³È¨ÏŞ£¡ÈçÂÛÌ³·ÖÀà¼°È¨ÏŞÓĞĞŞ¸Ä£¬Çë½øÈëÂÛÌ³¹ÜÀíÒÔÖØĞÂ·ÖÅäÂÛÌ³Àà±ğ£¡</font><br>
@@ -679,197 +683,175 @@ Sub config_main()
 <font class=red_3>É¾³ıÂÛÌ³·ÖÀà</font>¿ÉÒ»´ÎÉ¾³ıÒ»¸ö»ò¶à¸ö£¬·½·¨Îª½«ÒªÉ¾³ıµÄÂÛÌ³·ÖÀà¿òÀïµÄÄÚÈİÉ¾³ı¼´¿É¡£</td>
 </tr>
 <%
-        Erase udim
-    Else %>
-<input type=hidden name=forum_type value='<% Response.Write forum_type %>'>
+  erase udim
+else
+%>
+<input type=hidden name=forum_type value='<%response.write forum_type%>'>
 <%
-    End If
+end if
 
-    If tt = 0 Then %>
+if tt=0 then
+%>
 <tr><td colspan=3 align=center height=150 class=htd><font class=red>ÇëÏÈÑ¡ÔñÅäÖÃĞŞ¸ÄµÄÀàĞÍ£¡½¨ÒéÔÚĞŞ¸ÄÅäÖÃÎÄ¼şÇ°ÏÈ<a href='javascript:Do_b_data();'>±¸·İÅäÖÃ</a>¡£<br>Èç¹ûÔÚĞŞ¸ÄÅäÖÃÊ±³öÏÖÁË´íÎó£¬Äú¿ÉÒÔÊÔ×Å<a href='javascript:Do_h_data();'>»¹Ô­ÅäÖÃ</a>¡£<br>Èç¹ûÒòÎªÄúµÄÒ»Ê±²»Ğ¡ĞÄ£¬½«ÅäÖÃÎÄ¼şĞŞ¸Ä´íÎó£¬Çë¾¡¿ìÓÃFTPÁ¬ÉÏ²¢ÓÃ¿ÉÓÃµÄÅäÖÃÎÄ¼ş¸²¸Ç´íÎóµÄÎÄ¼ş£¨include/common.asp£©</font></td></tr>
-<% Else %>
+<% else %>
 <tr><td colspan=3 align=center height=30><input type=submit value='Ìá ½» ĞŞ ¸Ä'>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type=reset value=' ÖØ ÖÃ '>
 </td></tr>
-<% End If %>
+<% end if %>
 </form>
 </table>
 <%
+end sub
 
-End Sub
+sub config_chk()
+  dim t1,t2,tn
+  web_font_family=code_config(request.form("web_font_family"),0):web_font_size=code_config(request.form("web_font_size"),0)
+  web_config=code_config(request.form("web_config_1"),3) &"|"& code_config(request.form("web_config_2"),3) &"|"& _
+	     code_config(request.form("web_config_3"),3) &"|"& code_config(request.form("web_config_4"),3) &"|"& _
+	     code_config(request.form("web_config_5"),3) &"|"& code_config(request.form("web_config_6"),3) &"|"& _
+	     code_config(request.form("web_config_7"),3) &"|"& code_config(request.form("web_config_8"),3) &"|"& _
+	     trim(request.form("web_config_9_1")) & trim(request.form("web_config_9_2")) & _
+	     trim(request.form("web_config_9_3")) & trim(request.form("web_config_9_4")) & _
+	     trim(request.form("web_config_9_5"))
+  web_cookies=code_config(request.form("web_cookies"),3):web_login=trim(request.form("web_login"))
+  web_setup=trim(request.form("web_setup_1"))&trim(request.form("web_setup_2"))&trim(request.form("web_setup_3"))&_
+	    trim(request.form("web_setup_4"))&trim(request.form("web_setup_5"))&trim(request.form("web_setup_6"))&_
+	    trim(request.form("web_setup_7"))
+  web_num=code_num(trim(request.form("web_num_1")),20) &"|"& code_num(trim(request.form("web_num_2")),20) &"|"& _
+	  code_num(trim(request.form("web_num_3")),10) &"|"& code_num(trim(request.form("web_num_4")),5) &"|"& _
+	  code_num(trim(request.form("web_num_5")),3) &"|"& code_num(trim(request.form("web_num_6")),12) &"|"& _
+	  code_num(trim(request.form("web_num_7")),150) &"|"& code_num(trim(request.form("web_num_8")),112) &"|"& _
+	  code_num(trim(request.form("web_num_9")),430) &"|"& code_num(trim(request.form("web_num_10")),350) &"|"& _
+	  code_num(trim(request.form("web_num_11")),24) &"|"& code_num(trim(request.form("web_num_12")),16) &"|"& _
+	  code_num(trim(request.form("web_num_13")),20) &"|"& code_num(trim(request.form("web_num_14")),20) &"|"& _
+	  code_num(trim(request.form("web_num_15")),2) &"|"& code_num(trim(request.form("web_num_16")),15)
+  if action="menu" then
+    web_menu="":tn=int(trim(request.form("web_menu_num")))
+    for i=1 to tn
+      t1=code_config(request.form("web_menu_"&i),4)
+      if len(t1)>1 then if instr(1,t1,":")>0 then web_menu=web_menu&t1&"|"
+    next
+    t1=code_config(request.form("web_menu_new"),4)
+    if len(t1)>1 then if instr(1,t1,":")>0 then web_menu=web_menu&t1
+    if right(web_menu,1)="|" then web_menu=left(web_menu,len(web_menu)-1)
+  else
+    web_menu=trim(request.form("web_menu"))
+  end if
+  web_color=code_config(request.form("web_color_1"),2)&"|"&code_config(request.form("web_color_2"),2)&"|"&code_config(request.form("web_color_3"),2)&"|"&_
+	    code_config(request.form("web_color_4"),2)&"|"&code_config(request.form("web_color_5"),2)&"|"&code_config(request.form("web_color_6"),2)&"|"&_
+	    code_config(request.form("web_color_7"),2)&"|"&code_config(request.form("web_color_8"),2)&"|"&code_config(request.form("web_color_9"),2)&"|"&_
+	    code_config(request.form("web_color_10"),2)&"|"&code_config(request.form("web_color_11"),2)&"|"&code_config(request.form("web_color_12"),2)
+  web_upload=code_config(request.form("web_upload_1"),2)&"|"&code_config(request.form("web_upload_2"),2)&"|"&code_config(request.form("web_upload_3"),2)
+  web_safety=replace(trim(request.form("web_safety_1")),"""","""&chr(34)&""")&"'"&"|"&trim(request.form("web_safety_2"))&"|"&trim(request.form("web_safety_3"))&"|"&trim(request.form("web_safety_4"))
+  web_error=code_config(request.form("web_error_1"),3)&"|"&code_config(request.form("web_error_2"),3)&"|"&code_config(request.form("web_error_3"),3)&"|"&code_config(request.form("web_error_4"),3)
+  web_news_art=trim(request.form("web_news_art"))
+  web_down=code_num(trim(request.form("web_down_1")),95)&"|"&code_num(trim(request.form("web_down_2")),75)&"|"&_
+	   code_config(request.form("web_down_3"),4)&"|"&code_config(request.form("web_down_4"),4)&"|"&code_config(request.form("web_down_5"),4)
+  web_shop=trim(request.form("web_shop"))
+  web_stamp=code_config(request.form("web_stamp_1"),3)&"|"&code_config(request.form("web_stamp_2"),3)&"|"&code_config(request.form("web_stamp_3"),3)
+  if action="user" then
+    user_power="":tn=int(trim(request.form("user_power_num")))
+    for i=1 to tn
+      t1=code_config(request.form("user_power_"&i),4)
+      if len(t1)>1 then if instr(1,t1,":")>0 then user_power=user_power&t1&"|"
+    next
+    t1=code_config(request.form("user_power_new"),4)
+    if len(t1)>1 then if instr(1,t1,":")>0 then user_power=user_power&t1
+    if right(user_power,1)="|" then user_power=left(user_power,len(user_power)-1)
+  else
+    user_power=trim(request.form("user_power"))
+  end if
+  if action="grade" then
+    user_grade="":tn=int(trim(request.form("user_grade_num")))
+    for i=1 to tn
+      t1=code_config(request.form("user_grade_"&i),4)
+      if len(t1)>1 then if instr(1,t1,":")>0 then user_grade=user_grade&t1&"|"
+    next
+    t1=code_config(request.form("user_grade_new"),4)
+    if len(t1)>1 then if instr(1,t1,":")>0 then user_grade=user_grade&t1
+    if right(user_grade,1)="|" then user_grade=left(user_grade,len(user_grade)-1)
+  else
+    user_grade=trim(request.form("user_grade"))
+  end if
+  if action="forum" then
+    forum_type="":tn=int(trim(request.form("forum_type_num")))
+    for i=1 to tn
+      t1=replace(trim(request.form("forum_type_"&i&"_1"))," ","")
+      t2=code_config(request.form("forum_type_"&i&"_2"),2)
+      if len(t1)>0 and len(t2)>0 then t1=replace(t1,",","."):forum_type=forum_type&t1&":"&t2&"|"
+    next
+    t1=replace(trim(request.form("forum_type_new_1"))," ","")
+    t2=code_config(request.form("forum_type_new_2"),2)
+    if len(t1)>0 and len(t2)>0 then t1=replace(t1,",","."):forum_type=forum_type&t1&":"&t2
+    if right(forum_type,1)="|" then forum_type=left(forum_type,len(forum_type)-1)
+  else
+    forum_type=trim(request.form("forum_type"))
+  end if
+  
+  call config_file()
+  if action="color" then call config_css():call config_mouse_on_title()
+  response.write "<script language=javascript>alert(""ÅäÖÃĞŞ¸Ä³É¹¦£¡"");</script>"
+  call config_main()
+end sub
 
-Sub config_chk()
-    Dim t1
-    Dim t2
-    Dim tn
-    web_font_family = code_config(Request.form("web_font_family"),0):web_font_size = code_config(Request.form("web_font_size"),0)
-    web_config      = code_config(Request.form("web_config_1"),3) & "|" & code_config(Request.form("web_config_2"),3) & "|" & _
-    code_config(Request.form("web_config_3"),3) & "|" & code_config(Request.form("web_config_4"),3) & "|" & _
-    code_config(Request.form("web_config_5"),3) & "|" & code_config(Request.form("web_config_6"),3) & "|" & _
-    code_config(Request.form("web_config_7"),3) & "|" & code_config(Request.form("web_config_8"),3) & "|" & _
-    Trim(Request.form("web_config_9_1")) & Trim(Request.form("web_config_9_2")) & _
-    Trim(Request.form("web_config_9_3")) & Trim(Request.form("web_config_9_4")) & _
-    Trim(Request.form("web_config_9_5"))
-    web_cookies = code_config(Request.form("web_cookies"),3):web_login = Trim(Request.form("web_login"))
-    web_setup   = Trim(Request.form("web_setup_1")) & Trim(Request.form("web_setup_2")) & Trim(Request.form("web_setup_3")) & _
-    Trim(Request.form("web_setup_4")) & Trim(Request.form("web_setup_5")) & Trim(Request.form("web_setup_6")) & _
-    Trim(Request.form("web_setup_7"))
-    web_num = code_num(Trim(Request.form("web_num_1")),20) & "|" & code_num(Trim(Request.form("web_num_2")),20) & "|" & _
-    code_num(Trim(Request.form("web_num_3")),10) & "|" & code_num(Trim(Request.form("web_num_4")),5) & "|" & _
-    code_num(Trim(Request.form("web_num_5")),3) & "|" & code_num(Trim(Request.form("web_num_6")),12) & "|" & _
-    code_num(Trim(Request.form("web_num_7")),150) & "|" & code_num(Trim(Request.form("web_num_8")),112) & "|" & _
-    code_num(Trim(Request.form("web_num_9")),430) & "|" & code_num(Trim(Request.form("web_num_10")),350) & "|" & _
-    code_num(Trim(Request.form("web_num_11")),24) & "|" & code_num(Trim(Request.form("web_num_12")),16) & "|" & _
-    code_num(Trim(Request.form("web_num_13")),20) & "|" & code_num(Trim(Request.form("web_num_14")),20) & "|" & _
-    code_num(Trim(Request.form("web_num_15")),2) & "|" & code_num(Trim(Request.form("web_num_16")),15)
+sub config_bh(bht)
+  dim vv,filetype,file_name1,file_name2,filetemp,fileos,filepath:filetype=""
+  if bht="h" then
+    file_name1="include/back_common.asp"
+    file_name2="include/common.asp"
+    vv="»¹Ô­"
+  else
+    file_name1="include/common.asp"
+    file_name2="include/back_common.asp"
+    vv="±¸·İ"
+  end if
+  
+  set fileos=CreateObject("Scripting.FileSystemObject")
+  filepath=server.mappath(file_name1)
+  set filetemp=fileos.OpenTextFile(filepath,1,true)
+  filetype=filetemp.ReadAll
+  filetemp.close
+  filepath=server.mappath(file_name2)
+  set filetemp=fileos.createtextfile(filepath,true)
+  filetemp.writeline( filetype )
+  filetemp.close
+  set filetemp=nothing
+  set fileos=nothing
+  response.write "<script language=javascript>alert("""&vv&" ÍøÕ¾ÅäÖÃ³É¹¦£¡"");</script>"
+end sub
 
-    If action = "menu" Then
-        web_menu = "":tn = Int(Trim(Request.form("web_menu_num")))
+function code_num(strers,cnum)
+  dim strer:strer=trim(strers)
+  if not(isnumeric(strer)) then strer=cnum
+  if int(strer)<1 then strer=cnum
+  code_num=strer
+end function
 
-        For i = 1 To tn
-            t1   = code_config(Request.form("web_menu_" & i),4)
-            If Len(t1) > 1 Then If InStr(1,t1,":") > 0 Then web_menu = web_menu & t1 & "|"
-        Next
-
-        t1 = code_config(Request.form("web_menu_new"),4)
-        If Len(t1) > 1 Then If InStr(1,t1,":") > 0 Then web_menu = web_menu & t1
-        If Right(web_menu,1) = "|" Then web_menu = Left(web_menu,Len(web_menu) - 1)
-    Else
-        web_menu = Trim(Request.form("web_menu"))
-    End If
-
-    web_color    = code_config(Request.form("web_color_1"),2) & "|" & code_config(Request.form("web_color_2"),2) & "|" & code_config(Request.form("web_color_3"),2) & "|" & _
-    code_config(Request.form("web_color_4"),2) & "|" & code_config(Request.form("web_color_5"),2) & "|" & code_config(Request.form("web_color_6"),2) & "|" & _
-    code_config(Request.form("web_color_7"),2) & "|" & code_config(Request.form("web_color_8"),2) & "|" & code_config(Request.form("web_color_9"),2) & "|" & _
-    code_config(Request.form("web_color_10"),2) & "|" & code_config(Request.form("web_color_11"),2) & "|" & code_config(Request.form("web_color_12"),2)
-    web_upload     = code_config(Request.form("web_upload_1"),2) & "|" & code_config(Request.form("web_upload_2"),2) & "|" & code_config(Request.form("web_upload_3"),2)
-    web_safety     = Replace(Trim(Request.form("web_safety_1")),"""","""&chr(34)&""") & "'" & "|" & Trim(Request.form("web_safety_2")) & "|" & Trim(Request.form("web_safety_3")) & "|" & Trim(Request.form("web_safety_4"))
-    web_error      = code_config(Request.form("web_error_1"),3) & "|" & code_config(Request.form("web_error_2"),3) & "|" & code_config(Request.form("web_error_3"),3) & "|" & code_config(Request.form("web_error_4"),3)
-    web_news_art   = Trim(Request.form("web_news_art"))
-    web_down       = code_num(Trim(Request.form("web_down_1")),95) & "|" & code_num(Trim(Request.form("web_down_2")),75) & "|" & _
-    code_config(Request.form("web_down_3"),4) & "|" & code_config(Request.form("web_down_4"),4) & "|" & code_config(Request.form("web_down_5"),4)
-    web_shop       = Trim(Request.form("web_shop"))
-    web_stamp      = code_config(Request.form("web_stamp_1"),3) & "|" & code_config(Request.form("web_stamp_2"),3) & "|" & code_config(Request.form("web_stamp_3"),3)
-
-    If action = "user" Then
-        user_power = "":tn = Int(Trim(Request.form("user_power_num")))
-
-        For i = 1 To tn
-            t1     = code_config(Request.form("user_power_" & i),4)
-            If Len(t1) > 1 Then If InStr(1,t1,":") > 0 Then user_power = user_power & t1 & "|"
-        Next
-
-        t1 = code_config(Request.form("user_power_new"),4)
-        If Len(t1) > 1 Then If InStr(1,t1,":") > 0 Then user_power = user_power & t1
-        If Right(user_power,1) = "|" Then user_power = Left(user_power,Len(user_power) - 1)
-    Else
-        user_power = Trim(Request.form("user_power"))
-    End If
-
-    If action = "grade" Then
-        user_grade = "":tn = Int(Trim(Request.form("user_grade_num")))
-
-        For i = 1 To tn
-            t1     = code_config(Request.form("user_grade_" & i),4)
-            If Len(t1) > 1 Then If InStr(1,t1,":") > 0 Then user_grade = user_grade & t1 & "|"
-        Next
-
-        t1 = code_config(Request.form("user_grade_new"),4)
-        If Len(t1) > 1 Then If InStr(1,t1,":") > 0 Then user_grade = user_grade & t1
-        If Right(user_grade,1) = "|" Then user_grade = Left(user_grade,Len(user_grade) - 1)
-    Else
-        user_grade = Trim(Request.form("user_grade"))
-    End If
-
-    If action = "forum" Then
-        forum_type = "":tn = Int(Trim(Request.form("forum_type_num")))
-
-        For i = 1 To tn
-            t1     = Replace(Trim(Request.form("forum_type_" & i & "_1"))," ","")
-            t2     = code_config(Request.form("forum_type_" & i & "_2"),2)
-            If Len(t1) > 0 And Len(t2) > 0 Then t1 = Replace(t1,",","."):forum_type = forum_type & t1 & ":" & t2 & "|"
-        Next
-
-        t1 = Replace(Trim(Request.form("forum_type_new_1"))," ","")
-        t2 = code_config(Request.form("forum_type_new_2"),2)
-        If Len(t1) > 0 And Len(t2) > 0 Then t1 = Replace(t1,",","."):forum_type = forum_type & t1 & ":" & t2
-        If Right(forum_type,1) = "|" Then forum_type = Left(forum_type,Len(forum_type) - 1)
-    Else
-        forum_type = Trim(Request.form("forum_type"))
-    End If
-
-    Call config_file()
-    If action = "color" Then Call config_css():Call config_mouse_on_title()
-    Response.Write "<script language=javascript>alert(""ÅäÖÃĞŞ¸Ä³É¹¦£¡"");</script>"
-    Call config_main()
-End Sub
-
-Sub config_bh(bht)
-    Dim vv
-    Dim filetype
-    Dim file_name1
-    Dim file_name2
-    Dim filetemp
-    Dim fileos
-    Dim filepath:filetype = ""
-
-    If bht = "h" Then
-        file_name1 = "include/back_common.asp"
-        file_name2 = "include/common.asp"
-        vv         = "»¹Ô­"
-    Else
-        file_name1 = "include/common.asp"
-        file_name2 = "include/back_common.asp"
-        vv         = "±¸·İ"
-    End If
-
-    Set fileos   = CreateObject("Scripting.FileSystemObject")
-    filepath     = Server.mappath(file_name1)
-    Set filetemp = fileos.OpenTextFile(filepath,1,True)
-    filetype     = filetemp.ReadAll
-    filetemp.Close
-    filepath     = Server.mappath(file_name2)
-    Set filetemp = fileos.CreateTextFile(filepath,True)
-    filetemp.WriteLine( filetype )
-    filetemp.Close
-    Set filetemp = Nothing
-    Set fileos   = Nothing
-    Response.Write "<script language=javascript>alert(""" & vv & " ÍøÕ¾ÅäÖÃ³É¹¦£¡"");</script>"
-End Sub
-
-Function code_num(strers,cnum)
-    Dim strer:strer = Trim(strers)
-    If Not(IsNumeric(strer)) Then strer = cnum
-    If Int(strer) < 1 Then strer = cnum
-    code_num = strer
-End Function
-
-Function code_config(strers,ct)
-    Dim strer:strer = Trim(strers)
-    If IsNull(strer) Or strer = "" Then code_config = "":Exit Function
-
-    Select Case ct
-        Case 1
-            strer = Replace(strer,"'","&#39;")
-            strer = Replace(strer,Chr(34),"&quot;")
-        Case 2
-            strer = Replace(strer,Chr(34),"")
-            strer = Replace(strer,"'","")
-            strer = Replace(strer,":","")
-            strer = Replace(strer,"|","")
-        Case 3
-            strer = Replace(strer,"'","&#39;")
-            strer = Replace(strer,Chr(34),"&quot;")
-            strer = Replace(strer,"|","")
-        Case 4
-            strer = Replace(strer,Chr(34),"")
-            strer = Replace(strer,"'","")
-            strer = Replace(strer,"|","")
-        Case Else
-            strer = Replace(strer,"'","")
-            strer = Replace(strer,Chr(34),"")
-    End Select
-
-    code_config = strer
-End Function %>
+function code_config(strers,ct)
+  dim strer:strer=trim(strers)
+  if isnull(strer) or strer="" then code_config="":exit function
+  select case ct
+  case 1
+    strer=replace(strer,"'","&#39;")
+    strer=replace(strer,CHR(34),"&quot;")
+  case 2
+    strer=replace(strer,CHR(34),"")
+    strer=replace(strer,"'","")
+    strer=replace(strer,":","")
+    strer=replace(strer,"|","")
+  case 3
+    strer=replace(strer,"'","&#39;")
+    strer=replace(strer,CHR(34),"&quot;")
+    strer=replace(strer,"|","")
+  case 4
+    strer=replace(strer,CHR(34),"")
+    strer=replace(strer,"'","")
+    strer=replace(strer,"|","")
+  case else
+    strer=replace(strer,"'","")
+    strer=replace(strer,CHR(34),"")
+  end select
+  code_config=strer
+end function
+%>

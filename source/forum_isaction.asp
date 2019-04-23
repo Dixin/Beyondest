@@ -1,6 +1,6 @@
-<!-- #include file="include/config_forum.asp" -->
-<% If Not(IsNumeric(forumid)) Then Call cookies_type("view_id") %>
-<!-- #include file="include/config_upload.asp" -->
+<!-- #include file="INCLUDE/config_forum.asp" -->
+<% if not(isnumeric(forumid)) then call cookies_type("view_id") %>
+<!-- #include file="INCLUDE/config_upload.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 ' ====================
@@ -8,188 +8,162 @@
 ' http://beyondest.com
 ' ====================
 
-Call forum_first()
-Call web_head(2,2,0,0,0)
+call forum_first()
+call web_head(2,2,0,0,0)
+if action="istops" then
+  if format_user_power(login_username,login_mode,"")<>"yes" then close_conn():call cookies_type("power")
+else
+  if format_user_power(login_username,login_mode,forumpower)<>"yes" then close_conn():call cookies_type("power")
+end if
 
-If action = "istops" Then
-    If format_user_power(login_username,login_mode,"") <> "yes" Then close_conn():Call cookies_type("power")
-Else
-    If format_user_power(login_username,login_mode,forumpower) <> "yes" Then close_conn():Call cookies_type("power")
-End If
+dim isaction,delid
+isaction=trim(request.querystring("isaction"))
 
-Dim isaction
-Dim delid
-isaction = Trim(Request.querystring("isaction"))
+select case isaction
+case "del"
+  call is_del()
+case "delete"
+  call is_delete()
+case else
+  call is_action()
+end select
 
-Select Case isaction
-    Case "del"
-        Call is_del()
-    Case "delete"
-        Call is_delete()
-    Case Else
-        Call is_action()
-End Select
+call close_conn()
 
-Call close_conn()
+sub is_action()
+  if not(isnumeric(viewid)) and (action<>"isgood" and action<>"islock" and action<>"istop" and action<>"istops") then
+    call close_conn()
+    call cookies_type("del_id")
+  end if
+  
+  dim ismsg,ist,upss
+  select case action
+  case "isgood"
+    ist="精华"
+  case "islock"
+    ist="锁定"
+  case "istop"
+    ist="固顶"
+  case "istops"
+    ist="总固顶"
+  end select
+  if trim(request.querystring("cancel"))="yes" then
+    if action="istops" then  action="istop"
+    upss=0
+    ismsg="已成功的对主题（ID："&viewid&"）取消 "&ist&" ！"
+  else
+    if action="istops" then
+      action="istop"
+      upss=2
+    else
+      upss=1
+    end if
+    ismsg="已成功的将主题（ID："&viewid&"）设为 "&ist&" ！"
+  end if
 
-Sub is_action()
+  sql="update bbs_topic set "&action&"="&upss&" where id="&viewid
+  conn.execute(sql)
 
-    If Not(IsNumeric(viewid)) And (action <> "isgood" And action <> "islock" And action <> "istop" And action <> "istops") Then
-        Call close_conn()
-        Call cookies_type("del_id")
-    End If
+  response.write "<script language=javascript>" & _
+		 vbcrlf & "alert("""&ismsg&"\n\n点击返回。"");" & _
+		 vbcrlf & "location='forum_list.asp?forum_id="&forumid&"'" & _
+		 vbcrlf & "</script>"
+  'response.redirect "forum_list.asp?forum_id="&forumid
+end sub
 
-    Dim ismsg
-    Dim ist
-    Dim upss
+sub is_del()
+  delid=trim(request.querystring("del_id"))
+  if not(isnumeric(delid)) then
+    call close_conn()
+    call cookies_type("del_id")
+  end if
+  
+  dim reid,username
+  sql="select reply_id,username from bbs_data where forum_id="&forumid&" and id="&delid
+  set rs=conn.execute(sql)
+  if rs.eof and rs.bof then
+    rs.close:set rs=nothing
+    call close_conn()
+    call cookies_type("del_id")
+  end if
+  reid=rs("reply_id")
+  username=rs("username")
+  rs.close:set rs=nothing
 
-    Select Case action
-        Case "isgood"
-            ist = "精华"
-        Case "islock"
-            ist = "锁定"
-        Case "istop"
-            ist = "固顶"
-        Case "istops"
-            ist = "总固顶"
-    End Select
+  sql="delete from bbs_data where id="&delid
+  conn.execute(sql)
+  sql="update bbs_topic set re_counter=re_counter-1 where id="&reid
+  conn.execute(sql)
+  sql="update bbs_forum set forum_data_num=forum_data_num-1 where forum_id="&forumid
+  conn.execute(sql)
+  sql="update configs set num_data=num_data-1 where id=1"
+  conn.execute(sql)
+  sql="update user_data set bbs_counter=bbs_counter-1,integral=integral-2 where username='"&username&"'"
+  conn.execute(sql)
 
-    If Trim(Request.querystring("cancel")) = "yes" Then
-        If action = "istops" Then  action = "istop"
-        upss  = 0
-        ismsg = "已成功的对主题（ID：" & viewid & "）取消 " & ist & " ！"
-    Else
+  response.write "<script language=javascript>" & _
+		 vbcrlf & "alert(""成功删除了一条回贴！\n\n点击返回。"");" & _
+		 vbcrlf & "location='forum_list.asp?forum_id="&forumid&"'" & _
+		 vbcrlf & "</script>"
+end sub
 
-        If action = "istops" Then
-            action = "istop"
-            upss   = 2
-        Else
-            upss   = 1
-        End If
+sub is_delete()
+  delid=trim(request("del_id"))
+  if len(delid)<1 then
+    call close_conn()
+    call cookies_type("del_id")
+  end if
+  
+  dim del_dim,del_num,i,del_true,iok,ifail
+  iok=0:ifail=0
+  delid=replace(delid," ","")
+  del_dim=split(delid,",")
+  del_num=UBound(del_dim)
+  for i=0 to del_num
+    del_true=forum_delete(del_dim(i))
+    call upload_del(index_url,del_dim(i))
+    if del_true="yes" then
+      iok=iok+1
+    else
+      ifail=ifail+1
+    end if
+  next
+  erase del_dim
+  response.write "<script language=javascript>" & _
+		 vbcrlf & "alert(""成功删除了 "&iok&" 条贴子及其回贴！\n删除失败 "&ifail&" 条！\n\n点击返回。"");" & _
+		 vbcrlf & "location='forum_list.asp?forum_id="&forumid&"'" & _
+		 vbcrlf & "</script>"
+end sub
 
-        ismsg      = "已成功的将主题（ID：" & viewid & "）设为 " & ist & " ！"
-    End If
-
-    sql = "update bbs_topic set " & action & "=" & upss & " where id=" & viewid
-    conn.execute(sql)
-
-    Response.Write "<script language=javascript>" & _
-    vbcrlf & "alert(""" & ismsg & "\n\n点击返回。"");" & _
-    vbcrlf & "location='forum_list.asp?forum_id=" & forumid & "'" & _
-    vbcrlf & "</script>"
-    'response.redirect "forum_list.asp?forum_id="&forumid
-End Sub
-
-Sub is_del()
-    delid = Trim(Request.querystring("del_id"))
-
-    If Not(IsNumeric(delid)) Then
-        Call close_conn()
-        Call cookies_type("del_id")
-    End If
-
-    Dim reid
-    Dim username
-    sql    = "select reply_id,username from bbs_data where forum_id=" & forumid & " and id=" & delid
-    Set rs = conn.execute(sql)
-
-    If rs.eof And rs.bof Then
-        rs.Close:Set rs = Nothing
-        Call close_conn()
-        Call cookies_type("del_id")
-    End If
-
-    reid     = rs("reply_id")
-    username = rs("username")
-    rs.Close:Set rs = Nothing
-
-    sql = "delete from bbs_data where id=" & delid
-    conn.execute(sql)
-    sql = "update bbs_topic set re_counter=re_counter-1 where id=" & reid
-    conn.execute(sql)
-    sql = "update bbs_forum set forum_data_num=forum_data_num-1 where forum_id=" & forumid
-    conn.execute(sql)
-    sql = "update configs set num_data=num_data-1 where id=1"
-    conn.execute(sql)
-    sql = "update user_data set bbs_counter=bbs_counter-1,integral=integral-2 where username='" & username & "'"
-    conn.execute(sql)
-
-    Response.Write "<script language=javascript>" & _
-    vbcrlf & "alert(""成功删除了一条回贴！\n\n点击返回。"");" & _
-    vbcrlf & "location='forum_list.asp?forum_id=" & forumid & "'" & _
-    vbcrlf & "</script>"
-End Sub
-
-Sub is_delete()
-    delid = Trim(Request("del_id"))
-
-    If Len(delid) < 1 Then
-        Call close_conn()
-        Call cookies_type("del_id")
-    End If
-
-    Dim del_dim
-    Dim del_num
-    Dim i
-    Dim del_true
-    Dim iok
-    Dim ifail
-    iok          = 0:ifail = 0
-    delid        = Replace(delid," ","")
-    del_dim      = Split(delid,",")
-    del_num      = UBound(del_dim)
-
-    For i = 0 To del_num
-        del_true = forum_delete(del_dim(i))
-        Call upload_del(index_url,del_dim(i))
-
-        If del_true = "yes" Then
-            iok   = iok + 1
-        Else
-            ifail = ifail + 1
-        End If
-
-    Next
-
-    Erase del_dim
-    Response.Write "<script language=javascript>" & _
-    vbcrlf & "alert(""成功删除了 " & iok & " 条贴子及其回贴！\n删除失败 " & ifail & " 条！\n\n点击返回。"");" & _
-    vbcrlf & "location='forum_list.asp?forum_id=" & forumid & "'" & _
-    vbcrlf & "</script>"
-End Sub
-
-Function forum_delete(did)
-    Dim username
-    Dim numd
-    Dim sqladd
-    did          = Trim(did)
-    numd         = 1:sqladd = ""
-    forum_delete = "yes"
-    sql          = "select username from bbs_topic where forum_id=" & forumid & " and id=" & did
-    Set rs       = conn.execute(sql)
-
-    If rs.eof And rs.bof Then
-        rs.Close:Set rs = Nothing
-        forum_delete = "no":Exit Function
-    End If
-
-    username         = rs("username")
-    rs.Close
-
-    sql = "update user_data set bbs_counter=bbs_counter-1,integral=integral-3 where username='" & username & "'"
-    conn.execute(sql)
-
-    sql    = "select count(id) from bbs_data where forum_id=" & forumid & " and reply_id=" & did
-    Set rs = conn.execute(sql)
-    numd   = rs(0)
-    rs.Close:Set rs = Nothing
-
-    sql = "delete from bbs_data where reply_id=" & did
-    conn.execute(sql)
-    sql = "delete from bbs_topic where id=" & did
-    conn.execute(sql)
-    sql = "update bbs_forum set forum_topic_num=forum_topic_num-1,forum_data_num=forum_data_num-" & numd & " where forum_id=" & forumid
-    conn.execute(sql)
-    sql = "update configs set num_topic=num_topic-1,num_data=num_data-" & numd & " where id=1"
-    conn.execute(sql)
-End Function %>
+function forum_delete(did)
+  dim username,numd,sqladd
+  did=trim(did)
+  numd=1:sqladd=""
+  forum_delete="yes"
+  sql="select username from bbs_topic where forum_id="&forumid&" and id="&did
+  set rs=conn.execute(sql)
+  if rs.eof and rs.bof then
+    rs.close:set rs=nothing
+    forum_delete="no":exit function
+  end if
+  username=rs("username")
+  rs.close
+  
+  sql="update user_data set bbs_counter=bbs_counter-1,integral=integral-3 where username='"&username&"'"
+  conn.execute(sql)
+  
+  sql="select count(id) from bbs_data where forum_id="&forumid&" and reply_id="&did
+  set rs=conn.execute(sql)
+  numd=rs(0)
+  rs.close:set rs=nothing
+  
+  sql="delete from bbs_data where reply_id="&did
+  conn.execute(sql)
+  sql="delete from bbs_topic where id="&did
+  conn.execute(sql)
+  sql="update bbs_forum set forum_topic_num=forum_topic_num-1,forum_data_num=forum_data_num-"&numd&" where forum_id="&forumid
+  conn.execute(sql)
+  sql="update configs set num_topic=num_topic-1,num_data=num_data-"&numd&" where id=1"
+  conn.execute(sql)
+end function
+%>

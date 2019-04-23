@@ -5,13 +5,13 @@
 ' ====================
 
 '---------------------数据库类型及路径定义---------------------
-Dim conn
-Dim connstr
-connstr  = "DBQ=" + Server.mappath("data/ip_address.mdb") + ";DRIVER={Microsoft Access Driver (*.mdb)};"
-Set conn = Server.CreateObject("ADODB.CONNECTION")
+dim conn,connstr
+connstr="DBQ="+server.mappath("data/ip_address.mdb")+";DRIVER={Microsoft Access Driver (*.mdb)};"
+set conn=server.createobject("ADODB.CONNECTION")
 conn.open connstr
 
-Sub close_conn()
-    conn.Close
-    Set conn = Nothing
-End Sub %>
+sub close_conn()
+  conn.close
+  set conn=nothing
+end sub
+%>

@@ -1,5 +1,5 @@
-<!-- #include file="include/config_user.asp" -->
-<!-- #include file="include/jk_pagecute.asp" -->
+<!-- #include file="INCLUDE/config_user.asp" -->
+<!-- #include file="INCLUDE/jk_pagecute.asp" -->
 <!-- #include file="include/conn.asp" -->
 <%
 ' ====================
@@ -7,69 +7,57 @@
 ' http://beyondest.com
 ' ====================
 
-Dim nummer
-Dim page
-Dim rssum
-Dim thepages
-Dim viewpage
-Dim pageurl
-thepages = 0:viewpage = 1:pageurl = "?"
-tit      = "浏览头像"
+dim nummer,page,rssum,thepages,viewpage,pageurl
+thepages=0:viewpage=1:pageurl="?"
+tit="浏览头像"
 
-Call web_head(0,0,3,0,0)
+call web_head(0,0,3,0,0)
 '------------------------------------left----------------------------------
-Response.Write ukong
+response.write ukong
 
-Call user_face()
+call user_face()
 
-Response.Write kong
+response.write kong
 '---------------------------------center end-------------------------------
-Call web_end(0)
+call web_end(0)
 
-Sub user_face()
-    Dim fc
-    Dim j
-    Dim fnum
-    Dim cnum
-    Dim rnum
-    Dim tt
-    Dim nnum
-    cnum = 5:rnum = 3:fc = 0
-    fnum = Int(web_var(web_num,11)) + 1
-    'fc=fnum\cnum
-    'if fnum mod cnum >0 then fc=fc+1
-
-    nummer = cnum*rnum
-    rssum  = fnum
-    Call format_pagecute()
-
-    If Int(viewpage) > 1 Then
-        fc = (viewpage - 1)*nummer
-    End If %>
+sub user_face()
+  dim fc,j,fnum,cnum,rnum,tt,nnum
+  cnum=5:rnum=3:fc=0
+  fnum=int(web_var(web_num,11))+1
+  'fc=fnum\cnum
+  'if fnum mod cnum >0 then fc=fc+1
+  
+  nummer=cnum*rnum
+  rssum=fnum
+  call format_pagecute()
+  if int(viewpage)>1 then
+    fc=(viewpage-1)*nummer
+  end if
+%>
 <table border=0 cellpadding=0 cellspacing=4 align=center>
 <tr align=center>
-<td>本站共有 <font class=red><% Response.Write rssum %></font> 个头像</td>
+<td>本站共有 <font class=red><%response.write rssum%></font> 个头像</td>
 <td width=10></td>
-<td>页次：<font class=red><% Response.Write viewpage %></font>/<font class=red><% Response.Write thepages %></font></td>
+<td>页次：<font class=red><%response.write viewpage%></font>/<font class=red><%response.write thepages%></font></td>
 <td width=10></td>
-<td>分页：<% Response.Write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000") %></td>
+<td>分页：<%response.write jk_pagecute(nummer,thepages,viewpage,pageurl,5,"#ff0000")%></td>
 </tr>
 </table>
 <table border=0 width='98%' cellpadding=0 cellspacing=8 align=center>
 <%
-
-    For j = 1 To rnum
-        Response.Write vbcrlf & "<tr align=center>"
-
-        For i = 1 To cnum
-            nnum = cnum*(j - 1) + i - 1 + fc
-            If nnum >= rssum Then Exit For
-            tt = "<table border=0><tr><td align=center><img src='images/face/" & nnum & ".gif' border=0></td></tr><tr><td align=center><b>" & nnum & "</b></td></tr></table>"
-            Response.Write vbcrlf & "<td>" & format_k(tt,1,5,120,120) & "</td>"
-        Next
-
-        Response.Write vbcrlf & "</tr>"
-    Next %>
+  for j=1 to rnum
+    response.write vbcrlf&"<tr align=center>"
+    for i=1 to cnum
+      nnum=cnum*(j-1)+i-1+fc
+      if nnum>=rssum then exit for
+      tt="<table border=0><tr><td align=center><img src='images/face/"&nnum&".gif' border=0></td></tr><tr><td align=center><b>"&nnum&"</b></td></tr></table>"
+      response.write vbcrlf&"<td>"&format_k(tt,1,5,120,120)&"</td>"
+    next
+    response.write vbcrlf&"</tr>"
+  next
+%>
 </table>
 <%
-End Sub %>
+end sub
+%>

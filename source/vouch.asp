@@ -4,4 +4,6 @@
 ' http://beyondest.com
 ' ====================
 
-Response.redirect "gallery.asp?action=film" %>
+
+response.redirect "gallery.asp?action=film"
+%>
