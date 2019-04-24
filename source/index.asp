@@ -1,3 +1,2 @@
 <%
-response.redirect "main.asp"
-%>
+Response.redirect "main.asp" %>

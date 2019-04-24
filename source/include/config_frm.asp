@@ -3,9 +3,7 @@
 ' Beyondest.Com v3.6.1
 ' http://beyondest.com
 ' ====================
-
-sub frm_ubb(fn,tn,uw)
-%><script language=javascript>
+Sub frm_ubb(fn,tn,uw) %><script language=javascript>
 <!--
 var defmode="advmode";		//默认模式，可选 normalmode, advmode, 或 helpmode
 var ubb_w=450;
@@ -41,9 +39,9 @@ function jk_ubb_mode(swtch)
 function AddText(NewCode)
 {
   if(document.all)
-  { insertAtCaret(document.<%response.write fn&"."&tn%>, NewCode); setfocus(); } 
+  { insertAtCaret(document.<% Response.Write fn & "." & tn %>, NewCode); setfocus(); } 
   else
-  { document.<%response.write fn&"."&tn%>.value += NewCode; setfocus(); }
+  { document.<% Response.Write fn & "." & tn %>.value += NewCode; setfocus(); }
 }
 
 function storeCaret (textEl)
@@ -312,10 +310,10 @@ function jk_ubb_underline()
   }
 }
 
-function setfocus() { document.<%response.write fn&"."&tn%>.focus(); }
+function setfocus() { document.<% Response.Write fn & "." & tn %>.focus(); }
 -->
 </script><table border=0 cellspacing=0 cellpadding=0><tr>
-<td height=30><%response.write uw%><select onchange="javascript:jk_ubb_font(this.options[this.selectedIndex].value);" size=1 name=font>
+<td height=30><% Response.Write uw %><select onchange="javascript:jk_ubb_font(this.options[this.selectedIndex].value);" size=1 name=font>
 <option value=宋体>宋体</option>
 <option value=黑体>黑体</option>
 <option value=arial>arial</option>
@@ -359,7 +357,7 @@ function setfocus() { document.<%response.write fn&"."&tn%>.focus(); }
 </tr>
 </table>
 <table border=0 cellspacing=0 cellpadding=0>
-<tr><td height=30><%response.write uw%><a href="javascript:jk_ubb_bold();"><img alt='插入粗体文本' src='images/ubb/bold.gif' border=0></a>&nbsp;
+<tr><td height=30><% Response.Write uw %><a href="javascript:jk_ubb_bold();"><img alt='插入粗体文本' src='images/ubb/bold.gif' border=0></a>&nbsp;
 <a href="javascript:jk_ubb_italicize();"><img alt='插入斜体文本' src='images/ubb/italicize.gif' border=0></a>&nbsp;
 <a href="javascript:jk_ubb_underline();"><img alt='插入下划线' src='images/ubb/underline.gif' border=0></a>&nbsp;
 <a href="javascript:jk_ubb_center();"><img alt='居中对齐' src='images/ubb/center.gif' border=0></a>&nbsp;
@@ -371,24 +369,22 @@ function setfocus() { document.<%response.write fn&"."&tn%>.focus(); }
 <a href="javascript:jk_ubb_quote();"><img alt='插入引用' src='images/ubb/quote.gif' border=0></a>&nbsp;
 <a href="javascript:jk_ubb_rm();"><img alt='插入Realplay视频文件' src='images/ubb/rm.gif' border=0></a>&nbsp;
 <a href="javascript:jk_ubb_mp();"><img alt='插入Media Player播放文件' src='images/ubb/mp.gif' border=0></a></td></tr></table><%
-end sub
+End Sub
 
-sub frm_ubb_type()
-%>辅助模式：<br><input onclick="javascript:jk_ubb_mode('2');" type=radio value=2 name=mode class=bg_1> 提示插入<br>
+Sub frm_ubb_type() %>辅助模式：<br><input onclick="javascript:jk_ubb_mode('2');" type=radio value=2 name=mode class=bg_1> 提示插入<br>
 <input onclick="javascript:jk_ubb_mode('0');" type=radio value=0 name=mode class=bg_1 checked> 直接插入<br>
 <input onclick="javascript:jk_ubb_mode('1');" type=radio value=1 name=mode class=bg_1> 帮助信息<%
-end sub
+End Sub
 
-sub frm_word_size(fn,tn,ws,wv)
-%>
-<a href="javascript:checklength(document.<%response.write fn%>);">[字数检查]</a>
+Sub frm_word_size(fn,tn,ws,wv) %>
+<a href="javascript:checklength(document.<% Response.Write fn %>);">[字数检查]</a>
 <script language=JavaScript>
 <!--
 function checklength(theform)
 {
-  var postmaxchars=<%response.write ws%>;
-  var postchars=theform.<%response.write tn%>.value.length;
-  var post_1="您输入的<%response.write wv%>已经超过系统允许的最大值！\n请删减部分<%response.write wv%>！";
+  var postmaxchars=<% Response.Write ws %>;
+  var postchars=theform.<% Response.Write tn %>.value.length;
+  var post_1="您输入的<% Response.Write wv %>已经超过系统允许的最大值！\n请删减部分<% Response.Write wv %>！";
   var message="";
   if (postmaxchars != 0) { message = "系统允许："+postmaxchars+"KB（约"+postmaxchars*1024+"个字符）"; }
   if (postmaxchars*1024>=postchars)
@@ -396,14 +392,13 @@ function checklength(theform)
     var postc=postmaxchars*1024-postchars;
     post_1="您还可以输入："+postc+"个字符（约"+Math.round(postc/1024)+"KB）";
   }
-  alert("您输入的<%response.write wv%>的统计信息如下：\n\n当前长度："+postchars+"个字符（约"+Math.round(postchars/1024)+"KB）\n"+message+"\n"+post_1);
+  alert("您输入的<% Response.Write wv %>的统计信息如下：\n\n当前长度："+postchars+"个字符（约"+Math.round(postchars/1024)+"KB）\n"+message+"\n"+post_1);
 }
 -->
 </script><%
-end sub
+End Sub
 
-sub frm_topic(fn,tn)
-%><select onchange="document.<%response.write fn&"."&tn%>.focus(); document.<%response.write fn&"."&tn%>.value = this.options[this.selectedIndex].value + document.<%response.write fn&"."&tn%>.value;"> 
+Sub frm_topic(fn,tn) %><select onchange="document.<% Response.Write fn & "." & tn %>.focus(); document.<% Response.Write fn & "." & tn %>.value = this.options[this.selectedIndex].value + document.<% Response.Write fn & "." & tn %>.value;"> 
 <option value='' selected>选择</option>
 <option value=[原创]>[原创]</option>
 <option value=[转帖]>[转帖]</option>
@@ -423,5 +418,4 @@ sub frm_topic(fn,tn)
 <option value=[下载]>[下载]</option>
 <option value=[分享]>[分享]</option>
 </select><%
-end sub
-%>
+End Sub %>

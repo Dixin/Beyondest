@@ -18,18 +18,21 @@ Private Const BITS_TO_A_WORD = 32
 
 Private m_lOnBits(30)
 Private m_l2Power(30)
- 
+
 Private Function LShift(lValues, iShiftBitss)
-  dim lValue,iShiftBits:lValue=lValues:iShiftBits=iShiftBitss
+    Dim lValue,iShiftBits:lValue = lValues:iShiftBits = iShiftBitss
+
     If iShiftBits = 0 Then
         LShift = lValue
         Exit Function
     ElseIf iShiftBits = 31 Then
+
         If lValue And 1 Then
-            LShift = &H80000000
+            LShift =  &H80000000
         Else
             LShift = 0
         End If
+
         Exit Function
     ElseIf iShiftBits < 0 Or iShiftBits > 31 Then
         Err.Raise 6
@@ -40,58 +43,65 @@ Private Function LShift(lValues, iShiftBitss)
     Else
         LShift = ((lValue And m_lOnBits(31 - iShiftBits)) * m_l2Power(iShiftBits))
     End If
+
 End Function
 
 Private Function RShift(lValues, iShiftBitss)
-  dim lValue,iShiftBits:lValue=lValues:iShiftBits=iShiftBitss
+    Dim lValue,iShiftBits:lValue = lValues:iShiftBits = iShiftBitss
+
     If iShiftBits = 0 Then
         RShift = lValue
         Exit Function
     ElseIf iShiftBits = 31 Then
+
         If lValue And &H80000000 Then
             RShift = 1
         Else
             RShift = 0
         End If
+
         Exit Function
     ElseIf iShiftBits < 0 Or iShiftBits > 31 Then
         Err.Raise 6
     End If
-    
+
     RShift = (lValue And &H7FFFFFFE) \ m_l2Power(iShiftBits)
 
     If (lValue And &H80000000) Then
-        RShift = (RShift Or (&H40000000 \ m_l2Power(iShiftBits - 1)))
+        RShift = (RShift Or ( &H40000000 \ m_l2Power(iShiftBits - 1)))
     End If
+
 End Function
 
 Private Function RotateLeft(lValues, iShiftBitss)
-  dim lValue,iShiftBits:lValue=lValues:iShiftBits=iShiftBitss
-  RotateLeft = LShift(lValue, iShiftBits) Or RShift(lValue, (32 - iShiftBits))
+    Dim lValue,iShiftBits:lValue = lValues:iShiftBits = iShiftBitss
+    RotateLeft = LShift(lValue, iShiftBits) Or RShift(lValue, (32 - iShiftBits))
 End Function
 
 Private Function AddUnsigned(lXs, lYs)
-  Dim lX4,lY4,lX8,lY8,lResult,lX,lY
-  lX=lXs:lY=lYs
-    lX8 = lX And &H80000000
-    lY8 = lY And &H80000000
-    lX4 = lX And &H40000000
-    lY4 = lY And &H40000000
- 
+    Dim lX4,lY4,lX8,lY8,lResult,lX,lY
+    lX      = lXs:lY = lYs
+    lX8     = lX And &H80000000
+    lY8     = lY And &H80000000
+    lX4     = lX And &H40000000
+    lY4     = lY And &H40000000
+
     lResult = (lX And &H3FFFFFFF) + (lY And &H3FFFFFFF)
- 
+
     If lX4 And lY4 Then
         lResult = lResult Xor &H80000000 Xor lX8 Xor lY8
     ElseIf lX4 Or lY4 Then
+
         If lResult And &H40000000 Then
             lResult = lResult Xor &HC0000000 Xor lX8 Xor lY8
         Else
             lResult = lResult Xor &H40000000 Xor lX8 Xor lY8
         End If
+
     Else
         lResult = lResult Xor lX8 Xor lY8
     End If
- 
+
     AddUnsigned = lResult
 End Function
 
@@ -136,57 +146,60 @@ Private Sub md5_II(a, b, c, d, x, s, ac)
 End Sub
 
 Private Function ConvertToWordArray(sMessages)
-  Dim lMessageLength,lNumberOfWords,lWordArray(),lBytePosition,lByteCount,lWordCount,sMessage
-  sMessage=sMessages
-    
+    Dim lMessageLength,lNumberOfWords,lWordArray(),lBytePosition,lByteCount,lWordCount,sMessage
+    sMessage = sMessages
+
     Const MODULUS_BITS = 512
     Const CONGRUENT_BITS = 448
-    
+
     lMessageLength = Len(sMessage)
-    
+
     lNumberOfWords = (((lMessageLength + ((MODULUS_BITS - CONGRUENT_BITS) \ BITS_TO_A_BYTE)) \ (MODULUS_BITS \ BITS_TO_A_BYTE)) + 1) * (MODULUS_BITS \ BITS_TO_A_WORD)
     ReDim lWordArray(lNumberOfWords - 1)
-    
-    lBytePosition = 0
-    lByteCount = 0
+
+    lBytePosition              = 0
+    lByteCount                 = 0
+
     Do Until lByteCount >= lMessageLength
-        lWordCount = lByteCount \ BYTES_TO_A_WORD
-        lBytePosition = (lByteCount Mod BYTES_TO_A_WORD) * BITS_TO_A_BYTE
+        lWordCount             = lByteCount \ BYTES_TO_A_WORD
+        lBytePosition          = (lByteCount Mod BYTES_TO_A_WORD) * BITS_TO_A_BYTE
         lWordArray(lWordCount) = lWordArray(lWordCount) Or LShift(Asc(Mid(sMessage, lByteCount + 1, 1)), lBytePosition)
-        lByteCount = lByteCount + 1
+        lByteCount             = lByteCount + 1
     Loop
 
-    lWordCount = lByteCount \ BYTES_TO_A_WORD
-    lBytePosition = (lByteCount Mod BYTES_TO_A_WORD) * BITS_TO_A_BYTE
+    lWordCount             = lByteCount \ BYTES_TO_A_WORD
+    lBytePosition          = (lByteCount Mod BYTES_TO_A_WORD) * BITS_TO_A_BYTE
 
-    lWordArray(lWordCount) = lWordArray(lWordCount) Or LShift(&H80, lBytePosition)
+    lWordArray(lWordCount) = lWordArray(lWordCount) Or LShift( &H80, lBytePosition)
 
     lWordArray(lNumberOfWords - 2) = LShift(lMessageLength, 3)
     lWordArray(lNumberOfWords - 1) = RShift(lMessageLength, 29)
-    
+
     ConvertToWordArray = lWordArray
 End Function
 
 Private Function WordToHex(lValue)
     Dim lByte,lCount
+
     For lCount = 0 To 3
-        lByte = RShift(lValue, lCount * BITS_TO_A_BYTE) And m_lOnBits(BITS_TO_A_BYTE - 1)
+        lByte     = RShift(lValue, lCount * BITS_TO_A_BYTE) And m_lOnBits(BITS_TO_A_BYTE - 1)
         WordToHex = WordToHex & Right("0" & Hex(lByte), 2)
     Next
+
 End Function
 
 Public Function jk_MD5(sMessages,sSort)
-  dim sMessage:sMessage=sMessages
-    m_lOnBits(0) = CLng(1)
-    m_lOnBits(1) = CLng(3)
-    m_lOnBits(2) = CLng(7)
-    m_lOnBits(3) = CLng(15)
-    m_lOnBits(4) = CLng(31)
-    m_lOnBits(5) = CLng(63)
-    m_lOnBits(6) = CLng(127)
-    m_lOnBits(7) = CLng(255)
-    m_lOnBits(8) = CLng(511)
-    m_lOnBits(9) = CLng(1023)
+    Dim sMessage:sMessage = sMessages
+    m_lOnBits(0)  = CLng(1)
+    m_lOnBits(1)  = CLng(3)
+    m_lOnBits(2)  = CLng(7)
+    m_lOnBits(3)  = CLng(15)
+    m_lOnBits(4)  = CLng(31)
+    m_lOnBits(5)  = CLng(63)
+    m_lOnBits(6)  = CLng(127)
+    m_lOnBits(7)  = CLng(255)
+    m_lOnBits(8)  = CLng(511)
+    m_lOnBits(9)  = CLng(1023)
     m_lOnBits(10) = CLng(2047)
     m_lOnBits(11) = CLng(4095)
     m_lOnBits(12) = CLng(8191)
@@ -208,17 +221,17 @@ Public Function jk_MD5(sMessages,sSort)
     m_lOnBits(28) = CLng(536870911)
     m_lOnBits(29) = CLng(1073741823)
     m_lOnBits(30) = CLng(2147483647)
-    
-    m_l2Power(0) = CLng(1)
-    m_l2Power(1) = CLng(2)
-    m_l2Power(2) = CLng(4)
-    m_l2Power(3) = CLng(8)
-    m_l2Power(4) = CLng(16)
-    m_l2Power(5) = CLng(32)
-    m_l2Power(6) = CLng(64)
-    m_l2Power(7) = CLng(128)
-    m_l2Power(8) = CLng(256)
-    m_l2Power(9) = CLng(512)
+
+    m_l2Power(0)  = CLng(1)
+    m_l2Power(1)  = CLng(2)
+    m_l2Power(2)  = CLng(4)
+    m_l2Power(3)  = CLng(8)
+    m_l2Power(4)  = CLng(16)
+    m_l2Power(5)  = CLng(32)
+    m_l2Power(6)  = CLng(64)
+    m_l2Power(7)  = CLng(128)
+    m_l2Power(8)  = CLng(256)
+    m_l2Power(9)  = CLng(512)
     m_l2Power(10) = CLng(1024)
     m_l2Power(11) = CLng(2048)
     m_l2Power(12) = CLng(4096)
@@ -242,7 +255,7 @@ Public Function jk_MD5(sMessages,sSort)
     m_l2Power(30) = CLng(1073741824)
 
     Dim x,k,AA,BB,CC,DD,a,b,c,d
-    
+
     Const S11 = 7
     Const S12 = 12
     Const S13 = 17
@@ -261,7 +274,7 @@ Public Function jk_MD5(sMessages,sSort)
     Const S44 = 21
 
     x = ConvertToWordArray(sMessage)
-    
+
     a = &H67452301
     b = &HEFCDAB89
     c = &H98BADCFE
@@ -272,7 +285,7 @@ Public Function jk_MD5(sMessages,sSort)
         BB = b
         CC = c
         DD = d
-    
+
         md5_FF a, b, c, d, x(k + 0), S11, &HD76AA478
         md5_FF d, a, b, c, x(k + 1), S12, &HE8C7B756
         md5_FF c, d, a, b, x(k + 2), S13, &H242070DB
@@ -289,7 +302,7 @@ Public Function jk_MD5(sMessages,sSort)
         md5_FF d, a, b, c, x(k + 13), S12, &HFD987193
         md5_FF c, d, a, b, x(k + 14), S13, &HA679438E
         md5_FF b, c, d, a, x(k + 15), S14, &H49B40821
-    
+
         md5_GG a, b, c, d, x(k + 1), S21, &HF61E2562
         md5_GG d, a, b, c, x(k + 6), S22, &HC040B340
         md5_GG c, d, a, b, x(k + 11), S23, &H265E5A51
@@ -306,7 +319,7 @@ Public Function jk_MD5(sMessages,sSort)
         md5_GG d, a, b, c, x(k + 2), S22, &HFCEFA3F8
         md5_GG c, d, a, b, x(k + 7), S23, &H676F02D9
         md5_GG b, c, d, a, x(k + 12), S24, &H8D2A4C8A
-            
+
         md5_HH a, b, c, d, x(k + 5), S31, &HFFFA3942
         md5_HH d, a, b, c, x(k + 8), S32, &H8771F681
         md5_HH c, d, a, b, x(k + 11), S33, &H6D9D6122
@@ -340,19 +353,19 @@ Public Function jk_MD5(sMessages,sSort)
         md5_II d, a, b, c, x(k + 11), S42, &HBD3AF235
         md5_II c, d, a, b, x(k + 2), S43, &H2AD7D2BB
         md5_II b, c, d, a, x(k + 9), S44, &HEB86D391
-    
+
         a = AddUnsigned(a, AA)
         b = AddUnsigned(b, BB)
         c = AddUnsigned(c, CC)
         d = AddUnsigned(d, DD)
     Next
-    
-    if sSort="short" then
-      jk_MD5=LCase(WordToHex(b) & WordToHex(c))
-    elseif sSort="long" then
-      jk_MD5 = LCase(WordToHex(a) & WordToHex(b) & WordToHex(c) & WordToHex(d))
-    else
-      jk_MD5=sMessage
-    end if
-End Function
-%>
+
+    If sSort = "short" Then
+        jk_MD5 = LCase(WordToHex(b) & WordToHex(c))
+    ElseIf sSort = "long" Then
+        jk_MD5 = LCase(WordToHex(a) & WordToHex(b) & WordToHex(c) & WordToHex(d))
+    Else
+        jk_MD5 = sMessage
+    End If
+
+End Function %>

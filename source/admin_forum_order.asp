@@ -5,63 +5,71 @@
 ' http://beyondest.com
 ' ====================
 
-dim classid,forumid
-classid=trim(request("class_id"))
-forumid=trim(request("forum_id"))
-action=trim(request("action"))
-if not(isnumeric(classid)) or not(isnumeric(forumid)) or (action<>"up" and action<>"down") then
-  response.redirect "admin_forum.asp"
-  response.end
-end if
-%>
+Dim classid,forumid
+classid = Trim(Request("class_id"))
+forumid = Trim(Request("forum_id"))
+action  = Trim(Request("action"))
+
+If Not(IsNumeric(classid)) Or Not(IsNumeric(forumid)) Or (action <> "up" And action <> "down") Then
+    Response.redirect "admin_forum.asp"
+    Response.End
+End If %>
 <!-- #include file="include/conn.asp" -->
 <%
-dim tmp_id_1,tmp_id_2,tmp_order_1,tmp_order_2,sqladd,update_ok,rssum
-update_ok="no"
-if action="up" then
-  sqladd=" desc"
-else
-  sqladd=""
-end if
+Dim tmp_id_1,tmp_id_2,tmp_order_1,tmp_order_2,sqladd,update_ok,rssum
+update_ok  = "no"
 
-sql="select forum_order from bbs_forum where forum_id="&forumid&" and class_id="&classid
-set rs=conn.execute(sql)
-if rs.eof and rs.bof then
-  rs.close:set rs=nothing
-  close_conn
-  response.redirect "admin_forum.asp"
-  response.end
-end if
-rs.close:set rs=nothing
+If action = "up" Then
+    sqladd = " desc"
+Else
+    sqladd = ""
+End If
 
-sql="select forum_id,forum_order from bbs_forum where class_id="&classid&" order by forum_order"&sqladd&",forum_id desc"
-set rs=conn.execute(sql)
-do while not rs.eof
-  if int(rs("forum_id"))=int(forumid) then
-    tmp_id_1=forumid
-    tmp_order_1=rs("forum_order")
+sql    = "select forum_order from bbs_forum where forum_id=" & forumid & " and class_id=" & classid
+Set rs = conn.execute(sql)
+
+If rs.eof And rs.bof Then
+    rs.Close:Set rs = Nothing
+    close_conn
+    Response.redirect "admin_forum.asp"
+    Response.End
+End If
+
+rs.Close:Set rs = Nothing
+
+sql    = "select forum_id,forum_order from bbs_forum where class_id=" & classid & " order by forum_order" & sqladd & ",forum_id desc"
+Set rs = conn.execute(sql)
+
+Do While Not rs.eof
+
+    If Int(rs("forum_id")) = Int(forumid) Then
+        tmp_id_1    = forumid
+        tmp_order_1 = rs("forum_order")
+        rs.movenext
+
+        If Not rs.eof Then
+            tmp_id_2    = rs("forum_id")
+            tmp_order_2 = rs("forum_order")
+            update_ok   = "yes"
+            Exit Do
+        End If
+
+        Exit Do
+    End If
+
     rs.movenext
-    if not rs.eof then
-      tmp_id_2=rs("forum_id")
-      tmp_order_2=rs("forum_order")
-      update_ok="yes"
-      exit do
-    end if
-    exit do
-  end if
-  rs.movenext
-loop
-rs.close:set rs=nothing
+Loop
 
-if update_ok="yes" then
-  sql="update bbs_forum set forum_order="&tmp_order_2&" where forum_id="&tmp_id_1
-  response.write sql
-  conn.execute(sql)
-  sql="update bbs_forum set forum_order="&tmp_order_1&" where forum_id="&tmp_id_2
-  conn.execute(sql)
-end if
+rs.Close:Set rs = Nothing
+
+If update_ok = "yes" Then
+    sql = "update bbs_forum set forum_order=" & tmp_order_2 & " where forum_id=" & tmp_id_1
+    Response.Write sql
+    conn.execute(sql)
+    sql = "update bbs_forum set forum_order=" & tmp_order_1 & " where forum_id=" & tmp_id_2
+    conn.execute(sql)
+End If
 
 close_conn
 
-response.redirect "admin_forum.asp"
-%>
+Response.redirect "admin_forum.asp" %>

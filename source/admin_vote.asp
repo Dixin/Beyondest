@@ -6,198 +6,237 @@
 ' http://beyondest.com
 ' ====================
 
-dim rssnum,j,id,vid,vname,nid
-tit="<a href='?'>查看现有调查列表</a> ┋ <a href='?action=add'>添加新调查列表</a>"
-response.write header(8,tit)
-id=trim(request.querystring("id"))
-vid=trim(request.querystring("vid"))
+Dim rssnum,j,id,vid,vname,nid
+tit = "<a href='?'>查看现有调查列表</a> ┋ <a href='?action=add'>添加新调查列表</a>"
+Response.Write header(8,tit)
+id  = Trim(Request.querystring("id"))
+vid = Trim(Request.querystring("vid"))
 
-select case action
-case "add"
-  call vote_add()
-case "edit"
-  call vote_edit()
-case "edit2"
-  call vote_edit2()
-case "view"
-  call vote_view()
-case "del"
-  call vote_del()
-case "delete"
-  call vote_delete()
-case else
-  call vote_main()
-end select
+Select Case action
+    Case "add"
+        Call vote_add()
+    Case "edit"
+        Call vote_edit()
+    Case "edit2"
+        Call vote_edit2()
+    Case "view"
+        Call vote_view()
+    Case "del"
+        Call vote_del()
+    Case "delete"
+        Call vote_delete()
+    Case Else
+        Call vote_main()
+End Select
 
-call close_conn()
-response.write ender()
+Call close_conn()
+Response.Write ender()
 
-sub vote_del()
-  if not(isnumeric(id)) then call vote_main():exit sub
-  conn.execute("delete from vote where vtype=1 and id="&id)
-  response.write "<script language=javascript>alert(""成功删除了调查项目（"&id&"）！\n\n点击返回……"");location.href='?action=view&vid="&vid&"';</script>"
-end sub
+Sub vote_del()
 
-sub vote_delete()
-  if not(isnumeric(vid)) then call vote_main():exit sub
-  conn.execute("delete from vote where vid="&vid)
-  response.write "<script language=javascript>alert(""成功删除了调查列表（"&vid&"）！\n\n点击返回……"");location.href='?';</script>"
-end sub
+    If Not(IsNumeric(id)) Then Call vote_main():Exit Sub
+        conn.execute("delete from vote where vtype=1 and id=" & id)
+        Response.Write "<script language=javascript>alert(""成功删除了调查项目（" & id & "）！\n\n点击返回……"");location.href='?action=view&vid=" & vid & "';</script>"
+    End Sub
 
-sub vote_edit2()
-  if not(isnumeric(id)) then call vote_main():exit sub
-  sql="select vid,vname,counter from vote where vtype=1 and id="&id
-  set rs=conn.execute(sql)
-  if rs.eof and rs.bof then
-    rs.close:set rs=nothing
-    response.write "<script language=javascript>alert(""调查项目不存在！\n\n点击返回……"");location.href='?';</script>"
-    exit sub
-  end if
-  dim counter
-  vid=rs("vid"):vname=rs("vname"):counter=rs("counter")
-  rs.close:set rs=nothing
-  if trim(request.querystring("chk"))="yes" then
-    counter=code_admin(request.form("counter"))
-    if not(isnumeric(counter)) then counter=-1
-    vname=code_admin(request.form("vname"))
-    if int(counter)<0 or instr(1,counter,".")>0 then
-      response.write "<font class=red_2>投票计数只能为正整数且不能为空！</font><br><br>"&go_back:exit sub
-    end if
-    if len(vname)<1 then
-      response.write "<font class=red_2>项目名称不能为空！</font><br><br>"&go_back:exit sub
-    end if
-    sql="update vote set vname='"&vname&"',counter="&counter&" where vtype=1 and id="&id
-    conn.execute(sql)
-    response.write "<script language=javascript>alert(""成功修改了一个调查项目名称！\n\n点击返回……"");location.href='?action=view&vid="&vid&"';</script>"
-    exit sub
-  end if
-%>
+    Sub vote_delete()
+
+        If Not(IsNumeric(vid)) Then Call vote_main():Exit Sub
+            conn.execute("delete from vote where vid=" & vid)
+            Response.Write "<script language=javascript>alert(""成功删除了调查列表（" & vid & "）！\n\n点击返回……"");location.href='?';</script>"
+        End Sub
+
+        Sub vote_edit2()
+
+            If Not(IsNumeric(id)) Then Call vote_main():Exit Sub
+                sql    = "select vid,vname,counter from vote where vtype=1 and id=" & id
+                Set rs = conn.execute(sql)
+
+                If rs.eof And rs.bof Then
+                    rs.Close:Set rs = Nothing
+                    Response.Write "<script language=javascript>alert(""调查项目不存在！\n\n点击返回……"");location.href='?';</script>"
+
+                    Exit Sub
+                    End If
+
+                    Dim counter
+                    vid = rs("vid"):vname = rs("vname"):counter = rs("counter")
+                    rs.Close:Set rs = Nothing
+
+                    If Trim(Request.querystring("chk")) = "yes" Then
+                        counter = code_admin(Request.form("counter"))
+                        If Not(IsNumeric(counter)) Then counter =  - 1
+                        vname   = code_admin(Request.form("vname"))
+
+                        If Int(counter) < 0 Or InStr(1,counter,".") > 0 Then
+
+                            Response.Write "<font class=red_2>投票计数只能为正整数且不能为空！</font><br><br>" & go_back:Exit Sub
+                            End If
+
+                            If Len(vname) < 1 Then
+
+                                Response.Write "<font class=red_2>项目名称不能为空！</font><br><br>" & go_back:Exit Sub
+                                End If
+
+                                sql = "update vote set vname='" & vname & "',counter=" & counter & " where vtype=1 and id=" & id
+                                conn.execute(sql)
+                                Response.Write "<script language=javascript>alert(""成功修改了一个调查项目名称！\n\n点击返回……"");location.href='?action=view&vid=" & vid & "';</script>"
+
+                                Exit Sub
+                                End If %>
 <table border=0>
-<form action='?action=edit2&id=<%response.write id%>&chk=yes' method=post>
-<tr><td colspan=2 align=center height=50><a href='?action=view&vid=<%response.write vid%>' class=red>修改现有调查项目</a></td></tr>
-<tr><td>项目名称：</td><td><input type=text name=vname value='<%response.write vname%>' size=30 maxlength=20></td></tr>
-<tr><td height=30>投票计数：</td><td><input type=text name=counter value='<%response.write counter%>' size=10 maxlength=10><%response.write redx%>只能为0或正整数</td></tr>
+<form action='?action=edit2&id=<% Response.Write id %>&chk=yes' method=post>
+<tr><td colspan=2 align=center height=50><a href='?action=view&vid=<% Response.Write vid %>' class=red>修改现有调查项目</a></td></tr>
+<tr><td>项目名称：</td><td><input type=text name=vname value='<% Response.Write vname %>' size=30 maxlength=20></td></tr>
+<tr><td height=30>投票计数：</td><td><input type=text name=counter value='<% Response.Write counter %>' size=10 maxlength=10><% Response.Write redx %>只能为0或正整数</td></tr>
 <tr><td colspan=2 align=center><input type=submit value='提 交 修 改'>　　<input type=reset value='重新填写'></td></tr>
 </form>
 </table>
 <%
-end sub
+                            End Sub
 
-sub vote_edit()
-  if not(isnumeric(vid)) then call vote_main():exit sub
-  sql="select id,vname from vote where vtype=0 and vid="&vid
-  set rs=conn.execute(sql)
-  if rs.eof and rs.bof then
-    rs.close:set rs=nothing
-    response.write "<script language=javascript>alert(""调查列表（"&vid&"）不存在！\n\n点击返回……"");location.href='?';</script>"
-    exit sub
-  end if
-  vname=rs("vname")
-  rs.close:set rs=nothing
-  if trim(request.querystring("chk"))="yes" then
-    vname=code_admin(request.form("vname"))
-    if len(vname)<1 then
-      response.write "<font class=red_2>调查名称不能为空！</font><br><br>"&go_back:exit sub
-    end if
-    sql="update vote set vname='"&vname&"' where vtype=0 and vid="&vid
-    conn.execute(sql)
-    response.write "<script language=javascript>alert(""成功修改了调查列表（"&vid&"）的名称！\n\n点击返回……"");location.href='?action=view&vid="&vid&"';</script>"
-    exit sub
-  end if
-%>
+                            Sub vote_edit()
+
+                                If Not(IsNumeric(vid)) Then Call vote_main():Exit Sub
+                                    sql    = "select id,vname from vote where vtype=0 and vid=" & vid
+                                    Set rs = conn.execute(sql)
+
+                                    If rs.eof And rs.bof Then
+                                        rs.Close:Set rs = Nothing
+                                        Response.Write "<script language=javascript>alert(""调查列表（" & vid & "）不存在！\n\n点击返回……"");location.href='?';</script>"
+
+                                        Exit Sub
+                                        End If
+
+                                        vname = rs("vname")
+                                        rs.Close:Set rs = Nothing
+
+                                        If Trim(Request.querystring("chk")) = "yes" Then
+                                            vname = code_admin(Request.form("vname"))
+
+                                            If Len(vname) < 1 Then
+
+                                                Response.Write "<font class=red_2>调查名称不能为空！</font><br><br>" & go_back:Exit Sub
+                                                End If
+
+                                                sql = "update vote set vname='" & vname & "' where vtype=0 and vid=" & vid
+                                                conn.execute(sql)
+                                                Response.Write "<script language=javascript>alert(""成功修改了调查列表（" & vid & "）的名称！\n\n点击返回……"");location.href='?action=view&vid=" & vid & "';</script>"
+
+                                                Exit Sub
+                                                End If %>
 <table border=0>
-<form action='?action=edit&vid=<%response.write vid%>&chk=yes' method=post>
+<form action='?action=edit&vid=<% Response.Write vid %>&chk=yes' method=post>
 <tr><td colspan=2 align=center height=50 class=red>修改调查列表名称</td></tr>
-<tr><td>调查 ID：</td><td><input type=text name=vid value='<%response.write vid%>' size=10 maxlength=10 disabled><%response.write redx%>只能为正整数</td></tr>
-<tr><td height=50>调查名称：</td><td><input type=text name=vname value='<%response.write vname%>' size=30 maxlength=20><%response.write redx%></td></tr>
+<tr><td>调查 ID：</td><td><input type=text name=vid value='<% Response.Write vid %>' size=10 maxlength=10 disabled><% Response.Write redx %>只能为正整数</td></tr>
+<tr><td height=50>调查名称：</td><td><input type=text name=vname value='<% Response.Write vname %>' size=30 maxlength=20><% Response.Write redx %></td></tr>
 <tr><td colspan=2 align=center><input type=submit value='提 交 修 改'>　　<input type=reset value='重新填写'></td></tr>
 </form>
 </table>
 <%
-end sub
+                                            End Sub
 
-sub vote_add()
-  if trim(request.querystring("chk"))="yes" then
-    vid=code_admin(request.form("vid"))
-    if not(isnumeric(vid)) then vid=0
-    vname=code_admin(request.form("vname"))
-    if int(vid)<1 or instr(1,vid,".")>0 then
-      response.write "<font class=red_2>调查列表 ID 只能为正整数且不能为空！</font><br><br>"&go_back:exit sub
-    end if
-    if len(vname)<1 then
-      response.write "<font class=red_2>调查名称不能为空！</font><br><br>"&go_back:exit sub
-    end if
-    sql="select id from vote where vtype=0 and vid="&vid
-    set rs=conn.execute(sql)
-    if not(rs.eof and rs.bof) then
-      rs.close:set rs=nothing
-      response.write "<font class=red_2>调查列表 ID（"&vid&"）已存在！请重新输入。</font><br><br>"&go_back:exit sub
-    end if
-    rs.close:set rs=nothing
-    sql="insert into vote(vid,vtype,vname,counter) values("&vid&",0,'"&vname&"',0)"
-    conn.execute(sql)
-    response.write "<script language=javascript>alert(""成功添加了一个新的调查列表！\n\n点击返回……"");location.href='?';</script>"
-    exit sub
-  end if
-%>
+                                            Sub vote_add()
+
+                                                If Trim(Request.querystring("chk")) = "yes" Then
+                                                    vid   = code_admin(Request.form("vid"))
+                                                    If Not(IsNumeric(vid)) Then vid = 0
+                                                    vname = code_admin(Request.form("vname"))
+
+                                                    If Int(vid) < 1 Or InStr(1,vid,".") > 0 Then
+
+                                                        Response.Write "<font class=red_2>调查列表 ID 只能为正整数且不能为空！</font><br><br>" & go_back:Exit Sub
+                                                        End If
+
+                                                        If Len(vname) < 1 Then
+
+                                                            Response.Write "<font class=red_2>调查名称不能为空！</font><br><br>" & go_back:Exit Sub
+                                                            End If
+
+                                                            sql    = "select id from vote where vtype=0 and vid=" & vid
+                                                            Set rs = conn.execute(sql)
+
+                                                            If Not(rs.eof And rs.bof) Then
+                                                                rs.Close:Set rs = Nothing
+
+                                                                Response.Write "<font class=red_2>调查列表 ID（" & vid & "）已存在！请重新输入。</font><br><br>" & go_back:Exit Sub
+                                                                End If
+
+                                                                rs.Close:Set rs = Nothing
+                                                                sql = "insert into vote(vid,vtype,vname,counter) values(" & vid & ",0,'" & vname & "',0)"
+                                                                conn.execute(sql)
+                                                                Response.Write "<script language=javascript>alert(""成功添加了一个新的调查列表！\n\n点击返回……"");location.href='?';</script>"
+
+                                                                Exit Sub
+                                                                End If %>
 <table border=0>
 <form action='?action=add&chk=yes' method=post>
 <tr><td colspan=2 align=center height=50 class=red>添加新的调查列表</td></tr>
-<tr><td>调查 ID：</td><td><input type=text name=vid size=10 maxlength=10><%response.write redx%>只能为正整数</td></tr>
-<tr><td height=50>调查名称：</td><td><input type=text name=vname size=30 maxlength=20><%response.write redx%></td></tr>
+<tr><td>调查 ID：</td><td><input type=text name=vid size=10 maxlength=10><% Response.Write redx %>只能为正整数</td></tr>
+<tr><td height=50>调查名称：</td><td><input type=text name=vname size=30 maxlength=20><% Response.Write redx %></td></tr>
 <tr><td colspan=2 align=center><input type=submit value='提 交 添 加'>　　<input type=reset value='重新填写'></td></tr>
 </form>
 </table>
 <%
-end sub
+                                                            End Sub
 
-sub vote_view()
-  if not(isnumeric(vid)) then call vote_main():exit sub
-  if trim(request.querystring("chk"))="yes" then
-    vname=code_admin(request.form("vname"))
-    if len(vname)<1 then
-      response.write "<font class=red_2>调查项目不能为空！</font><br><br>"&go_back:exit sub
-    end if
-    sql="insert into vote(vid,vtype,vname,counter) values("&vid&",1,'"&vname&"',0)"
-    conn.execute(sql)
-    response.write "<script language=javascript>alert(""成功添加了一条新调查项目！\n\n点击返回……"");location.href='?action=view&vid="&vid&"';</script>"
-    exit sub
-  end if
-%>
-<table border=1 width=400 cellspacing=0 cellpadding=2<%response.write table1%>>
+                                                            Sub vote_view()
+
+                                                                If Not(IsNumeric(vid)) Then Call vote_main():Exit Sub
+
+                                                                    If Trim(Request.querystring("chk")) = "yes" Then
+                                                                        vname = code_admin(Request.form("vname"))
+
+                                                                        If Len(vname) < 1 Then
+
+                                                                            Response.Write "<font class=red_2>调查项目不能为空！</font><br><br>" & go_back:Exit Sub
+                                                                            End If
+
+                                                                            sql = "insert into vote(vid,vtype,vname,counter) values(" & vid & ",1,'" & vname & "',0)"
+                                                                            conn.execute(sql)
+                                                                            Response.Write "<script language=javascript>alert(""成功添加了一条新调查项目！\n\n点击返回……"");location.href='?action=view&vid=" & vid & "';</script>"
+
+                                                                            Exit Sub
+                                                                            End If %>
+<table border=1 width=400 cellspacing=0 cellpadding=2<% Response.Write table1 %>>
 <%
-  sql="select id,vid,vname,counter from vote where vid="&vid&" order by id"
-  set rs=conn.execute(sql)
-  if rs.eof and rs.bof then
-    rs.close:set rs=nothing
-    response.write "<script language=javascript>alert(""调查列表（"&vid&"）不存在！\n\n点击返回……"");location.href='?';</script>"
-    exit sub
-  end if
-  j=0
-  do while not rs.eof
-    nid=rs("id")
-    if j=0 then
-%>
+                                                                            sql    = "select id,vid,vname,counter from vote where vid=" & vid & " order by id"
+                                                                            Set rs = conn.execute(sql)
+
+                                                                            If rs.eof And rs.bof Then
+                                                                                rs.Close:Set rs = Nothing
+                                                                                Response.Write "<script language=javascript>alert(""调查列表（" & vid & "）不存在！\n\n点击返回……"");location.href='?';</script>"
+
+                                                                                Exit Sub
+                                                                                End If
+
+                                                                                j       = 0
+
+                                                                                Do While Not rs.eof
+                                                                                    nid = rs("id")
+
+                                                                                    If j = 0 Then %>
 <tr>
-<td colspan=2 height=25 bgcolor=<%response.write color3%> class=red_3>&nbsp;&nbsp;<b><%response.write code_html(rs("vname"),1,0)%></b>（ID：<%response.write vid%>）</td>
-<td align=center><a href='?action=edit&vid=<%response.write vid%>'>编辑标题</a></td>
+<td colspan=2 height=25 bgcolor=<% Response.Write color3 %> class=red_3>&nbsp;&nbsp;<b><% Response.Write code_html(rs("vname"),1,0) %></b>（ID：<% Response.Write vid %>）</td>
+<td align=center><a href='?action=edit&vid=<% Response.Write vid %>'>编辑标题</a></td>
 </td></tr>
-<%  else %>
-<tr align=center<%response.write mtr%>>
-<td width='8%'><%response.write j%></td>
-<td width='76%' align=left><%response.write rs("vname")%> <font class=blue><%response.write rs("counter")%></font></td>
-<td width='16%'><a href='?action=edit2&id=<%response.write nid%>'>编辑</a> <a href="javascript:do_del(<%response.write vid%>,<%response.write nid%>);">删除</a></td>
+<% Else %>
+<tr align=center<% Response.Write mtr %>>
+<td width='8%'><% Response.Write j %></td>
+<td width='76%' align=left><% Response.Write rs("vname") %> <font class=blue><% Response.Write rs("counter") %></font></td>
+<td width='16%'><a href='?action=edit2&id=<% Response.Write nid %>'>编辑</a> <a href="javascript:do_del(<% Response.Write vid %>,<% Response.Write nid %>);">删除</a></td>
 </tr>
 <%
-    end if
-    j=j+1
-    rs.movenext
-  loop
-  rs.close:set rs=nothing
-%>
+                                                                                    End If
+
+                                                                                    j = j + 1
+                                                                                    rs.movenext
+                                                                                Loop
+
+                                                                                rs.Close:Set rs = Nothing %>
 <tr><td colspan=3 height=25 align=center>
   <table border=0>
-  <form action='?action=view&vid=<%response.write vid%>&chk=yes' method=post>
+  <form action='?action=view&vid=<% Response.Write vid %>&chk=yes' method=post>
   <tr>
   <td>新的项目名称：</td>
   <td><input type=text name=vname size=20 maxlength=20></td>
@@ -208,32 +247,31 @@ sub vote_view()
 </td></tr>
 </table>
 <%
-end sub
+                                                                            End Sub
 
-sub vote_main()
-%>
-<table border=1 width=400 cellspacing=0 cellpadding=2<%response.write table1%>>
-<tr align=center height=20 bgcolor=<%response.write color3%>>
+                                                                            Sub vote_main() %>
+<table border=1 width=400 cellspacing=0 cellpadding=2<% Response.Write table1 %>>
+<tr align=center height=20 bgcolor=<% Response.Write color3 %>>
 <td width='8%'>ID</td>
 <td width='76%'>调查列表名称</td>
 <td width='16%'>操作</td>
 </tr>
 <%
-  sql="select id,vid,vname from vote where vtype=0 order by id desc"
-  set rs=conn.execute(sql)
-  do while not rs.eof
-    nid=rs("id"):vid=rs("vid")
-%>
-<tr align=center<%response.write mtr%>>
-<td class=blue><b><%response.write vid%></b></td>
-<td align=left><a href='?action=view&vid=<%response.write vid%>'><%response.write code_html(rs("vname"),1,0)%></a></td>
-<td><a href='?action=edit&vid=<%response.write vid%>'>编辑</a> <a href="javascript:do_delete(<%response.write vid%>);">删除</a></td>
+                                                                                sql = "select id,vid,vname from vote where vtype=0 order by id desc"
+                                                                                Set rs = conn.execute(sql)
+
+                                                                                Do While Not rs.eof
+                                                                                    nid = rs("id"):vid = rs("vid") %>
+<tr align=center<% Response.Write mtr %>>
+<td class=blue><b><% Response.Write vid %></b></td>
+<td align=left><a href='?action=view&vid=<% Response.Write vid %>'><% Response.Write code_html(rs("vname"),1,0) %></a></td>
+<td><a href='?action=edit&vid=<% Response.Write vid %>'>编辑</a> <a href="javascript:do_delete(<% Response.Write vid %>);">删除</a></td>
 </tr>
 <%
-    rs.movenext
-  loop
-  rs.close:set rs=nothing
-%>
+                                                                                    rs.movenext
+                                                                                Loop
+
+                                                                                rs.Close:Set rs = Nothing %>
 </table>
 <br>
 <table border=0 width=450>
@@ -245,8 +283,7 @@ sub vote_main()
 <tr><td></td><td>4、第四个参数是调查选择框背景色；（不要加“#”）</td></tr>
 </table>
 <%
-end sub
-%>
+                                                                            End Sub %>
 <script language=JavaScript><!--
 function do_del(data1,data2)
 {
